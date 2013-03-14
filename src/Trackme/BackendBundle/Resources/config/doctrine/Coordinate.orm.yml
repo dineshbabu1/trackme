@@ -1,0 +1,22 @@
+Trackme\BackendBundle\Entity\Coordinate:
+    type: entity
+    table: null
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        lat:
+            type: float
+        lng:
+            type: float
+        date:
+            type: datetime
+    manyToOne:
+      user:
+        targetEntity: Trackme\BackendBundle\Entity\User
+        joinColumn:
+          name: user_id
+          referencedColumnName: id        
+    lifecycleCallbacks: {  }
