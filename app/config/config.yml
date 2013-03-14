@@ -29,7 +29,7 @@ twig:
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    bundles:        [ ]
+    bundles:        [ AdmingeneratorGeneratorBundle ]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
@@ -68,3 +68,15 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: Trackme\BackendBundle\Entity\User
+    
+admingenerator_generator:
+    use_propel:           false
+    use_doctrine_orm:     true
+    use_doctrine_odm:     false   
+    
+knp_menu:
+    twig:
+        template: AdmingeneratorGeneratorBundle:KnpMenu:knp_menu_trans.html.twig
+        
+admingenerator_user:
+     login_template: AdmingeneratorGeneratorBundle::base_login.html.twig        
