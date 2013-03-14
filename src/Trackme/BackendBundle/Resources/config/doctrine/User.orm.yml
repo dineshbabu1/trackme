@@ -8,7 +8,10 @@ Trackme\BackendBundle\Entity\User:
             id: true
             generator:
                 strategy: AUTO
-        businessId:
-            type: integer
-            column: business_id
+    manyToOne:
+      business:
+        targetEntity: Trackme\BackendBundle\Entity\Business
+        joinColumn:
+          name: business_id
+          referencedColumnName: id
     lifecycleCallbacks: {  }

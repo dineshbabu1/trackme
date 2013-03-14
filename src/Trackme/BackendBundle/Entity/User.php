@@ -54,4 +54,32 @@ class User extends BaseUser
     {
         return $this->businessId;
     }
+    /**
+     * @var \Trackme\BackendBundle\Entity\Business
+     */
+    private $business;
+
+
+    /**
+     * Set business
+     *
+     * @param \Trackme\BackendBundle\Entity\Business $business
+     * @return User
+     */
+    public function setBusiness(\Trackme\BackendBundle\Entity\Business $business = null)
+    {
+        $this->business = $business;
+
+        return $this;
+    }
+
+    /**
+     * Get business
+     *
+     * @return \Trackme\BackendBundle\Entity\Business 
+     */
+    public function getBusiness()
+    {
+        return $this->business;
+    }
 }

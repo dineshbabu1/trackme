@@ -1,0 +1,22 @@
+Trackme\BackendBundle\Entity\Business:
+    type: entity
+    table: null
+    repositoryClass: Trackme\BackendBundle\Entity\BusinessRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        name:
+            type: string
+            length: 255
+        email:
+            type: string
+            length: 255
+        phone:
+            type: string
+            length: 255
+        enabled:
+            type: boolean
+    lifecycleCallbacks: {  }
