@@ -1,0 +1,14 @@
+Trackme\BackendBundle\Entity\User:
+    type: entity
+    table: fos_user
+    repositoryClass: Trackme\BackendBundle\Entity\UserRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        businessId:
+            type: integer
+            column: business_id
+    lifecycleCallbacks: {  }
