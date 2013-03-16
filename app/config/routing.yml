@@ -1,3 +1,7 @@
+page:
+    path: /cms/{url}
+    defaults:  { _controller: TrackmeFrontendBundle:Default:page }
+
 TrackmeBackendBundle_admin_trackme_backend_bundle_Page:
     resource: "@TrackmeBackendBundle/Controller/Page/"
     type:     admingenerator

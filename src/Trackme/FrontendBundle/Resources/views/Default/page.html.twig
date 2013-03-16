@@ -1,0 +1,11 @@
+{% extends 'TrackmeFrontendBundle:Default:index.html.twig' %}
+
+{% if page %}
+{% block page_title %}
+  {{page.title}}
+{% endblock %}
+
+{% block content %}
+  {{page.content}}
+{% endblock %}
+{% endif %}

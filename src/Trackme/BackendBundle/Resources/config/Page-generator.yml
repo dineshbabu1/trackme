@@ -14,7 +14,7 @@ builders:
     list:
         params:
             title: List for BackendBundle
-            display: [ title, url]
+            display: [ title, url, menu, enabled, weigth]
             actions:
                 new: ~
             object_actions:
@@ -26,14 +26,14 @@ builders:
     new:
         params:
             title: Nueva Página
-            display: [title,url,content]
+            display: [title,url,menu,weigth,enabled,content]
             actions:
                 save: ~
                 list: ~
     edit:
         params:
             title: "Está editando \"%object%\"|{ %object%: Page.title }|"
-            display: [title,url,content]
+            display: [title,url,menu,weigth,enabled,content]
             actions:
                 save: ~
                 list: ~

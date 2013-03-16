@@ -1,6 +1,9 @@
 Trackme\BackendBundle\Entity\Page:
     type: entity
     table: null
+    uniqueConstraints:
+        unique_index:
+            columns: [url, weigth]
     fields:
         id:
             type: integer
@@ -12,6 +15,14 @@ Trackme\BackendBundle\Entity\Page:
             length: 255
         content:
             type: text
+        menu:
+            type: string
+            length: 255
+        weigth:
+            type: integer
+        enabled:
+            type: boolean
+            default: true
         url:
             type: string
             length: 255

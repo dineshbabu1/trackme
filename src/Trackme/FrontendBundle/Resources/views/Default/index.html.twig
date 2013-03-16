@@ -1,1 +1,11 @@
 {% extends '::bootstrap.html.twig' %}
+
+{% if menu|length > 0 %}
+    {% block nav%}
+    <ul class="nav" id="main-menu-left">
+        {% for m in menu %}
+        <li><a href="{{ path('page', { 'url': m.url})}}">{{ m.menu }}</a></li>
+        {% endfor %}
+    </ul>
+    {% endblock%}
+{% endif %}
