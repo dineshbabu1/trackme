@@ -1,8 +1,12 @@
-trackme_backend:
-    resource: "@TrackmeBackendBundle/Controller/"
-    type:     annotation
-    prefix:   /
+TrackmeBackendBundle_admin_trackme_backend_bundle_Page:
+    resource: "@TrackmeBackendBundle/Controller/Page/"
+    type:     admingenerator
+    prefix:   /admin/cms/page
 
+homepage:
+    path: /
+    defaults:  { _controller: TrackmeFrontendBundle:Default:index }
+    
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 
