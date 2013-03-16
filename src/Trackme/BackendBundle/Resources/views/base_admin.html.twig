@@ -1,0 +1,4 @@
+{% extends 'AdmingeneratorGeneratorBundle::base_admin.html.twig' %}
+
+{% block footer_text %}&copy; Track Me {{ ("now"|date('Y') > 2012) ? '2012 - ' ~ "now"|date('Y') : '2012' }}{% endblock %}
+{{ tinymce_init() }}

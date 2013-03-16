@@ -3,7 +3,12 @@ params:
     model: Trackme\BackendBundle\Entity\Page
     namespace_prefix: Trackme
     bundle_name: BackendBundle
-    fields: ~
+    fields: 
+      content:
+        label: Contenido
+        addFormOptions:
+          attr:
+            class: tinymce boxsizingBorder
 
 builders:
     list:

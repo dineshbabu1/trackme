@@ -70,6 +70,7 @@ fos_user:
     user_class: Trackme\BackendBundle\Entity\User
     
 admingenerator_generator:
+    base_admin_template: TrackmeBackendBundle::base_admin_assetic_less.html.twig
     use_propel:           false
     use_doctrine_orm:     true
     use_doctrine_odm:     false   
@@ -79,4 +80,14 @@ knp_menu:
         template: AdmingeneratorGeneratorBundle:KnpMenu:knp_menu_trans.html.twig
         
 admingenerator_user:
-     login_template: AdmingeneratorGeneratorBundle::base_login.html.twig        
+    login_template: AdmingeneratorGeneratorBundle::base_login_assetic_less.html.twig
+     
+stfalcon_tinymce:
+    include_jquery: true
+    tinymce_jquery: true
+    textarea_class: "tinymce"
+    language: %locale%
+    theme:
+        simple:
+            mode: "textareas"
+            theme: "advanced"     
