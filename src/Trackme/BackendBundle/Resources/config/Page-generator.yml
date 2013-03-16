@@ -1,0 +1,42 @@
+generator: admingenerator.generator.doctrine
+params:
+    model: Trackme\BackendBundle\Entity\Page
+    namespace_prefix: Trackme
+    bundle_name: BackendBundle
+    fields: ~
+
+builders:
+    list:
+        params:
+            title: List for BackendBundle
+            display: [ title, url]
+            actions:
+                new: ~
+            object_actions:
+                edit: ~
+                delete: ~
+    filters:
+        params:
+            display: ~
+    new:
+        params:
+            title: Nueva Página
+            display: [title,url,content]
+            actions:
+                save: ~
+                list: ~
+    edit:
+        params:
+            title: "Está editando \"%object%\"|{ %object%: Page.title }|"
+            display: [title,url,content]
+            actions:
+                save: ~
+                list: ~
+    show:
+        params:
+            title: "Vista previa de \"%object%\"|{ %object%: Page.title }|"
+            display: ~
+            actions:
+                list: ~
+                new: ~
+    delete: ~

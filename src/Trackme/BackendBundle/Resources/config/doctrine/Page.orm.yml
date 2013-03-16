@@ -1,0 +1,18 @@
+Trackme\BackendBundle\Entity\Page:
+    type: entity
+    table: null
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        title:
+            type: string
+            length: 255
+        content:
+            type: text
+        url:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }
