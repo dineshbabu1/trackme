@@ -4,6 +4,14 @@ params:
     namespace_prefix: Trackme
     bundle_name: BackendBundle
     fields: 
+      title:
+        label: Titulo
+      enabled:
+        label: Habilitado
+        help: "Habilitado en frontend."
+      weigth:
+        label: Orden
+        help: "Mientras menor sea el numero, más a la izquierda será alineado."
       content:
         label: Contenido
         addFormOptions:

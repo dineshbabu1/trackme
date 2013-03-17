@@ -22,6 +22,7 @@ framework:
 
 # Twig Configuration
 twig:
+#    cache: true      PROD ONLY
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
 
@@ -53,6 +54,8 @@ doctrine:
         # path:     %database_path%
 
     orm:
+#        metadata_cache_driver: xcache
+#        query_cache_driver: xcache
         auto_generate_proxy_classes: %kernel.debug%
         auto_mapping: true
 
@@ -71,6 +74,7 @@ fos_user:
     
 admingenerator_generator:
     base_admin_template: TrackmeBackendBundle::base_admin_assetic_less.html.twig
+    knp_menu_class: Trackme\BackendBundle\Menu\Menu
     use_propel:           false
     use_doctrine_orm:     true
     use_doctrine_odm:     false   
