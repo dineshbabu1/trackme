@@ -1,3 +1,13 @@
+index_api:
+    path: /api
+    defaults:  { _controller: TrackmeApiBundle:Default:index, _format: json }
+    requirements: { _format: (xml|json), _method: POST }
+
+trackme_api:
+    resource: "@TrackmeApiBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 TrackmeBackendBundle_admin_trackme_backend_bundle_Business:
     resource: "@TrackmeBackendBundle/Controller/Business/"
     type:     admingenerator

@@ -15,6 +15,13 @@ security:
             id: fos_user.user_provider.username
 
     firewalls:
+        rest:
+            pattern: ^/api
+            anonymous: false
+            form_login: false            
+            provider: fos_userbundle
+            http_basic:
+                realm: "REST Track Me"
         main:
             pattern: ^/
             form_login:
@@ -26,6 +33,7 @@ security:
             anonymous:    true
 
     access_control:
+        - { path: ^/api, role: ROLE_USER }
         - { path: ^/admin/cms, role: ROLE_SUPER_ADMIN }
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
