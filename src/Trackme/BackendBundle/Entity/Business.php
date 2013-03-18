@@ -34,7 +34,14 @@ class Business
      */
     private $enabled;
 
+    public function __toString() {
+        return $this->getName();
+    }
 
+    public function __construct() {
+        $this->enabled = FALSE;
+        $this->token = base_convert(sha1(uniqid(mt_rand(), true)), 16, 36);
+    }
     /**
      * Get id
      *
@@ -135,5 +142,33 @@ class Business
     public function getEnabled()
     {
         return $this->enabled;
+    }
+    /**
+     * @var string
+     */
+    private $token;
+
+
+    /**
+     * Set token
+     *
+     * @param string $token
+     * @return Business
+     */
+    public function setToken($token)
+    {
+        $this->token = $token;
+    
+        return $this;
+    }
+
+    /**
+     * Get token
+     *
+     * @return string 
+     */
+    public function getToken()
+    {
+        return $this->token;
     }
 }

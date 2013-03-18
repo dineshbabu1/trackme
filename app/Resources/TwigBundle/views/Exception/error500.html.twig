@@ -4,10 +4,6 @@
 {% block id 'error' %}
 
 {% block content %}
-    {% if exception.message %}
-        <h1>{{ exception.message }}</h1>
-    {% else %}
-        <h1>Hay un error en la aplicación <span>(error 500)</span></h1>
-    {% endif %}
+    <h1>Hay un error en la aplicación <span>(error 500)</span></h1>
     <img src="{{ asset('bundles/trackmefrontend/images/500-error.jpg')}}" />
 {% endblock %}

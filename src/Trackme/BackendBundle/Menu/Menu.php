@@ -31,6 +31,7 @@ class Menu extends ContainerAware{
 
         if( $this->container->get('security.context')->isGranted('ROLE_SUPER_ADMIN') ){
           $page = $this->addNavLinkRoute($menu, 'Páginas', 'Trackme_BackendBundle_Page_list');
+          $business = $this->addNavLinkRoute($menu, 'Clientes', 'Trackme_BackendBundle_Business_list');
         }
         
         return $menu;

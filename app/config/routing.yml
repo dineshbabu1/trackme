@@ -1,3 +1,16 @@
+TrackmeBackendBundle_admin_trackme_backend_bundle_Business:
+    resource: "@TrackmeBackendBundle/Controller/Business/"
+    type:     admingenerator
+    prefix:   /admin/trackme_backend_bundle/Business
+    
+signup_user:
+    path: /signup_user
+    defaults:  { _controller: TrackmeFrontendBundle:Default:signupuser }    
+    
+signup:
+    path: /signup
+    defaults:  { _controller: TrackmeFrontendBundle:Default:signup }
+
 page:
     path: /cms/{url}
     defaults:  { _controller: TrackmeFrontendBundle:Default:page }

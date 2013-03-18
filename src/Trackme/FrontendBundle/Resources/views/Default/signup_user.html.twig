@@ -1,0 +1,15 @@
+{% extends '::bootstrap.html.twig' %}
+
+{% block page_title %}
+Primer Usuario
+{% endblock %}
+
+{% block content %}
+<form action="{{ path('signup_user') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
+    {{ form_widget(form) }}
+        <input type="hidden" name="token" value="{{token}}" />
+        <div>
+            <input type="submit" class="btn btn-success btn-large" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}" />
+        </div>
+    </form>
+{% endblock %}

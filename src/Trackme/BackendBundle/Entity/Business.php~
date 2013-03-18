@@ -34,7 +34,13 @@ class Business
      */
     private $enabled;
 
+    public function __toString() {
+        return $this->getName();
+    }
 
+    public function __construct() {
+        $this->enabled = FALSE;
+    }
     /**
      * Get id
      *

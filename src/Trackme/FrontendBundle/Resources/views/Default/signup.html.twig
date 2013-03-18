@@ -1,0 +1,12 @@
+{% extends '::bootstrap.html.twig' %}
+
+{% block page_title %}
+  Empresa
+{% endblock %}
+
+{% block content %}
+  <form action="{{ path('signup') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+          <input type="submit" value="Aceptar" class="btn btn-success btn-large"/>
+  </form>
+{% endblock %}

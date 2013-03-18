@@ -1,0 +1,42 @@
+generator: admingenerator.generator.doctrine
+params:
+    model: Trackme\BackendBundle\Entity\Business
+    namespace_prefix: Trackme
+    bundle_name: BackendBundle
+    fields: ~
+
+builders:
+    list:
+        params:
+            title: Clientes
+            display: ~
+            actions:
+                new: ~
+            object_actions:
+                show: ~
+                delete: ~
+    filters:
+        params:
+            display: ~
+#    new:
+#        params:
+#            title: New object for BackendBundle
+#            display: ~
+#            actions:
+#                save: ~
+#                list: ~
+#    edit:
+#        params:
+#            title: "You're editing the object \"%object%\"|{ %object%: Business.name }|"
+#            display: ~
+#            actions:
+#                save: ~
+#                list: ~
+    show:
+        params:
+            title: "You're viewing the object \"%object%\"|{ %object%: Business.name }|"
+            display: ~
+            actions:
+                list: ~
+                new: ~
+    delete: ~

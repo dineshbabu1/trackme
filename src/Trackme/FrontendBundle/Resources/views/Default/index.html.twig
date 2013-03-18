@@ -1,8 +1,25 @@
 {% extends '::bootstrap.html.twig' %}
 
+{% block page_title %} Mira lo que podemos hacer {% endblock%}
+
+{% block content %}
+<div class="hero-unit">
+    <div class="row-fluid">
+        <div class="span6">
+            <p>
+            Nuestro sistema is osom!
+            Registrarte y probar su funcionamiento solo te tomara 2 pasos ...
+            </p>
+            <a class="btn btn-success btn-large" href="{{ path('signup')}}">Registro</a>
+        </div>
+        <div class="span4"> Galeria? </div>
+    </div>
+</div>
+{% endblock %}
+
 {% if menu|length > 0 %}
     {% block nav%}
-    <ul class="nav" id="main-menu-left">
+<ul class="nav" id="main-menu-left">
         {% for m in menu %}
         <li><a href="{{ path('page', { 'url': m.url})}}">{{ m.menu }}</a></li>
         {% endfor %}
