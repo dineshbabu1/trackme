@@ -35,6 +35,7 @@ security:
     access_control:
         - { path: ^/api, role: ROLE_USER }
         - { path: ^/admin/cms, role: ROLE_SUPER_ADMIN }
+        - { path: ^/admin/business, role: ROLE_BUSINESS }
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }

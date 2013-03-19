@@ -8,11 +8,16 @@ trackme_api:
     type:     annotation
     prefix:   /
 
-TrackmeBackendBundle_admin_trackme_backend_bundle_Business:
+admin_user:
+    resource: "@TrackmeBackendBundle/Controller/User/"
+    type:     admingenerator
+    prefix:   /admin/business/user
+
+admin_business:
     resource: "@TrackmeBackendBundle/Controller/Business/"
     type:     admingenerator
-    prefix:   /admin/trackme_backend_bundle/Business
-    
+    prefix:   /admin/business
+
 signup_user:
     path: /signup_user
     defaults:  { _controller: TrackmeFrontendBundle:Default:signupuser }    

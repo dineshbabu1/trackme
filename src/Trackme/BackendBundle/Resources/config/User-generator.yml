@@ -1,0 +1,43 @@
+generator: admingenerator.generator.doctrine
+params:
+    model: Trackme\BackendBundle\Entity\User
+    namespace_prefix: Trackme
+    bundle_name: BackendBundle
+    fields: ~
+
+builders:
+    list:
+        params:
+            title: Usuarios
+            display: [username, email, enabled, business]
+            actions:
+                new: ~
+            object_actions:
+                show: ~
+                edit: ~
+                delete: ~
+    filters:
+        params:
+            display: [username,email,enabled]
+    new:
+        params:
+            title: Nuevo Usuario
+            display: [username, email, password, enabled]
+            actions:
+                save: ~
+                list: ~
+    edit:
+        params:
+            title: "Editando a usuario \"%object%\"|{ %object%: User.username }|"
+            display: [username, email, password, enabled]
+            actions:
+                save: ~
+                list: ~
+    show:
+        params:
+            title: "Viendo \"%object%\"|{ %object%: User.username }|"
+            display: [username, email]
+            actions:
+                list: ~
+                new: ~
+    delete: ~

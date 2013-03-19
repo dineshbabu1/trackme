@@ -23,6 +23,7 @@
         {% for m in menu %}
         <li><a href="{{ path('page', { 'url': m.url})}}">{{ m.menu }}</a></li>
         {% endfor %}
+        <li><a href="{{ path('fos_user_security_login')}}">Ingresar</a></li>
     </ul>
     {% endblock%}
 {% endif %}
