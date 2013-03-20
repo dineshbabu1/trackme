@@ -27,6 +27,7 @@ class DefaultController extends Controller {
                 ->add('username','text', array('label' => 'Usuario'))
                 ->add('email','text')
                 ->add('plain_password','password', array('label' => 'Password'))
+                ->add('emailable', 'checkbox', array('label' => 'Recibir emails', 'help' => 'Al aceptar, podremos enviarles correo con novedades e informes a su correo'))
                 ->getForm();
         
         if ($request->isMethod('POST')) {

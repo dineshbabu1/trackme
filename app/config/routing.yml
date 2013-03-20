@@ -1,3 +1,8 @@
+admin_review:
+    resource: "@TrackmeBackendBundle/Controller/Review/"
+    type:     admingenerator
+    prefix:   /admin/business/review
+
 index_api:
     path: /api
     defaults:  { _controller: TrackmeApiBundle:Default:index, _format: json }
@@ -16,7 +21,7 @@ admin_user:
 admin_business:
     resource: "@TrackmeBackendBundle/Controller/Business/"
     type:     admingenerator
-    prefix:   /admin/business
+    prefix:   /admin/cms/business
 
 signup_user:
     path: /signup_user

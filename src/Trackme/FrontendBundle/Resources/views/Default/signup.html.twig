@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-  <form action="{{ path('signup') }}" method="post" {{ form_enctype(form) }}>
+  <form action="{{ path('signup') }}" name="form-empresa" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
           <input type="submit" value="Aceptar" class="btn btn-success btn-large"/>
   </form>

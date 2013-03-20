@@ -2,26 +2,26 @@
 
 namespace Trackme\BackendBundle\Entity;
 
-use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
- * @ORM\Table(name="fos_user")
+ * Review
  */
-class User extends BaseUser
+class Review
 {
     /**
      * @var integer
      */
-    protected $id;
+    private $id;
 
     /**
-     * @var integer
+     * @var string
      */
-    private $businessId;
+    private $comment;
 
-
+    public function __construct() {
+        $this->approved = false;
+    }
     /**
      * Get id
      *
@@ -33,26 +33,26 @@ class User extends BaseUser
     }
 
     /**
-     * Set businessId
+     * Set comment
      *
-     * @param integer $businessId
-     * @return User
+     * @param string $comment
+     * @return Review
      */
-    public function setBusinessId($businessId)
+    public function setComment($comment)
     {
-        $this->businessId = $businessId;
+        $this->comment = $comment;
     
         return $this;
     }
 
     /**
-     * Get businessId
+     * Get comment
      *
-     * @return integer 
+     * @return string 
      */
-    public function getBusinessId()
+    public function getComment()
     {
-        return $this->businessId;
+        return $this->comment;
     }
     /**
      * @var \Trackme\BackendBundle\Entity\Business
@@ -64,12 +64,12 @@ class User extends BaseUser
      * Set business
      *
      * @param \Trackme\BackendBundle\Entity\Business $business
-     * @return User
+     * @return Review
      */
     public function setBusiness(\Trackme\BackendBundle\Entity\Business $business = null)
     {
         $this->business = $business;
-
+    
         return $this;
     }
 
@@ -85,29 +85,29 @@ class User extends BaseUser
     /**
      * @var boolean
      */
-    private $emailable;
+    private $approved;
 
 
     /**
-     * Set emailable
+     * Set approved
      *
-     * @param boolean $emailable
-     * @return User
+     * @param boolean $approved
+     * @return Review
      */
-    public function setEmailable($emailable)
+    public function setApproved($approved)
     {
-        $this->emailable = $emailable;
+        $this->approved = $approved;
     
         return $this;
     }
 
     /**
-     * Get emailable
+     * Get approved
      *
      * @return boolean 
      */
-    public function getEmailable()
+    public function getApproved()
     {
-        return $this->emailable;
+        return $this->approved;
     }
 }

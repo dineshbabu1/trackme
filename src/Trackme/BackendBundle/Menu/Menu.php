@@ -30,8 +30,14 @@ class Menu extends ContainerAware{
         $menu->setChildrenAttributes(array('id' => 'main_navigation', 'class' => 'nav'));
 
         if( $this->container->get('security.context')->isGranted('ROLE_SUPER_ADMIN') ){
-          $page = $this->addNavLinkRoute($menu, 'Páginas', 'Trackme_BackendBundle_Page_list');
+          $frontend = $this->addDropdownMenu($menu, 'Página Pública');
+          $this->addNavLinkRoute($frontend, 'Páginas', 'Trackme_BackendBundle_Page_list');
+          $this->addNavLinkRoute($frontend, 'Reseñas', 'Trackme_BackendBundle_Review_list');
           $business = $this->addNavLinkRoute($menu, 'Clientes', 'Trackme_BackendBundle_Business_list');
+          $user = $this->addNavLinkRoute($menu, 'Usuarios', 'Trackme_BackendBundle_User_list');
+        }elseif($this->container->get('security.context')->isGranted('ROLE_BUSINESS')){
+          $user = $this->addNavLinkRoute($menu, 'Mis Usuarios', 'Trackme_BackendBundle_User_list');
+          $review = $this->addNavLinkRoute($menu, 'Evaluar Sistema', 'Trackme_BackendBundle_Review_new');
         }
         
         return $menu;

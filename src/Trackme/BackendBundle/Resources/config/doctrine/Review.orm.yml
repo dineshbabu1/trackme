@@ -1,20 +1,21 @@
-Trackme\BackendBundle\Entity\User:
+Trackme\BackendBundle\Entity\Review:
     type: entity
-    table: fos_user
-    repositoryClass: Trackme\BackendBundle\Entity\UserRepository
+    table: null
     fields:
         id:
             type: integer
             id: true
             generator:
                 strategy: AUTO
-        emailable:
+        comment:
+            type: text
+        approved:
             type: boolean
-            default: true
+            default: false
     manyToOne:
       business:
         targetEntity: Trackme\BackendBundle\Entity\Business
         joinColumn:
           name: business_id
-          referencedColumnName: id
+          referencedColumnName: id        
     lifecycleCallbacks: {  }

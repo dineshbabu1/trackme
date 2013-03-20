@@ -82,4 +82,32 @@ class User extends BaseUser
     {
         return $this->business;
     }
+    /**
+     * @var boolean
+     */
+    private $emailable;
+
+
+    /**
+     * Set emailable
+     *
+     * @param boolean $emailable
+     * @return User
+     */
+    public function setEmailable($emailable)
+    {
+        $this->emailable = $emailable;
+    
+        return $this;
+    }
+
+    /**
+     * Get emailable
+     *
+     * @return boolean 
+     */
+    public function getEmailable()
+    {
+        return $this->emailable;
+    }
 }

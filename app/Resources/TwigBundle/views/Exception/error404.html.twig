@@ -4,10 +4,6 @@
 {% block id 'error' %}
 
 {% block content %}
-    {% if exception.message %}
-        <h1>{{ exception.message }}</h1>
-    {% else %}
-        <h1>No se ha encontrado la página solicitada <span>(error 404)</span></h1>
-    {% endif %}
+    <h1>No se ha encontrado la página solicitada <span>(error 404)</span></h1>
     <img src="{{ asset('bundles/trackmefrontend/images/404-error.jpg')}}" />
 {% endblock %}
