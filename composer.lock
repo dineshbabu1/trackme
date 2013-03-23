@@ -8,12 +8,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony2admingenerator/AdmingeneratorGeneratorBundle.git",
-                "reference": "d0764b5d1d8c7a5d1a777882ab6d901112229188"
+                "reference": "769a804a7dc007aa52b90c7fabbced76689dae11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony2admingenerator/AdmingeneratorGeneratorBundle/zipball/d0764b5d1d8c7a5d1a777882ab6d901112229188",
-                "reference": "d0764b5d1d8c7a5d1a777882ab6d901112229188",
+                "url": "https://api.github.com/repos/symfony2admingenerator/AdmingeneratorGeneratorBundle/zipball/769a804a7dc007aa52b90c7fabbced76689dae11",
+                "reference": "769a804a7dc007aa52b90c7fabbced76689dae11",
                 "shasum": ""
             },
             "require": {
@@ -64,7 +64,7 @@
                 "generator",
                 "yaml"
             ],
-            "time": "2013-03-15 10:50:15"
+            "time": "2013-03-23 00:55:13"
         },
         {
             "name": "cedriclombardot/admingenerator-user-bundle",
@@ -1428,12 +1428,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/KnpMenuBundle.git",
-                "reference": "bfaa9f1a74ee590c5e6460a3139b268fce1f1885"
+                "reference": "8f84c396927809e885f7a17ef3737358c001d78f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpMenuBundle/zipball/bfaa9f1a74ee590c5e6460a3139b268fce1f1885",
-                "reference": "bfaa9f1a74ee590c5e6460a3139b268fce1f1885",
+                "url": "https://api.github.com/repos/KnpLabs/KnpMenuBundle/zipball/8f84c396927809e885f7a17ef3737358c001d78f",
+                "reference": "8f84c396927809e885f7a17ef3737358c001d78f",
                 "shasum": ""
             },
             "require": {
@@ -1473,7 +1473,7 @@
             "keywords": [
                 "menu"
             ],
-            "time": "2012-12-29 08:47:58"
+            "time": "2013-03-18 17:08:00"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -2331,12 +2331,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "ba67e2cf8e2ca6cada1de5a316a724df648c52ac"
+                "reference": "ff724c81cabe0fe6b9cffdb6fed55a92e34ba2e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/ba67e2cf8e2ca6cada1de5a316a724df648c52ac",
-                "reference": "ba67e2cf8e2ca6cada1de5a316a724df648c52ac",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/ff724c81cabe0fe6b9cffdb6fed55a92e34ba2e8",
+                "reference": "ff724c81cabe0fe6b9cffdb6fed55a92e34ba2e8",
                 "shasum": ""
             },
             "require": {
@@ -2372,7 +2372,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2013-03-10 07:23:01"
+            "time": "2013-03-22 15:32:12"
         },
         {
             "name": "white-october/pagerfanta-bundle",

@@ -38,6 +38,7 @@ class Menu extends ContainerAware{
         }elseif($this->container->get('security.context')->isGranted('ROLE_BUSINESS')){
           $user = $this->addNavLinkRoute($menu, 'Mis Usuarios', 'Trackme_BackendBundle_User_list');
           $review = $this->addNavLinkRoute($menu, 'Evaluar Sistema', 'Trackme_BackendBundle_Review_new');
+          $vehicle = $this->addNavLinkRoute($menu, 'Vehiculos', 'Trackme_BackendBundle_Vehicle_list');
         }
         
         return $menu;

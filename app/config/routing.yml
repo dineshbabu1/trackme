@@ -1,3 +1,8 @@
+admin_vehicle:
+    resource: "@TrackmeBackendBundle/Controller/Vehicle/"
+    type:     admingenerator
+    prefix:   /admin/business/vehicle
+
 admin_map_dashboard:
     path: /admin/business/dashboard
     defaults:  { _controller: TrackmeBackendBundle:Default:dashboard }

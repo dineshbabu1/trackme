@@ -8,6 +8,14 @@ Trackme\BackendBundle\Entity\User:
             id: true
             generator:
                 strategy: AUTO
+        name:
+            type: string
+            length: 255
+            required: true
+        last_name:
+            type: string
+            length: 255
+            required: true
         emailable:
             type: boolean
             default: true

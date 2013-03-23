@@ -1,0 +1,69 @@
+generator: admingenerator.generator.doctrine
+params:
+    model: Trackme\BackendBundle\Entity\Vehicle
+    namespace_prefix: Trackme
+    bundle_name: BackendBundle
+    fields:
+        code:
+            label: Código
+            help: Identificacion del vehiculo
+        manufacturer:
+            label: Marca
+        model:
+            label: Modelo
+        kilometerPerLiter:
+            label: Km/Litro
+            formType: number
+            addFormOptions:
+                precision: 4
+                attr:
+                    placeholder: 10.5
+        type:
+            label: Tipo
+            formType: choice
+            addFormOptions:
+                empty_value: ''
+                choices:
+                    Auto: Auto
+                    Bus: Bus
+                    Camión: Camión
+                    Motocicleta: Moto
+
+builders:
+    list:
+        params:
+            title: Mis Vehiculos
+            display: [ manufacturer, model, type, kilometerPerLiter ]
+            fields:
+                business:
+                    credentials: 'hasRole("ROLE_SUPER_ADMIN")'
+            actions:
+                new: ~
+            object_actions:
+                edit: ~
+                delete: ~
+    filters:
+        params:
+            display: ~
+    new:
+        params:
+            title: Nuevo Vehiculo
+            display: [ manufacturer, model, type, kilometerPerLiter ]
+            actions:
+                save: ~
+                list: ~
+    edit:
+        params:
+            title: "Editando Vehiculo \"%object%\"|{ %object%: Vehicle }|"
+            display: [ manufacturer, model, type, kilometerPerLiter ]
+            actions:
+                save: ~
+                list: ~
+    show:
+        params:
+            title: Viendo
+            display: ~
+            actions:
+                list: ~
+                new: ~
+    delete: ~

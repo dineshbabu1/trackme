@@ -3,13 +3,31 @@ params:
     model: Trackme\BackendBundle\Entity\User
     namespace_prefix: Trackme
     bundle_name: BackendBundle
-    fields: ~
+    fields:
+        name:
+            label: Nombre
+        last_name:
+            label: Apellido
+        username:
+            label: Usuario
+        enabled: 
+            label: Habilitado
+        password:
+            formType: password
+            label: Contraseña
+        emailable:
+            label: Recibir Email?
+            help: Si esta checkeado, recibira correos desde el sistema
+          
 
 builders:
     list:
         params:
             title: Usuarios
-            display: [username, email, enabled, business]
+            display: [name, last_name, username, email, enabled]
+            fields:
+                business:
+                    credentials: 'hasRole("ROLE_SUPER_ADMIN")'
             actions:
                 new: ~
             object_actions:
@@ -22,21 +40,23 @@ builders:
     new:
         params:
             title: Nuevo Usuario
-            display: [username, email, password, enabled]
+            display: 
+              NONE: [[name, last_name]]
+              Usuario: [username, email, password, enabled, emailable]
             actions:
                 save: ~
                 list: ~
     edit:
         params:
             title: "Editando a usuario \"%object%\"|{ %object%: User.username }|"
-            display: [username, email, password, enabled]
+            display: [name, last_name, username, email, password, enabled, emailable]
             actions:
                 save: ~
                 list: ~
     show:
         params:
             title: "Viendo \"%object%\"|{ %object%: User.username }|"
-            display: [username, email]
+            display: [name, last_name, username, email, enabled, emailable]
             actions:
                 list: ~
                 new: ~

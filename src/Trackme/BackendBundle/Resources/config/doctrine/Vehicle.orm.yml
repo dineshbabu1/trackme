@@ -1,0 +1,33 @@
+Trackme\BackendBundle\Entity\Vehicle:
+    type: entity
+    table: null
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        manufacturer:
+            type: string
+            length: 255
+        model:
+            type: string
+            length: 255
+        code:
+            type: string
+            length: 255
+        type:
+            type: string
+            length: 255
+        kilometerPerLiter:
+            type: decimal
+            precision: 10
+            scale: 6
+            column: kilometer_per_liter
+    manyToOne:
+        business:
+            targetEntity: Trackme\BackendBundle\Entity\Business
+            joinColumn:
+                name: business_id
+                referencedColumnName: id        
+    lifecycleCallbacks: {  }
