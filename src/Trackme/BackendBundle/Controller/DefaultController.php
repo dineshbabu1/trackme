@@ -16,4 +16,18 @@ class DefaultController extends Controller
     {
         return array('name' => $name);
     }
+    
+    public function dashboardAction()
+    {
+        $map = $this->get('ivory_google_map.map');
+        $map->setStylesheetOption('width', '1000px');
+        $map->setStylesheetOption('height', '500px');
+        $map->setCenter(-33.424565,-70.65033, true);
+        $map->setMapOption('zoom', 13);
+        $map->setLanguage('es');
+        $marker = $this->get('ivory_google_map.marker');
+        $map->addMarker($marker);
+        
+        return $this->render('TrackmeBackendBundle:Default:dashboard.html.twig', array('map' => $map));
+    }
 }

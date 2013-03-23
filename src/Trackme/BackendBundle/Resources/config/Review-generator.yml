@@ -21,14 +21,17 @@ builders:
     new:
         params:
             title: New object for BackendBundle
-            display: ~
+            display: [ comment]
             actions:
                 save: ~
                 list: ~
     edit:
         params:
             title: "You're editing the object "
-            display: ~
+            display: [ comment, approved]
+            fields:
+                approved:
+                    credentials: 'hasRole("ROLE_SUPER_ADMIN")'
             actions:
                 save: ~
                 list: ~

@@ -85,7 +85,7 @@ knp_menu:
         
 admingenerator_user:
     login_template: AdmingeneratorGeneratorBundle::base_login_assetic_less.html.twig
-     
+    
 stfalcon_tinymce:
     include_jquery: true
     tinymce_jquery: true

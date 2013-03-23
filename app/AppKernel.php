@@ -28,6 +28,8 @@ class AppKernel extends Kernel
             new Admingenerator\UserBundle\AdmingeneratorUserBundle(),
             new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
             new Trackme\ApiBundle\TrackmeApiBundle(),
+            new Genemu\Bundle\FormBundle\GenemuFormBundle(),
+            new Ivory\GoogleMapBundle\IvoryGoogleMapBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

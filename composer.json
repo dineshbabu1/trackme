@@ -21,7 +21,10 @@
         "friendsofsymfony/user-bundle": "*",
         "cedriclombardot/admingenerator-generator-bundle": "dev-master",
         "cedriclombardot/admingenerator-user-bundle": "dev-master",
-        "stfalcon/tinymce-bundle": "dev-master"
+        "stfalcon/tinymce-bundle": "dev-master",
+        "genemu/form-bundle": "2.1.*",
+        "egeloen/google-map-bundle": "*",
+        "willdurand/geocoder": "*"
     },
     "scripts": {
         "post-install-cmd": [

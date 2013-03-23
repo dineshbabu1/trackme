@@ -1,0 +1,13 @@
+{% extends 'AdmingeneratorGeneratorBundle::base_admin_assetic_less.html.twig' %}
+
+{% block body %}
+    {{ google_map_container(map) }}
+    <div class="span10">
+        <div id="map_canvas"></div>
+    </div>
+
+    {{ google_map_js(map) }}
+
+{% endblock %}
+
+{% block footer_text %}&copy; Track Me {{ ("now"|date('Y') > 2012) ? '2012 - ' ~ "now"|date('Y') : '2012' }}{% endblock %}
