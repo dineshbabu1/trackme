@@ -11,8 +11,17 @@ use Trackme\BackendBundle\Entity\Coordinate;
 
 class DefaultController extends Controller {
 
+  /**
+   * 
+   * @param \Symfony\Component\HttpFoundation\Request $request
+   * @return \Symfony\Component\HttpFoundation\Response
+   */
   public function indexAction(Request $request) {
     
+//    "user_id": 12,
+//    "lat": "-30.989233",
+//    "lng": "27,846644"  
+      
     $em = $this->getDoctrine()->getManager();
     
     if ($request->getMethod() == 'POST') {

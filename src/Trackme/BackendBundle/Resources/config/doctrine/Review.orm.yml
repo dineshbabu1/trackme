@@ -16,6 +16,7 @@ Trackme\BackendBundle\Entity\Review:
       business:
         targetEntity: Trackme\BackendBundle\Entity\Business
         joinColumn:
+          onDelete: CASCADE
           name: business_id
           referencedColumnName: id        
     lifecycleCallbacks: {  }

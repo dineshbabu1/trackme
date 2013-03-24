@@ -28,6 +28,7 @@ Trackme\BackendBundle\Entity\Vehicle:
         business:
             targetEntity: Trackme\BackendBundle\Entity\Business
             joinColumn:
+                onDelete: CASCADE
                 name: business_id
                 referencedColumnName: id        
     lifecycleCallbacks: {  }

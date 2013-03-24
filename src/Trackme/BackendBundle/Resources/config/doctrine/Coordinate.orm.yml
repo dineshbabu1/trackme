@@ -17,6 +17,7 @@ Trackme\BackendBundle\Entity\Coordinate:
       user:
         targetEntity: Trackme\BackendBundle\Entity\User
         joinColumn:
+          onDelete: CASCADE
           name: user_id
           referencedColumnName: id        
     lifecycleCallbacks: {  }

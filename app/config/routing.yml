@@ -13,7 +13,7 @@ admin_review:
     prefix:   /admin/business/review
 
 index_api:
-    path: /api
+    path: /api/position
     defaults:  { _controller: TrackmeApiBundle:Default:index, _format: json }
     requirements: { _format: (xml|json), _method: POST }
 
