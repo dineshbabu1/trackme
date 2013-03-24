@@ -21,7 +21,7 @@ params:
 builders:
     list:
         params:
-            title: List for BackendBundle
+            title: Páginas
             display: [ title, url, menu, enabled, weigth]
             actions:
                 new: ~

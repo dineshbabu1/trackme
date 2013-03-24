@@ -24,7 +24,7 @@ builders:
     list:
         params:
             title: Usuarios
-            display: [name, last_name, username, email, enabled]
+            display: [name, last_name, username, email, business, enabled]
             fields:
                 business:
                     credentials: 'hasRole("ROLE_SUPER_ADMIN")'

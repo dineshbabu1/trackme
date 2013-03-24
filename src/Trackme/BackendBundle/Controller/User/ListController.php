@@ -9,7 +9,13 @@ class ListController extends BaseListController {
     protected function getQuery()
     {
         
-        if ($this->get('security.context')->isGranted('ROLE_BUSINESS')) {
+        if ($this->get('security.context')->isGranted('ROLE_SUPER_ADMIN')) {
+            $query = $this->getDoctrine()
+                ->getEntityManager()
+                ->createQueryBuilder()
+                ->select('q')
+                ->from('Trackme\BackendBundle\Entity\User', 'q');
+        }elseif($this->get('security.context')->isGranted('ROLE_BUSINESS')){
             $query = $this->getDoctrine()
                 ->getEntityManager()
                 ->createQueryBuilder()
@@ -17,12 +23,6 @@ class ListController extends BaseListController {
                 ->from('Trackme\BackendBundle\Entity\User', 'q')
                 ->where('q.business = :business')
                 ->setParameter(':business', $this->get('security.context')->getToken()->getUser()->getBusiness());
-        }else{
-            $query = $this->getDoctrine()
-                ->getEntityManager()
-                ->createQueryBuilder()
-                ->select('q')
-                ->from('Trackme\BackendBundle\Entity\User', 'q');
         }
         
 
