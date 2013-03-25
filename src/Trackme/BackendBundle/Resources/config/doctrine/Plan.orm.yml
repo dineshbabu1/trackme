@@ -1,0 +1,22 @@
+Trackme\BackendBundle\Entity\Plan:
+    type: entity
+    table: null
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        name:
+            type: string
+            length: 255
+        price:
+            type: decimal
+            precision: 2
+            scale: 2
+    oneToMany:
+        attributes:
+            targetEntity: Trackme\BackendBundle\Entity\PlanAttribute
+            mappedBy: plan 
+            cascade: [ "persist" ]
+    lifecycleCallbacks: {  }

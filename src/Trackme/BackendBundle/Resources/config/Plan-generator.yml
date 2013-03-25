@@ -1,0 +1,60 @@
+generator: admingenerator.generator.doctrine
+params:
+    model: Trackme\BackendBundle\Entity\Plan
+    namespace_prefix: Trackme
+    bundle_name: BackendBundle
+    fields:
+        attributes:
+            label:            Atributos
+            dbType:           collection
+            formType:         collection
+            addFormOptions:
+                widget:         table
+                sortable:       id   
+                type:           \Trackme\BackendBundle\Form\Type\PlanAttribute\EditType
+                allow_add:      true
+                allow_delete:   true
+                by_reference:   false
+                options:
+                    label:          Nuevo atributo
+                    data_class:     Trackme\BackendBundle\Entity\PlanAttribute
+        name:
+            label: Nombre
+        price:
+            label: Precio
+
+builders:
+    list:
+        params:
+            title: Planes
+            display: ~
+            actions:
+                new: ~
+            object_actions:
+                edit: ~
+                delete: ~
+    filters:
+        params:
+            display: ~
+    new:
+        params:
+            title: Nuevo plan
+            display: [ name, price, attributes ]
+            actions:
+                save: ~
+                list: ~
+    edit:
+        params:
+            title: "Editando \"%object%\"|{ %object%: Plan.name }|"
+            display: [ name, price, attributes]
+            actions:
+                save: ~
+                list: ~
+    show:
+        params:
+            title: "Viendo \"%object%\"|{ %object%: Plan.name }|"
+            display: [ name, price]
+            actions:
+                list: ~
+                new: ~
+    delete: ~

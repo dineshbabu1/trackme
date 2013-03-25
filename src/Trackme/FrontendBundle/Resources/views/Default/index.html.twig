@@ -17,13 +17,14 @@
 </div>
 {% endblock %}
 
-{% if menu|length > 0 %}
     {% block nav%}
 <ul class="nav" id="main-menu-left">
-        {% for m in menu %}
-        <li><a href="{{ path('page', { 'url': m.url})}}">{{ m.menu }}</a></li>
-        {% endfor %}
+        {% if menu is defined %}
+            {% for m in menu %}
+            <li><a href="{{ path('page', { 'url': m.url})}}">{{ m.menu }}</a></li>
+            {% endfor %}
+        {% endif %}
+        <li><a href="{{ path('pricing')}}">Precios</a></li>
         <li><a href="{{ path('fos_user_security_login')}}">Ingresar</a></li>
     </ul>
     {% endblock%}
-{% endif %}

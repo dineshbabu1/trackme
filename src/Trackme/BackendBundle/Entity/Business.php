@@ -171,4 +171,32 @@ class Business
     {
         return $this->token;
     }
+    /**
+     * @var \Trackme\BackendBundle\Entity\ClientState
+     */
+    private $state;
+
+
+    /**
+     * Set state
+     *
+     * @param \Trackme\BackendBundle\Entity\ClientState $state
+     * @return Business
+     */
+    public function setState(\Trackme\BackendBundle\Entity\ClientState $state = null)
+    {
+        $this->state = $state;
+    
+        return $this;
+    }
+
+    /**
+     * Get state
+     *
+     * @return \Trackme\BackendBundle\Entity\ClientState 
+     */
+    public function getState()
+    {
+        return $this->state;
+    }
 }

@@ -20,6 +20,8 @@ class AppKernel extends Kernel
             new JMS\AopBundle\JMSAopBundle(),
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
+            new JMS\Payment\CoreBundle\JMSPaymentCoreBundle(),
+            new JMS\Payment\PaypalBundle\JMSPaymentPaypalBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Trackme\BackendBundle\TrackmeBackendBundle(),
             new Trackme\FrontendBundle\TrackmeFrontendBundle(),

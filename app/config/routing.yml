@@ -1,3 +1,13 @@
+admin_plan_attribute:
+    resource: "@TrackmeBackendBundle/Controller/PlanAttribute/"
+    type:     admingenerator
+    prefix:   /admin/cms/planAttribute
+
+admin_plan:
+    resource: "@TrackmeBackendBundle/Controller/Plan/"
+    type:     admingenerator
+    prefix:   /admin/cms/plan
+
 admin_vehicle:
     resource: "@TrackmeBackendBundle/Controller/Vehicle/"
     type:     admingenerator
@@ -31,6 +41,10 @@ admin_business:
     resource: "@TrackmeBackendBundle/Controller/Business/"
     type:     admingenerator
     prefix:   /admin/cms/business
+    
+pricing:
+    path: /pricing
+    defaults:  { _controller: TrackmeFrontendBundle:Default:pricing }
 
 signup_user:
     path: /signup_user

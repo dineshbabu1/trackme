@@ -14,18 +14,13 @@ class LoadBusinessData extends AbstractFixture implements OrderedFixtureInterfac
      */
     public function load(ObjectManager $manager)
     {
-        for ($i = 0; $i < 10; $i++) {
-            $business = new Business();
-            $business->setName('Empresa_'.$i);
-            $business->setEmail('email_10'.$i.'@email.com');
-            $business->setPhone(mt_rand(10000000, 99999999));
-            $manager->persist($business);
-        }
+        
         $b = new Business();
         $b->setName('Elfic Ticio');
         $b->setEmail('elfic@ticio.com');
         $b->setEnabled(true);
         $b->setPhone(mt_rand(10000000, 99999999));
+        $b->setState($this->getReference('client-basic'));
         $manager->persist($b);
         $manager->flush();
         
@@ -34,6 +29,6 @@ class LoadBusinessData extends AbstractFixture implements OrderedFixtureInterfac
     
     public function getOrder()
     {
-        return 1;
+        return 2;
     }
 }

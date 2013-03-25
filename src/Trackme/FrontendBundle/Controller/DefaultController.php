@@ -96,5 +96,9 @@ class DefaultController extends Controller {
                     'menu' => $menu
                 ));
     }
+    
+    public function pricingAction() {
+        return $this->render('TrackmeFrontendBundle:Default:pricing.html.twig');
+    }
 
 }

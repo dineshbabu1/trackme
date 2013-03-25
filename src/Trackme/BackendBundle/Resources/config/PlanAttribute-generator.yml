@@ -1,0 +1,48 @@
+generator: admingenerator.generator.doctrine
+params:
+    model: Trackme\BackendBundle\Entity\PlanAttribute
+    namespace_prefix: Trackme
+    bundle_name: BackendBundle
+    fields: 
+        value:
+            label: Valor
+        order:
+            label: Orden
+        enabled:
+            label: Habilitado
+
+builders:
+    list:
+        params:
+            title: Detalles Planes
+            display: ~
+            actions:
+                new: ~
+            object_actions:
+                edit: ~
+                delete: ~
+    filters:
+        params:
+            display: ~
+    new:
+        params:
+            title: Nuevo detalle
+            display: [ value, order, enabled, plan]
+            actions:
+                save: ~
+                list: ~
+    edit:
+        params:
+            title: "You're editing the object \"%object%\"|{ %object%: PlanAttribute.value }|"
+            display: [ value, order, enabled, plan]
+            actions:
+                save: ~
+                list: ~
+    show:
+        params:
+            title: "You're viewing the object \"%object%\"|{ %object%: PlanAttribute.value }|"
+            display: ~
+            actions:
+                list: ~
+                new: ~
+    delete: ~

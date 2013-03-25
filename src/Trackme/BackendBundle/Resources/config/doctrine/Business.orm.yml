@@ -22,4 +22,10 @@ Trackme\BackendBundle\Entity\Business:
         token:
             type: string
             length: 255
+    manyToOne:
+      state:
+        targetEntity: Trackme\BackendBundle\Entity\ClientState
+        joinColumn:
+          name: state_id
+          referencedColumnName: id        
     lifecycleCallbacks: {  }

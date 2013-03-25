@@ -1,0 +1,16 @@
+Trackme\BackendBundle\Entity\ClientState:
+    type: entity
+    table: null
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        code:
+            type: string
+            length: 255
+        name:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }
