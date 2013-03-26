@@ -127,4 +127,60 @@ class Plan
     {
         return $this->attributes;
     }
+    /**
+     * @var string
+     */
+    private $description;
+
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Plan
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+    /**
+     * @var boolean
+     */
+    private $featured;
+
+
+    /**
+     * Set featured
+     *
+     * @param boolean $featured
+     * @return Plan
+     */
+    public function setFeatured($featured)
+    {
+        $this->featured = $featured;
+    
+        return $this;
+    }
+
+    /**
+     * Get featured
+     *
+     * @return boolean 
+     */
+    public function getFeatured()
+    {
+        return $this->featured;
+    }
 }

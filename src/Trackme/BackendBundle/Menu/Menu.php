@@ -34,7 +34,6 @@ class Menu extends ContainerAware{
           $this->addNavLinkRoute($frontend, 'Páginas', 'Trackme_BackendBundle_Page_list');
           $this->addNavLinkRoute($frontend, 'Reseñas', 'Trackme_BackendBundle_Review_list');
           $this->addNavLinkRoute($frontend, 'Planes', 'Trackme_BackendBundle_Plan_list');
-          $this->addNavLinkRoute($frontend, 'Descripcion Planes', 'Trackme_BackendBundle_PlanAttribute_list');
           $business = $this->addNavLinkRoute($menu, 'Clientes', 'Trackme_BackendBundle_Business_list');
           $user = $this->addNavLinkRoute($menu, 'Usuarios', 'Trackme_BackendBundle_User_list');
         }elseif($this->container->get('security.context')->isGranted('ROLE_BUSINESS')){

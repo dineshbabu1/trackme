@@ -3,25 +3,24 @@ params:
     model: Trackme\BackendBundle\Entity\Plan
     namespace_prefix: Trackme
     bundle_name: BackendBundle
-    fields:
-        attributes:
-            label:            Atributos
-            dbType:           collection
-            formType:         collection
-            addFormOptions:
-                widget:         table
-                sortable:       id   
-                type:           \Trackme\BackendBundle\Form\Type\PlanAttribute\EditType
-                allow_add:      true
-                allow_delete:   true
-                by_reference:   false
-                options:
-                    label:          Nuevo atributo
-                    data_class:     Trackme\BackendBundle\Entity\PlanAttribute
+    fields: 
         name:
             label: Nombre
+        featured:
+            label: Recomendado
+            help: Solo un plan debe ser seleccionado como recomendado
         price:
             label: Precio
+            formType: number
+            addFormOptions:
+                precision: 2
+                attr:
+                    placeholder: Valor en UF
+        description:
+            label: Descripcion
+            addFormOptions:
+              attr:
+                class: tinymce boxsizingBorder
 
 builders:
     list:
@@ -35,25 +34,25 @@ builders:
                 delete: ~
     filters:
         params:
-            display: ~
+            display: []
     new:
         params:
             title: Nuevo plan
-            display: [ name, price, attributes ]
+            display: [ name, price, featured, description ]
             actions:
                 save: ~
                 list: ~
     edit:
         params:
             title: "Editando \"%object%\"|{ %object%: Plan.name }|"
-            display: [ name, price, attributes]
+            display: [ name, price, featured, description ]
             actions:
                 save: ~
                 list: ~
     show:
         params:
             title: "Viendo \"%object%\"|{ %object%: Plan.name }|"
-            display: [ name, price]
+            display: [ name, price, featured, description ]
             actions:
                 list: ~
                 new: ~

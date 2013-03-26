@@ -112,3 +112,8 @@ jms_payment_paypal:
     password: 1364165339
     signature: Ab2l1wbNfVWxLpcZRR2EYprzdWLxAGmt4PPX1GEI1pC922gPaob00uvy
     debug: true
+    
+genemu_form:
+    tinymce: 
+        enabled: true
+        theme:   advanced

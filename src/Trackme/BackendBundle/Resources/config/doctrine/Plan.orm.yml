@@ -10,13 +10,13 @@ Trackme\BackendBundle\Entity\Plan:
         name:
             type: string
             length: 255
+        description:
+            type: text
+        featured:
+            type: boolean
+            default: false
         price:
             type: decimal
-            precision: 2
-            scale: 2
-    oneToMany:
-        attributes:
-            targetEntity: Trackme\BackendBundle\Entity\PlanAttribute
-            mappedBy: plan 
-            cascade: [ "persist" ]
+            precision: 10
+            scale: 6
     lifecycleCallbacks: {  }
