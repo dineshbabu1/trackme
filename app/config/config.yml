@@ -71,6 +71,12 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: Trackme\BackendBundle\Entity\User
+    registration:
+        confirmation:
+            enabled:    true
+            from_email:
+                address:        noreply@acmedemo.com
+                sender_name:    Track Me!
     
 admingenerator_generator:
     base_admin_template: TrackmeBackendBundle::base_admin_assetic_less.html.twig

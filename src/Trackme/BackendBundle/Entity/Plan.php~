@@ -82,51 +82,7 @@ class Plan
     {
         return $this->price;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $attributes;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->attributes = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add attributes
-     *
-     * @param \Trackme\BackendBundle\Entity\PlanAttribute $attributes
-     * @return Plan
-     */
-    public function addAttribute(\Trackme\BackendBundle\Entity\PlanAttribute $attributes)
-    {
-        $this->attributes[] = $attributes;
     
-        return $this;
-    }
-
-    /**
-     * Remove attributes
-     *
-     * @param \Trackme\BackendBundle\Entity\PlanAttribute $attributes
-     */
-    public function removeAttribute(\Trackme\BackendBundle\Entity\PlanAttribute $attributes)
-    {
-        $this->attributes->removeElement($attributes);
-    }
-
-    /**
-     * Get attributes
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getAttributes()
-    {
-        return $this->attributes;
-    }
     /**
      * @var string
      */
