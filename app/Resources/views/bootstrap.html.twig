@@ -34,57 +34,55 @@
                     <a class="brand" href="{{ path('homepage') }}">Track me</a>
                     <div class="nav-collapse collapse" id="main-menu">
                         {% block nav%}
-                        <ul class="nav" id="main-menu-left">
-                            <li><a href="{{ path('page', { 'url': 'about-us' }) }}">Nosotros</a></li>
-                            <li><a>FAQ</a></li>
-                            <li><a>Terminos de Servicio</a></li>
-                        </ul>
+                            <ul class="nav" id="main-menu-left">
+                                <li><a href="{{ path('fos_user_security_login')}}">Ingresar</a></li>
+                            </ul>
                         {% endblock %}    
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="container">
-            <header class="jumbotron subhead" id="overview">
-                <div class="row">
-                    <div class="span10">
-                        <h1>{% block page_title %} Track me! {% endblock%}</h1>
-                        <br/>
-                        <div class="span10">{% block content %}{% endblock%}</div>
+            <div class="container">
+                <header class="jumbotron subhead" id="overview">
+                    <div class="row">
+                        <div class="span10">
+                            <h2>{% block page_title %} Track me! {% endblock%}</h2>
+                            <br/>
+                            <div class="span12">{% block content %}{% endblock%}</div>
+                        </div>
                     </div>
-                </div>
-            </header>
+                </header>
 
-            <!-- Article
+                <!-- Article
+                ================================================== -->
+
+
+
+                <!-- Footer
+                 ================================================== -->
+                <hr>
+
+                <footer id="footer">
+                    <p class="pull-right"><a href="#top">Volver a inicio</a></p>
+                    <div class="links">
+                    </div>
+                    <p>
+                        Adaptado y desarrollado por Gonzalo Moreno.
+                    </p>
+
+                </footer>
+
+            </div><!-- /container -->
+
+            <!-- Le javascript
             ================================================== -->
-            
-
-
-            <!-- Footer
-             ================================================== -->
-            <hr>
-
-            <footer id="footer">
-                <p class="pull-right"><a href="#top">Volver a inicio</a></p>
-                <div class="links">
-                </div>
-                <p>
-                    Adaptado y desarrollado por Gonzalo Moreno.
-                </p>
-
-            </footer>
-
-        </div><!-- /container -->
-
-        <!-- Le javascript
-        ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
+            <!-- Placed at the end of the document so the pages load faster -->
             {% block javascripts %} 
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
               {% javascripts 'bundles/trackmefrontend/js/*' %}
-        <script src="{{ asset_url }}"></script>
+            <script src="{{ asset_url }}"></script>
               {% endjavascripts %}
             {% endblock %}
 
-    </body>
-</html>
+        </body>
+    </html>
