@@ -24,6 +24,8 @@ class DefaultController extends Controller {
         $userManager = $this->get('fos_user.user_manager');
         $user = $userManager->createUser();
         $form = $this->createFormBuilder($user)
+                ->add('name','text')
+                ->add('last_name','text')
                 ->add('username','text', array('label' => 'Usuario'))
                 ->add('email','text')
                 ->add('plain_password','password', array('label' => 'Password'))

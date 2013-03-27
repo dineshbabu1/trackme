@@ -10,8 +10,7 @@ builders:
         params:
             title: Clientes
             display: ~
-            actions:
-                new: ~
+            actions: ~
             object_actions:
                 show: ~
                 delete: ~

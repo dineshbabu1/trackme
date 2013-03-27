@@ -30,7 +30,7 @@ builders:
                 delete: ~
     filters:
         params:
-            display: ~
+            display: []
     new:
         params:
             title: Nueva Página
