@@ -3,13 +3,15 @@ params:
     model: Trackme\BackendBundle\Entity\Review
     namespace_prefix: Trackme
     bundle_name: BackendBundle
-    fields: ~
+    fields: 
+        comment:
+            label: Comentario
 
 builders:
     list:
         params:
-            title: List for BackendBundle
-            display: ~
+            title: Reseñas
+            display: [ comment ]
             actions:
                 new: ~
             object_actions:
@@ -20,7 +22,7 @@ builders:
             display: []
     new:
         params:
-            title: New object for BackendBundle
+            title: Nueva Reseña
             display: [ comment]
             actions:
                 save: ~

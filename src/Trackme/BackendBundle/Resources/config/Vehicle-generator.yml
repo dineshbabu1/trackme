@@ -48,14 +48,14 @@ builders:
     new:
         params:
             title: Nuevo Vehiculo
-            display: [ manufacturer, model, type, kilometerPerLiter ]
+            display: [ manufacturer, model, type, code, kilometerPerLiter ]
             actions:
                 save: ~
                 list: ~
     edit:
         params:
             title: "Editando Vehiculo \"%object%\"|{ %object%: Vehicle }|"
-            display: [ manufacturer, model, type, kilometerPerLiter ]
+            display: [user, manufacturer, model, type, code, kilometerPerLiter ]
             actions:
                 save: ~
                 list: ~

@@ -196,4 +196,33 @@ class Vehicle
     {
         return $this->code;
     }
+    
+    /**
+     * @var \Trackme\BackendBundle\Entity\User
+     */
+    private $User;
+
+
+    /**
+     * Set User
+     *
+     * @param \Trackme\BackendBundle\Entity\User $user
+     * @return Vehicle
+     */
+    public function setUser(\Trackme\BackendBundle\Entity\User $user = null)
+    {
+        $this->User = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get User
+     *
+     * @return \Trackme\BackendBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->User;
+    }
 }
