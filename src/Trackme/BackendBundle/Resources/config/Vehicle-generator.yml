@@ -9,20 +9,8 @@ params:
             help: Identificacion del vehiculo
         manufacturer:
             label: Marca
-            formType: entitypicker
-            addFormOptions:
-              class:          Trackme\BackendBundle\Entity\Vehicle
-              builder:        { name: manufacturer }
-              matcher:        item.name
-              primaryKey:     id
         model:
             label: Modelo
-            formType: entitypicker
-            addFormOptions:
-              class:          Trackme\BackendBundle\Entity\Vehicle
-              builder:        { name: model }
-              matcher:        item.name
-              primaryKey:     id
         kilometerPerLiter:
             label: Km/Litro
             formType: number
@@ -60,7 +48,8 @@ builders:
     new:
         params:
             title: Nuevo Vehiculo
-            display: [ manufacturer, model, type, code, kilometerPerLiter, issues ]
+            display: 
+                NONE: [ [manufacturer, model], [type, code, kilometerPerLiter], issues ]
             fields:
                 issues:
                     label:            Mantenciones
@@ -82,7 +71,8 @@ builders:
     edit:
         params:
             title: "Editando Vehiculo \"%object%\"|{ %object%: Vehicle }|"
-            display: [ manufacturer, model, type, code, kilometerPerLiter, issues]
+            display: 
+                NONE: [ [manufacturer, model], [type, code, kilometerPerLiter], issues ]
             fields:
                 issues:
                     label:            Mantenciones
