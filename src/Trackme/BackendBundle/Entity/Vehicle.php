@@ -198,31 +198,48 @@ class Vehicle
     }
     
     /**
-     * @var \Trackme\BackendBundle\Entity\User
+     * @var \Doctrine\Common\Collections\Collection
      */
-    private $User;
-
+    private $issues;
 
     /**
-     * Set User
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->issues = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add issues
      *
-     * @param \Trackme\BackendBundle\Entity\User $user
+     * @param \Trackme\BackendBundle\Entity\VehicleMantention $issues
      * @return Vehicle
      */
-    public function setUser(\Trackme\BackendBundle\Entity\User $user = null)
+    public function addIssue(\Trackme\BackendBundle\Entity\VehicleMantention $issues)
     {
-        $this->User = $user;
+        $this->issues[] = $issues;
 
         return $this;
     }
 
     /**
-     * Get User
+     * Remove issues
      *
-     * @return \Trackme\BackendBundle\Entity\User 
+     * @param \Trackme\BackendBundle\Entity\VehicleMantention $issues
      */
-    public function getUser()
+    public function removeIssue(\Trackme\BackendBundle\Entity\VehicleMantention $issues)
     {
-        return $this->User;
+        $this->issues->removeElement($issues);
+    }
+
+    /**
+     * Get issues
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getIssues()
+    {
+        return $this->issues;
     }
 }

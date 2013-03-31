@@ -8,12 +8,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony2admingenerator/AdmingeneratorGeneratorBundle.git",
-                "reference": "d4406200463c325542e33a167f501bffbc241157"
+                "reference": "358248ff661b8af0c9f8d1db3c7f69853904151e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony2admingenerator/AdmingeneratorGeneratorBundle/zipball/d4406200463c325542e33a167f501bffbc241157",
-                "reference": "d4406200463c325542e33a167f501bffbc241157",
+                "url": "https://api.github.com/repos/symfony2admingenerator/AdmingeneratorGeneratorBundle/zipball/358248ff661b8af0c9f8d1db3c7f69853904151e",
+                "reference": "358248ff661b8af0c9f8d1db3c7f69853904151e",
                 "shasum": ""
             },
             "require": {
@@ -64,7 +64,7 @@
                 "generator",
                 "yaml"
             ],
-            "time": "2013-03-28 22:39:13"
+            "time": "2013-03-30 11:29:11"
         },
         {
             "name": "cedriclombardot/admingenerator-user-bundle",
@@ -803,12 +803,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "484d03a5bc0cd21ad0ec0982ab6763a86c7b4daf"
+                "reference": "9b0f252aff0859f8aa88536d5f964c794304d9fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/484d03a5bc0cd21ad0ec0982ab6763a86c7b4daf",
-                "reference": "484d03a5bc0cd21ad0ec0982ab6763a86c7b4daf",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/9b0f252aff0859f8aa88536d5f964c794304d9fe",
+                "reference": "9b0f252aff0859f8aa88536d5f964c794304d9fe",
                 "shasum": ""
             },
             "require": {
@@ -866,7 +866,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2013-03-28 04:26:24"
+            "time": "2013-03-30 13:48:06"
         },
         {
             "name": "egeloen/google-map",
@@ -2609,12 +2609,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/whiteoctober/WhiteOctoberPagerfantaBundle.git",
-                "reference": "9cce71a2cfffa4e3d08a41b6ddd31ef0249a0aea"
+                "reference": "5d1b9eb262055019a280a0ec48bc0b11fba5bb23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/whiteoctober/WhiteOctoberPagerfantaBundle/zipball/9cce71a2cfffa4e3d08a41b6ddd31ef0249a0aea",
-                "reference": "9cce71a2cfffa4e3d08a41b6ddd31ef0249a0aea",
+                "url": "https://api.github.com/repos/whiteoctober/WhiteOctoberPagerfantaBundle/zipball/5d1b9eb262055019a280a0ec48bc0b11fba5bb23",
+                "reference": "5d1b9eb262055019a280a0ec48bc0b11fba5bb23",
                 "shasum": ""
             },
             "require": {
@@ -2648,7 +2648,7 @@
                 "page",
                 "paging"
             ],
-            "time": "2013-03-14 08:58:21"
+            "time": "2013-03-30 22:08:55"
         },
         {
             "name": "willdurand/geocoder",

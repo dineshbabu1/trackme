@@ -24,15 +24,11 @@ Trackme\BackendBundle\Entity\Vehicle:
             precision: 10
             scale: 6
             column: kilometer_per_liter
-    oneToOne:
-        User:
-            targetEntity: Trackme\BackendBundle\Entity\User
-            cascade: {  }
-            mappedBy: Vehicle
-            joinColumn:
-                name: user_id
-                referencedColumnName: id
-
+    oneToMany:
+        issues:
+            targetEntity: Trackme\BackendBundle\Entity\VehicleMantention
+            mappedBy: vehicle
+            cascade: ["persist"]
     manyToOne:
         business:
             targetEntity: Trackme\BackendBundle\Entity\Business

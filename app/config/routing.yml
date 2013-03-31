@@ -1,3 +1,8 @@
+admin_mantention:
+    resource: "@TrackmeBackendBundle/Controller/Mantention/"
+    type:     admingenerator
+    prefix:   /admin/business/mantention
+
 admin_plan:
     resource: "@TrackmeBackendBundle/Controller/Plan/"
     type:     admingenerator

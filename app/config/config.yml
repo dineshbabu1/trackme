@@ -120,6 +120,7 @@ jms_payment_paypal:
     debug: true
     
 genemu_form:
+    autocomplete: ~
     tinymce: 
         enabled: true
         theme:   advanced
