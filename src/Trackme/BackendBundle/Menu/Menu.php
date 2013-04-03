@@ -36,10 +36,11 @@ class Menu extends ContainerAware{
           $this->addNavLinkRoute($frontend, 'Planes', 'Trackme_BackendBundle_Plan_list');
           $business = $this->addNavLinkRoute($menu, 'Clientes', 'Trackme_BackendBundle_Business_list');
           $user = $this->addNavLinkRoute($menu, 'Usuarios', 'Trackme_BackendBundle_User_list');
-        }elseif($this->container->get('security.context')->isGranted('ROLE_USER')){
+        }elseif($this->container->get('security.context')->isGranted('ROLE_USER') || $this->container->get('security.context')->isGranted('ROLE_BUSINESS') || $this->container->get('security.context')->isGranted('ROLE_BASIC')){
           $user = $this->addNavLinkRoute($menu, 'Mis Usuarios', 'Trackme_BackendBundle_User_list');
           $review = $this->addNavLinkRoute($menu, 'Evaluar Sistema', 'Trackme_BackendBundle_Review_new');
           $vehicle = $this->addNavLinkRoute($menu, 'Vehiculos', 'Trackme_BackendBundle_Vehicle_list');
+          $ticket = $this->addNavLinkRoute($menu, 'Soporte', 'Trackme_BackendBundle_Ticket_list');
         }
         
         return $menu;

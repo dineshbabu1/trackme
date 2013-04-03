@@ -16,6 +16,7 @@ Trackme\BackendBundle\Entity\Vehicle:
         code:
             type: string
             length: 255
+            unique: true
         type:
             type: string
             length: 255
@@ -28,7 +29,7 @@ Trackme\BackendBundle\Entity\Vehicle:
         issues:
             targetEntity: Trackme\BackendBundle\Entity\VehicleMantention
             mappedBy: vehicle
-            cascade: ["persist"]
+            cascade: ["all"]
     manyToOne:
         business:
             targetEntity: Trackme\BackendBundle\Entity\Business

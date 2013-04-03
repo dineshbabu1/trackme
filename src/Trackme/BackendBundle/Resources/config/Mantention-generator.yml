@@ -48,16 +48,14 @@ builders:
     new:
         params:
             title: Nueva Mantención
-            display: 
-                NONE: [ [vehicle, dateFrom, dateTo], problem, [fixed, solution, moreInfo]]
+            display: [ vehicle, dateFrom, dateTo, problem, fixed, solution, moreInfo]
             actions:
                 save: ~
                 list: ~
     edit:
         params:
             title: "Editando Mantencion"
-            display: 
-                NONE: [ [dateFrom, dateTo], problem, [fixed, solution, moreInfo]]
+            display: [ vehicle, dateFrom, dateTo, problem, fixed, solution, moreInfo]
             actions:
                 save: ~
                 list: ~

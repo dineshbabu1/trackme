@@ -1,0 +1,10 @@
+Trackme\BackendBundle\Entity\ImageSlide:
+    type: entity
+    table: null
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    lifecycleCallbacks: {  }

@@ -10,6 +10,7 @@ Trackme\BackendBundle\Entity\VehicleMantention:
         dateFrom:
             type: date
             column: date_from
+            nullable: true
         dateTo:
             type: date
             column: date_to
@@ -32,6 +33,7 @@ Trackme\BackendBundle\Entity\VehicleMantention:
             targetEntity: Trackme\BackendBundle\Entity\Vehicle
             inversedBy: issues
             joinColumn:
+                onDelete: CASCADE
                 name: vehicle_id
                 referencedColumnName: id        
     lifecycleCallbacks: {  }

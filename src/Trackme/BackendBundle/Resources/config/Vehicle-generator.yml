@@ -4,6 +4,19 @@ params:
     namespace_prefix: Trackme
     bundle_name: BackendBundle
     fields:
+        issues:
+            label:            Mantenciones
+            dbType:           collection
+            formType:         collection
+            addFormOptions:
+                widget:         fieldset
+                type:           \Trackme\BackendBundle\Form\Type\Mantention\EditType
+                allow_add:      true
+                allow_delete:   true
+                by_reference:   false
+                options:
+                    label:          Nueva Mantencion
+                    data_class:     Trackme\BackendBundle\Entity\VehicleMantention 
         code:
             label: Código
             help: Identificacion del vehiculo
@@ -37,6 +50,8 @@ builders:
             fields:
                 business:
                     credentials: 'hasRole("ROLE_SUPER_ADMIN")'
+            batch_actions:
+                delete: ~        
             actions:
                 new: ~
             object_actions:
@@ -50,21 +65,6 @@ builders:
             title: Nuevo Vehiculo
             display: 
                 NONE: [ [manufacturer, model], [type, code, kilometerPerLiter], issues ]
-            fields:
-                issues:
-                    label:            Mantenciones
-                    dbType:           collection
-                    formType:         collection
-                    addFormOptions:
-                      widget:         fieldset
-                      sortable:       id  
-                      type:           \Trackme\BackendBundle\Form\Type\Mantention\NewType
-                      allow_add:      true
-                      allow_delete:   false
-                      by_reference:   true
-                      options:
-                        label:          Nueva Mantencion
-                        data_class:     Trackme\BackendBundle\Entity\VehicleMantention 
             actions:
                 save: ~
                 list: ~
@@ -73,21 +73,6 @@ builders:
             title: "Editando Vehiculo \"%object%\"|{ %object%: Vehicle }|"
             display: 
                 NONE: [ [manufacturer, model], [type, code, kilometerPerLiter], issues ]
-            fields:
-                issues:
-                    label:            Mantenciones
-                    dbType:           collection
-                    formType:         collection
-                    addFormOptions:
-                      widget:         fieldset
-                      sortable:       id  
-                      type:           \Trackme\BackendBundle\Form\Type\Mantention\EditType
-                      allow_add:      true
-                      allow_delete:   false
-                      by_reference:   true
-                      options:
-                        label:          Nueva Mantencion
-                        data_class:     Trackme\BackendBundle\Entity\VehicleMantention 
             actions:
                 save: ~
                 list: ~
