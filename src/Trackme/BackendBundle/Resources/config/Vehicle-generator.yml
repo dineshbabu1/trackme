@@ -41,6 +41,17 @@ params:
                     Bus: Bus
                     Camión: Camión
                     Motocicleta: Moto
+        fuel:  
+            label: Combustible
+            formType: choice  
+            addFormOptions:
+                empty_value: ''
+                choices:
+                    93: "93 Octanos"
+                    95: "95 Octanos"
+                    97: "97 Octanos"
+                    Diesel: Diesel
+                    Gas: Gas     
 
 builders:
     list:

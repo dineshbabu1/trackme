@@ -3,6 +3,7 @@
 namespace Trackme\BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Trackme\BackendBundle\Entity\TicketState as TicketState;
 
 /**
  * Ticket
@@ -29,6 +30,9 @@ class Ticket
      */
     private $description;
 
+    public function __toString(){
+        return $this->getTitle();
+    }
 
     /**
      * Get id
@@ -137,5 +141,33 @@ class Ticket
     public function getUser()
     {
         return $this->user;
+    }
+    /**
+     * @var \Trackme\BackendBundle\Entity\TicketState
+     */
+    private $state;
+
+
+    /**
+     * Set state
+     *
+     * @param \Trackme\BackendBundle\Entity\TicketState $state
+     * @return Ticket
+     */
+    public function setState(\Trackme\BackendBundle\Entity\TicketState $state = null)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
+    /**
+     * Get state
+     *
+     * @return \Trackme\BackendBundle\Entity\TicketState 
+     */
+    public function getState()
+    {
+        return $this->state;
     }
 }

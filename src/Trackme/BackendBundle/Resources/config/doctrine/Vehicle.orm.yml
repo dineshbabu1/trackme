@@ -17,14 +17,21 @@ Trackme\BackendBundle\Entity\Vehicle:
             type: string
             length: 255
             unique: true
+            nullable: true
         type:
             type: string
             length: 255
+            nullable: true
+        fuel:
+            type: string
+            length: 255
+            nullable: true    
         kilometerPerLiter:
             type: decimal
             precision: 10
             scale: 6
             column: kilometer_per_liter
+            nullable: true
     oneToMany:
         issues:
             targetEntity: Trackme\BackendBundle\Entity\VehicleMantention

@@ -242,4 +242,32 @@ class Vehicle
     {
         return $this->issues;
     }
+    /**
+     * @var string
+     */
+    private $fuel;
+
+
+    /**
+     * Set fuel
+     *
+     * @param string $fuel
+     * @return Vehicle
+     */
+    public function setFuel($fuel)
+    {
+        $this->fuel = $fuel;
+
+        return $this;
+    }
+
+    /**
+     * Get fuel
+     *
+     * @return string 
+     */
+    public function getFuel()
+    {
+        return $this->fuel;
+    }
 }
