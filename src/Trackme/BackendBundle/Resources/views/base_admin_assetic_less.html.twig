@@ -6,8 +6,3 @@
     <p>{% block footer_text %}&copy; Track Me {{ ("now"|date('Y') > 2012) ? '2012 - ' ~ "now"|date('Y') : '2012' }}{% endblock %}</p>
 </footer>
 {% endblock %}
-
-{% block javascripts %}
-    {{ parent() }}
-    {{ tinymce_init() }}
-{% endblock %}

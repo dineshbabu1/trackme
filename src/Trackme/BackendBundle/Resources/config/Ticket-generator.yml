@@ -1,0 +1,54 @@
+generator: admingenerator.generator.doctrine
+params:
+    model: Trackme\BackendBundle\Entity\Ticket
+    namespace_prefix: Trackme
+    bundle_name: BackendBundle
+    fields: 
+        title:
+            label: Titulo
+        description:
+            label: Descripción    
+        type: 
+            formType: choice
+            label: Tipo
+            addFormOptions:
+                empty_value: ''
+                choices:
+                    Tecnico: Soporte técnico
+                    Comercial: Soporte comercial                    
+builders:
+    list:
+        params:
+            title: Tickets de soporte
+            display: ~
+            actions:
+                new: ~
+            object_actions:
+                show: ~
+                edit: ~
+                delete: ~
+    filters:
+        params:
+            display: ~
+    new:
+        params:
+            title: Nuevo ticket
+            display: [ title, type, description]
+            actions:
+                save: ~
+                list: ~
+    edit:
+        params:
+            title: "Editando el ticket \"%object%\"|{ %object%: Ticket.title }|"
+            display: [ title, type, description]
+            actions:
+                save: ~
+                list: ~
+    show:
+        params:
+            title: "Viendo el ticket \"%object%\"|{ %object%: Ticket.title }|"
+            display: [ id, title, type, description]
+            actions:
+                list: ~
+                new: ~
+    delete: ~

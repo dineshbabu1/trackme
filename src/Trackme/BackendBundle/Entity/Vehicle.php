@@ -196,4 +196,78 @@ class Vehicle
     {
         return $this->code;
     }
+    
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $issues;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->issues = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add issues
+     *
+     * @param \Trackme\BackendBundle\Entity\VehicleMantention $issues
+     * @return Vehicle
+     */
+    public function addIssue(\Trackme\BackendBundle\Entity\VehicleMantention $issues)
+    {
+        $this->issues[] = $issues;
+
+        return $this;
+    }
+
+    /**
+     * Remove issues
+     *
+     * @param \Trackme\BackendBundle\Entity\VehicleMantention $issues
+     */
+    public function removeIssue(\Trackme\BackendBundle\Entity\VehicleMantention $issues)
+    {
+        $this->issues->removeElement($issues);
+    }
+
+    /**
+     * Get issues
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getIssues()
+    {
+        return $this->issues;
+    }
+    /**
+     * @var string
+     */
+    private $fuel;
+
+
+    /**
+     * Set fuel
+     *
+     * @param string $fuel
+     * @return Vehicle
+     */
+    public function setFuel($fuel)
+    {
+        $this->fuel = $fuel;
+
+        return $this;
+    }
+
+    /**
+     * Get fuel
+     *
+     * @return string 
+     */
+    public function getFuel()
+    {
+        return $this->fuel;
+    }
 }

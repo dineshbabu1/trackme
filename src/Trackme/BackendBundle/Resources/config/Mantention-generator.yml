@@ -1,0 +1,69 @@
+generator: admingenerator.generator.doctrine
+params:
+    model: Trackme\BackendBundle\Entity\VehicleMantention
+    namespace_prefix: Trackme
+    bundle_name: BackendBundle
+    fields: 
+        dateTo:
+            formType: datepicker
+            label: Hasta
+            addFormOptions:
+                autoclose: true
+                years:
+                    .range:
+                        from: <?php echo date("Y");?>
+
+                        to: 2000
+        dateFrom:
+            formType: datepicker
+            label: Desde
+            addFormOptions:
+                autoclose: true
+                years:
+                    .range:
+                        from: <?php echo date("Y");?>
+
+                        to: 2000
+        moreInfo:
+            label: Mas información
+        fixed:  
+            label: Solucionado?
+        problem:
+            label: Problema
+        solution:
+            label: Solución              
+builders:
+    list:
+        params:
+            title: Mantenciones
+            display: ~
+            actions:
+                new: ~
+            object_actions:
+                edit: ~
+                delete: ~
+    filters:
+        params:
+            display: ~
+    new:
+        params:
+            title: Nueva Mantención
+            display: [ vehicle, dateFrom, dateTo, problem, fixed, solution, moreInfo]
+            actions:
+                save: ~
+                list: ~
+    edit:
+        params:
+            title: "Editando Mantencion"
+            display: [ vehicle, dateFrom, dateTo, problem, fixed, solution, moreInfo]
+            actions:
+                save: ~
+                list: ~
+    show:
+        params:
+            title: "You're viewing the object \"%object%\"|{ %object%: VehicleMantention.id }|"
+            display: ~
+            actions:
+                list: ~
+                new: ~
+    delete: ~
