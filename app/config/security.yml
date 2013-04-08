@@ -20,9 +20,8 @@ security:
             anonymous: false
             form_login: false            
             provider: fos_userbundle
-            http_digest:
+            http_basic:
                 realm: "REST Track Me"
-                key: "olakease"
         main:
             pattern: ^/
             form_login:
