@@ -124,3 +124,25 @@ genemu_form:
     tinymce: 
         enabled: true
         theme:   advanced
+        
+sonata_seo:
+    default:          sonata.seo.page.default
+    encoding:         UTF-8
+    page:
+        title:            Track Me | Best Fleet Manager Ever
+        metas:
+            name:
+                keywords:             track gps vehicle car truck bus smartphone
+                description:          We give to your business the tool to manage your fleet online
+                robots:               index, follow
+                author:               Gonzalo Moreno
+            property:
+                'og:site_name':       Track Me
+                'og:description':     We give to your business the tool to manage your fleet online
+
+            http-equiv:
+                'Content-Type':         text/html; charset=utf-8
+
+        head:
+            'lang':               es
+            'xmlns':              http://www.w3.org/1999/xhtml

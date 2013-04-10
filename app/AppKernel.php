@@ -33,6 +33,7 @@ class AppKernel extends Kernel
             new Trackme\ApiBundle\TrackmeApiBundle(),
             new Genemu\Bundle\FormBundle\GenemuFormBundle(),
             new Ivory\GoogleMapBundle\IvoryGoogleMapBundle(),
+            new Sonata\SeoBundle\SonataSeoBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
