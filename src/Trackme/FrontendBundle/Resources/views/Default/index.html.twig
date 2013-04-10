@@ -60,3 +60,13 @@
         <li><a href="{{ path('fos_user_security_login')}}">Ingresar</a></li>
     </ul>
     {% endblock%}
+
+{% block javascripts %} 
+{{parent()}}
+<script type="text/javascript">
+$('.carousel').carousel({
+  interval: 2500
+});
+$('.carousel').carousel('cycle');
+</script>
+{% endblock %}
