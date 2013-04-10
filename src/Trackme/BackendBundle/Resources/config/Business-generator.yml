@@ -3,11 +3,26 @@ params:
     model: Trackme\BackendBundle\Entity\Business
     namespace_prefix: Trackme
     bundle_name: BackendBundle
-    fields: ~
-
+    fields: 
+        name:
+            label: Nombre
+        phone:
+            label: Teléfono
+        enabled:
+            label: Habilitado
 builders:
     list:
         params:
+            scopes:
+                group_1:
+                    Todos: ~
+                    Deshabilitados: 
+                        filters: 
+                            enabled: false
+                    Habilitados: 
+                        default: true
+                        filters: 
+                            enabled: true
             title: Clientes
             display: ~
             actions: 
@@ -17,7 +32,7 @@ builders:
                 delete: ~  
     filters:
         params:
-            display: ~
+            display: [name, email, phone]
     new:
         params:
             title: New object for BackendBundle
