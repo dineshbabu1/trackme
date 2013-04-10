@@ -1,6 +1,53 @@
 {
-    "hash": "0ca6c04dc6f1c399c6f01e60d2d1b61a",
+    "hash": "b51e835ed579a73c846e718f9ed0ed6e",
     "packages": [
+        {
+            "name": "bmatzner/fontawesome-bundle",
+            "version": "dev-master",
+            "target-dir": "Bmatzner/FontAwesomeBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bmatzner/BmatznerFontAwesomeBundle.git",
+                "reference": "d4bb8150ca49d751d035c11679a794861067c41e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bmatzner/BmatznerFontAwesomeBundle/zipball/d4bb8150ca49d751d035c11679a794861067c41e",
+                "reference": "d4bb8150ca49d751d035c11679a794861067c41e",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/framework-bundle": ">=2.1"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Bmatzner\\FontAwesomeBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT",
+                "CC BY 3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Bernd Matzner",
+                    "email": "bernd@matznermatzner.de",
+                    "homepage": "http://berndmatzner.de"
+                }
+            ],
+            "description": "FontAwesome Bundle for Symfony2",
+            "homepage": "http://fortawesome.github.com/Font-Awesome/",
+            "keywords": [
+                "css",
+                "graphics",
+                "symfony",
+                "typography",
+                "webfonts"
+            ],
+            "time": "2013-02-04 13:05:42"
+        },
         {
             "name": "cedriclombardot/admingenerator-generator-bundle",
             "version": "dev-master",
@@ -2832,7 +2879,8 @@
         "cedriclombardot/admingenerator-user-bundle": 20,
         "stfalcon/tinymce-bundle": 20,
         "doctrine/doctrine-fixtures-bundle": 20,
-        "sonata-project/seo-bundle": 20
+        "sonata-project/seo-bundle": 20,
+        "bmatzner/fontawesome-bundle": 20
     },
     "platform": {
         "php": ">=5.3.3"

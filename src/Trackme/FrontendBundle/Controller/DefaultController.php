@@ -94,6 +94,14 @@ class DefaultController extends Controller {
         if (!$page) {
             throw $this->createNotFoundException('La página solicitada no existe');
         }
+        $seoPage = $this->container->get('sonata.seo.page');
+
+        $seoPage
+            ->setTitle("Track Me | ".$page->getTitle())
+            ->addMeta('property', 'og:title', $page->getTitle())
+            ->addMeta('property', 'og:type', 'blog')
+        ;
+        
         return $this->render('TrackmeFrontendBundle:Default:page.html.twig', array('page' => $page,
                     'menu' => $menu
                 ));
