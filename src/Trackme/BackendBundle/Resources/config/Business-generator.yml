@@ -10,27 +10,28 @@ builders:
         params:
             title: Clientes
             display: ~
-            actions: ~
+            actions: 
+                new: ~
             object_actions:
                 show: ~
-                delete: ~
+                delete: ~  
     filters:
         params:
             display: ~
-#    new:
-#        params:
-#            title: New object for BackendBundle
-#            display: ~
-#            actions:
-#                save: ~
-#                list: ~
-#    edit:
-#        params:
-#            title: "You're editing the object \"%object%\"|{ %object%: Business.name }|"
-#            display: ~
-#            actions:
-#                save: ~
-#                list: ~
+    new:
+        params:
+            title: New object for BackendBundle
+            display: ~
+            actions:
+                save: ~
+                list: ~
+    edit:
+        params:
+            title: "You're editing the object \"%object%\"|{ %object%: Business.name }|"
+            display: ~
+            actions:
+                save: ~
+                list: ~
     show:
         params:
             title: "You're viewing the object \"%object%\"|{ %object%: Business.name }|"
