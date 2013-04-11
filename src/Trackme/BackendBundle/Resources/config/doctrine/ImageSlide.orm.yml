@@ -7,4 +7,11 @@ Trackme\BackendBundle\Entity\ImageSlide:
             id: true
             generator:
                 strategy: AUTO
+        name:
+            type: string
+        path:
+            type: string
+        alt:
+            type: string
+            nullable: true
     lifecycleCallbacks: {  }

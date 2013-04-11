@@ -29,7 +29,8 @@
         "willdurand/geocoder": "*",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "sonata-project/seo-bundle": "dev-master",
-        "bmatzner/fontawesome-bundle": "dev-master"
+        "bmatzner/fontawesome-bundle": "dev-master",
+        "kunstmaan/media-bundle": "2.2.*@dev"
     },
     "scripts": {
         "post-install-cmd": [

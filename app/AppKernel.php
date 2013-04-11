@@ -35,6 +35,9 @@ class AppKernel extends Kernel
             new Ivory\GoogleMapBundle\IvoryGoogleMapBundle(),
             new Sonata\SeoBundle\SonataSeoBundle(),
             new Bmatzner\FontAwesomeBundle\BmatznerFontAwesomeBundle(),
+            new Liip\ImagineBundle\LiipImagineBundle(),
+            new Kunstmaan\MediaBundle\KunstmaanMediaBundle(),
+            new Kunstmaan\UtilitiesBundle\KunstmaanUtilitiesBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

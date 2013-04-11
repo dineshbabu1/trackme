@@ -1,5 +1,5 @@
 {
-    "hash": "b51e835ed579a73c846e718f9ed0ed6e",
+    "hash": "ae9e5be00c578a86b0e6ccf80b9e2406",
     "packages": [
         {
             "name": "bmatzner/fontawesome-bundle",
@@ -134,7 +134,7 @@
                     "Admingenerator\\UserBundle": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "http://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -172,7 +172,7 @@
                     "TwigGenerator": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "http://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -220,7 +220,7 @@
                     "Doctrine\\Common\\Annotations\\": "lib/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "http://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -287,7 +287,7 @@
                     "Doctrine\\Common\\Cache\\": "lib/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "http://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -353,7 +353,7 @@
                     "Doctrine\\Common\\Collections\\": "lib/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "http://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -425,7 +425,7 @@
                     "Doctrine\\Common\\": "lib/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "http://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -503,7 +503,7 @@
                     "Doctrine\\Common\\DataFixtures": "lib/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "http://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -523,38 +523,31 @@
         },
         {
             "name": "doctrine/dbal",
-            "version": "dev-master",
+            "version": "2.3.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "589a5fb9691e95146367efbb9369a2c34d04d51f"
+                "reference": "dd69835e0dcc44f7f0726b105e83ae5013622f5c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/589a5fb9691e95146367efbb9369a2c34d04d51f",
-                "reference": "589a5fb9691e95146367efbb9369a2c34d04d51f",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/dd69835e0dcc44f7f0726b105e83ae5013622f5c",
+                "reference": "dd69835e0dcc44f7f0726b105e83ae5013622f5c",
                 "shasum": ""
             },
             "require": {
-                "doctrine/common": "2.4.x-dev",
+                "doctrine/common": ">=2.3.0,<2.5-dev",
                 "php": ">=5.3.2"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "3.7.*",
-                "symfony/console": "2.*"
-            },
-            "suggest": {
-                "symfony/console": "For helpful console commands such as SQL execution and import of files."
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.4.x-dev"
+                    "dev-master": "2.3.x-dev"
                 }
             },
             "autoload": {
                 "psr-0": {
-                    "Doctrine\\DBAL\\": "lib/"
+                    "Doctrine\\DBAL": "lib/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -589,7 +582,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2013-04-08 17:45:00"
+            "time": "2013-03-24 19:16:29"
         },
         {
             "name": "doctrine/doctrine-bundle",
@@ -693,7 +686,7 @@
                     "Doctrine\\Bundle\\FixturesBundle": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "http://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -815,13 +808,13 @@
                     "Doctrine\\Common\\Lexer\\": "lib/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "http://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
-                    "name": "Guilherme Blanco",
+                    "name": "Christoph Dorn",
                     "email": "guilhermeblanco@gmail.com",
                     "homepage": "http://www.instaclick.com"
                 },
@@ -830,9 +823,9 @@
                     "email": "roman@code-factory.org"
                 },
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -846,21 +839,20 @@
         },
         {
             "name": "doctrine/orm",
-            "version": "dev-master",
+            "version": "2.3.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "e835175865e9c294747067f3d8f4299e6373c4c8"
+                "reference": "86e40a692b5b052942bd655961fed0dd696ef24e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/e835175865e9c294747067f3d8f4299e6373c4c8",
-                "reference": "e835175865e9c294747067f3d8f4299e6373c4c8",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/86e40a692b5b052942bd655961fed0dd696ef24e",
+                "reference": "86e40a692b5b052942bd655961fed0dd696ef24e",
                 "shasum": ""
             },
             "require": {
-                "doctrine/collections": ">=1.1,<2.0",
-                "doctrine/dbal": ">=2.4-beta,<2.5-dev",
+                "doctrine/dbal": "2.3.*",
                 "ext-pdo": "*",
                 "php": ">=5.3.2",
                 "symfony/console": "2.*"
@@ -875,12 +867,12 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.4.x-dev"
+                    "dev-master": "2.3.x-dev"
                 }
             },
             "autoload": {
                 "psr-0": {
-                    "Doctrine\\ORM\\": "lib/"
+                    "Doctrine\\ORM": "lib/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -913,7 +905,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2013-04-10 17:49:26"
+            "time": "2013-04-06 17:56:15"
         },
         {
             "name": "egeloen/google-map",
@@ -1079,6 +1071,85 @@
             "time": "2013-04-06 13:35:56"
         },
         {
+            "name": "gedmo/doctrine-extensions",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/l3pp4rd/DoctrineExtensions.git",
+                "reference": "b530031b944f5ab675fe0f624937c364f76544b6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/b530031b944f5ab675fe0f624937c364f76544b6",
+                "reference": "b530031b944f5ab675fe0f624937c364f76544b6",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/common": ">=2.2,<2.5-dev",
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "doctrine/dbal": ">=2.2",
+                "doctrine/mongodb": "1.0.1",
+                "doctrine/mongodb-odm": "1.0.0-BETA7",
+                "doctrine/orm": ">=2.2",
+                "symfony/yaml": "2.*"
+            },
+            "suggest": {
+                "doctrine/dbal": ">=2.3.2",
+                "doctrine/mongodb": ">=1.0.1",
+                "doctrine/mongodb-odm": ">=1.0.0-BETA7",
+                "doctrine/orm": ">=2.3.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Gedmo": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "David Buchmann",
+                    "email": "david@liip.ch"
+                },
+                {
+                    "name": "Gediminas Morkevicius",
+                    "email": "gediminas.morkevicius@gmail.com"
+                },
+                {
+                    "name": "Gustavo Falco",
+                    "email": "comfortablynumb84@gmail.com"
+                }
+            ],
+            "description": "Doctrine2 behavioral extensions",
+            "homepage": "http://gediminasm.org/",
+            "keywords": [
+                "Blameable",
+                "behaviors",
+                "doctrine2",
+                "extensions",
+                "gedmo",
+                "loggable",
+                "nestedset",
+                "sluggable",
+                "sortable",
+                "timestampable",
+                "translatable",
+                "tree",
+                "uploadable"
+            ],
+            "time": "2013-04-11 15:29:00"
+        },
+        {
             "name": "genemu/form-bundle",
             "version": "dev-master",
             "target-dir": "Genemu/Bundle/FormBundle",
@@ -1146,6 +1217,53 @@
                 "form"
             ],
             "time": "2013-04-08 09:49:00"
+        },
+        {
+            "name": "imagine/imagine",
+            "version": "v0.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/avalanche123/Imagine",
+                "reference": "v0.4.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/avalanche123/Imagine/archive/v0.4.1.zip",
+                "reference": "v0.4.1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "sami/sami": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Imagine": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bulat Shakirzyanov",
+                    "email": "mallluhuct@gmail.com",
+                    "homepage": "http://avalanche123.com"
+                }
+            ],
+            "description": "Image processing for PHP 5.3",
+            "homepage": "http://imagine.readthedocs.org/",
+            "keywords": [
+                "drawing",
+                "graphics",
+                "image manipulation",
+                "image processing"
+            ],
+            "time": "2012-12-13 18:31:18"
         },
         {
             "name": "jdorn/sql-formatter",
@@ -1227,7 +1345,7 @@
                     "JMS\\AopBundle": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "http://packagist.org/downloads/",
             "license": [
                 "Apache"
             ],
@@ -1235,7 +1353,7 @@
                 {
                     "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -1274,7 +1392,7 @@
                     "CG\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "http://packagist.org/downloads/",
             "license": [
                 "Apache2"
             ],
@@ -1339,7 +1457,7 @@
                     "JMS\\DiExtraBundle": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "http://packagist.org/downloads/",
             "license": [
                 "Apache"
             ],
@@ -1439,7 +1557,7 @@
                     "JMS\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "http://packagist.org/downloads/",
             "license": [
                 "Apache2"
             ],
@@ -1493,7 +1611,7 @@
                     "JMS\\Payment\\CoreBundle": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "http://packagist.org/downloads/",
             "license": [
                 "Apache2"
             ],
@@ -1541,7 +1659,7 @@
                     "JMS\\Payment\\PaypalBundle": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "http://packagist.org/downloads/",
             "license": [
                 "Apache2"
             ],
@@ -1609,7 +1727,7 @@
                     "JMS\\SecurityExtraBundle": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "http://packagist.org/downloads/",
             "license": [
                 "Apache2"
             ],
@@ -1631,6 +1749,141 @@
                 "security"
             ],
             "time": "2013-03-21 13:05:31"
+        },
+        {
+            "name": "knplabs/gaufrette",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KnpLabs/Gaufrette.git",
+                "reference": "bafb3ad404d9e34c593bae30e2a1c61ee111f382"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KnpLabs/Gaufrette/zipball/bafb3ad404d9e34c593bae30e2a1c61ee111f382",
+                "reference": "bafb3ad404d9e34c593bae30e2a1c61ee111f382",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "amazonwebservices/aws-sdk-for-php": "1.5.*",
+                "doctrine/dbal": ">=2.3",
+                "dropbox-php/dropbox-php": "*",
+                "herzult/php-ssh": "*",
+                "phpspec/phpspec2": "dev-master",
+                "phpunit/phpunit": "3.7.*",
+                "rackspace/php-cloudfiles": "*",
+                "rackspace/php-opencloud": "dev-master"
+            },
+            "suggest": {
+                "amazonwebservices/aws-sdk-for-php": "to use the Amazon S3 adapter",
+                "doctrine/dbal": "to use the Doctrine DBAL adapter",
+                "dropbox-php/dropbox-php": "to use the Dropbox adapter",
+                "ext-apc": "to use the APC adapter",
+                "ext-curl": "*",
+                "ext-fileinfo": "*",
+                "ext-mbstring": "*",
+                "ext-mongo": "*",
+                "ext-zip": "to use the Zip adapter",
+                "knplabs/knp-gaufrette-bundle": "*",
+                "rackspace/php-opencloud": "to use Opencloud adapter"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Gaufrette": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "The contributors",
+                    "homepage": "http://github.com/knplabs/Gaufrette/contributors"
+                },
+                {
+                    "name": "KnpLabs Team",
+                    "homepage": "http://knplabs.com"
+                }
+            ],
+            "description": "PHP5 library that provides a filesystem abstraction layer",
+            "homepage": "http://knplabs.com",
+            "keywords": [
+                "abstraction",
+                "file",
+                "filesystem",
+                "media"
+            ],
+            "time": "2013-03-25 12:59:27"
+        },
+        {
+            "name": "knplabs/knp-gaufrette-bundle",
+            "version": "dev-master",
+            "target-dir": "Knp/Bundle/GaufretteBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KnpLabs/KnpGaufretteBundle.git",
+                "reference": "013f50495b58c4d241e5cc993cb58592e179ff98"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KnpLabs/KnpGaufretteBundle/zipball/013f50495b58c4d241e5cc993cb58592e179ff98",
+                "reference": "013f50495b58c4d241e5cc993cb58592e179ff98",
+                "shasum": ""
+            },
+            "require": {
+                "knplabs/gaufrette": "0.2.*@dev",
+                "symfony/framework-bundle": "2.*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*",
+                "symfony/console": "2.*",
+                "symfony/yaml": "2.*"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Knp\\Bundle\\GaufretteBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Antoine Hérault",
+                    "email": "antoine.herault@gmail.com",
+                    "homepage": "https://github.com/Herzult"
+                },
+                {
+                    "name": "The contributors",
+                    "homepage": "https://github.com/knplabs/KnpGaufretteBundle/contributors"
+                }
+            ],
+            "description": "Allows to easily use the Gaufrette library in a Symfony project",
+            "homepage": "http://knplabs.com",
+            "keywords": [
+                "abstraction",
+                "file",
+                "filesystem",
+                "media"
+            ],
+            "time": "2013-03-01 13:08:05"
         },
         {
             "name": "knplabs/knp-menu",
@@ -1670,7 +1923,7 @@
                     "Knp\\Menu\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "http://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1726,7 +1979,7 @@
                     "Knp\\Bundle\\MenuBundle": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "http://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1820,6 +2073,262 @@
                 "minification"
             ],
             "time": "2013-04-02 21:36:28"
+        },
+        {
+            "name": "kunstmaan/admin-bundle",
+            "version": "2.2.x-dev",
+            "target-dir": "Kunstmaan/AdminBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Kunstmaan/KunstmaanAdminBundle.git",
+                "reference": "643ca6099285065181fa0f9d04522e45777651a3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Kunstmaan/KunstmaanAdminBundle/zipball/643ca6099285065181fa0f9d04522e45777651a3",
+                "reference": "643ca6099285065181fa0f9d04522e45777651a3",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/doctrine-fixtures-bundle": "2.1.*",
+                "doctrine/orm": ">=2.2.3,<2.4-dev",
+                "friendsofsymfony/user-bundle": "2.0.*@dev",
+                "knplabs/knp-menu-bundle": "*",
+                "kunstmaan/adminlist-bundle": "2.2.*",
+                "kunstmaan/utilities-bundle": "2.2.*",
+                "monolog/monolog": "1.4.*@dev",
+                "php": ">=5.3.3",
+                "sensio/framework-extra-bundle": "*",
+                "symfony/symfony": ">=2.1.0,<2.3.0"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Kunstmaan\\AdminBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kunstmaan Team",
+                    "email": "support@kunstmaan.be",
+                    "homepage": "http://www.kunstmaan.be/"
+                }
+            ],
+            "description": "The Kunstmaan Admin bundle supplies your project with a basic, elegant backend interface you can modify and extend so you can make your perfect admin module. The clean interface makes it straightforward for you and the people working with it to change settings and modify content.",
+            "homepage": "https://github.com/Kunstmaan/KunstmaanAdminBundle",
+            "keywords": [
+                "admin",
+                "cms",
+                "kunstmaan"
+            ],
+            "time": "2013-04-11 12:26:03"
+        },
+        {
+            "name": "kunstmaan/adminlist-bundle",
+            "version": "2.2.x-dev",
+            "target-dir": "Kunstmaan/AdminListBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Kunstmaan/KunstmaanAdminListBundle.git",
+                "reference": "a330326518ce34f841b633838e12a9247783629a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Kunstmaan/KunstmaanAdminListBundle/zipball/a330326518ce34f841b633838e12a9247783629a",
+                "reference": "a330326518ce34f841b633838e12a9247783629a",
+                "shasum": ""
+            },
+            "require": {
+                "kunstmaan/admin-bundle": "2.2.*",
+                "kunstmaan/utilities-bundle": "2.2.*",
+                "pagerfanta/pagerfanta": "dev-master",
+                "php": ">=5.3.3",
+                "sensio/framework-extra-bundle": "2.2.*",
+                "symfony/symfony": ">=2.1.0,<2.3.0",
+                "white-october/pagerfanta-bundle": "dev-master"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Kunstmaan\\AdminListBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kunstmaan Team",
+                    "email": "support@kunstmaan.be",
+                    "homepage": "http://www.kunstmaan.be/"
+                }
+            ],
+            "description": "Every website contains several lists of content ranging from articles on a blog, to drop down values. The KunstlaanAdminListBundles takes CRUD a step further by supplying filtering, exports to csv and editing capabilities to these content entities.",
+            "homepage": "https://github.com/Kunstmaan/KunstmaanAdminListBundle",
+            "keywords": [
+                "cms",
+                "crud",
+                "kunstmaan"
+            ],
+            "time": "2013-04-11 10:24:53"
+        },
+        {
+            "name": "kunstmaan/media-bundle",
+            "version": "2.2.x-dev",
+            "target-dir": "Kunstmaan/MediaBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Kunstmaan/KunstmaanMediaBundle.git",
+                "reference": "e499c2bef1bf12f16563549231d429897ed98faf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Kunstmaan/KunstmaanMediaBundle/zipball/e499c2bef1bf12f16563549231d429897ed98faf",
+                "reference": "e499c2bef1bf12f16563549231d429897ed98faf",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/doctrine-fixtures-bundle": "2.1.*",
+                "gedmo/doctrine-extensions": "*",
+                "knplabs/knp-gaufrette-bundle": "*",
+                "kunstmaan/admin-bundle": "2.2.*",
+                "kunstmaan/utilities-bundle": "2.2.*",
+                "liip/imagine-bundle": "*",
+                "php": ">=5.3.3",
+                "sensio/framework-extra-bundle": "*",
+                "stof/doctrine-extensions-bundle": "dev-master",
+                "symfony/symfony": ">=2.1.0,<2.3.0"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Kunstmaan\\MediaBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kunstmaan Team",
+                    "email": "support@kunstmaan.be",
+                    "homepage": "http://www.kunstmaan.be/"
+                }
+            ],
+            "description": "To build your perfect website you probably need images, video's or maybe even a presentation too. The Kunstmaan Media Bundle handles all those media assets and centralizes them so you can find your content just the way you like it: fast and efficiently. No central asset management module is useful without some pretty advanced image editing functionality. To provide this we have integrated the Aviary image editing service right from the interface.",
+            "homepage": "https://github.com/Kunstmaan/KunstmaanMediaBundle",
+            "keywords": [
+                "cms",
+                "kunstmaan",
+                "media"
+            ],
+            "time": "2013-04-11 10:23:46"
+        },
+        {
+            "name": "kunstmaan/utilities-bundle",
+            "version": "2.2.x-dev",
+            "target-dir": "Kunstmaan/UtilitiesBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Kunstmaan/KunstmaanUtilitiesBundle.git",
+                "reference": "407ebc3b7d37dd2ae98996ef7da1f596165d6485"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Kunstmaan/KunstmaanUtilitiesBundle/zipball/407ebc3b7d37dd2ae98996ef7da1f596165d6485",
+                "reference": "407ebc3b7d37dd2ae98996ef7da1f596165d6485",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/orm": ">=2.2.3,<2.4-dev",
+                "php": ">=5.3.3",
+                "symfony/symfony": ">=2.1.0,<2.3.0"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Kunstmaan\\UtilitiesBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kunstmaan Team",
+                    "email": "support@kunstmaan.be",
+                    "homepage": "http://www.kunstmaan.be/"
+                }
+            ],
+            "description": "The KunstmaanUtilitiesBundle makes your life easier by providing a couple of small but usefull helper services you can use and re-use in your applications. We already implemented an easy to use cipher service and a shell helper service for you but feel free to send in a pull request with your additions. The shell helper allows you to run apps in the background, see if a process is running and has a method to kill a running process. The cipher service allow you to encode and decode strings using the Rijndael 256 cipher",
+            "homepage": "https://github.com/Kunstmaan/KunstmaanUtilitiesBundle",
+            "keywords": [
+                "cipher",
+                "cms",
+                "kunstmaan",
+                "utilities"
+            ],
+            "time": "2013-04-11 12:29:59"
+        },
+        {
+            "name": "liip/imagine-bundle",
+            "version": "dev-master",
+            "target-dir": "Liip/ImagineBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/liip/LiipImagineBundle.git",
+                "reference": "v0.9.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/liip/LiipImagineBundle/zipball/v0.9.2",
+                "reference": "v0.9.2",
+                "shasum": ""
+            },
+            "require": {
+                "imagine/imagine": "0.4.*",
+                "php": ">=5.3.2",
+                "symfony/filesystem": ">=2.0.16,<2.3-dev",
+                "symfony/finder": ">=2.0.16,<2.3-dev",
+                "symfony/framework-bundle": ">=2.0.16,<2.3-dev"
+            },
+            "require-dev": {
+                "symfony/yaml": ">=2.0.16,<2.3-dev",
+                "twig/twig": ">=1.0,<2.0-dev"
+            },
+            "suggest": {
+                "twig/twig": ">=1.0,<2.0-dev"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Liip\\ImagineBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Liip and other contributors",
+                    "homepage": "https://github.com/liip/LiipImagineBundle/contributors"
+                }
+            ],
+            "description": "This Bundle assists in imagine manipulation using the imagine library",
+            "homepage": "http://liip.ch",
+            "keywords": [
+                "image",
+                "imagine"
+            ],
+            "time": "2013-04-08 16:03:27"
         },
         {
             "name": "monolog/monolog",
@@ -2083,12 +2592,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensio/SensioFrameworkExtraBundle.git",
-                "reference": "6e20f3417e22ea36556cca7669dfc2ed7f95eef7"
+                "reference": "09041c1f95f4ad9c9a23eb9d23d9d110cde94a44"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensio/SensioFrameworkExtraBundle/zipball/6e20f3417e22ea36556cca7669dfc2ed7f95eef7",
-                "reference": "6e20f3417e22ea36556cca7669dfc2ed7f95eef7",
+                "url": "https://api.github.com/repos/sensio/SensioFrameworkExtraBundle/zipball/09041c1f95f4ad9c9a23eb9d23d9d110cde94a44",
+                "reference": "09041c1f95f4ad9c9a23eb9d23d9d110cde94a44",
                 "shasum": ""
             },
             "require": {
@@ -2121,7 +2630,7 @@
                 "annotations",
                 "controllers"
             ],
-            "time": "2013-04-07 09:22:37"
+            "time": "2013-04-11 06:46:09"
         },
         {
             "name": "sensio/generator-bundle",
@@ -2308,7 +2817,7 @@
                     "Stfalcon\\Bundle\\TinymceBundle": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "http://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2337,17 +2846,79 @@
             "time": "2013-02-21 12:21:06"
         },
         {
+            "name": "stof/doctrine-extensions-bundle",
+            "version": "dev-master",
+            "target-dir": "Stof/DoctrineExtensionsBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stof/StofDoctrineExtensionsBundle.git",
+                "reference": "62b1dd67fadb6fdd72d6606cafa6260c18896b61"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stof/StofDoctrineExtensionsBundle/zipball/62b1dd67fadb6fdd72d6606cafa6260c18896b61",
+                "reference": "62b1dd67fadb6fdd72d6606cafa6260c18896b61",
+                "shasum": ""
+            },
+            "require": {
+                "gedmo/doctrine-extensions": "2.3.*",
+                "php": ">=5.3.2",
+                "symfony/framework-bundle": ">=2.1,<3.0"
+            },
+            "suggest": {
+                "doctrine/doctrine-bundle": "to use the ORM extensions",
+                "doctrine/mongodb-odm-bundle": "to use the MongoDB ODM extensions"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Stof\\DoctrineExtensionsBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christophe Coevoet",
+                    "email": "stof@notk.org"
+                }
+            ],
+            "description": "Integration of the gedmo/doctrine-extensions with Symfony2",
+            "homepage": "https://github.com/stof/StofDoctrineExtensionsBundle",
+            "keywords": [
+                "behaviors",
+                "doctrine2",
+                "extensions",
+                "gedmo",
+                "loggable",
+                "nestedset",
+                "sluggable",
+                "sortable",
+                "timestampable",
+                "translatable",
+                "tree"
+            ],
+            "time": "2013-04-07 18:16:23"
+        },
+        {
             "name": "swiftmailer/swiftmailer",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "28873a893b6537d36b857b4cb229549c84bcb82a"
+                "reference": "e77eb358a1aa7157afb922f33e2afc22f6a7bef2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/28873a893b6537d36b857b4cb229549c84bcb82a",
-                "reference": "28873a893b6537d36b857b4cb229549c84bcb82a",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/e77eb358a1aa7157afb922f33e2afc22f6a7bef2",
+                "reference": "e77eb358a1aa7157afb922f33e2afc22f6a7bef2",
                 "shasum": ""
             },
             "require": {
@@ -2383,7 +2954,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2013-04-09 15:37:09"
+            "time": "2013-04-11 10:22:54"
         },
         {
             "name": "symfony/assetic-bundle",
@@ -2428,7 +2999,7 @@
                     "Symfony\\Bundle\\AsseticBundle": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "http://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2567,12 +3138,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "5ce53b434a4680454527ce3208005ca9600b995c"
+                "reference": "3c44d487f2ca7c7237b7a5bb2fa98922d96d7478"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/5ce53b434a4680454527ce3208005ca9600b995c",
-                "reference": "5ce53b434a4680454527ce3208005ca9600b995c",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/3c44d487f2ca7c7237b7a5bb2fa98922d96d7478",
+                "reference": "3c44d487f2ca7c7237b7a5bb2fa98922d96d7478",
                 "shasum": ""
             },
             "require": {
@@ -2658,7 +3229,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2013-04-08 14:57:30"
+            "time": "2013-04-11 10:20:28"
         },
         {
             "name": "twig/extensions",
@@ -2688,7 +3259,7 @@
                     "Twig_Extensions_": "lib/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "http://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2843,7 +3414,7 @@
                     "Geocoder": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "http://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2880,7 +3451,8 @@
         "stfalcon/tinymce-bundle": 20,
         "doctrine/doctrine-fixtures-bundle": 20,
         "sonata-project/seo-bundle": 20,
-        "bmatzner/fontawesome-bundle": 20
+        "bmatzner/fontawesome-bundle": 20,
+        "kunstmaan/media-bundle": 20
     },
     "platform": {
         "php": ">=5.3.3"
