@@ -14,7 +14,8 @@ class DefaultController extends Controller {
     public function indexAction() {
         $em = $this->getDoctrine()->getManager();
         $menu = $em->getRepository('Trackme\BackendBundle\Entity\Page')->findBy(array('enabled' => true), array('weigth' => 'ASC', 'title' => 'ASC'));
-        return $this->render('TrackmeFrontendBundle:Default:index.html.twig', array('menu' => $menu));
+        $media = $em->getRepository('Trackme\BackendBundle\Entity\Media')->findBy(array('enabled' => true));
+        return $this->render('TrackmeFrontendBundle:Default:index.html.twig', array('menu' => $menu, 'media' => $media));
     }
     
     public function signupuserAction(Request $request){

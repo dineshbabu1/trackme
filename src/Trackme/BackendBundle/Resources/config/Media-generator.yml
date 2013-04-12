@@ -1,0 +1,50 @@
+generator: admingenerator.generator.doctrine
+params:
+    model: Trackme\BackendBundle\Entity\Media
+    namespace_prefix: Trackme
+    bundle_name: BackendBundle
+    fields: 
+        file:
+            label:            Imagen
+            formType:         single_upload
+            dbType:           string
+            addFormOptions:
+                nameable: name
+
+builders:
+    list:
+        params:
+            title: List for BackendBundle
+            display: [ name, alt, enabled]
+            actions:
+                new: ~
+            object_actions:
+                edit: ~
+                delete: ~
+    filters:
+        params:
+            display: []
+    new:
+        params:
+            title: Nueva Imagen
+            display: 
+                NONE: [ [file],[alt, enabled] ]
+            actions:
+                save: ~
+                list: ~
+    edit:
+        params:
+            title: "You're editing the object \"%object%\"|{ %object%: Media.name }|"
+            display: 
+                NONE: [ [file],[alt, enabled] ]
+            actions:
+                save: ~
+                list: ~
+    show:
+        params:
+            title: "You're viewing the object \"%object%\"|{ %object%: Media.name }|"
+            display: ~
+            actions:
+                list: ~
+                new: ~
+    delete: ~

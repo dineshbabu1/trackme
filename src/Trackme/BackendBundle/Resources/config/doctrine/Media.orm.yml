@@ -1,4 +1,4 @@
-Trackme\BackendBundle\Entity\ImageSlide:
+Trackme\BackendBundle\Entity\Media:
     type: entity
     table: null
     fields:
@@ -9,9 +9,14 @@ Trackme\BackendBundle\Entity\ImageSlide:
                 strategy: AUTO
         name:
             type: string
-        path:
+            length: 255
+            nullable: true
+        file:
             type: string
+            length: 255
         alt:
             type: string
-            nullable: true
+            length: 255
+        enabled:
+            type: boolean
     lifecycleCallbacks: {  }

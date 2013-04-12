@@ -3,7 +3,6 @@ imports:
     - { resource: security.yml }
 
 framework:
-    #esi:             ~
     translator:      { fallback: %locale% }
     secret:          %secret%
     router:
@@ -14,7 +13,6 @@ framework:
     validation:      { enable_annotations: true }
     templating:
         engines: ['twig']
-        #assets_version: SomeVersionScheme
     default_locale:  "%locale%"
     trusted_proxies: ~
     session:         ~
@@ -84,6 +82,7 @@ admingenerator_generator:
     use_propel:           false
     use_doctrine_orm:     true
     use_doctrine_odm:     false
+    thumbnail_generator:  avalanche
     
 knp_menu:
     twig:
@@ -125,6 +124,26 @@ genemu_form:
         enabled: true
         theme:   advanced
         
+vich_uploader:
+    db_driver: orm
+    twig: true
+    mappings:
+        image_file:
+            uri_prefix: /images
+            upload_destination: %kernel.root_dir%/../web/images
+            namer: vich_uploader.namer_uniqid        
+        
+avalanche_imagine:
+    source_root:  %kernel.root_dir%/../web
+    web_root:     %kernel.root_dir%/../web
+    filters:
+        my_thumb:
+            type:    thumbnail
+            options: { size: [200, 200], mode: outbound, quality: 80, format: png, cache_type: public }
+        medium:
+            type:    thumbnail
+            options: { size: [1000, 400], mode: outbound, quality: 80, format: png, cache_type: public }    
+            
 sonata_seo:
     default:          sonata.seo.page.default
     encoding:         UTF-8
