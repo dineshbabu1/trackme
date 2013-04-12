@@ -32,7 +32,8 @@
         "bmatzner/fontawesome-bundle": "dev-master",
         "vich/uploader-bundle": "dev-master",
         "knplabs/knp-gaufrette-bundle" : "dev-master",
-        "avalanche123/imagine-bundle": "v2.1"
+        "avalanche123/imagine-bundle": "v2.1",
+        "liip/monitor-bundle": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [

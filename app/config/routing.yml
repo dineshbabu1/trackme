@@ -99,3 +99,7 @@ fos_user_change_password:
 _imagine:
     resource: .
     type:     imagine
+    
+_monitor:
+    resource: "@LiipMonitorBundle/Resources/config/routing.yml"
+    prefix: /monitor/health    

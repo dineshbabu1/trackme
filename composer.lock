@@ -1,5 +1,5 @@
 {
-    "hash": "13b17b6bd59a41ae35d8268e9277f8e9",
+    "hash": "75ff921562514a927773462c1218c982",
     "packages": [
         {
             "name": "avalanche123/imagine-bundle",
@@ -2051,6 +2051,118 @@
             "time": "2013-04-02 21:36:28"
         },
         {
+            "name": "liip/monitor",
+            "version": "dev-master",
+            "target-dir": "Liip/Monitor",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/liip/LiipMonitor.git",
+                "reference": "fe6d53146de8a6034af270d0b05548eea1af75df"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/liip/LiipMonitor/zipball/fe6d53146de8a6034af270d0b05548eea1af75df",
+                "reference": "fe6d53146de8a6034af270d0b05548eea1af75df",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "suggest": {
+                "sensiolabs/security-checker": "Required for Security Advisory Checker"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.5.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Liip\\Monitor": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alvaro Videla",
+                    "email": "alvaro.videla@liip.ch"
+                },
+                {
+                    "name": "PHP Community",
+                    "homepage": "https://github.com/liip/LiipMonitor/contributors"
+                }
+            ],
+            "description": "Liip Monitor library",
+            "keywords": [
+                "check",
+                "health",
+                "monitor",
+                "monitoring"
+            ],
+            "time": "2013-02-24 20:24:22"
+        },
+        {
+            "name": "liip/monitor-bundle",
+            "version": "dev-master",
+            "target-dir": "Liip/MonitorBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/liip/LiipMonitorBundle.git",
+                "reference": "edcd0af746c1415739794c2590f3b96b4acb303f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/liip/LiipMonitorBundle/zipball/edcd0af746c1415739794c2590f3b96b4acb303f",
+                "reference": "edcd0af746c1415739794c2590f3b96b4acb303f",
+                "shasum": ""
+            },
+            "require": {
+                "liip/monitor": "0.5.*",
+                "php": ">=5.3.2",
+                "symfony/framework-bundle": ">2.0,<2.3-dev"
+            },
+            "suggest": {
+                "sensio/distribution-bundle": "To be able to use the composer ScriptHandler"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.5.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Liip\\MonitorBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alvaro Videla",
+                    "email": "alvaro.videla@liip.ch"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://github.com/liip/LiipMonitorBundle/contributors"
+                }
+            ],
+            "description": "Liip Monitor Bundle",
+            "keywords": [
+                "check",
+                "health",
+                "monitor",
+                "monitoring"
+            ],
+            "time": "2013-03-27 22:26:31"
+        },
+        {
             "name": "monolog/monolog",
             "version": "dev-master",
             "source": {
@@ -3169,7 +3281,8 @@
         "sonata-project/seo-bundle": 20,
         "bmatzner/fontawesome-bundle": 20,
         "vich/uploader-bundle": 20,
-        "knplabs/knp-gaufrette-bundle": 20
+        "knplabs/knp-gaufrette-bundle": 20,
+        "liip/monitor-bundle": 20
     },
     "platform": {
         "php": ">=5.3.3"
