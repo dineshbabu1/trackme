@@ -39,14 +39,22 @@ class AppKernel extends Kernel
             new Vich\UploaderBundle\VichUploaderBundle(),
             new Avalanche\Bundle\ImagineBundle\AvalancheImagineBundle(),
             new Liip\MonitorBundle\LiipMonitorBundle(),
-            new JMS\CommandBundle\JMSCommandBundle()
+            new JMS\CommandBundle\JMSCommandBundle(),
+            new Bazinga\Bundle\FakerBundle\BazingaFakerBundle(),
+            new Craue\FormFlowBundle\CraueFormFlowBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
+            //$bundles[] = new JMS\DebuggingBundle\JMSDebuggingBundle($this);
+        }
+
+        if ($this->isDebug()) {
+        
             $bundles[] = new JMS\DebuggingBundle\JMSDebuggingBundle($this);
+         
         }
 
         return $bundles;

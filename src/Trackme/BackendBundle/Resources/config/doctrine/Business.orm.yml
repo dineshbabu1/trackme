@@ -14,14 +14,18 @@ Trackme\BackendBundle\Entity\Business:
         email:
             type: string
             length: 255
+            nullable: true
         phone:
             type: string
             length: 255
+            nullable: true
         enabled:
             type: boolean
+            nullable: true
         token:
             type: string
             length: 255
+            nullable: true
     manyToOne:
       state:
         targetEntity: Trackme\BackendBundle\Entity\ClientState

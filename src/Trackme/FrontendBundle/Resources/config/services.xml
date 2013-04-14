@@ -4,17 +4,19 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <!--
-    <parameters>
-        <parameter key="trackme_frontend.example.class">Trackme\FrontendBundle\Example</parameter>
-    </parameters>
-
     <services>
-        <service id="trackme_frontend.example" class="%trackme_frontend.example.class%">
-            <argument type="service" id="service_id" />
-            <argument>plain_value</argument>
-            <argument>%parameter_name%</argument>
+        <service id="trackme.form.registerBusiness"
+            class="Trackme\FrontendBundle\Form\RegisterBusinessFormType">
+            <tag name="form.type" alias="registerBusiness" />
+        </service>
+
+        <service id="trackme.form.flow.registerBusiness"
+            class="Trackme\FrontendBundle\Form\RegisterBusinessFlow"
+            parent="craue.form.flow"
+            scope="request">
+            <call method="setFormType">
+                <argument type="service" id="trackme.form.registerBusiness" />
+            </call>
         </service>
     </services>
-    -->
 </container>
