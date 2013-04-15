@@ -1,5 +1,5 @@
 {
-    "hash": "75ff921562514a927773462c1218c982",
+    "hash": "4b40498396cf66a07ba515f54817dfbe",
     "packages": [
         {
             "name": "avalanche123/imagine-bundle",
@@ -102,12 +102,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony2admingenerator/AdmingeneratorGeneratorBundle.git",
-                "reference": "848a74cd26bda2988f52d9168ddffccb91a87f33"
+                "reference": "106c67586f3c5a8e07fe4a550d604af42351af04"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony2admingenerator/AdmingeneratorGeneratorBundle/zipball/848a74cd26bda2988f52d9168ddffccb91a87f33",
-                "reference": "848a74cd26bda2988f52d9168ddffccb91a87f33",
+                "url": "https://api.github.com/repos/symfony2admingenerator/AdmingeneratorGeneratorBundle/zipball/106c67586f3c5a8e07fe4a550d604af42351af04",
+                "reference": "106c67586f3c5a8e07fe4a550d604af42351af04",
                 "shasum": ""
             },
             "require": {
@@ -124,6 +124,7 @@
                 "doctrine/orm": ">=2.2.3,<2.5-dev"
             },
             "suggest": {
+                "avalanche123/imagine-bundle": "Image manipulation using Imagine and Twig Filters",
                 "cedriclombardot/admingenerator-user-bundle": "Help you to overwrite the base layout of FOSUserBundle or others giving a parameter key of the container"
             },
             "type": "symfony-bundle",
@@ -158,7 +159,7 @@
                 "generator",
                 "yaml"
             ],
-            "time": "2013-04-04 23:29:16"
+            "time": "2013-04-15 12:42:04"
         },
         {
             "name": "cedriclombardot/admingenerator-user-bundle",
@@ -574,12 +575,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "589a5fb9691e95146367efbb9369a2c34d04d51f"
+                "reference": "4485d19634219ee791fe631657b31069e0de277d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/589a5fb9691e95146367efbb9369a2c34d04d51f",
-                "reference": "589a5fb9691e95146367efbb9369a2c34d04d51f",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/4485d19634219ee791fe631657b31069e0de277d",
+                "reference": "4485d19634219ee791fe631657b31069e0de277d",
                 "shasum": ""
             },
             "require": {
@@ -591,7 +592,7 @@
                 "symfony/console": "2.*"
             },
             "suggest": {
-                "symfony/console": "For helpful console commands such as SQL execution and import of files."
+                "symfony/console": "Allows use of the command line interface"
             },
             "type": "library",
             "extra": {
@@ -636,7 +637,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2013-04-08 17:45:00"
+            "time": "2013-04-14 16:29:11"
         },
         {
             "name": "doctrine/doctrine-bundle",
@@ -897,12 +898,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "e835175865e9c294747067f3d8f4299e6373c4c8"
+                "reference": "52b2e066c5e8f7a17470867e253562ece28dc6f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/e835175865e9c294747067f3d8f4299e6373c4c8",
-                "reference": "e835175865e9c294747067f3d8f4299e6373c4c8",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/52b2e066c5e8f7a17470867e253562ece28dc6f5",
+                "reference": "52b2e066c5e8f7a17470867e253562ece28dc6f5",
                 "shasum": ""
             },
             "require": {
@@ -960,7 +961,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2013-04-10 17:49:26"
+            "time": "2013-04-14 07:43:42"
         },
         {
             "name": "egeloen/google-map",
@@ -1017,12 +1018,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/egeloen/IvoryGoogleMapBundle.git",
-                "reference": "2ed0c74df4cdd11e0b8cb269d9cc47d9655f97e0"
+                "reference": "f971821741fbed35f5bde2e5a5794883240f07d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egeloen/IvoryGoogleMapBundle/zipball/2ed0c74df4cdd11e0b8cb269d9cc47d9655f97e0",
-                "reference": "2ed0c74df4cdd11e0b8cb269d9cc47d9655f97e0",
+                "url": "https://api.github.com/repos/egeloen/IvoryGoogleMapBundle/zipball/f971821741fbed35f5bde2e5a5794883240f07d0",
+                "reference": "f971821741fbed35f5bde2e5a5794883240f07d0",
                 "shasum": ""
             },
             "require": {
@@ -1057,7 +1058,7 @@
             "keywords": [
                 "google map"
             ],
-            "time": "2013-04-10 20:01:15"
+            "time": "2013-04-14 09:07:29"
         },
         {
             "name": "friendsofsymfony/user-bundle",
@@ -1066,12 +1067,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-                "reference": "a12abfa8ff8bb5c873309115ee59a615467d802a"
+                "reference": "20c2531805c40153112ecfdc65cddaf4a0f90f18"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/a12abfa8ff8bb5c873309115ee59a615467d802a",
-                "reference": "a12abfa8ff8bb5c873309115ee59a615467d802a",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/20c2531805c40153112ecfdc65cddaf4a0f90f18",
+                "reference": "20c2531805c40153112ecfdc65cddaf4a0f90f18",
                 "shasum": ""
             },
             "require": {
@@ -1123,7 +1124,7 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2013-04-06 13:35:56"
+            "time": "2013-04-13 16:33:48"
         },
         {
             "name": "genemu/form-bundle",
@@ -1385,6 +1386,94 @@
                 "code generation"
             ],
             "time": "2013-03-23 08:03:00"
+        },
+        {
+            "name": "jms/command-bundle",
+            "version": "dev-master",
+            "target-dir": "JMS/CommandBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/schmittjoh/JMSCommandBundle.git",
+                "reference": "5468f9040aa8eeff1b9fc329b85fc087d549079c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/schmittjoh/JMSCommandBundle/zipball/5468f9040aa8eeff1b9fc329b85fc087d549079c",
+                "reference": "5468f9040aa8eeff1b9fc329b85fc087d549079c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "symfony/framework-bundle": ">=2.0,<3.0"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "JMS\\CommandBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache2"
+            ],
+            "authors": [
+                {
+                    "name": "Johannes M. Schmitt",
+                    "email": "schmittjoh@gmail.com",
+                    "homepage": "http://jmsyst.com",
+                    "role": "Developer of wrapped JMSSerializerBundle"
+                }
+            ],
+            "description": "Provides useful commands to ease development (with Symfony2).",
+            "homepage": "http://jmsyst.com/bundles/JMSCommandBundle",
+            "keywords": [
+                "development"
+            ],
+            "time": "2013-03-12 21:45:10"
+        },
+        {
+            "name": "jms/debugging-bundle",
+            "version": "dev-master",
+            "target-dir": "JMS/DebuggingBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/schmittjoh/JMSDebuggingBundle.git",
+                "reference": "06db389dee9882b5e0cfb9a13438930d8481d959"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/schmittjoh/JMSDebuggingBundle/zipball/06db389dee9882b5e0cfb9a13438930d8481d959",
+                "reference": "06db389dee9882b5e0cfb9a13438930d8481d959",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "symfony/framework-bundle": ">=2.0,<2.3-dev"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "JMS\\DebuggingBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache2"
+            ],
+            "authors": [
+                {
+                    "name": "Johannes M. Schmitt",
+                    "email": "schmittjoh@gmail.com",
+                    "homepage": "https://github.com/schmittjoh",
+                    "role": "Developer of wrapped JMSSerializerBundle"
+                }
+            ],
+            "description": "This bundle provides advanced debugging tools (for your Symfony2 project).",
+            "homepage": "http://jmsyst.com/bundles/JMSDebuggingBundle",
+            "keywords": [
+                "debugging"
+            ],
+            "time": "2013-01-21 11:18:22"
         },
         {
             "name": "jms/di-extra-bundle",
@@ -1732,12 +1821,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/Gaufrette.git",
-                "reference": "bafb3ad404d9e34c593bae30e2a1c61ee111f382"
+                "reference": "8e621420008b3d59c4862bc59a59ba9fa522d29b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/Gaufrette/zipball/bafb3ad404d9e34c593bae30e2a1c61ee111f382",
-                "reference": "bafb3ad404d9e34c593bae30e2a1c61ee111f382",
+                "url": "https://api.github.com/repos/KnpLabs/Gaufrette/zipball/8e621420008b3d59c4862bc59a59ba9fa522d29b",
+                "reference": "8e621420008b3d59c4862bc59a59ba9fa522d29b",
                 "shasum": ""
             },
             "require": {
@@ -1799,7 +1888,7 @@
                 "filesystem",
                 "media"
             ],
-            "time": "2013-03-25 12:59:27"
+            "time": "2013-04-15 06:10:15"
         },
         {
             "name": "knplabs/knp-gaufrette-bundle",
@@ -1808,12 +1897,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/KnpGaufretteBundle.git",
-                "reference": "013f50495b58c4d241e5cc993cb58592e179ff98"
+                "reference": "de1ef2f9b2cb422f11e9585f29af0c73c105f01d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpGaufretteBundle/zipball/013f50495b58c4d241e5cc993cb58592e179ff98",
-                "reference": "013f50495b58c4d241e5cc993cb58592e179ff98",
+                "url": "https://api.github.com/repos/KnpLabs/KnpGaufretteBundle/zipball/de1ef2f9b2cb422f11e9585f29af0c73c105f01d",
+                "reference": "de1ef2f9b2cb422f11e9585f29af0c73c105f01d",
                 "shasum": ""
             },
             "require": {
@@ -1859,7 +1948,7 @@
                 "filesystem",
                 "media"
             ],
-            "time": "2013-03-01 13:08:05"
+            "time": "2013-04-15 06:12:02"
         },
         {
             "name": "knplabs/knp-menu",
@@ -1867,12 +1956,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/KnpMenu.git",
-                "reference": "730bc37232f5f813822acf80edfbd89381ea5971"
+                "reference": "5cf5ab4948d8c573f260e2b612bfc9721da1c892"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpMenu/zipball/730bc37232f5f813822acf80edfbd89381ea5971",
-                "reference": "730bc37232f5f813822acf80edfbd89381ea5971",
+                "url": "https://api.github.com/repos/KnpLabs/KnpMenu/zipball/5cf5ab4948d8c573f260e2b612bfc9721da1c892",
+                "reference": "5cf5ab4948d8c573f260e2b612bfc9721da1c892",
                 "shasum": ""
             },
             "require": {
@@ -1899,7 +1988,7 @@
                     "Knp\\Menu\\": "src/"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1923,7 +2012,7 @@
                 "menu",
                 "tree"
             ],
-            "time": "2012-12-27 13:04:16"
+            "time": "2013-04-15 14:10:52"
         },
         {
             "name": "knplabs/knp-menu-bundle",
@@ -2230,12 +2319,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/whiteoctober/Pagerfanta.git",
-                "reference": "797944b0f70f71a24a273752dbf063cba5b11513"
+                "reference": "6d37d04645ab875042e08b54ddacc5c0bd294c44"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/whiteoctober/Pagerfanta/zipball/797944b0f70f71a24a273752dbf063cba5b11513",
-                "reference": "797944b0f70f71a24a273752dbf063cba5b11513",
+                "url": "https://api.github.com/repos/whiteoctober/Pagerfanta/zipball/6d37d04645ab875042e08b54ddacc5c0bd294c44",
+                "reference": "6d37d04645ab875042e08b54ddacc5c0bd294c44",
                 "shasum": ""
             },
             "require": {
@@ -2282,7 +2371,7 @@
                 "page",
                 "paging"
             ],
-            "time": "2013-04-10 12:34:33"
+            "time": "2013-04-14 14:47:11"
         },
         {
             "name": "phpoption/phpoption",
@@ -3054,12 +3143,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "8bbbecd08e00615ad90b46ef7486abdfab911da9"
+                "reference": "887b6ee797dc338c5ef5669c98252db6bde7042d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/8bbbecd08e00615ad90b46ef7486abdfab911da9",
-                "reference": "8bbbecd08e00615ad90b46ef7486abdfab911da9",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/887b6ee797dc338c5ef5669c98252db6bde7042d",
+                "reference": "887b6ee797dc338c5ef5669c98252db6bde7042d",
                 "shasum": ""
             },
             "require": {
@@ -3095,7 +3184,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2013-04-12 09:46:40"
+            "time": "2013-04-15 09:43:17"
         },
         {
             "name": "vich/uploader-bundle",
@@ -3272,6 +3361,8 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
+        "jms/debugging-bundle": 20,
+        "jms/command-bundle": 20,
         "jms/payment-core-bundle": 20,
         "jms/payment-paypal-bundle": 20,
         "cedriclombardot/admingenerator-generator-bundle": 20,

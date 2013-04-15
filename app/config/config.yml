@@ -109,6 +109,9 @@ stfalcon_tinymce:
                 plugins: "fullscreen,pagebreak,table,save,advimage"
                 theme_advanced_buttons1_add: "fullscreen"
                 
+jms_debugging:
+    auto_help: false
+
 jms_payment_core:
     secret: 01ak3a53
     
