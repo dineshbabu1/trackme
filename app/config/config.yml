@@ -172,10 +172,11 @@ sonata_seo:
 liip_monitor:
     checks:
         php_extensions: [xdebug]
-        symfony_version_check: 
+        symfony_version_check: ~
         custom_error_pages:
-            error_codes: [500, 404, 403]
+            error_codes: [500, 404]
         symfony_version_check: ~
         disc_usage:
-            percentage: ~
+            percentage: 80
+        writable_directory: ~
             
