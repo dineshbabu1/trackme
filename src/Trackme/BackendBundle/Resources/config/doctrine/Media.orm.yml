@@ -20,4 +20,5 @@ Trackme\BackendBundle\Entity\Media:
             nullable: true
         enabled:
             type: boolean
+            default: true
     lifecycleCallbacks: {  }

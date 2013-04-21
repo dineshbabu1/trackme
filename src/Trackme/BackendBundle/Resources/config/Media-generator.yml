@@ -31,6 +31,8 @@ builders:
                 NONE: [ [file],[alt, enabled] ]
             actions:
                 save: ~
+                save-and-add: ~
+                save-and-list: ~
                 list: ~
     edit:
         params:

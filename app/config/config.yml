@@ -129,15 +129,15 @@ avalanche_imagine:
             options: { size: [200, 200], mode: outbound, quality: 80, format: png, cache_type: public }
         medium:
             type:    thumbnail
-            options: { size: [1000, 400], mode: outbound, quality: 80, format: png, cache_type: public } 
+            options: { size: [1000, 400], mode: outbound, quality: 100, format: png, cache_type: public } 
 
 vich_uploader:
     db_driver: orm
     twig: true
     mappings:
         image_file:
-            uri_prefix: /images
-            upload_destination: %kernel.root_dir%/../web/images
+            uri_prefix: /uploads
+            upload_destination: %kernel.root_dir%/../web/uploads
             namer: vich_uploader.namer_uniqid     
             inject_on_load:       true      
             
