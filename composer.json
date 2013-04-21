@@ -18,7 +18,6 @@
         "sensio/generator-bundle": "2.2.*",
         "jms/security-extra-bundle": "1.4.*",
         "jms/di-extra-bundle": "1.3.*",
-        "jms/debugging-bundle": "dev-master",
         "jms/command-bundle": "dev-master",
         "jms/payment-core-bundle": "master-dev",
         "jms/payment-paypal-bundle": "dev-master",
@@ -26,18 +25,17 @@
         "cedriclombardot/admingenerator-generator-bundle": "dev-master",
         "cedriclombardot/admingenerator-user-bundle": "dev-master",
         "stfalcon/tinymce-bundle": "dev-master",
-        "genemu/form-bundle": "2.1.*",
         "egeloen/google-map-bundle": "*",
         "willdurand/geocoder": "*",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "sonata-project/seo-bundle": "dev-master",
-        "bmatzner/fontawesome-bundle": "dev-master",
         "vich/uploader-bundle": "dev-master",
         "knplabs/knp-gaufrette-bundle" : "dev-master",
         "avalanche123/imagine-bundle": "v2.1",
         "liip/monitor-bundle": "dev-master",
         "willdurand/faker-bundle": "dev-master",
-        "craue/formflow-bundle": "dev-master"
+        "craue/formflow-bundle": "dev-master",
+        "antimattr/google-bundle": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [

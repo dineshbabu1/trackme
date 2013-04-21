@@ -17,6 +17,7 @@ Trackme\BackendBundle\Entity\Media:
         alt:
             type: string
             length: 255
+            nullable: true
         enabled:
             type: boolean
     lifecycleCallbacks: {  }

@@ -23,7 +23,7 @@ set :use_composer, true
 set :shared_files,      ["app/config/parameters.yml"]
 set :shared_children,   [app_path + "/logs", web_path + "/uploads", "vendor"]
 
-set :writable_dirs,       ["app/cache", "app/logs"]
+set :writable_dirs,       ["app/cache", "app/logs", web_path+"/uploads"]
 set :webserver_user,      "www-data"
 set :permission_method,   :acl
 set :use_set_permissions, true

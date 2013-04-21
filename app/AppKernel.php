@@ -31,10 +31,8 @@ class AppKernel extends Kernel
             new Admingenerator\UserBundle\AdmingeneratorUserBundle(),
             new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
             new Trackme\ApiBundle\TrackmeApiBundle(),
-            new Genemu\Bundle\FormBundle\GenemuFormBundle(),
             new Ivory\GoogleMapBundle\IvoryGoogleMapBundle(),
             new Sonata\SeoBundle\SonataSeoBundle(),
-            new Bmatzner\FontAwesomeBundle\BmatznerFontAwesomeBundle(),
             new Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
             new Vich\UploaderBundle\VichUploaderBundle(),
             new Avalanche\Bundle\ImagineBundle\AvalancheImagineBundle(),
@@ -48,13 +46,6 @@ class AppKernel extends Kernel
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
-            //$bundles[] = new JMS\DebuggingBundle\JMSDebuggingBundle($this);
-        }
-
-        if ($this->isDebug()) {
-        
-            $bundles[] = new JMS\DebuggingBundle\JMSDebuggingBundle($this);
-         
         }
 
         return $bundles;
@@ -65,12 +56,4 @@ class AppKernel extends Kernel
         $loader->load(__DIR__.'/config/config_'.$this->getEnvironment().'.yml');
     }
     
-    protected function getContainerBaseClass()
-    {
-      if (in_array($this->getEnvironment(), array('dev', 'test'))) {
-        return '\JMS\DebuggingBundle\DependencyInjection\TraceableContainer';
-      }
-
-      return parent::getContainerBaseClass();
-    }
 }
