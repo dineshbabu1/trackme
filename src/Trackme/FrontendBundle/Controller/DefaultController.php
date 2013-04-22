@@ -83,6 +83,12 @@ class DefaultController extends Controller {
             return $this->redirect($this->generateUrl('pricing'));
         }
 
+        $em = $this->getDoctrine()->getEntityManager();
+        $plan = $em->getRepository('Trackme\BackendBundle\Entity\Plan')->find($request->get('plan'));
+        if(!$plan){
+            throw $this->createNotFoundException('El plan solicitado no existe');
+        }
+
         $userManager = $this->get('fos_user.user_manager');
         $user = $userManager->createUser();
 
