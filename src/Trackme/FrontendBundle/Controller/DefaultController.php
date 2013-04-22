@@ -79,11 +79,14 @@ class DefaultController extends Controller {
     }
 
     public function signupAction(Request $request) {
-        // Should be your user entity. Has to be an object, won't work properly with an array.
-        $user = new User();
+        if(!$request->get('plan')){
+            return $this->redirect($this->generateUrl('pricing'));
+        }
+
+        $userManager = $this->get('fos_user.user_manager');
+        $user = $userManager->createUser();
 
         $flow = $this->get('trackme.form.flow.registerBusiness'); // must match the flow's service id
-        $flow->reset();
         $flow->bind($user);
         $form = $flow->createForm($user);
 

@@ -14,7 +14,7 @@ params:
 builders:
     list:
         params:
-            title: List for BackendBundle
+            title: Imagenes slider
             display: [ name, alt, enabled]
             actions:
                 new: ~

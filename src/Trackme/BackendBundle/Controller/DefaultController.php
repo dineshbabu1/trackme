@@ -41,7 +41,7 @@ class DefaultController extends Controller
 
         $marker = new Marker();
         $marker->setPosition(-33.424565,-70.65033, true);
-        $marker->setIcon('http://mapicons.nicolasmollet.com/wp-content/uploads/mapicons/shape-default/color-9d7050/shapecolor-color/shadow-1/border-black/symbolstyle-contrast/symbolshadowstyle-no/gradient-no/truck-2.png');
+        #$marker->setIcon('http://mapicons.nicolasmollet.com/wp-content/uploads/mapicons/shape-default/color-9d7050/shapecolor-color/shadow-1/border-black/symbolstyle-contrast/symbolshadowstyle-no/gradient-no/truck-2.png');
         
         $map = $this->get('ivory_google_map.map');
         $map->setStylesheetOption('width', '1000px');
