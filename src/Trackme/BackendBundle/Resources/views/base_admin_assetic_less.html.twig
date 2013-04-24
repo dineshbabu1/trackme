@@ -1,8 +1,17 @@
 {% extends 'AdmingeneratorGeneratorBundle::base_admin_assetic_less.html.twig' %}
 
+{% block title %}
+	Track Me | Dashboard
+{% endblock title %}
+
+{% block navbar %}
+	{{ include('TrackmeBackendBundle::base_admin_navbar.html.twig') }}
+{% endblock navbar %}
+
+
 {% block footer %}
 <footer>
     <hr>
-    <p>{% block footer_text %}&copy; Track Me {{ ("now"|date('Y') > 2012) ? '2012 - ' ~ "now"|date('Y') : '2012' }}{% endblock %}</p>
+    <p>{% block footer_text %}&copy; Track Me! {{ ("now"|date('Y') > 2012) ? '2012 - ' ~ "now"|date('Y') : '2012' }}{% endblock %}</p>
 </footer>
-{% endblock %}
+{% endblock footer %}

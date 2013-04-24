@@ -47,8 +47,10 @@
         <header class="jumbotron subhead" id="overview">
           <div class="row">
             <div class="span12">
-              <h1>{% block page_title %} Track me! {% endblock%}</h1>
-              <p class="lead">{% block page_subtitle %}{% endblock%}</p>
+              {% block page_title %}
+                <img src="{{ asset('bundles/trackmefrontend/images/logo.png') | apply_filter('logo')}}" />
+              {% endblock%}
+              <p class="lead">{% block page_subtitle %}Best fleet manager ever!{% endblock%}</p>
             </div>
           </div>
         </header>

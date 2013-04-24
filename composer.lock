@@ -103,12 +103,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony2admingenerator/AdmingeneratorGeneratorBundle.git",
-                "reference": "660e29d2fb892fe0ee818c5428d608f4b72fa5f3"
+                "reference": "6fea0cc8aa814f877c3b1ae535a7addbfb904bc2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony2admingenerator/AdmingeneratorGeneratorBundle/zipball/660e29d2fb892fe0ee818c5428d608f4b72fa5f3",
-                "reference": "660e29d2fb892fe0ee818c5428d608f4b72fa5f3",
+                "url": "https://api.github.com/repos/symfony2admingenerator/AdmingeneratorGeneratorBundle/zipball/6fea0cc8aa814f877c3b1ae535a7addbfb904bc2",
+                "reference": "6fea0cc8aa814f877c3b1ae535a7addbfb904bc2",
                 "shasum": ""
             },
             "require": {
@@ -160,7 +160,7 @@
                 "generator",
                 "yaml"
             ],
-            "time": "2013-04-20 19:41:29"
+            "time": "2013-04-23 06:32:11"
         },
         {
             "name": "cedriclombardot/admingenerator-user-bundle",
@@ -249,12 +249,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/craue/CraueFormFlowBundle.git",
-                "reference": "1.1.2"
+                "reference": "86510f7c19e64ccaa1fb661d734f5d6d5fd859a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craue/CraueFormFlowBundle/zipball/1.1.2",
-                "reference": "1.1.2",
+                "url": "https://api.github.com/repos/craue/CraueFormFlowBundle/zipball/86510f7c19e64ccaa1fb661d734f5d6d5fd859a3",
+                "reference": "86510f7c19e64ccaa1fb661d734f5d6d5fd859a3",
                 "shasum": ""
             },
             "require": {
@@ -294,7 +294,7 @@
                 "Symfony2",
                 "form"
             ],
-            "time": "2013-04-17 19:01:13"
+            "time": "2013-04-23 15:15:26"
         },
         {
             "name": "doctrine/annotations",
@@ -557,7 +557,7 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes M. Schmitt",
+                    "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -635,12 +635,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "af20e34873156375f928fcd4395c26270c627af8"
+                "reference": "e916af6395581308b9746fb7c22f284cf9079c69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/af20e34873156375f928fcd4395c26270c627af8",
-                "reference": "af20e34873156375f928fcd4395c26270c627af8",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/e916af6395581308b9746fb7c22f284cf9079c69",
+                "reference": "e916af6395581308b9746fb7c22f284cf9079c69",
                 "shasum": ""
             },
             "require": {
@@ -697,7 +697,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2013-04-20 08:33:25"
+            "time": "2013-04-23 08:24:44"
         },
         {
             "name": "doctrine/doctrine-bundle",
@@ -879,7 +879,7 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -958,12 +958,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "92b41e017a1d67b355de6d0213e283728756024f"
+                "reference": "9791b2eb00edab5f7b67153a185f4c03e356b418"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/92b41e017a1d67b355de6d0213e283728756024f",
-                "reference": "92b41e017a1d67b355de6d0213e283728756024f",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/9791b2eb00edab5f7b67153a185f4c03e356b418",
+                "reference": "9791b2eb00edab5f7b67153a185f4c03e356b418",
                 "shasum": ""
             },
             "require": {
@@ -1021,7 +1021,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2013-04-20 08:25:36"
+            "time": "2013-04-23 17:50:01"
         },
         {
             "name": "egeloen/google-map",
@@ -1192,12 +1192,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "a1fd779b525c6a7669c136d23ca9c8130e4441b8"
+                "reference": "a9c1c8b76abe4622b285dcd7aa342cab9dfb6de6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/a1fd779b525c6a7669c136d23ca9c8130e4441b8",
-                "reference": "a1fd779b525c6a7669c136d23ca9c8130e4441b8",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/a9c1c8b76abe4622b285dcd7aa342cab9dfb6de6",
+                "reference": "a9c1c8b76abe4622b285dcd7aa342cab9dfb6de6",
                 "shasum": ""
             },
             "require": {
@@ -1229,7 +1229,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2013-03-04 17:05:06"
+            "time": "2013-04-23 12:35:55"
         },
         {
             "name": "imagine/imagine",
@@ -1456,7 +1456,7 @@
                 {
                     "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "http://jmsyst.com",
+                    "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -1522,7 +1522,7 @@
                 {
                     "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "http://jmsyst.com",
+                    "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -1573,7 +1573,7 @@
                 {
                     "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "http://jmsyst.com",
+                    "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -1676,7 +1676,7 @@
                 {
                     "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "http://jmsyst.com",
+                    "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -1792,7 +1792,7 @@
                 {
                     "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "http://jmsyst.com",
+                    "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -2245,16 +2245,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "dev-master",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "642cdf620bb9d71bd06f64f6636144c471c551b8"
+                "reference": "1.5.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/642cdf620bb9d71bd06f64f6636144c471c551b8",
-                "reference": "642cdf620bb9d71bd06f64f6636144c471c551b8",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/1.5.0",
+                "reference": "1.5.0",
                 "shasum": ""
             },
             "require": {
@@ -2303,7 +2303,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2013-04-07 11:22:41"
+            "time": "2013-04-23 10:09:48"
         },
         {
             "name": "pagerfanta/pagerfanta",
@@ -2403,7 +2403,7 @@
                 {
                     "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "http://jmsyst.com",
+                    "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -2879,12 +2879,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/MonologBundle.git",
-                "reference": "d401cabd356b6b3738300abcb5368bcb78009a67"
+                "reference": "1fc0864a9344b15a04ed90612a91cf8e5b8fb305"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/MonologBundle/zipball/d401cabd356b6b3738300abcb5368bcb78009a67",
-                "reference": "d401cabd356b6b3738300abcb5368bcb78009a67",
+                "url": "https://api.github.com/repos/symfony/MonologBundle/zipball/1fc0864a9344b15a04ed90612a91cf8e5b8fb305",
+                "reference": "1fc0864a9344b15a04ed90612a91cf8e5b8fb305",
                 "shasum": ""
             },
             "require": {
@@ -2928,7 +2928,7 @@
                 "log",
                 "logging"
             ],
-            "time": "2013-04-05 14:31:30"
+            "time": "2013-04-22 16:41:38"
         },
         {
             "name": "symfony/swiftmailer-bundle",
@@ -2991,12 +2991,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "c8e3f0fabe14a7e337984ba629f50eb1ebd65ceb"
+                "reference": "cabd4155c7b5657f401f8380b2c8db8699e3b929"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/c8e3f0fabe14a7e337984ba629f50eb1ebd65ceb",
-                "reference": "c8e3f0fabe14a7e337984ba629f50eb1ebd65ceb",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/cabd4155c7b5657f401f8380b2c8db8699e3b929",
+                "reference": "cabd4155c7b5657f401f8380b2c8db8699e3b929",
                 "shasum": ""
             },
             "require": {
@@ -3082,7 +3082,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2013-04-21 17:39:25"
+            "time": "2013-04-23 07:56:12"
         },
         {
             "name": "twig/extensions",
