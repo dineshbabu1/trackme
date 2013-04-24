@@ -127,7 +127,7 @@ avalanche_imagine:
     filters:
         logo:
             type:    thumbnail
-            options: { size: [200, 80], mode: inset}
+            options: { size: [100, 40], mode: inset}
         my_thumb:
             type:    thumbnail
             options: { size: [200, 200], mode: outbound, quality: 80, format: png, cache_type: public }

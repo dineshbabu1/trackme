@@ -32,7 +32,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="{{ path('homepage') }}">Track me</a>
+          <a class="brand" href="{{ path('homepage') }}">
+            <img src="{{ asset('bundles/trackmefrontend/images/logo.png') | apply_filter('logo')}}" />
+          </a>
           <div class="nav-collapse collapse" id="main-menu">
           {% block nav%}
               <ul class="nav" id="main-menu-left">
@@ -48,7 +50,7 @@
           <div class="row">
             <div class="span12">
               {% block page_title %}
-                <img src="{{ asset('bundles/trackmefrontend/images/logo.png') | apply_filter('logo')}}" />
+                Track Me!
               {% endblock%}
               <p class="lead">{% block page_subtitle %}Best fleet manager ever!{% endblock%}</p>
             </div>
