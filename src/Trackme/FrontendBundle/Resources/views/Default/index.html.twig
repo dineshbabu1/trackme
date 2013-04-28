@@ -30,14 +30,16 @@
 </div><!-- /.carousel -->
 <div class="hero-unit">
     <div class="row-fluid">
-        <div class="span6">
+        <div class="span4">
             <p>
             Nuestro sistema is osom!
             Registrarte y probar su funcionamiento solo te tomara 2 pasos ...
             </p>
             <a class="btn btn-success btn-large" href="{{ path('pricing')}}">Registro</a>
         </div>
-        <div class="span4"> Galeria? </div>
+        <div class="span8">
+          {% include 'TrackmeFrontendBundle:Default:reviews.html.twig' with {'reviews': reviews} %}
+        </div>
     </div>
 </div>
 {% endblock %}

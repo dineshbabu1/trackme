@@ -29,9 +29,11 @@ builders:
                 list: ~
     edit:
         params:
-            title: "You're editing the object "
-            display: [ comment, approved]
+            title: "Editando la reseña"
+            display: [ business, comment, approved]
             fields:
+                business:
+                    credentials: 'hasRole("ROLE_SUPER_ADMIN")'
                 approved:
                     credentials: 'hasRole("ROLE_SUPER_ADMIN")'
             actions:
