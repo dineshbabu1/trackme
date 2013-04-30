@@ -169,13 +169,13 @@ sonata_seo:
       
 liip_monitor:
     checks:
-        php_extensions: [xdebug]
+        php_extensions: [apc]
         symfony_version_check: ~
         custom_error_pages:
             error_codes: [500, 404]
         symfony_version_check: ~
         disc_usage:
-            percentage: 80
+            percentage: 50
         writable_directory: ~
 
 bazinga_faker:
