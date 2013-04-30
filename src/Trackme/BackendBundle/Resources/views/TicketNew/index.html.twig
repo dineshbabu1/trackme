@@ -1,1 +1,5 @@
 {% extends_admingenerated "TrackmeBackendBundle:TicketNew:index.html.twig" %}
+{% block javascripts %}
+{{parent()}}
+{{ tinymce_init() }}
+{% endblock %}

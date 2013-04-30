@@ -20,7 +20,7 @@ params:
             label: Descripcion
             addFormOptions:
               attr:
-                class: tinymce boxsizingBorder
+                class: tinymce
 
 builders:
     list:
