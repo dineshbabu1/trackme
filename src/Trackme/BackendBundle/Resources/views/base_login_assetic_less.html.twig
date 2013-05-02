@@ -1,8 +1,23 @@
 {% extends 'AdmingeneratorGeneratorBundle::base_login_assetic_less.html.twig' %}
 
+{% block title %}
+Track Me | Dashboard
+{% endblock title %}
+
+{% block navbar %}
+{{ include('TrackmeBackendBundle::base_admin_navbar.html.twig') }}
+{% endblock navbar %}
+
+{% block body %}
+<div class="span6 offset3">
+	{{ parent() }}
+</div>
+
+{% endblock %}
+
 {% block footer %}
 <footer>
-    <hr>
-    <p>{% block footer_text %}&copy; Track Me {{ ("now"|date('Y') > 2012) ? '2012 - ' ~ "now"|date('Y') : '2012' }}{% endblock %}</p>
+	<hr>
+	<p>{% block footer_text %}&copy; Track Me {{ ("now"|date('Y') > 2012) ? '2012 - ' ~ "now"|date('Y') : '2012' }}{% endblock %}</p>
 </footer>
 {% endblock %}
