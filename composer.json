@@ -35,7 +35,8 @@
         "liip/monitor-bundle": "dev-master",
         "willdurand/faker-bundle": "dev-master",
         "craue/formflow-bundle": "dev-master",
-        "antimattr/google-bundle": "dev-master"
+        "antimattr/google-bundle": "dev-master",
+        "willdurand/geocoder-bundle": "*"
     },
     "scripts": {
         "post-install-cmd": [
