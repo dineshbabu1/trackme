@@ -54,9 +54,9 @@ class DefaultController extends Controller
         }
 
 
-        $result = $this->container->get('bazinga_geocoder.geocoder')
-            ->using('yahoo')
-            ->geocode($this->getRequest()->server->get('REMOTE_ADDR'));
+        #$result = $this->container->get('bazinga_geocoder.geocoder')
+        #    ->using('yahoo')
+        #    ->geocode($this->getRequest()->server->get('REMOTE_ADDR'));
 
         $marker = new Marker();
         $marker->setPosition(-33.424565,-70.65033, true);
