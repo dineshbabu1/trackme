@@ -39,7 +39,9 @@ class AppKernel extends Kernel
             new Liip\MonitorBundle\LiipMonitorBundle(),
             new JMS\CommandBundle\JMSCommandBundle(),
             new Bazinga\Bundle\FakerBundle\BazingaFakerBundle(),
+            new Bazinga\Bundle\GeocoderBundle\BazingaGeocoderBundle(),
             new Craue\FormFlowBundle\CraueFormFlowBundle(),
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

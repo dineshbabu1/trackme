@@ -34,10 +34,29 @@ class DefaultController extends Controller
     {
         return array('name' => $name);
     }
+
+    public function dashboard_adminAction()
+    {
+        $security = $this->get('security.context');
+        if (!$security->isGranted('ROLE_SUPER_ADMIN')) {
+            throw $this->createNotFoundException('La pagina solicitada no existe');
+        }
+        $em = $this->getDoctrine()->getManager();
+        $last_business = $em->getRepository('Trackme\BackendBundle\Entity\Business')->findAll();
+        return $this->render('TrackmeBackendBundle:Default:dashboard_admin.html.twig', array('business' => $last_business));
+    }
     
     public function dashboardAction()
     {
+        $security = $this->get('security.context');
+        if ($security->isGranted('ROLE_SUPER_ADMIN')) {
+            return $this->redirect($this->generateUrl('dashboard_admin'));
+        }
 
+
+        $result = $this->container->get('bazinga_geocoder.geocoder')
+            ->using('yahoo')
+            ->geocode($this->getRequest()->server->get('REMOTE_ADDR'));
 
         $marker = new Marker();
         $marker->setPosition(-33.424565,-70.65033, true);

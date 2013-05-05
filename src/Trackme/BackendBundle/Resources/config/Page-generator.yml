@@ -40,7 +40,7 @@ builders:
                 list: ~
     edit:
         params:
-            title: "Está editando \"%object%\"|{ %object%: Page.title }|"
+            title: "Está editando página \"%object%\"|{ %object%: Page.title }|"
             display: [title,url,menu,weigth,enabled,content]
             actions:
                 save: ~

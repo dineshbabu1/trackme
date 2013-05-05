@@ -9,7 +9,7 @@
       {% else %}
         <div class="item">        
       {% endif%}           
-        <img alt="{{m.alt}}" src="{{ ('uploads/'~ m.name) | apply_filter('medium') }}" />
+        <img alt="{{m.alt}}" title="{{m.alt}}" src="{{ ('uploads/'~ m.name) | apply_filter('medium') }}" />
       <div class="carousel-caption">
         <p>{{m.alt}}</p>
       </div>

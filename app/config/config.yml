@@ -14,7 +14,7 @@ framework:
     templating:
         engines: ['twig']
     default_locale:  "%locale%"
-    trusted_proxies: ~
+    trusted_proxies: ['127.0.0.1']
     session:         ~
     fragments:       ~
 
@@ -54,6 +54,32 @@ doctrine:
     orm:
         auto_generate_proxy_classes: %kernel.debug%
         auto_mapping: true
+        mappings:
+                    gedmo_translatable:
+                        type: annotation
+                        prefix: Gedmo\Translatable\Entity
+                        dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translatable/Entity"
+                        alias: GedmoTranslatable # this one is optional and will default to the name set for the mapping
+                        is_bundle: false
+                    gedmo_translator:
+                        type: annotation
+                        prefix: Gedmo\Translator\Entity
+                        dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translator/Entity"
+                        alias: GedmoTranslator # this one is optional and will default to the name set for the mapping
+                        is_bundle: false
+                    gedmo_loggable:
+                        type: annotation
+                        prefix: Gedmo\Loggable\Entity
+                        dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Loggable/Entity"
+                        alias: GedmoLoggable # this one is optional and will default to the name set for the mapping
+                        is_bundle: false
+                    gedmo_tree:
+                        type: annotation
+                        prefix: Gedmo\Tree\Entity
+                        dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Tree/Entity"
+                        alias: GedmoTree # this one is optional and will default to the name set for the mapping
+                        is_bundle: false
+                
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -176,6 +202,12 @@ liip_monitor:
             percentage: 50
         writable_directory: ~
 
+bazinga_geocoder:
+    providers:
+        yahoo:
+            locale:     es_Cl
+            api_key: adasdasd
+
 bazinga_faker:
     orm: doctrine
     entities:
@@ -185,3 +217,10 @@ bazinga_faker:
                 token: { method: randomElement, parameters: [ [ 'aaaaaaaaaa', 'bbbbbbbbbb', 'cccccccccc', '1234567890' ] ] }
         Trackme\BackendBundle\Entity\User:
             number: 30
+
+stof_doctrine_extensions:
+    default_locale: es_Cl
+    orm:
+        default:
+            tree:          true
+            timestampable: true

@@ -36,7 +36,9 @@
         "willdurand/faker-bundle": "dev-master",
         "craue/formflow-bundle": "dev-master",
         "antimattr/google-bundle": "dev-master",
-        "willdurand/geocoder-bundle": "*"
+        "willdurand/geocoder-bundle": "*",
+        "gedmo/doctrine-extensions": "dev-master",
+        "stof/doctrine-extensions-bundle": "~1.1@dev"
     },
     "scripts": {
         "post-install-cmd": [

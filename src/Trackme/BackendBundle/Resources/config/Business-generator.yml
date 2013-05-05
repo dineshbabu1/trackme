@@ -35,22 +35,22 @@ builders:
             display: [name, email, phone]
     new:
         params:
-            title: New object for BackendBundle
+            title: Nuevo cliente (empresa)
             display: ~
             actions:
                 save: ~
                 list: ~
     edit:
         params:
-            title: "You're editing the object \"%object%\"|{ %object%: Business.name }|"
+            title: "Editando cliente \"%object%\"|{ %object%: Business.name }|"
             display: ~
             actions:
                 save: ~
                 list: ~
     show:
         params:
-            title: "You're viewing the object \"%object%\"|{ %object%: Business.name }|"
-            display: ~
+            title: "Viendo cliente \"%object%\"|{ %object%: Business.name }|"
+            display: [name,email,phone,enabled]
             actions:
                 list: ~
                 new: ~

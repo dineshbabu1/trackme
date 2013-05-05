@@ -12,6 +12,16 @@ Trackme\BackendBundle\Entity\Review:
         approved:
             type: boolean
             default: false
+        created:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updated:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update  
     manyToOne:
       business:
         targetEntity: Trackme\BackendBundle\Entity\Business

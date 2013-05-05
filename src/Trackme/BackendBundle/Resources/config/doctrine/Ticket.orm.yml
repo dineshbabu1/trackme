@@ -15,6 +15,16 @@ Trackme\BackendBundle\Entity\Ticket:
             length: 255
         description:
             type: text
+        created:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updated:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
     manyToOne:
         user:
             targetEntity: Trackme\BackendBundle\Entity\User

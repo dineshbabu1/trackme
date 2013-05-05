@@ -3,7 +3,14 @@ params:
     model: Trackme\BackendBundle\Entity\Media
     namespace_prefix: Trackme
     bundle_name: BackendBundle
-    fields: 
+    fields:
+        name:
+            label: Nombre
+        enabled:
+            label: Habilitado
+        alt:
+            label: Descripción
+            help: El texto alternativo de la imagen    
         file:
             label:            Imagen
             formType:         single_upload
@@ -19,6 +26,7 @@ builders:
             actions:
                 new: ~
             object_actions:
+                show: ~
                 edit: ~
                 delete: ~
     filters:
