@@ -205,7 +205,10 @@ liip_monitor:
 bazinga_geocoder:
     #fake_ip: 190.22.206.10
     providers:
-        free_geo_ip: ~           
+        free_geo_ip: ~
+        google_maps:
+            locale:     es_Cl
+            region:     es_Cl          
 bazinga_faker:
     orm: doctrine
     entities:
@@ -222,3 +225,43 @@ stof_doctrine_extensions:
         default:
             tree:          true
             timestampable: true
+
+ivory_google_map:
+    map:
+        language: es
+    directions_request:
+        # TRUE if the directions should avoid highways else FALSE
+        # By default there is no avoid highways.
+        avoid_highways: true
+
+        # TRUE if the directions should avoid tolls else FALSE
+        # By default there is no avoid tolls.
+        avoid_tolls: true
+
+        # TRUE if the directions should optimize waypoints.
+        # By default there is no optimize waypoints.
+        optimize_waypoints: true
+
+        # TRUE if the directions should provide route alternatives.
+        # By default there is no route alternatives.
+        provide_route_alternatives: false
+
+        # The region used to filter the directions results.
+        # By default there is no region.
+        region: "CL"
+
+        # The language used for this request.
+        # By default there is no language.
+        language: "es"
+
+        # The travel mode used to filter directions results.
+        # By default there is no travel mode.
+        travel_mode: "DRIVING"
+
+        # The unit system used.
+        # By default there is no unit system.
+        unit_system: "METRIC"
+
+        # Indicates whether or not the directions request comes from a device with a location sensor
+        # By default, the sensor is false
+        sensor: false   

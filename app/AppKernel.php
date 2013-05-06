@@ -42,6 +42,7 @@ class AppKernel extends Kernel
             new Bazinga\Bundle\GeocoderBundle\BazingaGeocoderBundle(),
             new Craue\FormFlowBundle\CraueFormFlowBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
