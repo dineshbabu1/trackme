@@ -54,18 +54,18 @@ class DefaultController extends Controller
         }
 
 
-        #$result = $this->container->get('bazinga_geocoder.geocoder')
-        #    ->using('yahoo')
-        #    ->geocode($this->getRequest()->server->get('REMOTE_ADDR'));
-
+        $result = $this->container->get('bazinga_geocoder.geocoder')
+            ->using('free_geo_ip')
+            ->geocode($this->getRequest()->server->get('REMOTE_ADDR'));
+        
         $marker = new Marker();
-        $marker->setPosition(-33.424565,-70.65033, true);
+        #$marker->setPosition(-33.424565,-70.65033, true);
         #$marker->setIcon('http://mapicons.nicolasmollet.com/wp-content/uploads/mapicons/shape-default/color-9d7050/shapecolor-color/shadow-1/border-black/symbolstyle-contrast/symbolshadowstyle-no/gradient-no/truck-2.png');
         
         $map = $this->get('ivory_google_map.map');
         $map->setStylesheetOption('width', '1000px');
         $map->setStylesheetOption('height', '500px');
-        $map->setCenter(-33.424565,-70.65033,true);
+        $map->setCenter($result->getLatitude(),$result->getLongitude(),true);
         $map->setMapOption('zoom', 13);
         $map->setLanguage('es');
         $map->addMarker($marker);

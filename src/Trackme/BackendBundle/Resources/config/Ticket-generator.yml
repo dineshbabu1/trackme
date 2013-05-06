@@ -8,9 +8,6 @@ params:
             label: Titulo
         description:
             label: Descripción
-            addFormOptions:
-              attr:
-                class: tinymce  
         type: 
             formType: choice
             label: Tipo
@@ -23,13 +20,18 @@ builders:
     list:
         params:
             title: Tickets de soporte
-            display: ~
+            display: [ title, user, type ]
+            fields:
+                user:
+                    credentials: 'hasRole("ROLE_SUPER_ADMIN")'
             actions:
                 new: ~
             object_actions:
                 show: ~
-                edit: ~
-                delete: ~
+                edit: 
+                    credentials: 'hasRole("ROLE_SUPER_ADMIN")'
+                delete: 
+                    credentials: 'hasRole("ROLE_SUPER_ADMIN")'
     filters:
         params:
             display: [ type ]

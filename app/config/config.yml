@@ -203,11 +203,9 @@ liip_monitor:
         writable_directory: ~
 
 bazinga_geocoder:
+    #fake_ip: 190.22.206.10
     providers:
-        yahoo:
-            locale:     es_Cl
-            api_key: adasdasd
-
+        free_geo_ip: ~           
 bazinga_faker:
     orm: doctrine
     entities:
