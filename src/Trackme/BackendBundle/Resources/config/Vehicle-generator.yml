@@ -10,7 +10,7 @@ params:
             formType:         collection
             addFormOptions:
                 widget:         fieldset
-                type:           \Trackme\BackendBundle\Form\Type\Mantention\EditType
+                type:           \Trackme\BackendBundle\Form\Type\Mantention\EmbedType
                 allow_add:      true
                 allow_delete:   true
                 by_reference:   false

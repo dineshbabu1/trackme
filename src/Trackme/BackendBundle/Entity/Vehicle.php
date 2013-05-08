@@ -235,7 +235,7 @@ class Vehicle
     public function addIssue(\Trackme\BackendBundle\Entity\VehicleMantention $issues)
     {
         $this->issues[] = $issues;
-
+        $issues->setVehicle($this);
         return $this;
     }
 
