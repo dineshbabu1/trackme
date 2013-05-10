@@ -72,6 +72,8 @@ class DefaultController extends Controller
         $best_route = 0;
         $duration = 0;
         $summary = "";
+        $estimate = null;
+        $distance = null;
         #$marker = new Marker();
         #$marker->setPosition(-33.424565,-70.65033, true);
         #$marker->setIcon('http://mapicons.nicolasmollet.com/wp-content/uploads/mapicons/shape-default/color-9d7050/shapecolor-color/shadow-1/border-black/symbolstyle-contrast/symbolshadowstyle-no/gradient-no/truck-2.png');

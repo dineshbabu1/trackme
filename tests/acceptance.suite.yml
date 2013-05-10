@@ -15,4 +15,4 @@ modules:
         - WebHelper
     config:
         PhpBrowser:
-            url: 'http://localhost/trackme/web/app_dev.php'
+            url: 'http://trackme.cl/app_dev.php'
