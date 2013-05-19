@@ -107,6 +107,8 @@ admingenerator_generator:
     use_doctrine_orm:     true
     use_doctrine_odm:     false
     thumbnail_generator:  avalanche
+    stylesheets:
+        - { path: bundles/trackmebackend/css/bootstrap.css }
     login_path: fos_user_security_login
     logout_path: fos_user_security_logout
     dashboard_welcome_path: admin_map_dashboard

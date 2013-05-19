@@ -8,6 +8,10 @@
 	{{ include('TrackmeBackendBundle::base_admin_navbar.html.twig') }}
 {% endblock navbar %}
 
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('bundles/admingeneratorgenerator/css/bootstrap/bootstrap.css') }}" type="text/css" media="all" />
+{{parent()}}
+{% endblock %}
 
 {% block footer %}
 <footer>
