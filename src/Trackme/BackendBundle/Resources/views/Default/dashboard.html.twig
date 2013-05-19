@@ -1,9 +1,12 @@
 {% extends 'TrackmeBackendBundle::base_admin_assetic_less.html.twig' %}
 
-{% block stylesheets %}
-<link rel="stylesheet" href="{{ asset('bundles/admingeneratorgenerator/css/bootstrap/bootstrap.css') }}" type="text/css" media="all" />
-{{parent()}}
-{% endblock %}
+{% block title %}
+    Track Me | Dashboard
+{% endblock title %}
+
+{% block navbar %}
+    {{ include('TrackmeBackendBundle::base_admin_navbar.html.twig') }}
+{% endblock navbar %}
 
 {% block body %}
 <div class="row-fluid">
