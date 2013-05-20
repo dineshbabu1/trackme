@@ -29,14 +29,48 @@ class User extends BaseUser
 {
     /**
      * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     protected $id;
 
     /**
-     * @var integer
+     * @var \Business
+     *
+     * @ORM\ManyToOne(targetEntity="Business")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="business_id", referencedColumnName="id")
+     * })
      */
-    private $businessId;
+    private $business;
+   
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="emailable", type="boolean", nullable=true)
+     */
+    private $emailable;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=true)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="last_name", type="string", length=255, nullable=true)
+     */
+    private $lastName;
+
+    /**
+     * @var string
+     */
+    private $last_name;
 
     /**
      * Get id
@@ -47,95 +81,6 @@ class User extends BaseUser
     {
         return $this->id;
     }
-
-    /**
-     * Set businessId
-     *
-     * @param integer $businessId
-     * @return User
-     */
-    public function setBusinessId($businessId)
-    {
-        $this->businessId = $businessId;
-    
-        return $this;
-    }
-
-    /**
-     * Get businessId
-     *
-     * @return integer 
-     */
-    public function getBusinessId()
-    {
-        return $this->businessId;
-    }
-    /**
-     * @var \Trackme\BackendBundle\Entity\Business
-     */
-    private $business;
-
-
-    /**
-     * Set business
-     *
-     * @param \Trackme\BackendBundle\Entity\Business $business
-     * @return User
-     */
-    public function setBusiness(\Trackme\BackendBundle\Entity\Business $business = null)
-    {
-        $this->business = $business;
-
-        return $this;
-    }
-
-    /**
-     * Get business
-     *
-     * @return \Trackme\BackendBundle\Entity\Business 
-     */
-    public function getBusiness()
-    {
-        return $this->business;
-    }
-    /**
-     * @var boolean
-     */
-    private $emailable;
-
-
-    /**
-     * Set emailable
-     *
-     * @param boolean $emailable
-     * @return User
-     */
-    public function setEmailable($emailable)
-    {
-        $this->emailable = $emailable;
-    
-        return $this;
-    }
-
-    /**
-     * Get emailable
-     *
-     * @return boolean 
-     */
-    public function getEmailable()
-    {
-        return $this->emailable;
-    }
-    /**
-     * @var string
-     */
-    private $name;
-
-    /**
-     * @var string
-     */
-    private $last_name;
-
 
     /**
      * Set name
@@ -181,5 +126,51 @@ class User extends BaseUser
     public function getLastName()
     {
         return $this->last_name;
+    }
+
+    /**
+     * Set emailable
+     *
+     * @param boolean $emailable
+     * @return User
+     */
+    public function setEmailable($emailable)
+    {
+        $this->emailable = $emailable;
+    
+        return $this;
+    }
+
+    /**
+     * Get emailable
+     *
+     * @return boolean 
+     */
+    public function getEmailable()
+    {
+        return $this->emailable;
+    }
+
+    /**
+     * Set business
+     *
+     * @param \Trackme\BackendBundle\Entity\Business $business
+     * @return User
+     */
+    public function setBusiness(\Trackme\BackendBundle\Entity\Business $business = null)
+    {
+        $this->business = $business;
+    
+        return $this;
+    }
+
+    /**
+     * Get business
+     *
+     * @return \Trackme\BackendBundle\Entity\Business 
+     */
+    public function getBusiness()
+    {
+        return $this->business;
     }
 }

@@ -1,59 +1,57 @@
 <?php
 
-/*
- * Copyright 2013 Gonzalo Moreno <goncab380@hotmail.com>
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 namespace Trackme\BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Coordinate
+ *
+ * @ORM\Table(name="coordinate")
+ * @ORM\Entity
  */
 class Coordinate
 {
     /**
      * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
      * @var float
+     *
+     * @ORM\Column(name="lat", type="float", nullable=false)
      */
     private $lat;
 
     /**
      * @var float
+     *
+     * @ORM\Column(name="lng", type="float", nullable=false)
      */
     private $lng;
 
     /**
-     * @var integer
-     */
-    private $userId;
-
-    /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="datetime", nullable=false)
      */
     private $date;
-    
-    
-    public function __construct() {
-      $this->date = new \DateTime();
-    }
+
+    /**
+     * @var \FosUser
+     *
+     * @ORM\ManyToOne(targetEntity="FosUser")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * })
+     */
+    private $user;
+
 
 
     /**
@@ -75,7 +73,7 @@ class Coordinate
     public function setLat($lat)
     {
         $this->lat = $lat;
-
+    
         return $this;
     }
 
@@ -98,7 +96,7 @@ class Coordinate
     public function setLng($lng)
     {
         $this->lng = $lng;
-
+    
         return $this;
     }
 
@@ -113,29 +111,6 @@ class Coordinate
     }
 
     /**
-     * Set userId
-     *
-     * @param integer $userId
-     * @return Coordinate
-     */
-    public function setUserId($userId)
-    {
-        $this->userId = $userId;
-
-        return $this;
-    }
-
-    /**
-     * Get userId
-     *
-     * @return integer 
-     */
-    public function getUserId()
-    {
-        return $this->userId;
-    }
-
-    /**
      * Set date
      *
      * @param \DateTime $date
@@ -144,7 +119,7 @@ class Coordinate
     public function setDate($date)
     {
         $this->date = $date;
-
+    
         return $this;
     }
 
@@ -157,11 +132,6 @@ class Coordinate
     {
         return $this->date;
     }
-    /**
-     * @var \Trackme\BackendBundle\Entity\User
-     */
-    private $user;
-
 
     /**
      * Set user
@@ -172,7 +142,7 @@ class Coordinate
     public function setUser(\Trackme\BackendBundle\Entity\User $user = null)
     {
         $this->user = $user;
-
+    
         return $this;
     }
 

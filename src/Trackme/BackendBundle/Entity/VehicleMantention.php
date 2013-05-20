@@ -1,65 +1,77 @@
 <?php
 
-/*
- * Copyright 2013 Gonzalo Moreno <goncab380@hotmail.com>
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 namespace Trackme\BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * VehicleMantention
+ * Vehiclemantention
+ *
+ * @ORM\Table(name="vehiclemantention")
+ * @ORM\Entity
  */
-class VehicleMantention
+class Vehiclemantention
 {
     /**
      * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="date_from", type="date", nullable=true)
      */
     private $dateFrom;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="date_to", type="date", nullable=true)
      */
     private $dateTo;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="problem", type="text", nullable=true)
      */
     private $problem;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="solution", type="text", nullable=true)
      */
     private $solution;
 
     /**
      * @var boolean
+     *
+     * @ORM\Column(name="fixed", type="boolean", nullable=true)
      */
     private $fixed;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="more_info", type="text", nullable=true)
      */
     private $moreInfo;
 
+    /**
+     * @var \Vehicle
+     *
+     * @ORM\ManyToOne(targetEntity="Vehicle")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="vehicle_id", referencedColumnName="id")
+     * })
+     */
+    private $vehicle;
 
     /**
      * Get id
@@ -80,7 +92,7 @@ class VehicleMantention
     public function setDateFrom($dateFrom)
     {
         $this->dateFrom = $dateFrom;
-
+    
         return $this;
     }
 
@@ -103,7 +115,7 @@ class VehicleMantention
     public function setDateTo($dateTo)
     {
         $this->dateTo = $dateTo;
-
+    
         return $this;
     }
 
@@ -126,7 +138,7 @@ class VehicleMantention
     public function setProblem($problem)
     {
         $this->problem = $problem;
-
+    
         return $this;
     }
 
@@ -149,7 +161,7 @@ class VehicleMantention
     public function setSolution($solution)
     {
         $this->solution = $solution;
-
+    
         return $this;
     }
 
@@ -172,7 +184,7 @@ class VehicleMantention
     public function setFixed($fixed)
     {
         $this->fixed = $fixed;
-
+    
         return $this;
     }
 
@@ -195,7 +207,7 @@ class VehicleMantention
     public function setMoreInfo($moreInfo)
     {
         $this->moreInfo = $moreInfo;
-
+    
         return $this;
     }
 
@@ -208,11 +220,6 @@ class VehicleMantention
     {
         return $this->moreInfo;
     }
-    /**
-     * @var \Trackme\BackendBundle\Entity\Vehicle
-     */
-    private $vehicle;
-
 
     /**
      * Set vehicle
@@ -223,7 +230,7 @@ class VehicleMantention
     public function setVehicle(\Trackme\BackendBundle\Entity\Vehicle $vehicle = null)
     {
         $this->vehicle = $vehicle;
-
+    
         return $this;
     }
 

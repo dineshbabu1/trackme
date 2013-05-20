@@ -1,60 +1,92 @@
 <?php
 
-/*
- * Copyright 2013 Gonzalo Moreno <goncab380@hotmail.com>
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 namespace Trackme\BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Vehicle
+ *
+ * @ORM\Table(name="vehicle")
+ * @ORM\Entity
  */
 class Vehicle
 {
     /**
      * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="manufacturer", type="string", length=255, nullable=false)
      */
     private $manufacturer;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="model", type="string", length=255, nullable=false)
      */
     private $model;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="code", type="string", length=255, nullable=true)
+     */
+    private $code;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string", length=255, nullable=true)
      */
     private $type;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="fuel", type="string", length=255, nullable=true)
+     */
+    private $fuel;
+
+    /**
      * @var float
+     *
+     * @ORM\Column(name="kilometer_per_liter", type="decimal", nullable=true)
      */
     private $kilometerPerLiter;
 
+    /**
+     * @var \Business
+     *
+     * @ORM\ManyToOne(targetEntity="Business")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="business_id", referencedColumnName="id")
+     * })
+     */
+    private $business;
 
-    public function __toString() {
-        return $this->getManufacturer()." - ".$this->getModel();
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $issues;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->issues = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Get id
      *
@@ -112,6 +144,29 @@ class Vehicle
     }
 
     /**
+     * Set code
+     *
+     * @param string $code
+     * @return Vehicle
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+    
+        return $this;
+    }
+
+    /**
+     * Get code
+     *
+     * @return string 
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
      * Set type
      *
      * @param string $type
@@ -132,6 +187,29 @@ class Vehicle
     public function getType()
     {
         return $this->type;
+    }
+
+    /**
+     * Set fuel
+     *
+     * @param string $fuel
+     * @return Vehicle
+     */
+    public function setFuel($fuel)
+    {
+        $this->fuel = $fuel;
+    
+        return $this;
+    }
+
+    /**
+     * Get fuel
+     *
+     * @return string 
+     */
+    public function getFuel()
+    {
+        return $this->fuel;
     }
 
     /**
@@ -156,75 +234,6 @@ class Vehicle
     {
         return $this->kilometerPerLiter;
     }
-    /**
-     * @var \Trackme\BackendBundle\Entity\Business
-     */
-    private $business;
-
-
-    /**
-     * Set business
-     *
-     * @param \Trackme\BackendBundle\Entity\Business $business
-     * @return Vehicle
-     */
-    public function setBusiness(\Trackme\BackendBundle\Entity\Business $business = null)
-    {
-        $this->business = $business;
-    
-        return $this;
-    }
-
-    /**
-     * Get business
-     *
-     * @return \Trackme\BackendBundle\Entity\Business 
-     */
-    public function getBusiness()
-    {
-        return $this->business;
-    }
-    /**
-     * @var string
-     */
-    private $code;
-
-
-    /**
-     * Set code
-     *
-     * @param string $code
-     * @return Vehicle
-     */
-    public function setCode($code)
-    {
-        $this->code = $code;
-    
-        return $this;
-    }
-
-    /**
-     * Get code
-     *
-     * @return string 
-     */
-    public function getCode()
-    {
-        return $this->code;
-    }
-    
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $issues;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->issues = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Add issues
@@ -235,7 +244,7 @@ class Vehicle
     public function addIssue(\Trackme\BackendBundle\Entity\VehicleMantention $issues)
     {
         $this->issues[] = $issues;
-        $issues->setVehicle($this);
+    
         return $this;
     }
 
@@ -258,32 +267,27 @@ class Vehicle
     {
         return $this->issues;
     }
-    /**
-     * @var string
-     */
-    private $fuel;
-
 
     /**
-     * Set fuel
+     * Set business
      *
-     * @param string $fuel
+     * @param \Trackme\BackendBundle\Entity\Business $business
      * @return Vehicle
      */
-    public function setFuel($fuel)
+    public function setBusiness(\Trackme\BackendBundle\Entity\Business $business = null)
     {
-        $this->fuel = $fuel;
-
+        $this->business = $business;
+    
         return $this;
     }
 
     /**
-     * Get fuel
+     * Get business
      *
-     * @return string 
+     * @return \Trackme\BackendBundle\Entity\Business 
      */
-    public function getFuel()
+    public function getBusiness()
     {
-        return $this->fuel;
+        return $this->business;
     }
 }
