@@ -11,23 +11,26 @@ class RegisterBusinessFormType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options) {
         switch ($options['flowStep']) {
             case 1:
-                $builder->add('name', 'text', array('label' => 'Nombre'))
-                ->add('email', 'email');
+                $builder->add('name', 'text', array('label' => 'Nombre Empresa'))
+                ->add('email', 'email')
+                ->add('phone', 'number', array('label' => 'Teléfono'));
                 break;
             case 2:
-                $builder->add('name','text', array('label' => 'Nombre'))
-                ->add('last_name','text', array('label' => 'Apellido'))
-                ->add('username','text', array('label' => 'Usuario'))
-                ->add('plain_password','repeated', array('type' => 'password', 'first_name' => 'Password', 'second_name' => 'Confirmar_Password','invalid_message' => 'Las contraseñas deben coincidir.', 'label' => 'Password'));
+                $builder->add('users','collection',array(
+                    'allow_add' => true,
+                    'allow_delete' => false,
+                    'by_reference' => false,
+                    'type' =>  new \FOS\UserBundle\Form\Type\RegistrationFormType($builder), 
+                    'options' =>   array(    'label' => 'Nuevo Usuario',    'data_class' => 'Trackme\\BackendBundle\\Entity\\User' ),
+                    'label' => 'Usuario'));
                 break;
-            
         }
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver) {
         $resolver->setDefaults(array(
             'flowStep' => 1,
-            'data_class' => 'Trackme\BackendBundle\Entity\User', // should point to your user entity
+            'data_class' => 'Trackme\BackendBundle\Entity\Business', // should point to your user entity
         ));
     }
 

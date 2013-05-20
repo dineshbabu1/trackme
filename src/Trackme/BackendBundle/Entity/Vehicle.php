@@ -75,7 +75,8 @@ class Vehicle
 
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var \Doctrine\Common\Collections\Collection $issues
+     * @ORM\OneToMany(targetEntity="VehicleMantention", mappedBy="vehicle", cascade={"persist", "remove"})
      */
     private $issues;
 
@@ -85,6 +86,12 @@ class Vehicle
     public function __construct()
     {
         $this->issues = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+
+    public function __toString()
+    {
+        return sprintf("%s - %s %s", $this->getCode(), $this->getManufacturer(), $this->getModel());
     }
 
     /**
@@ -244,7 +251,7 @@ class Vehicle
     public function addIssue(\Trackme\BackendBundle\Entity\VehicleMantention $issues)
     {
         $this->issues[] = $issues;
-    
+        $issues->setVehicle($this);
         return $this;
     }
 

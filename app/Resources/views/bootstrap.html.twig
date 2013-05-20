@@ -14,7 +14,7 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome-ie7.css" rel="stylesheet">
   {% endblock %}
-
+  <link rel="shortcut icon" type="image/x-icon" href="{{ asset('bundles/trackmefrontend/ico/favicon.ico') }}">
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -49,10 +49,12 @@
         <header class="jumbotron subhead" id="overview">
           <div class="row">
             <div class="span12">
+              <h1>
               {% block page_title %}
-                <h1>Track Me!</h1>
+                Track Me!
               {% endblock%}
-              <p class="lead">{% block page_subtitle %}Best fleet manager ever!{% endblock%}</p>
+              </h1>
+              <p class="lead">{% block page_subtitle %}{% endblock%}</p>
             </div>
           </div>
         </header>

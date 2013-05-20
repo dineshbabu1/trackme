@@ -68,6 +68,20 @@ class User extends BaseUser
     private $last_name;
 
     /**
+     * @ORM\ManyToMany(targetEntity="Group")
+     * @ORM\JoinTable(name="fos_user_user_group",
+     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="group_id", referencedColumnName="id")}
+     * )
+     */
+    protected $groups;
+
+    public function __toString()
+    {
+        return sprintf("%s", $this->getUsername());
+    }
+
+    /**
      * Get id
      *
      * @return integer 
@@ -168,4 +182,5 @@ class User extends BaseUser
     {
         return $this->business;
     }
+
 }

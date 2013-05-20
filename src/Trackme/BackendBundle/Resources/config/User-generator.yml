@@ -12,9 +12,16 @@ params:
             label: Usuario
         enabled: 
             label: Habilitado
-        password:
-            formType: password
-            label: Contraseña
+        plainPassword:
+            label:          Password
+            dbType:         text
+            formType:       repeated
+            addFormOptions:
+                first_options:
+                    label:      Password
+                second_options:
+                    label:      Confirmar Password
+                type:         password
         emailable:
             label: Recibir Email?
             help: Si esta checkeado, recibira correos desde el sistema
@@ -42,14 +49,16 @@ builders:
             title: Nuevo Usuario
             display: 
               NONE: [[name, last_name]]
-              Usuario: [username, email, password, enabled, emailable]
+              Usuario: [username, email, groups, plainPassword, enabled, emailable]
             actions:
                 save: ~
                 list: ~
     edit:
         params:
             title: "Editando a usuario \"%object%\"|{ %object%: User.username }|"
-            display: [name, last_name, username, email, password, enabled, emailable]
+            display: 
+                NONE: [[name, last_name]]
+                Usuario: [username, email, groups, plainPassword, enabled, emailable]
             actions:
                 save: ~
                 list: ~

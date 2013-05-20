@@ -42,13 +42,13 @@ class DefaultController extends Controller {
         $userManager = $this->get('fos_user.user_manager');
         $user = $userManager->createUser();
         $form = $this->createFormBuilder($user)
-        ->add('name','text')
-        ->add('last_name','text')
-        ->add('username','text', array('label' => 'Usuario'))
-        ->add('email','text')
-        ->add('plain_password','password', array('label' => 'Password'))
-        ->add('emailable', 'checkbox', array('label' => 'Recibir emails', 'help' => 'Al aceptar, podremos enviarles correo con novedades e informes a su correo'))
-        ->getForm();
+                ->add('name','text')
+                ->add('last_name','text')
+                ->add('username','text', array('label' => 'Usuario'))
+                ->add('email','text')
+                ->add('plain_password','password', array('label' => 'Password'))
+                ->add('emailable', 'checkbox', array('label' => 'Recibir emails', 'help' => 'Al aceptar, podremos enviarles correo con novedades e informes a su correo'))
+                ->getForm();
         
         if ($request->isMethod('POST')) {
             $em = $this->getDoctrine()->getManager();
@@ -80,54 +80,28 @@ class DefaultController extends Controller {
     }
 
     public function signupAction(Request $request) {
-        if(!$request->get('plan')){
-            return $this->redirect($this->generateUrl('pricing'));
-        }
-
         $em = $this->getDoctrine()->getEntityManager();
-        $plan = $em->getRepository('Trackme\BackendBundle\Entity\Plan')->find($request->get('plan'));
-        if(!$plan){
-            throw $this->createNotFoundException('El plan solicitado no existe');
-        }
+        $business = new Business();
+        $form = $this->createFormBuilder($business)
+                ->add('name', 'text', array('label' => 'Nombre'))
+                ->add('email', 'email')
+                ->add('phone', 'text', array('label' => 'Telefono'))
+                ->getForm();
 
-        $userManager = $this->get('fos_user.user_manager');
-        $user = $userManager->createUser();
+        if ($request->isMethod('POST')) {
+            $form->bind($request);
 
-        $flow = $this->get('trackme.form.flow.registerBusiness'); // must match the flow's service id
-        $flow->bind($user);
-        $form = $flow->createForm($user);
-
-        if ($flow->isValid($form)) {
-            $flow->saveCurrentStepData();
-
-            if ($flow->nextStep()) {
-                // form for the next step
-                
-                $form = $flow->createForm($user);
-            } else {
-                // flow finished
-                $em = $this->getDoctrine()->getEntityManager();
-                
-                $business = new Business();
-                $business->setName($user->getName());
-                $business->setEmail($user->getEmail());
-                $em->persist($business);
-                $user->setEnabled(TRUE);
-                $user->setBusiness($business);
-                $user->addRole('ROLE_BUSINESS');
-                $em->persist($user);
+            if ($form->isValid()) {
+                $object = $form->getData();
+                $em->persist($object);
                 $em->flush();
-
-                $flow->reset();
+                // Second step 
                 
-                return $this->redirect($this->generateUrl('homepage')); // redirect when done
+                return $this->redirect($this->generateUrl('signup_user', array('token' => $object->getToken())));
             }
         }
 
-        return $this->render('TrackmeFrontendBundle:Default:signup.html.twig', array(
-            'form' => $form->createView(),
-            'flow' => $flow,
-            ));
+        return $this->render('TrackmeFrontendBundle:Default:signup.html.twig', array('form' => $form->createView()));
     }
 
     public function pageAction($url) {

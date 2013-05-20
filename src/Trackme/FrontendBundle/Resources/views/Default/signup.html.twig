@@ -3,20 +3,10 @@
 {% block page_title %}
 Registro
 {% endblock %}
-{% block page_subtitle %}
-Pasos:
-	{% include 'CraueFormFlowBundle:FormFlow:stepList.html.twig' %}
-{% endblock %}
-
 
 {% block content %}
-<form method="post" {{ form_enctype(form) }}>
-	{% include 'CraueFormFlowBundle:FormFlow:stepField.html.twig' %}
-	<input type="hidden" name="step_number" id="step_number" value="{{ flow.getCurrentStep() }}"  />
-	{{ form_errors(form) }}
-
-	{{ form_rest(form) }}
-
-	{% include 'CraueFormFlowBundle:FormFlow:buttons.html.twig' %}
-</form>
+  <form action="{{ path('signup') }}" name="form-empresa" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+          <input type="submit" value="Aceptar" class="btn btn-success btn-large"/>
+  </form>
 {% endblock %}
