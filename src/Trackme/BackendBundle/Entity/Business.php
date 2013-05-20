@@ -215,4 +215,10 @@ class Business
     {
         return $this->state;
     }
+
+    
+    public function __toString()
+    {
+        return $this->getName();
+    }
 }

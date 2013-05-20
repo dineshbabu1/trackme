@@ -29,7 +29,9 @@ class Subscription
      */
     private $amount;
 
-    /** @ORM\OneToOne(targetEntity="JMSPaymentCore:PaymentInstruction") */
+    /**  
+     * @ORM\OneToOne(targetEntity="JMS\Payment\CoreBundle\Entity\PaymentInstruction")
+     */
     private $paymentInstruction;
 
 

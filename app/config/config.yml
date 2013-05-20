@@ -53,7 +53,7 @@ doctrine:
 
     orm:
         auto_generate_proxy_classes: %kernel.debug%
-        auto_mapping: false
+        auto_mapping: true
         mappings:
                     TrackmeBackendBundle: ~
                     JMSPaymentCoreBundle: ~
