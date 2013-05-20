@@ -53,8 +53,10 @@ doctrine:
 
     orm:
         auto_generate_proxy_classes: %kernel.debug%
-        auto_mapping: true
+        auto_mapping: false
         mappings:
+                    TrackmeBackendBundle: ~
+                    JMSPaymentCoreBundle: ~
                     gedmo_translatable:
                         type: annotation
                         prefix: Gedmo\Translatable\Entity

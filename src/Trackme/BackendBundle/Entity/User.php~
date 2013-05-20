@@ -44,7 +44,7 @@ class User extends BaseUser
      *   @ORM\JoinColumn(name="business_id", referencedColumnName="id")
      * })
      */
-    private $businessId;
+    private $business;
    
     /**
      * @var boolean
@@ -67,4 +67,110 @@ class User extends BaseUser
      */
     private $lastName;
 
+    /**
+     * @var string
+     */
+    private $last_name;
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return User
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set last_name
+     *
+     * @param string $lastName
+     * @return User
+     */
+    public function setLastName($lastName)
+    {
+        $this->last_name = $lastName;
+    
+        return $this;
+    }
+
+    /**
+     * Get last_name
+     *
+     * @return string 
+     */
+    public function getLastName()
+    {
+        return $this->last_name;
+    }
+
+    /**
+     * Set emailable
+     *
+     * @param boolean $emailable
+     * @return User
+     */
+    public function setEmailable($emailable)
+    {
+        $this->emailable = $emailable;
+    
+        return $this;
+    }
+
+    /**
+     * Get emailable
+     *
+     * @return boolean 
+     */
+    public function getEmailable()
+    {
+        return $this->emailable;
+    }
+
+    /**
+     * Set business
+     *
+     * @param \Trackme\BackendBundle\Entity\Business $business
+     * @return User
+     */
+    public function setBusiness(\Trackme\BackendBundle\Entity\Business $business = null)
+    {
+        $this->business = $business;
+    
+        return $this;
+    }
+
+    /**
+     * Get business
+     *
+     * @return \Trackme\BackendBundle\Entity\Business 
+     */
+    public function getBusiness()
+    {
+        return $this->business;
+    }
 }

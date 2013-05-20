@@ -65,11 +65,6 @@ class User extends BaseUser
      *
      * @ORM\Column(name="last_name", type="string", length=255, nullable=true)
      */
-    private $lastName;
-
-    /**
-     * @var string
-     */
     private $last_name;
 
     /**
