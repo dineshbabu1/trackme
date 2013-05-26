@@ -3,6 +3,7 @@
 namespace Trackme\BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Business
@@ -71,6 +72,34 @@ class Business
      * @ORM\OneToMany(targetEntity="User", mappedBy="business", cascade={"persist", "remove"})
      */
     private $users;
+
+    /**
+     * @var \DateTime
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(name="created_at", type="datetime", nullable=true)
+     */
+    private $created_at;
+
+    /**
+     * @var \DateTime
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
+     */
+    private $updated_at;
+
+    /**
+     * @var string
+     * @Gedmo\Blameable(on="create")
+     * @ORM\Column(name="created_by", type="string", length=255, nullable=true)
+     */
+    private $created_by;
+
+    /**
+     * @var string
+     * @Gedmo\Blameable(on="update")
+     * @ORM\Column(name="updated_by", type="string", length=255, nullable=true)
+     */
+    private $updated_by;
 
     /**
      * Get id
@@ -264,5 +293,97 @@ class Business
     public function getUsers()
     {
         return $this->users;
+    }
+
+    /**
+     * Set created_at
+     *
+     * @param \DateTime $createdAt
+     * @return Business
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->created_at = $createdAt;
+    
+        return $this;
+    }
+
+    /**
+     * Get created_at
+     *
+     * @return \DateTime 
+     */
+    public function getCreatedAt()
+    {
+        return $this->created_at;
+    }
+
+    /**
+     * Set updated_at
+     *
+     * @param \DateTime $updatedAt
+     * @return Business
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updated_at = $updatedAt;
+    
+        return $this;
+    }
+
+    /**
+     * Get updated_at
+     *
+     * @return \DateTime 
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updated_at;
+    }
+
+    /**
+     * Set created_by
+     *
+     * @param string $createdBy
+     * @return Business
+     */
+    public function setCreatedBy($createdBy)
+    {
+        $this->created_by = $createdBy;
+    
+        return $this;
+    }
+
+    /**
+     * Get created_by
+     *
+     * @return string 
+     */
+    public function getCreatedBy()
+    {
+        return $this->created_by;
+    }
+
+    /**
+     * Set updated_by
+     *
+     * @param string $updatedBy
+     * @return Business
+     */
+    public function setUpdatedBy($updatedBy)
+    {
+        $this->updated_by = $updatedBy;
+    
+        return $this;
+    }
+
+    /**
+     * Get updated_by
+     *
+     * @return string 
+     */
+    public function getUpdatedBy()
+    {
+        return $this->updated_by;
     }
 }

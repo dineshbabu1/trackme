@@ -3,6 +3,7 @@
 namespace Trackme\BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Vehicle
@@ -75,9 +76,38 @@ class Vehicle
 
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var \Doctrine\Common\Collections\Collection $issues
+     * @ORM\OneToMany(targetEntity="VehicleMantention", mappedBy="vehicle", cascade={"persist", "remove"})
      */
     private $issues;
+
+    /**
+     * @var \DateTime
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(name="created_at", type="datetime", nullable=true)
+     */
+    private $created_at;
+
+    /**
+     * @var \DateTime
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
+     */
+    private $updated_at;
+
+    /**
+     * @var string
+     * @Gedmo\Blameable(on="create")
+     * @ORM\Column(name="created_by", type="string", length=255, nullable=true)
+     */
+    private $created_by;
+
+    /**
+     * @var string
+     * @Gedmo\Blameable(on="update")
+     * @ORM\Column(name="updated_by", type="string", length=255, nullable=true)
+     */
+    private $updated_by;
 
     /**
      * Constructor
@@ -85,6 +115,12 @@ class Vehicle
     public function __construct()
     {
         $this->issues = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+
+    public function __toString()
+    {
+        return sprintf("%s - %s %s", $this->getCode(), $this->getManufacturer(), $this->getModel());
     }
 
     /**
@@ -244,7 +280,7 @@ class Vehicle
     public function addIssue(\Trackme\BackendBundle\Entity\VehicleMantention $issues)
     {
         $this->issues[] = $issues;
-    
+        $issues->setVehicle($this);
         return $this;
     }
 

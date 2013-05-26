@@ -20,6 +20,7 @@ namespace Trackme\BackendBundle\Entity;
 
 use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity
@@ -76,14 +77,37 @@ class User extends BaseUser
      */
     protected $groups;
 
-    public function __construct()
-    {
-        $this->groups = new ArrayCollection();
-    }
+    /**
+     * @var \DateTime
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(name="created_at", type="datetime", nullable=true)
+     */
+    private $created_at;
+
+    /**
+     * @var \DateTime
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
+     */
+    private $updated_at;
+
+    /**
+     * @var string
+     * @Gedmo\Blameable(on="create")
+     * @ORM\Column(name="created_by", type="string", length=255, nullable=true)
+     */
+    private $created_by;
+
+    /**
+     * @var string
+     * @Gedmo\Blameable(on="update")
+     * @ORM\Column(name="updated_by", type="string", length=255, nullable=true)
+     */
+    private $updated_by;
 
     public function __toString()
     {
-        return sprintf("%s %s", $this->getName(), $this->getLastName());
+        return sprintf("%s", $this->getUsername());
     }
 
     /**

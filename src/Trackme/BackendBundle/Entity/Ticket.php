@@ -3,6 +3,7 @@
 namespace Trackme\BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Ticket
@@ -43,20 +44,6 @@ class Ticket
     private $description;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="created", type="datetime", nullable=false)
-     */
-    private $created;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="updated", type="datetime", nullable=false)
-     */
-    private $updated;
-
-    /**
      * @var \Ticketstate
      *
      * @ORM\ManyToOne(targetEntity="Ticketstate")
@@ -76,6 +63,33 @@ class Ticket
      */
     private $user;
 
+    /**
+     * @var \DateTime
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(name="created_at", type="datetime", nullable=true)
+     */
+    private $created_at;
+
+    /**
+     * @var \DateTime
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
+     */
+    private $updated_at;
+
+    /**
+     * @var string
+     * @Gedmo\Blameable(on="create")
+     * @ORM\Column(name="created_by", type="string", length=255, nullable=true)
+     */
+    private $created_by;
+
+    /**
+     * @var string
+     * @Gedmo\Blameable(on="update")
+     * @ORM\Column(name="updated_by", type="string", length=255, nullable=true)
+     */
+    private $updated_by;
 
 
     /**
@@ -158,52 +172,6 @@ class Ticket
     }
 
     /**
-     * Set created
-     *
-     * @param \DateTime $created
-     * @return Ticket
-     */
-    public function setCreated($created)
-    {
-        $this->created = $created;
-    
-        return $this;
-    }
-
-    /**
-     * Get created
-     *
-     * @return \DateTime 
-     */
-    public function getCreated()
-    {
-        return $this->created;
-    }
-
-    /**
-     * Set updated
-     *
-     * @param \DateTime $updated
-     * @return Ticket
-     */
-    public function setUpdated($updated)
-    {
-        $this->updated = $updated;
-    
-        return $this;
-    }
-
-    /**
-     * Get updated
-     *
-     * @return \DateTime 
-     */
-    public function getUpdated()
-    {
-        return $this->updated;
-    }
-
-    /**
      * Set user
      *
      * @param \Trackme\BackendBundle\Entity\User $user
@@ -247,5 +215,97 @@ class Ticket
     public function getState()
     {
         return $this->state;
+    }
+
+    /**
+     * Set created_at
+     *
+     * @param \DateTime $createdAt
+     * @return Ticket
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->created_at = $createdAt;
+    
+        return $this;
+    }
+
+    /**
+     * Get created_at
+     *
+     * @return \DateTime 
+     */
+    public function getCreatedAt()
+    {
+        return $this->created_at;
+    }
+
+    /**
+     * Set updated_at
+     *
+     * @param \DateTime $updatedAt
+     * @return Ticket
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updated_at = $updatedAt;
+    
+        return $this;
+    }
+
+    /**
+     * Get updated_at
+     *
+     * @return \DateTime 
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updated_at;
+    }
+
+    /**
+     * Set created_by
+     *
+     * @param string $createdBy
+     * @return Ticket
+     */
+    public function setCreatedBy($createdBy)
+    {
+        $this->created_by = $createdBy;
+    
+        return $this;
+    }
+
+    /**
+     * Get created_by
+     *
+     * @return string 
+     */
+    public function getCreatedBy()
+    {
+        return $this->created_by;
+    }
+
+    /**
+     * Set updated_by
+     *
+     * @param string $updatedBy
+     * @return Ticket
+     */
+    public function setUpdatedBy($updatedBy)
+    {
+        $this->updated_by = $updatedBy;
+    
+        return $this;
+    }
+
+    /**
+     * Get updated_by
+     *
+     * @return string 
+     */
+    public function getUpdatedBy()
+    {
+        return $this->updated_by;
     }
 }
