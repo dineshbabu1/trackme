@@ -5,9 +5,10 @@
   {% block title %}{{ sonata_seo_title() }}{% endblock %}
   {{ sonata_seo_metadatas() }}
   {% block stylesheets %}
-  {% stylesheets 'bundles/trackmefrontend/css/*' %}
-    <link rel="stylesheet" href="{{ asset_url }}" />
-  {% endstylesheets %}
+    <link href="//netdna.bootstrapcdn.com/bootswatch/2.3.1/spacelab/bootstrap.min.css" rel="stylesheet">
+    {% stylesheets 'bundles/trackmefrontend/css/*' %}
+      <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome-ie7.css" rel="stylesheet">
   {% endblock %}
