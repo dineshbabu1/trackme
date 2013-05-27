@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "1080d89e6b4487d50d7a9ccac89d25c8",
+    "hash": "4a5a60198c6cd8d522521ae14792faa2",
     "packages": [
         {
             "name": "antimattr/google-bundle",
@@ -103,12 +103,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony2admingenerator/AdmingeneratorGeneratorBundle.git",
-                "reference": "37af47b0b85d7cfd086c8503a26c63e5ba18b30c"
+                "reference": "4fabdf3aa2859fdb1e03cc463faa4f45b0f4eba3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony2admingenerator/AdmingeneratorGeneratorBundle/zipball/37af47b0b85d7cfd086c8503a26c63e5ba18b30c",
-                "reference": "37af47b0b85d7cfd086c8503a26c63e5ba18b30c",
+                "url": "https://api.github.com/repos/symfony2admingenerator/AdmingeneratorGeneratorBundle/zipball/4fabdf3aa2859fdb1e03cc463faa4f45b0f4eba3",
+                "reference": "4fabdf3aa2859fdb1e03cc463faa4f45b0f4eba3",
                 "shasum": ""
             },
             "require": {
@@ -160,7 +160,7 @@
                 "generator",
                 "yaml"
             ],
-            "time": "2013-05-26 22:08:03"
+            "time": "2013-05-27 16:55:23"
         },
         {
             "name": "cedriclombardot/admingenerator-user-bundle",
@@ -241,60 +241,6 @@
                 "twig"
             ],
             "time": "2012-11-09 23:18:09"
-        },
-        {
-            "name": "craue/formflow-bundle",
-            "version": "dev-master",
-            "target-dir": "Craue/FormFlowBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/craue/CraueFormFlowBundle.git",
-                "reference": "3809697bddf0e3d784bb934368f041db38346309"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/craue/CraueFormFlowBundle/zipball/3809697bddf0e3d784bb934368f041db38346309",
-                "reference": "3809697bddf0e3d784bb934368f041db38346309",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.2",
-                "symfony/form": ">=2.1-dev,<2.3-dev",
-                "symfony/framework-bundle": ">=2.1-dev,<2.3-dev"
-            },
-            "require-dev": {
-                "doctrine/common": ">=2.3,<3.0",
-                "phpunit/phpunit": ">=3.7.10.0,<3.8",
-                "sensio/framework-extra-bundle": ">=2.1-dev,<2.3-dev",
-                "symfony/symfony": ">=2.1-dev,<2.3-dev"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-0": {
-                    "Craue\\FormFlowBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Christian Raue",
-                    "email": "christian.raue@gmail.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://github.com/craue/CraueFormFlowBundle/contributors"
-                }
-            ],
-            "description": "Multi-step forms for your Symfony2 project.",
-            "homepage": "https://github.com/craue/CraueFormFlowBundle",
-            "keywords": [
-                "Symfony2",
-                "form"
-            ],
-            "time": "2013-05-24 15:59:01"
         },
         {
             "name": "doctrine/annotations",
@@ -509,12 +455,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/common.git",
-                "reference": "1459223adae87305d07c9ea5f742a7fd6c8a740e"
+                "reference": "2169b0ce1d253d448c60b7d40bbe4e4b5afe22fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/common/zipball/1459223adae87305d07c9ea5f742a7fd6c8a740e",
-                "reference": "1459223adae87305d07c9ea5f742a7fd6c8a740e",
+                "url": "https://api.github.com/repos/doctrine/common/zipball/2169b0ce1d253d448c60b7d40bbe4e4b5afe22fe",
+                "reference": "2169b0ce1d253d448c60b7d40bbe4e4b5afe22fe",
                 "shasum": ""
             },
             "require": {
@@ -562,7 +508,7 @@
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -575,7 +521,7 @@
                 "persistence",
                 "spl"
             ],
-            "time": "2013-05-21 02:44:34"
+            "time": "2013-05-27 19:11:46"
         },
         {
             "name": "doctrine/data-fixtures",
@@ -638,12 +584,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "b139fc51d36dda53261f30e9159a942346b65aa3"
+                "reference": "da9564df54d248de03f9fd3d31e5eade86f8f747"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/b139fc51d36dda53261f30e9159a942346b65aa3",
-                "reference": "b139fc51d36dda53261f30e9159a942346b65aa3",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/da9564df54d248de03f9fd3d31e5eade86f8f747",
+                "reference": "da9564df54d248de03f9fd3d31e5eade86f8f747",
                 "shasum": ""
             },
             "require": {
@@ -700,7 +646,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2013-05-26 05:58:25"
+            "time": "2013-05-27 19:17:11"
         },
         {
             "name": "doctrine/doctrine-bundle",
@@ -882,7 +828,7 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes M. Schmitt",
+                    "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -961,12 +907,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "e5de0dad7ef502037a6f45eded0e02e8b5ebdf47"
+                "reference": "f269ecc3ac1bcae20d1e0e5f3c8c0670b8669dd1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/e5de0dad7ef502037a6f45eded0e02e8b5ebdf47",
-                "reference": "e5de0dad7ef502037a6f45eded0e02e8b5ebdf47",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/f269ecc3ac1bcae20d1e0e5f3c8c0670b8669dd1",
+                "reference": "f269ecc3ac1bcae20d1e0e5f3c8c0670b8669dd1",
                 "shasum": ""
             },
             "require": {
@@ -1027,7 +973,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2013-05-26 07:10:18"
+            "time": "2013-05-27 19:47:16"
         },
         {
             "name": "egeloen/google-map",
@@ -3239,12 +3185,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/MonologBundle.git",
-                "reference": "v2.3.0-RC1"
+                "reference": "03ed73bc11367b3156cc21f22ac37c7f70fcd10a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/MonologBundle/zipball/v2.3.0-RC1",
-                "reference": "v2.3.0-RC1",
+                "url": "https://api.github.com/repos/symfony/MonologBundle/zipball/03ed73bc11367b3156cc21f22ac37c7f70fcd10a",
+                "reference": "03ed73bc11367b3156cc21f22ac37c7f70fcd10a",
                 "shasum": ""
             },
             "require": {
@@ -3288,7 +3234,7 @@
                 "log",
                 "logging"
             ],
-            "time": "2013-04-24 12:34:02"
+            "time": "2013-05-27 18:06:55"
         },
         {
             "name": "symfony/swiftmailer-bundle",
@@ -3351,12 +3297,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "f213a851e6f9664cfd2bdfc63fee7ac2c885e4ed"
+                "reference": "1ead34ff8c25b066fd4547ab838e052b7a71ae9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/f213a851e6f9664cfd2bdfc63fee7ac2c885e4ed",
-                "reference": "f213a851e6f9664cfd2bdfc63fee7ac2c885e4ed",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/1ead34ff8c25b066fd4547ab838e052b7a71ae9d",
+                "reference": "1ead34ff8c25b066fd4547ab838e052b7a71ae9d",
                 "shasum": ""
             },
             "require": {
@@ -3442,7 +3388,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2013-05-19 19:04:48"
+            "time": "2013-05-27 14:47:40"
         },
         {
             "name": "twig/extensions",
@@ -3497,12 +3443,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "b081e3f1ed64b8246bfcadef3e66233ab2c0ffd9"
+                "reference": "f6c00587f8b2d6e680d09fd6015fa521f9c72327"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/b081e3f1ed64b8246bfcadef3e66233ab2c0ffd9",
-                "reference": "b081e3f1ed64b8246bfcadef3e66233ab2c0ffd9",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/f6c00587f8b2d6e680d09fd6015fa521f9c72327",
+                "reference": "f6c00587f8b2d6e680d09fd6015fa521f9c72327",
                 "shasum": ""
             },
             "require": {
@@ -3538,7 +3484,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2013-05-25 15:56:42"
+            "time": "2013-05-27 06:08:37"
         },
         {
             "name": "vich/uploader-bundle",
@@ -3692,16 +3638,16 @@
         },
         {
             "name": "willdurand/geocoder",
-            "version": "dev-master",
+            "version": "1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/willdurand/Geocoder.git",
-                "reference": "d6ef85c0d9ff69d376681000adad0b25456a39f4"
+                "reference": "1.6.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/willdurand/Geocoder/zipball/d6ef85c0d9ff69d376681000adad0b25456a39f4",
-                "reference": "d6ef85c0d9ff69d376681000adad0b25456a39f4",
+                "url": "https://api.github.com/repos/willdurand/Geocoder/zipball/1.6.0",
+                "reference": "1.6.0",
                 "shasum": ""
             },
             "require": {
@@ -3723,7 +3669,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0-dev"
+                    "dev-master": "1.6-dev"
                 }
             },
             "autoload": {
@@ -3750,7 +3696,7 @@
                 "geocoding",
                 "geoip"
             ],
-            "time": "2013-05-22 08:53:22"
+            "time": "2013-05-22 08:39:46"
         },
         {
             "name": "willdurand/geocoder-bundle",
@@ -3826,7 +3772,6 @@
         "knplabs/knp-gaufrette-bundle": 20,
         "liip/monitor-bundle": 20,
         "willdurand/faker-bundle": 20,
-        "craue/formflow-bundle": 20,
         "antimattr/google-bundle": 20,
         "gedmo/doctrine-extensions": 20,
         "stof/doctrine-extensions-bundle": 20,

@@ -4,7 +4,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <services>
+<!--    <services>
         <service id="trackme.form.registerBusiness"
             class="Trackme\FrontendBundle\Form\RegisterBusinessFormType">
             <tag name="form.type" alias="registerBusiness" />
@@ -18,5 +18,5 @@
                 <argument type="service" id="trackme.form.registerBusiness" />
             </call>
         </service>
-    </services>
+    </services>-->
 </container>

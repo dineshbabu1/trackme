@@ -39,7 +39,7 @@ class DefaultController extends Controller {
     
     if ($request->getMethod() == 'POST') {
       $json = json_decode($request->getContent());
-
+      
       $user = $em->getRepository('Trackme\BackendBundle\Entity\User')->find($json->user);
 
       if(!$user){
