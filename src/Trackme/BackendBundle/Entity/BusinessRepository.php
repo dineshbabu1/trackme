@@ -28,4 +28,17 @@ use Doctrine\ORM\EntityRepository;
  */
 class BusinessRepository extends EntityRepository
 {
+	public function getLastBusiness()
+	{
+		$first_day_month = date('m', strtotime("first day of this month midnight"));
+		$em = $this->getEntityManager();
+
+        $query = $em->createQuery('
+            SELECT b
+            FROM TrackmeBackendBundle:Business b
+            WHERE b.created_at > :first_day_month');
+        $query->setParameter('first_day_month', $first_day_month);
+     
+        return $query->getArrayResult();
+	}
 }

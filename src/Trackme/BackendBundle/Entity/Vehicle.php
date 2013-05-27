@@ -1,60 +1,128 @@
 <?php
 
-/*
- * Copyright 2013 Gonzalo Moreno <goncab380@hotmail.com>
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 namespace Trackme\BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Vehicle
+ *
+ * @ORM\Table(name="vehicle")
+ * @ORM\Entity
  */
 class Vehicle
 {
     /**
      * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="manufacturer", type="string", length=255, nullable=false)
      */
     private $manufacturer;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="model", type="string", length=255, nullable=false)
      */
     private $model;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="code", type="string", length=255, nullable=true)
+     */
+    private $code;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string", length=255, nullable=true)
      */
     private $type;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="fuel", type="string", length=255, nullable=true)
+     */
+    private $fuel;
+
+    /**
      * @var float
+     *
+     * @ORM\Column(name="kilometer_per_liter", type="decimal", nullable=true)
      */
     private $kilometerPerLiter;
 
+    /**
+     * @var \Business
+     *
+     * @ORM\ManyToOne(targetEntity="Business")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="business_id", referencedColumnName="id")
+     * })
+     */
+    private $business;
 
-    public function __toString() {
-        return $this->getManufacturer()." - ".$this->getModel();
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection $issues
+     * @ORM\OneToMany(targetEntity="VehicleMantention", mappedBy="vehicle", cascade={"persist", "remove"})
+     */
+    private $issues;
+
+    /**
+     * @var \DateTime
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(name="created_at", type="datetime", nullable=true)
+     */
+    private $created_at;
+
+    /**
+     * @var \DateTime
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
+     */
+    private $updated_at;
+
+    /**
+     * @var string
+     * @Gedmo\Blameable(on="create")
+     * @ORM\Column(name="created_by", type="string", length=255, nullable=true)
+     */
+    private $created_by;
+
+    /**
+     * @var string
+     * @Gedmo\Blameable(on="update")
+     * @ORM\Column(name="updated_by", type="string", length=255, nullable=true)
+     */
+    private $updated_by;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->issues = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
+
+    public function __toString()
+    {
+        return sprintf("%s - %s %s", $this->getCode(), $this->getManufacturer(), $this->getModel());
+    }
+
     /**
      * Get id
      *
@@ -112,6 +180,29 @@ class Vehicle
     }
 
     /**
+     * Set code
+     *
+     * @param string $code
+     * @return Vehicle
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+    
+        return $this;
+    }
+
+    /**
+     * Get code
+     *
+     * @return string 
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
      * Set type
      *
      * @param string $type
@@ -135,6 +226,29 @@ class Vehicle
     }
 
     /**
+     * Set fuel
+     *
+     * @param string $fuel
+     * @return Vehicle
+     */
+    public function setFuel($fuel)
+    {
+        $this->fuel = $fuel;
+    
+        return $this;
+    }
+
+    /**
+     * Get fuel
+     *
+     * @return string 
+     */
+    public function getFuel()
+    {
+        return $this->fuel;
+    }
+
+    /**
      * Set kilometerPerLiter
      *
      * @param float $kilometerPerLiter
@@ -155,75 +269,6 @@ class Vehicle
     public function getKilometerPerLiter()
     {
         return $this->kilometerPerLiter;
-    }
-    /**
-     * @var \Trackme\BackendBundle\Entity\Business
-     */
-    private $business;
-
-
-    /**
-     * Set business
-     *
-     * @param \Trackme\BackendBundle\Entity\Business $business
-     * @return Vehicle
-     */
-    public function setBusiness(\Trackme\BackendBundle\Entity\Business $business = null)
-    {
-        $this->business = $business;
-    
-        return $this;
-    }
-
-    /**
-     * Get business
-     *
-     * @return \Trackme\BackendBundle\Entity\Business 
-     */
-    public function getBusiness()
-    {
-        return $this->business;
-    }
-    /**
-     * @var string
-     */
-    private $code;
-
-
-    /**
-     * Set code
-     *
-     * @param string $code
-     * @return Vehicle
-     */
-    public function setCode($code)
-    {
-        $this->code = $code;
-    
-        return $this;
-    }
-
-    /**
-     * Get code
-     *
-     * @return string 
-     */
-    public function getCode()
-    {
-        return $this->code;
-    }
-    
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $issues;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->issues = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -258,32 +303,119 @@ class Vehicle
     {
         return $this->issues;
     }
-    /**
-     * @var string
-     */
-    private $fuel;
-
 
     /**
-     * Set fuel
+     * Set business
      *
-     * @param string $fuel
+     * @param \Trackme\BackendBundle\Entity\Business $business
      * @return Vehicle
      */
-    public function setFuel($fuel)
+    public function setBusiness(\Trackme\BackendBundle\Entity\Business $business = null)
     {
-        $this->fuel = $fuel;
-
+        $this->business = $business;
+    
         return $this;
     }
 
     /**
-     * Get fuel
+     * Get business
+     *
+     * @return \Trackme\BackendBundle\Entity\Business 
+     */
+    public function getBusiness()
+    {
+        return $this->business;
+    }
+
+    /**
+     * Set created_at
+     *
+     * @param \DateTime $createdAt
+     * @return Vehicle
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->created_at = $createdAt;
+    
+        return $this;
+    }
+
+    /**
+     * Get created_at
+     *
+     * @return \DateTime 
+     */
+    public function getCreatedAt()
+    {
+        return $this->created_at;
+    }
+
+    /**
+     * Set updated_at
+     *
+     * @param \DateTime $updatedAt
+     * @return Vehicle
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updated_at = $updatedAt;
+    
+        return $this;
+    }
+
+    /**
+     * Get updated_at
+     *
+     * @return \DateTime 
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updated_at;
+    }
+
+    /**
+     * Set created_by
+     *
+     * @param string $createdBy
+     * @return Vehicle
+     */
+    public function setCreatedBy($createdBy)
+    {
+        $this->created_by = $createdBy;
+    
+        return $this;
+    }
+
+    /**
+     * Get created_by
      *
      * @return string 
      */
-    public function getFuel()
+    public function getCreatedBy()
     {
-        return $this->fuel;
+        return $this->created_by;
+    }
+
+    /**
+     * Set updated_by
+     *
+     * @param string $updatedBy
+     * @return Vehicle
+     */
+    public function setUpdatedBy($updatedBy)
+    {
+        $this->updated_by = $updatedBy;
+    
+        return $this;
+    }
+
+    /**
+     * Get updated_by
+     *
+     * @return string 
+     */
+    public function getUpdatedBy()
+    {
+        return $this->updated_by;
     }
 }

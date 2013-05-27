@@ -5,9 +5,29 @@
 {% endblock title %}
 
 {% block navbar %}
-	{{ include('TrackmeBackendBundle::base_admin_navbar.html.twig') }}
+	{% include('TrackmeBackendBundle::base_admin_navbar.html.twig') %}
 {% endblock navbar %}
 
+{% block stylesheets %}
+        <!-- bootstrap.min.css -->
+        <link rel="stylesheet" href="{{ asset('bundles/trackmebackend/css/bootstrap.css') }}" type="text/css" media="all" />
+        <link rel="stylesheet" href="{{ asset('bundles/admingeneratorgenerator/css/bootstrap/bootstrap-extended.css') }}" type="text/css" media="all" />
+        <link rel="stylesheet" href="{{ asset('bundles/admingeneratorgenerator/css/bootstrap/bootstrap-datepicker.css') }}" type="text/css" media="all" />
+        <link rel="stylesheet" href="{{ asset('bundles/admingeneratorgenerator/css/google/prettify.css') }}" type="text/css" media="all" />
+
+        <!-- bootstrap-responsive.min.css -->
+        <link rel="stylesheet" href="{{ asset('bundles/admingeneratorgenerator/css/bootstrap/bootstrap-responsive.css') }}" type="text/css" media="all" />
+        <link rel="stylesheet" href="{{ asset('bundles/admingeneratorgenerator/css/bootstrap/bootstrap-responsive-extended.css') }}" type="text/css" media="all" />
+
+        <!-- admingenerator.min.css -->
+        <link rel="stylesheet" href="{{ asset('bundles/admingeneratorgenerator/css/admingenerator/general.css') }}" type="text/css" media="all" />
+        <link rel="stylesheet" href="{{ asset('bundles/admingeneratorgenerator/css/admingenerator/nested-list.css') }}" type="text/css" media="all" />
+        <link rel="stylesheet" href="{{ asset('bundles/admingeneratorgenerator/css/admingenerator/collection.css') }}" type="text/css" media="all" />
+        <link rel="stylesheet" href="{{ asset('bundles/admingeneratorgenerator/css/admingenerator/upload.css') }}" type="text/css" media="all" />
+        <link rel="stylesheet" href="{{ asset('bundles/admingeneratorgenerator/css/admingenerator/filetypeicons.css') }}" type="text/css" media="all" />
+        <link rel="stylesheet" href="{{ asset('bundles/admingeneratorgenerator/css/admingenerator/form/datepicker.css') }}" type="text/css" media="all" />
+        <link rel="stylesheet" href="{{ asset('bundles/admingeneratorgenerator/css/admingenerator/form/single-upload.css') }}" type="text/css" media="all" />
+    {% endblock %}
 
 {% block footer %}
 <footer>

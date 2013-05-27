@@ -44,11 +44,17 @@ class LoadClientStateData extends AbstractFixture implements OrderedFixtureInter
         $f->setName('Full');
         $f->setCode('l');
         $manager->persist($f);
+
+        $free = new ClientState();
+        $free->setName('Trial');
+        $free->setCode('t');
+        $manager->persist($free);
         
         $manager->flush();
         $this->addReference('client-basic', $b1);
         $this->addReference('client-business', $b2);
         $this->addReference('client-full', $f);
+        $this->addReference('client-trial', $free);
     }
     
     public function getOrder()

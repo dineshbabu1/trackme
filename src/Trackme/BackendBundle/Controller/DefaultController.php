@@ -46,7 +46,7 @@ class DefaultController extends Controller
             throw $this->createNotFoundException('La pagina solicitada no existe');
         }
         $em = $this->getDoctrine()->getManager();
-        $last_business = $em->getRepository('Trackme\BackendBundle\Entity\Business')->findAll();
+        $last_business = $em->getRepository('Trackme\BackendBundle\Entity\Business')->getLastBusiness();
         return $this->render('TrackmeBackendBundle:Default:dashboard_admin.html.twig', array('business' => $last_business));
     }
     

@@ -26,7 +26,7 @@ builders:
     list:
         params:
             title: Planes
-            display: ~
+            display: [ name, featured, price ]
             actions:
                 new: ~
             object_actions:

@@ -19,45 +19,48 @@
 namespace Trackme\BackendBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+
 use Trackme\BackendBundle\Entity\User;
 
-class LoadUserData extends AbstractFixture implements OrderedFixtureInterface {
+class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, FixtureInterface, ContainerAwareInterface {
+
+    private $container;
+
+    public function setContainer(ContainerInterface $container = null)
+    {
+        $this->container = $container;
+    }
 
     /**
      * {@inheritDoc}
      */
     public function load(ObjectManager $manager) {
-        
-        $user = new User();
-        $user->setBusiness($this->getReference('main-business'));
-        $user->setName('Usuario');
-        $user->setLastName('Basico');
-        $user->setUsername('basico');
-        $user->setEmail('basico@email.com');
-        $user->setPlainPassword('1234');
-        $user->setEmailable(true);
-        $user->setEnabled(true);
-        $user->addRole('ROLE_BASIC');
-        $manager->persist($user);
 
-        $adminuser = new User();
-        $adminuser->setName('admin');
-        $adminuser->setLastName('admin');
-        $adminuser->setUsername('admin');
-        $adminuser->setEmail('admin');
-        $adminuser->setPlainPassword('admin');
-        $adminuser->setEmailable(true);
-        $adminuser->setEnabled(true);
-        $adminuser->addRole('ROLE_SUPER_ADMIN');
-        $manager->persist($adminuser);
+        $userManager = $this->container->get('fos_user.user_manager');
+
+        $user = $userManager->createUser();
+        $user->setUsername('admin');
+        $user->setName('admin');
+        $user->setLastName('admin');
+        $user->setUsername('admin');
+        $user->setPlainPassword('admin');
+        $user->setEnabled(1);
+        $user->setEmail('gmoreno@acid.cl');
+        $user->setEmailable(1);
+        $user->addGroup($this->getReference('staff'));
+
+        $userManager->updateUser($user);
 
         $manager->flush();
     }
 
     public function getOrder() {
-        return 3;
+        return 4;
     }
 
 }

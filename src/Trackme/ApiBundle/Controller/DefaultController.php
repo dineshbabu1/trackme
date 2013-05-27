@@ -24,6 +24,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Trackme\BackendBundle\Entity\Coordinate;
+use Trackme\BackendBundle\Entity\Ot;
 
 class DefaultController extends Controller {
 
@@ -33,29 +34,93 @@ class DefaultController extends Controller {
    * @return \Symfony\Component\HttpFoundation\Response
    */
   public function indexAction(Request $request) {
-    
-//    "user_id": 12,
-//    "lat": "-30.989233",
-//    "lng": "27,846644"  
-      
+
     $em = $this->getDoctrine()->getManager();
     
     if ($request->getMethod() == 'POST') {
       $json = json_decode($request->getContent());
-      
-      $user = $em->getRepository('Trackme\BackendBundle\Entity\User')->find($json->user_id);
+
+      $user = $em->getRepository('Trackme\BackendBundle\Entity\User')->find($json->user);
+
       if(!$user){
-        return new Response(json_encode(array('value' => 'faaaail')), 404, array('Content-Type:' => 'application/json'));
+        return new Response(json_encode(array('status' => 'not found')), 404, array('Content-Type:' => 'application/json'));
       }
+      
       $coordinate = new Coordinate();
       $coordinate->setLat($json->lat);
       $coordinate->setLng($json->lng);
       $coordinate->setUser($user);
+      if($user->hasOtActive()){
+        $coordinate->setOt($user->hasOtActive());
+      }
       $em->persist($coordinate);
       $em->flush();
       
-      return new Response(json_encode(array('value' => 'eeeexito')), 200, array('Content-Type:' => 'application/json'));
+      return new Response(json_encode(array('status' => 'ok')), 200, array('Content-Type:' => 'application/json'));
     }
+  }
+
+  /**
+   * 
+   * @param \Symfony\Component\HttpFoundation\Request $request
+   * @return \Symfony\Component\HttpFoundation\Response
+   */
+  public function startAction(Request $request){
+    $em = $this->getDoctrine()->getManager();
+
+    if ($request->getMethod() == 'POST') {
+      $json = json_decode($request->getContent());
+      $user = $em->getRepository('Trackme\BackendBundle\Entity\User')->find($json->user);
+
+      if(!$user){
+        return new Response(json_encode(array('status' => 'not found')), 404, array('Content-Type:' => 'application/json'));
+      }
+
+      if($user->hasOtActive()){
+        return new Response(json_encode(array('status' => 'ot active')), 200, array('Content-Type:' => 'application/json')); 
+      }
+
+      $ot = new Ot();
+      $ot->setUser($user);
+      $ot->setDateStart(new \DateTime());
+      $em->persist($ot);
+      $em->flush();
+
+      return new Response(json_encode(array('status' => 'ok')), 200, array('Content-Type:' => 'application/json'));
+    } 
+  }
+
+  /**
+   * 
+   * @param \Symfony\Component\HttpFoundation\Request $request
+   * @return \Symfony\Component\HttpFoundation\Response
+   */
+  public function finishAction(Request $request){
+    $em = $this->getDoctrine()->getManager();
+
+    if ($request->getMethod() == 'POST') {
+      $json = json_decode($request->getContent());
+      $user = $em->getRepository('Trackme\BackendBundle\Entity\User')->find($json->user);
+
+      if(!$user){
+        return new Response(json_encode(array('status' => 'not found')), 404, array('Content-Type:' => 'application/json'));
+      }
+
+      $ot = $user->hasOtActive();
+      if(!$ot){
+        return new Response(json_encode(array('status' => 'sin ot activa')), 200, array('Content-Type:' => 'application/json')); 
+      }
+      
+      $ot->setDateEnd(new \DateTime());
+      $em->persist($ot);
+      $em->flush();
+
+      return new Response(json_encode(array('status' => 'ok')), 200, array('Content-Type:' => 'application/json'));
+    } 
+  }
+
+  public function calculateTotalKm(){
+
   }
 
 }

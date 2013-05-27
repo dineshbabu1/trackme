@@ -1,3 +1,8 @@
+trackme_mobile:
+    resource: "@TrackmeMobileBundle/Controller/"
+    type:     annotation
+    prefix:   /admin/mobile
+
 dashboard_admin:
     path: /admin/dashboard
     defaults:  { _controller: TrackmeBackendBundle:Default:dashboard_admin }
@@ -40,6 +45,22 @@ index_api:
     path: /api/position
     defaults:  { _controller: TrackmeApiBundle:Default:index, _format: json }
     requirements: { _format: (xml|json), _method: POST }
+    options:
+        expose: true
+
+start:
+    path: /api/start
+    defaults:  { _controller: TrackmeApiBundle:Default:start, _format: json }
+    requirements: { _format: (xml|json), _method: POST }
+    options:
+        expose: true  
+
+finish:
+    path: /api/finish
+    defaults:  { _controller: TrackmeApiBundle:Default:finish, _format: json }
+    requirements: { _format: (xml|json), _method: POST }
+    options:
+        expose: true                
 
 trackme_api:
     resource: "@TrackmeApiBundle/Controller/"
@@ -99,6 +120,13 @@ fos_user_resetting:
 fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /profile
+
+fos_user_group:
+    resource: "@FOSUserBundle/Resources/config/routing/group.xml"
+    prefix: /admin/cms/group
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"       
 
 _imagine:
     resource: .

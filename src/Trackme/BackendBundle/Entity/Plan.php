@@ -1,48 +1,56 @@
 <?php
 
-/*
- * Copyright 2013 Gonzalo Moreno <goncab380@hotmail.com>
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 namespace Trackme\BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Plan
+ *
+ * @ORM\Table(name="plan")
+ * @ORM\Entity
  */
 class Plan
 {
     /**
      * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=false)
      */
     private $name;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", nullable=false)
+     */
+    private $description;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="featured", type="boolean", nullable=false)
+     */
+    private $featured;
+
+    /**
      * @var float
+     *
+     * @ORM\Column(name="price", type="decimal", nullable=false)
      */
     private $price;
 
-    public function __toString() {
-        return $this->getName();
-    }
+
+
     /**
      * Get id
      *
@@ -77,35 +85,6 @@ class Plan
     }
 
     /**
-     * Set price
-     *
-     * @param float $price
-     * @return Plan
-     */
-    public function setPrice($price)
-    {
-        $this->price = $price;
-    
-        return $this;
-    }
-
-    /**
-     * Get price
-     *
-     * @return float 
-     */
-    public function getPrice()
-    {
-        return $this->price;
-    }
-    
-    /**
-     * @var string
-     */
-    private $description;
-
-
-    /**
      * Set description
      *
      * @param string $description
@@ -127,11 +106,6 @@ class Plan
     {
         return $this->description;
     }
-    /**
-     * @var boolean
-     */
-    private $featured;
-
 
     /**
      * Set featured
@@ -154,5 +128,28 @@ class Plan
     public function getFeatured()
     {
         return $this->featured;
+    }
+
+    /**
+     * Set price
+     *
+     * @param float $price
+     * @return Plan
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+    
+        return $this;
+    }
+
+    /**
+     * Get price
+     *
+     * @return float 
+     */
+    public function getPrice()
+    {
+        return $this->price;
     }
 }

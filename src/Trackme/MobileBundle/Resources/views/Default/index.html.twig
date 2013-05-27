@@ -1,0 +1,118 @@
+<html>
+<head>
+	<title>Track Me! Mobile</title>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+	<script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+	<script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+</head>
+<body>
+	<p>
+		{% if active %}
+			<a href="#" id="finish-ot" data-role="button" data-icon="gear" data-theme="b">Terminar</a>
+		{% else %}
+			<a href="#" id="start-ot" data-role="button" data-icon="gear" data-theme="b">Iniciar</a>
+		{% endif %}
+		
+	</p>
+</body>
+</html>
+<script type="text/javascript">
+
+function checkGeoLocation() {
+	return navigator.geolocation;
+}
+
+function updateLocation() {
+	if (checkGeoLocation())
+	{ 
+		navigator.geolocation.getCurrentPosition(function(loc){
+			var user = {{user.id}}
+			enviasenal(loc.coords.latitude,loc.coords.longitude,user);
+		});
+		return true;
+	} else {
+		return false;
+	}
+}
+
+function sleep(index){
+	var index = 0;
+	setTimeout('sleep('+(index+1)+')', 30000);
+	updateLocation();
+}
+
+sleep();
+
+function enviasenal(lat,lng,user){
+	var arr = { lat: lat, lng: lng, user: user };
+	$.ajax({
+		url: Routing.generate('index_api'),
+		type: 'POST',
+		data: JSON.stringify(arr),
+		contentType: 'application/json; charset=utf-8',
+		dataType: 'json',
+		async: false,
+		success: function(msg) {
+			console.log(msg);
+		}
+	});
+}
+
+$('#start-ot').click(function(){
+	start_ot();
+});
+
+$('#finish-ot').click(function(){
+	finish_ot();
+});
+
+function start_ot(){
+
+	$('#start-ot').attr("disabled", "disabled");
+	var arr = { user: {{user.id}} };
+	$.ajax({
+		url: Routing.generate('start'),
+		type: 'POST',
+		data: JSON.stringify(arr),
+		contentType: 'application/json; charset=utf-8',
+		dataType: 'json',
+		async: false,
+		success: function(msg) {
+			$('#start-ot').removeAttr("disabled");
+			console.log(msg);
+			location.reload();
+		}
+	});
+}
+
+function finish_ot(){
+
+	$('#finish-ot').attr("disabled", "disabled");
+	var arr = { user: {{user.id}} };
+	$.ajax({
+		url: Routing.generate('finish'),
+		type: 'POST',
+		data: JSON.stringify(arr),
+		contentType: 'application/json; charset=utf-8',
+		dataType: 'json',
+		async: false,
+		success: function(msg) {
+			$('#finish-ot').removeAttr("disabled");
+			console.log(msg);
+			location.reload();
+		}
+	});
+}
+
+function UpdRecursive(){
+	setTimeout('updateLocation()', 30000);
+}
+
+$(document).ready(function(){
+
+	UpdRecursive();
+
+});
+</script>

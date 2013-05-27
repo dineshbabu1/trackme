@@ -1,65 +1,54 @@
 <?php
 
-/*
- * Copyright 2013 Gonzalo Moreno <goncab380@hotmail.com>
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 namespace Trackme\BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\HttpFoundation\File\File;
-use Symfony\Component\Validator\Constraints as Assert;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Media
- * @Vich\Uploadable
+ *
+ * @ORM\Table(name="media")
+ * @ORM\Entity
  */
 class Media
 {
     /**
      * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=true)
      */
     private $name;
 
     /**
-     * @Assert\File(
-     *     maxSize="2M",
-     *     mimeTypes={"image/png", "image/jpeg", "image/pjpeg", "image/gif"}
-     * )
-     * @Vich\UploadableField(mapping="image_file", fileNameProperty="name")
-     * @ORM\Column(type="string", length=255, nullable=true)
-     * 
-     * @var File $file
+     * @var string
+     *
+     * @ORM\Column(name="file", type="string", length=255, nullable=false)
      */
     private $file;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="alt", type="string", length=255, nullable=true)
      */
     private $alt;
 
     /**
      * @var boolean
+     *
+     * @ORM\Column(name="enabled", type="boolean", nullable=false)
      */
     private $enabled;
+
 
 
     /**
@@ -81,7 +70,7 @@ class Media
     public function setName($name)
     {
         $this->name = $name;
-
+    
         return $this;
     }
 
@@ -104,7 +93,7 @@ class Media
     public function setFile($file)
     {
         $this->file = $file;
-
+    
         return $this;
     }
 
@@ -127,7 +116,7 @@ class Media
     public function setAlt($alt)
     {
         $this->alt = $alt;
-
+    
         return $this;
     }
 
@@ -150,7 +139,7 @@ class Media
     public function setEnabled($enabled)
     {
         $this->enabled = $enabled;
-
+    
         return $this;
     }
 
