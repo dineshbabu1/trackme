@@ -31,7 +31,7 @@ class Plan
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text", nullable=false)
+     * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
 

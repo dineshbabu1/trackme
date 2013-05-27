@@ -7,10 +7,10 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Clientstate
  *
- * @ORM\Table(name="clientstate")
+ * @ORM\Table(name="client_state")
  * @ORM\Entity
  */
-class Clientstate
+class ClientState
 {
     /**
      * @var integer

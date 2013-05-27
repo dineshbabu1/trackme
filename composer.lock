@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "a3f647c643ab3877b20a608dcb323e7f",
+    "hash": "1080d89e6b4487d50d7a9ccac89d25c8",
     "packages": [
         {
             "name": "antimattr/google-bundle",
@@ -30,7 +30,7 @@
                     "AntiMattr\\GoogleBundle": ""
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -77,7 +77,7 @@
                     "Avalanche\\Bundle\\ImagineBundle": ""
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -103,12 +103,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony2admingenerator/AdmingeneratorGeneratorBundle.git",
-                "reference": "54d426a0824f8b0d0d70390bf59c07fbecdb46fd"
+                "reference": "37af47b0b85d7cfd086c8503a26c63e5ba18b30c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony2admingenerator/AdmingeneratorGeneratorBundle/zipball/54d426a0824f8b0d0d70390bf59c07fbecdb46fd",
-                "reference": "54d426a0824f8b0d0d70390bf59c07fbecdb46fd",
+                "url": "https://api.github.com/repos/symfony2admingenerator/AdmingeneratorGeneratorBundle/zipball/37af47b0b85d7cfd086c8503a26c63e5ba18b30c",
+                "reference": "37af47b0b85d7cfd086c8503a26c63e5ba18b30c",
                 "shasum": ""
             },
             "require": {
@@ -139,7 +139,7 @@
                     "Admingenerator\\GeneratorBundle": ""
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -160,7 +160,7 @@
                 "generator",
                 "yaml"
             ],
-            "time": "2013-05-26 14:28:15"
+            "time": "2013-05-26 22:08:03"
         },
         {
             "name": "cedriclombardot/admingenerator-user-bundle",
@@ -183,7 +183,7 @@
                     "Admingenerator\\UserBundle": ""
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -221,7 +221,7 @@
                     "TwigGenerator": "src/"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -274,7 +274,7 @@
                     "Craue\\FormFlowBundle": ""
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -328,7 +328,7 @@
                     "Doctrine\\Common\\Annotations\\": "lib/"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -398,7 +398,7 @@
                     "Doctrine\\Common\\Cache\\": "lib/"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -464,7 +464,7 @@
                     "Doctrine\\Common\\Collections\\": "lib/"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -536,7 +536,7 @@
                     "Doctrine\\Common\\": "lib/"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -614,7 +614,7 @@
                     "Doctrine\\Common\\DataFixtures": "lib/"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -668,7 +668,7 @@
                     "Doctrine\\DBAL\\": "lib/"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -744,7 +744,7 @@
                     "Doctrine\\Bundle\\DoctrineBundle": ""
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -804,7 +804,7 @@
                     "Doctrine\\Bundle\\FixturesBundle": ""
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -858,7 +858,7 @@
                     "Doctrine\\Common\\Inflector\\": "lib/"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -882,7 +882,7 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -926,7 +926,7 @@
                     "Doctrine\\Common\\Lexer\\": "lib/"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -997,7 +997,7 @@
                     "Doctrine\\ORM\\": "lib/"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1061,7 +1061,7 @@
                     "Ivory\\GoogleMap": "src/"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1110,7 +1110,7 @@
                     "Ivory\\GoogleMapBundle": ""
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1158,7 +1158,7 @@
                     "FOS\\JsRoutingBundle": ""
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1223,7 +1223,7 @@
                     "FOS\\UserBundle": ""
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1278,7 +1278,7 @@
                     "Faker\\PHPUnit": "test/"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1338,7 +1338,7 @@
                     "Gedmo": "lib/"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1401,7 +1401,7 @@
                     "Imagine": "lib/"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1453,7 +1453,7 @@
                     "lib"
                 ]
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1502,13 +1502,13 @@
                     "JMS\\AopBundle": ""
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "Apache"
             ],
             "authors": [
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -1549,15 +1549,15 @@
                     "CG\\": "src/"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "Apache2"
             ],
             "authors": [
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -1592,7 +1592,7 @@
                     "JMS\\CommandBundle": ""
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "Apache2"
             ],
@@ -1658,13 +1658,13 @@
                     "JMS\\DiExtraBundle": ""
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "Apache"
             ],
             "authors": [
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -1709,13 +1709,13 @@
                     "Metadata\\": "src/"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "Apache"
             ],
             "authors": [
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -1758,7 +1758,7 @@
                     "JMS\\": "src/"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "Apache2"
             ],
@@ -1812,13 +1812,13 @@
                     "JMS\\Payment\\CoreBundle": ""
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "Apache2"
             ],
             "authors": [
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -1860,15 +1860,15 @@
                     "JMS\\Payment\\PaypalBundle": ""
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "Apache2"
             ],
             "authors": [
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -1928,13 +1928,13 @@
                     "JMS\\SecurityExtraBundle": ""
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "Apache2"
             ],
             "authors": [
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -2002,7 +2002,7 @@
                     "Gaufrette": "src/"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2061,7 +2061,7 @@
                     "Knp\\Bundle\\GaufretteBundle": ""
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2124,7 +2124,7 @@
                     "Knp\\Menu\\": "src/"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2180,7 +2180,7 @@
                     "Knp\\Bundle\\MenuBundle": ""
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2255,7 +2255,7 @@
                     "src/functions.php"
                 ]
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2304,7 +2304,7 @@
                     "Buzz": "lib/"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2358,7 +2358,7 @@
                     "Liip\\Monitor": ""
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2419,7 +2419,7 @@
                     "Liip\\MonitorBundle": ""
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2487,7 +2487,7 @@
                     "Monolog": "src/"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2550,7 +2550,7 @@
                     "Pagerfanta\\": "src/"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2598,7 +2598,7 @@
                     "PhpOption\\": "src/"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "Apache2"
             ],
@@ -2639,7 +2639,7 @@
                     "Psr\\Log\\": ""
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2682,7 +2682,7 @@
                     "Ladybug": "lib/"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2731,7 +2731,7 @@
                     "RaulFraile\\Bundle\\LadybugBundle": ""
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2781,7 +2781,7 @@
                     "Sensio\\Bundle\\DistributionBundle": ""
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2828,7 +2828,7 @@
                     "Sensio\\Bundle\\FrameworkExtraBundle": ""
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2880,7 +2880,7 @@
                     "Sensio\\Bundle\\GeneratorBundle": ""
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2924,7 +2924,7 @@
                     "Exporter": "lib/"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2977,7 +2977,7 @@
                     "Sonata\\SeoBundle": ""
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3030,7 +3030,7 @@
                     "Stfalcon\\Bundle\\TinymceBundle": ""
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3093,7 +3093,7 @@
                     "Stof\\DoctrineExtensionsBundle": ""
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3148,7 +3148,7 @@
                     "lib/swift_required.php"
                 ]
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3212,7 +3212,7 @@
                     "Symfony\\Bundle\\AsseticBundle": ""
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3268,7 +3268,7 @@
                     "Symfony\\Bundle\\MonologBundle": ""
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3327,7 +3327,7 @@
                     "Symfony\\Bundle\\SwiftmailerBundle": ""
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3423,7 +3423,7 @@
                     "src/Symfony/Component/Locale/Resources/stubs"
                 ]
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3472,7 +3472,7 @@
                     "Twig_Extensions_": "lib/"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3519,7 +3519,7 @@
                     "Twig_": "lib/"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3"
             ],
@@ -3547,12 +3547,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dustin10/VichUploaderBundle.git",
-                "reference": "f0e0b6a1440740d3cb78932f9b4022b2f54b68e1"
+                "reference": "46b0c37899e71911f743b008de5440cd30202b84"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dustin10/VichUploaderBundle/zipball/f0e0b6a1440740d3cb78932f9b4022b2f54b68e1",
-                "reference": "f0e0b6a1440740d3cb78932f9b4022b2f54b68e1",
+                "url": "https://api.github.com/repos/dustin10/VichUploaderBundle/zipball/46b0c37899e71911f743b008de5440cd30202b84",
+                "reference": "46b0c37899e71911f743b008de5440cd30202b84",
                 "shasum": ""
             },
             "require": {
@@ -3579,7 +3579,7 @@
                     "Vich\\UploaderBundle": ""
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3596,7 +3596,7 @@
                 "file uploads",
                 "upload"
             ],
-            "time": "2013-05-23 13:48:25"
+            "time": "2013-05-26 23:17:36"
         },
         {
             "name": "white-october/pagerfanta-bundle",
@@ -3628,7 +3628,7 @@
                     "WhiteOctober\\PagerfantaBundle": ""
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3671,7 +3671,7 @@
                     "Bazinga\\Bundle\\FakerBundle": ""
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3692,16 +3692,16 @@
         },
         {
             "name": "willdurand/geocoder",
-            "version": "1.6.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/willdurand/Geocoder.git",
-                "reference": "1.6.0"
+                "reference": "d6ef85c0d9ff69d376681000adad0b25456a39f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/willdurand/Geocoder/zipball/1.6.0",
-                "reference": "1.6.0",
+                "url": "https://api.github.com/repos/willdurand/Geocoder/zipball/d6ef85c0d9ff69d376681000adad0b25456a39f4",
+                "reference": "d6ef85c0d9ff69d376681000adad0b25456a39f4",
                 "shasum": ""
             },
             "require": {
@@ -3723,7 +3723,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.6-dev"
+                    "dev-master": "2.0-dev"
                 }
             },
             "autoload": {
@@ -3731,7 +3731,7 @@
                     "Geocoder": "src/"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3750,7 +3750,7 @@
                 "geocoding",
                 "geoip"
             ],
-            "time": "2013-05-22 08:39:46"
+            "time": "2013-05-22 08:53:22"
         },
         {
             "name": "willdurand/geocoder-bundle",
@@ -3787,7 +3787,7 @@
                     "Bazinga\\Bundle\\GeocoderBundle": ""
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],

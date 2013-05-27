@@ -1,12 +1,13 @@
 {% extends '::bootstrap.html.twig' %}
 
 {% block page_title %}
-Registro
+  Empresa
 {% endblock %}
 
 {% block content %}
-  <form action="{{ path('signup') }}" name="form-empresa" method="post" {{ form_enctype(form) }}>
+  <form action="{{ path('create_business') }}" name="form-empresa" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
-          <input type="submit" value="Aceptar" class="btn btn-success btn-large"/>
+    <input type="hidden" value="{{state.id}}" name="state" id="state" />
+    <input type="submit" value="Aceptar" class="btn btn-success btn-large"/>
   </form>
 {% endblock %}

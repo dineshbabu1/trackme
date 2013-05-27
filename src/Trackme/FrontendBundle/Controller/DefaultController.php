@@ -18,6 +18,7 @@
 
 namespace Trackme\FrontendBundle\Controller;
 
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -42,15 +43,16 @@ class DefaultController extends Controller {
         $userManager = $this->get('fos_user.user_manager');
         $user = $userManager->createUser();
         $form = $this->createFormBuilder($user)
-                ->add('name','text')
-                ->add('last_name','text')
                 ->add('username','text', array('label' => 'Usuario'))
                 ->add('email','text')
-                ->add('plain_password','password', array('label' => 'Password'))
-                ->add('emailable', 'checkbox', array('label' => 'Recibir emails', 'help' => 'Al aceptar, podremos enviarles correo con novedades e informes a su correo'))
+                ->add('plain_password','repeated', array(
+                    'type' => 'password',
+                    'first_options' => array('label' => 'Password'),
+                    'second_options' => array('label' => 'Confirmar Password')))
+                ->add('emailable', 'checkbox', array('required' => false,'label' => 'Recibir emails', 'help' => 'Al aceptar, podremos enviarles correo con novedades e informes a su correo'))
                 ->getForm();
         
-        if ($request->isMethod('POST')) {
+        if ($request->getMethod() == "POST") {
             $em = $this->getDoctrine()->getManager();
             $business = $em->getRepository('Trackme\BackendBundle\Entity\Business')->findOneBy(array('token' => $request->get('token')));
             
@@ -67,12 +69,14 @@ class DefaultController extends Controller {
                 $user = $form->getData();
                 $user->setEnabled(TRUE);
                 $user->setBusiness($business);
-                $user->addRole('ROLE_BUSINESS');
+                $user->addRole($business->getRoleByState());
                 $userManager->updateUser($user); 
                 $em->persist($user);
                 $em->flush();
                 // Second step 
-                
+
+                $this->get('session')->getFlashBag()->add('success', 'Gracias por registrarse en Trackme.cl');
+
                 return $this->redirect($this->generateUrl('fos_user_security_login'));
             }
         }
@@ -80,6 +84,43 @@ class DefaultController extends Controller {
     }
 
     public function signupAction(Request $request) {
+        if(!$request->get('plan')){
+            return $this->redirect($this->generateUrl('pricing'));
+        }
+
+        $em = $this->getDoctrine()->getEntityManager();
+        $plan = $em->getRepository('Trackme\BackendBundle\Entity\Plan')->find($request->get('plan'));
+        
+        switch ($plan->getName()) {
+            case 'Trial':
+                $state = $em->getRepository('Trackme\BackendBundle\Entity\ClientState')->findOneBy(array('name' => $plan->getName()));
+                break;
+            case 'Básico':
+                $state = $em->getRepository('Trackme\BackendBundle\Entity\ClientState')->findOneBy(array('name' => $plan->getName()));
+                break;
+            case 'Business':
+                $state = $em->getRepository('Trackme\BackendBundle\Entity\ClientState')->findOneBy(array('name' => $plan->getName()));
+                break;
+            case 'Full':
+                $state = $em->getRepository('Trackme\BackendBundle\Entity\ClientState')->findOneBy(array('name' => $plan->getName()));
+                break;        
+            default:
+                $state = null;
+                break;
+        }
+
+        $business = new Business();
+        $form = $this->createFormBuilder($business)
+                ->add('name', 'text', array('label' => 'Nombre'))
+                ->add('email', 'email')
+                ->add('phone', 'text', array('label' => 'Telefono'))
+                ->getForm();
+        
+        return $this->render('TrackmeFrontendBundle:Default:signup.html.twig', array('form' => $form->createView(), 'state' => $state));
+    }
+
+    public function createAction(Request $request)
+    {
         $em = $this->getDoctrine()->getEntityManager();
         $business = new Business();
         $form = $this->createFormBuilder($business)
@@ -88,20 +129,18 @@ class DefaultController extends Controller {
                 ->add('phone', 'text', array('label' => 'Telefono'))
                 ->getForm();
 
-        if ($request->isMethod('POST')) {
-            $form->bind($request);
+        $form->bind($request);
 
             if ($form->isValid()) {
+                $state = $em->getRepository('Trackme\BackendBundle\Entity\ClientState')->find($request->get('state'));
                 $object = $form->getData();
+                $object->setState($state);
                 $em->persist($object);
                 $em->flush();
                 // Second step 
                 
                 return $this->redirect($this->generateUrl('signup_user', array('token' => $object->getToken())));
             }
-        }
-
-        return $this->render('TrackmeFrontendBundle:Default:signup.html.twig', array('form' => $form->createView()));
     }
 
     public function pageAction($url) {

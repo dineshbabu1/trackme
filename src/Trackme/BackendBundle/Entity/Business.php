@@ -58,9 +58,9 @@ class Business
     private $token;
 
     /**
-     * @var \Clientstate
+     * @var \ClientState
      *
-     * @ORM\ManyToOne(targetEntity="Clientstate")
+     * @ORM\ManyToOne(targetEntity="ClientState")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="state_id", referencedColumnName="id")
      * })
@@ -260,6 +260,8 @@ class Business
     public function __construct()
     {
         $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->token = base_convert(sha1(uniqid(mt_rand(), true)), 16, 36);
+        $this->enabled = true;
     }
 
     /**
@@ -385,5 +387,14 @@ class Business
     public function getUpdatedBy()
     {
         return $this->updated_by;
+    }
+
+    public function getRoleByState()
+    {
+        if($this->getState()->getName() == 'Básico'){
+            return 'ROLE_BASICO';
+        }else{
+            return 'ROLE_'.strtoupper($this->getState()->getName());
+        }
     }
 }

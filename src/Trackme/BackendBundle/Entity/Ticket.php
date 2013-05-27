@@ -44,9 +44,9 @@ class Ticket
     private $description;
 
     /**
-     * @var \Ticketstate
+     * @var \TicketState
      *
-     * @ORM\ManyToOne(targetEntity="Ticketstate")
+     * @ORM\ManyToOne(targetEntity="TicketState")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="state_id", referencedColumnName="id")
      * })
