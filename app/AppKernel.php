@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             new JMS\Payment\CoreBundle\JMSPaymentCoreBundle(),
             new JMS\Payment\PaypalBundle\JMSPaymentPaypalBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new Trackme\BackendBundle\TrackmeBackendBundle(),
             new Trackme\FrontendBundle\TrackmeFrontendBundle(),
             new Admingenerator\GeneratorBundle\AdmingeneratorGeneratorBundle(),
@@ -42,7 +43,8 @@ class AppKernel extends Kernel
             new Bazinga\Bundle\GeocoderBundle\BazingaGeocoderBundle(),
             new Craue\FormFlowBundle\CraueFormFlowBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
-            new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle()
+            new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle(),
+            new Trackme\MobileBundle\TrackmeMobileBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

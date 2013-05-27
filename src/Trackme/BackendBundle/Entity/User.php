@@ -99,6 +99,12 @@ class User extends BaseUser
     private $created_by;
 
     /**
+     * @var \Doctrine\Common\Collections\Collection $ot
+     * @ORM\OneToMany(targetEntity="Ot", mappedBy="user", cascade={"persist", "remove"})
+     */
+    private $ot;
+
+    /**
      * @var string
      * @Gedmo\Blameable(on="update")
      * @ORM\Column(name="updated_by", type="string", length=255, nullable=true)
@@ -321,5 +327,48 @@ class User extends BaseUser
     public function getGroups()
     {
         return $this->groups;
+    }
+
+
+    /**
+     * Add ot
+     *
+     * @param \Trackme\BackendBundle\Entity\Ot $ot
+     * @return User
+     */
+    public function addOt(\Trackme\BackendBundle\Entity\Ot $ot)
+    {
+        $this->ot[] = $ot;
+    
+        return $this;
+    }
+
+    /**
+     * Remove ot
+     *
+     * @param \Trackme\BackendBundle\Entity\Ot $ot
+     */
+    public function removeOt(\Trackme\BackendBundle\Entity\Ot $ot)
+    {
+        $this->ot->removeElement($ot);
+    }
+
+    /**
+     * Get ot
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getOt()
+    {
+        return $this->ot;
+    }
+
+    public function hasOtActive(){
+        foreach ($this->getOt() as $ot) {
+            if($ot->isActive()){
+                return $ot;
+            }
+        }
+        return false;
     }
 }

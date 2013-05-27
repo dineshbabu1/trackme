@@ -37,13 +37,6 @@ class Coordinate
     private $lng;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date", type="datetime", nullable=false)
-     */
-    private $date;
-
-    /**
      * @var \User
      *
      * @ORM\ManyToOne(targetEntity="User")
@@ -52,6 +45,16 @@ class Coordinate
      * })
      */
     private $user;
+
+    /**
+     * @var \User
+     *
+     * @ORM\ManyToOne(targetEntity="Ot")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ot_id", referencedColumnName="id", nullable=true)
+     * })
+     */
+    private $ot;
 
     /**
      * @var \DateTime
@@ -138,29 +141,6 @@ class Coordinate
     }
 
     /**
-     * Set date
-     *
-     * @param \DateTime $date
-     * @return Coordinate
-     */
-    public function setDate($date)
-    {
-        $this->date = $date;
-    
-        return $this;
-    }
-
-    /**
-     * Get date
-     *
-     * @return \DateTime 
-     */
-    public function getDate()
-    {
-        return $this->date;
-    }
-
-    /**
      * Set user
      *
      * @param \Trackme\BackendBundle\Entity\User $user
@@ -181,5 +161,120 @@ class Coordinate
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set created_at
+     *
+     * @param \DateTime $createdAt
+     * @return Coordinate
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->created_at = $createdAt;
+    
+        return $this;
+    }
+
+    /**
+     * Get created_at
+     *
+     * @return \DateTime 
+     */
+    public function getCreatedAt()
+    {
+        return $this->created_at;
+    }
+
+    /**
+     * Set updated_at
+     *
+     * @param \DateTime $updatedAt
+     * @return Coordinate
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updated_at = $updatedAt;
+    
+        return $this;
+    }
+
+    /**
+     * Get updated_at
+     *
+     * @return \DateTime 
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updated_at;
+    }
+
+    /**
+     * Set created_by
+     *
+     * @param string $createdBy
+     * @return Coordinate
+     */
+    public function setCreatedBy($createdBy)
+    {
+        $this->created_by = $createdBy;
+    
+        return $this;
+    }
+
+    /**
+     * Get created_by
+     *
+     * @return string 
+     */
+    public function getCreatedBy()
+    {
+        return $this->created_by;
+    }
+
+    /**
+     * Set updated_by
+     *
+     * @param string $updatedBy
+     * @return Coordinate
+     */
+    public function setUpdatedBy($updatedBy)
+    {
+        $this->updated_by = $updatedBy;
+    
+        return $this;
+    }
+
+    /**
+     * Get updated_by
+     *
+     * @return string 
+     */
+    public function getUpdatedBy()
+    {
+        return $this->updated_by;
+    }
+
+    /**
+     * Set ot
+     *
+     * @param \Trackme\BackendBundle\Entity\Ot $ot
+     * @return Coordinate
+     */
+    public function setOt(\Trackme\BackendBundle\Entity\Ot $ot = null)
+    {
+        $this->ot = $ot;
+    
+        return $this;
+    }
+
+    /**
+     * Get ot
+     *
+     * @return \Trackme\BackendBundle\Entity\Ot 
+     */
+    public function getOt()
+    {
+        return $this->ot;
     }
 }

@@ -6,40 +6,26 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * Coordinate
+ * Ot
  *
- * @ORM\Table(name="coordinate")
+ * @ORM\Table(name="ot")
  * @ORM\Entity
  */
-class Coordinate
+class Ot
 {
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
-     * @var float
-     *
-     * @ORM\Column(name="lat", type="float", nullable=false)
-     */
-    private $lat;
-
-    /**
-     * @var float
-     *
-     * @ORM\Column(name="lng", type="float", nullable=false)
-     */
-    private $lng;
-
-    /**
      * @var \User
      *
-     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="ot")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * })
@@ -47,14 +33,25 @@ class Coordinate
     private $user;
 
     /**
-     * @var \User
+     * @var float
      *
-     * @ORM\ManyToOne(targetEntity="Ot")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="ot_id", referencedColumnName="id", nullable=true)
-     * })
+     * @ORM\Column(name="total_km", type="float", nullable=true)
      */
-    private $ot;
+    private $totalKm;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_start", type="datetime")
+     */
+    private $dateStart;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_end", type="datetime", nullable=true)
+     */
+    private $dateEnd;
 
     /**
      * @var \DateTime
@@ -84,6 +81,15 @@ class Coordinate
      */
     private $updated_by;
 
+    /*
+    public function __construct($user)
+    {
+        $this->user = $user;
+        $this->dateStart = new \DateTime();
+
+    }
+    */
+
     /**
      * Get id
      *
@@ -95,79 +101,79 @@ class Coordinate
     }
 
     /**
-     * Set lat
+     * Set totalKm
      *
-     * @param float $lat
-     * @return Coordinate
+     * @param float $totalKm
+     * @return Ot
      */
-    public function setLat($lat)
+    public function setTotalKm($totalKm)
     {
-        $this->lat = $lat;
+        $this->totalKm = $totalKm;
     
         return $this;
     }
 
     /**
-     * Get lat
+     * Get totalKm
      *
      * @return float 
      */
-    public function getLat()
+    public function getTotalKm()
     {
-        return $this->lat;
+        return $this->totalKm;
     }
 
     /**
-     * Set lng
+     * Set dateStart
      *
-     * @param float $lng
-     * @return Coordinate
+     * @param \DateTime $dateStart
+     * @return Ot
      */
-    public function setLng($lng)
+    public function setDateStart($dateStart)
     {
-        $this->lng = $lng;
+        $this->dateStart = $dateStart;
     
         return $this;
     }
 
     /**
-     * Get lng
+     * Get dateStart
      *
-     * @return float 
+     * @return \DateTime 
      */
-    public function getLng()
+    public function getDateStart()
     {
-        return $this->lng;
+        return $this->dateStart;
     }
 
     /**
-     * Set user
+     * Set dateEnd
      *
-     * @param \Trackme\BackendBundle\Entity\User $user
-     * @return Coordinate
+     * @param \DateTime $dateEnd
+     * @return Ot
      */
-    public function setUser(\Trackme\BackendBundle\Entity\User $user = null)
+    public function setDateEnd($dateEnd)
     {
-        $this->user = $user;
+        $this->dateEnd = $dateEnd;
     
         return $this;
     }
 
     /**
-     * Get user
+     * Get dateEnd
      *
-     * @return \Trackme\BackendBundle\Entity\User 
+     * @return \DateTime 
      */
-    public function getUser()
+    public function getDateEnd()
     {
-        return $this->user;
+        return $this->dateEnd;
     }
 
     /**
      * Set created_at
      *
      * @param \DateTime $createdAt
-     * @return Coordinate
+     * @return Ot
      */
     public function setCreatedAt($createdAt)
     {
@@ -190,7 +196,7 @@ class Coordinate
      * Set updated_at
      *
      * @param \DateTime $updatedAt
-     * @return Coordinate
+     * @return Ot
      */
     public function setUpdatedAt($updatedAt)
     {
@@ -213,7 +219,7 @@ class Coordinate
      * Set created_by
      *
      * @param string $createdBy
-     * @return Coordinate
+     * @return Ot
      */
     public function setCreatedBy($createdBy)
     {
@@ -236,7 +242,7 @@ class Coordinate
      * Set updated_by
      *
      * @param string $updatedBy
-     * @return Coordinate
+     * @return Ot
      */
     public function setUpdatedBy($updatedBy)
     {
@@ -256,25 +262,34 @@ class Coordinate
     }
 
     /**
-     * Set ot
+     * Set user
      *
-     * @param \Trackme\BackendBundle\Entity\Ot $ot
-     * @return Coordinate
+     * @param \Trackme\BackendBundle\Entity\User $user
+     * @return Ot
      */
-    public function setOt(\Trackme\BackendBundle\Entity\Ot $ot = null)
+    public function setUser(\Trackme\BackendBundle\Entity\User $user = null)
     {
-        $this->ot = $ot;
+        $this->user = $user;
     
         return $this;
     }
 
     /**
-     * Get ot
+     * Get user
      *
-     * @return \Trackme\BackendBundle\Entity\Ot 
+     * @return \Trackme\BackendBundle\Entity\User 
      */
-    public function getOt()
+    public function getUser()
     {
-        return $this->ot;
+        return $this->user;
+    }
+
+    public function isActive()
+    {
+        if($this->getDateEnd() == null){
+            return true;
+        }else{
+            return false;
+        }
     }
 }

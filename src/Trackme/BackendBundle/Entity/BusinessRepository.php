@@ -30,8 +30,6 @@ class BusinessRepository extends EntityRepository
 {
 	public function getLastBusiness()
 	{
-		$emConfig = $this->getEntityManager()->getConfiguration();
-
 		$first_day_month = date('m', strtotime("first day of this month midnight"));
 		$em = $this->getEntityManager();
 
