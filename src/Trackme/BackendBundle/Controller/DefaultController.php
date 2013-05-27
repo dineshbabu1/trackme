@@ -25,6 +25,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Ivory\GoogleMap\Overlays\Marker;
 use Ivory\GoogleMap\Overlays\Animation;
 use Ivory\GoogleMap\Overlays\Polyline;
+use Ivory\GoogleMap\Overlays\Polygon;
 use Ivory\GoogleMap\Services\Directions\Directions;
 use Ivory\GoogleMap\Services\Directions\DirectionsRequest;
 
@@ -75,11 +76,12 @@ class DefaultController extends Controller
         $summary = "";
         $estimate = null;
         $distance = null;
-        #$marker = new Marker();
-        #$marker->setPosition(-33.424565,-70.65033, true);
-        #$marker->setIcon('http://mapicons.nicolasmollet.com/wp-content/uploads/mapicons/shape-default/color-9d7050/shapecolor-color/shadow-1/border-black/symbolstyle-contrast/symbolshadowstyle-no/gradient-no/truck-2.png');
-
+        $marker = new Marker();
+        $marker->setPosition(-33.424565,-70.65033, true);
+        $marker->setIcon('http://track.me/bundles/trackmebackend/images/truck3.png');
+        
         $map = $this->get('ivory_google_map.map');
+        $map->addMarker($marker);
         $map->setStylesheetOption('width', '100%');
         $map->setStylesheetOption('height', '500px');
         $map->setCenter($result->getLatitude(), $result->getLongitude(), true);
