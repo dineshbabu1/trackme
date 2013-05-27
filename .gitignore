@@ -4,7 +4,7 @@ vendor/*
 */cache/*
 web/uploads/*
 web/bundles/*
-
+web/assetic/*
 # Configuration files
 app/config/parameters.ini
 app/config/parameters.yml
