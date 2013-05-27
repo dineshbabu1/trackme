@@ -40,7 +40,8 @@ class DefaultController extends Controller {
     if ($request->getMethod() == 'POST') {
       $json = json_decode($request->getContent());
       
-      $user = $em->getRepository('Trackme\BackendBundle\Entity\User')->find($json->user);
+      $user = $this->get('security.context')->getToken()->getUser();
+//      $user = $em->getRepository('Trackme\BackendBundle\Entity\User')->find($json->user);
 
       if(!$user){
         return new Response(json_encode(array('status' => 'not found')), 404, array('Content-Type:' => 'application/json'));
@@ -70,7 +71,9 @@ class DefaultController extends Controller {
 
     if ($request->getMethod() == 'POST') {
       $json = json_decode($request->getContent());
-      $user = $em->getRepository('Trackme\BackendBundle\Entity\User')->find($json->user);
+      
+      $user = $this->get('security.context')->getToken()->getUser();
+//      $user = $em->getRepository('Trackme\BackendBundle\Entity\User')->find($json->user);
 
       if(!$user){
         return new Response(json_encode(array('status' => 'not found')), 404, array('Content-Type:' => 'application/json'));
@@ -100,7 +103,9 @@ class DefaultController extends Controller {
 
     if ($request->getMethod() == 'POST') {
       $json = json_decode($request->getContent());
-      $user = $em->getRepository('Trackme\BackendBundle\Entity\User')->find($json->user);
+      
+      $user = $this->get('security.context')->getToken()->getUser();
+//      $user = $em->getRepository('Trackme\BackendBundle\Entity\User')->find($json->user);
 
       if(!$user){
         return new Response(json_encode(array('status' => 'not found')), 404, array('Content-Type:' => 'application/json'));
