@@ -37,6 +37,8 @@ builders:
                     credentials: 'hasRole("ROLE_SUPER_ADMIN")'
             actions:
                 new: ~
+            batch_actions:
+                delete: ~     
             object_actions:
                 show: ~
                 edit: ~

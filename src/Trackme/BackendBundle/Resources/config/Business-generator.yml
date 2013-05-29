@@ -27,6 +27,8 @@ builders:
             display: ~
             actions: 
                 new: ~
+            batch_actions:
+                delete: ~     
             object_actions:
                 show: ~
                 delete: ~  
