@@ -97,8 +97,9 @@ fos_user:
     registration:
         confirmation:
             enabled:    true
+            template:   FOSUserBundle:Registration:email.txt.twig
             from_email:
-                address:        noreply@acmedemo.com
+                address:        trackmecl@gmail.com
                 sender_name:    Track Me!
 
 admingenerator_generator:

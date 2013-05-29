@@ -25,6 +25,11 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Trackme\BackendBundle\Entity\Business;
 use Trackme\BackendBundle\Entity\User;
+use FOS\UserBundle\FOSUserEvents;
+use FOS\UserBundle\Event\FormEvent;
+use FOS\UserBundle\Event\GetResponseUserEvent;
+use FOS\UserBundle\Event\UserEvent;
+use FOS\UserBundle\Event\FilterUserResponseEvent;
 
 class DefaultController extends Controller {
 
@@ -40,22 +45,26 @@ class DefaultController extends Controller {
         if(!$request->get('token')){
             return $this->redirect($this->generateUrl('signup'));
         }
-        $userManager = $this->get('fos_user.user_manager');
-        $user = $userManager->createUser();
-        $form = $this->createFormBuilder($user)
-                ->add('username','text', array('label' => 'Usuario'))
-                ->add('email','text')
-                ->add('plain_password','repeated', array(
-                    'type' => 'password',
-                    'first_options' => array('label' => 'Password'),
-                    'second_options' => array('label' => 'Confirmar Password')))
-                ->add('emailable', 'checkbox', array('required' => false,'label' => 'Recibir emails', 'help' => 'Al aceptar, podremos enviarles correo con novedades e informes a su correo'))
-                ->getForm();
         
-        if ($request->getMethod() == "POST") {
+        /** @var $formFactory \FOS\UserBundle\Form\Factory\FactoryInterface */
+        $formFactory = $this->get('fos_user.registration.form.factory');
+        /** @var $dispatcher \Symfony\Component\EventDispatcher\EventDispatcherInterface */
+        $dispatcher = $this->get('event_dispatcher');
+        
+        $userManager = $this->get('fos_user.user_manager');
+        
+        $user = $userManager->createUser();
+        $user->setEnabled(true);
+        
+        $dispatcher->dispatch(FOSUserEvents::REGISTRATION_INITIALIZE, new UserEvent($user, $request));
+        
+        $form = $formFactory->createForm();
+        
+        $form->setData($user);
+        
+        if ($request->getMethod() === "POST") {
             $em = $this->getDoctrine()->getManager();
             $business = $em->getRepository('Trackme\BackendBundle\Entity\Business')->findOneBy(array('token' => $request->get('token')));
-            
             if(!$business){
                 return $this->redirect($this->generateUrl('signup'));
             }
@@ -63,21 +72,22 @@ class DefaultController extends Controller {
             $form->bind($request);
 
             if ($form->isValid()) {
-                $userManager = $this->container->get('fos_user.user_manager');
-                $userManipulator = new \FOS\UserBundle\Util\UserManipulator($userManager);
                 
-                $user = $form->getData();
-                $user->setEnabled(TRUE);
+                $event = new FormEvent($form, $request);
+                $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
+                
                 $user->setBusiness($business);
                 $user->addRole($business->getRoleByState());
                 $userManager->updateUser($user); 
-                $em->persist($user);
-                $em->flush();
-                // Second step 
 
-                $this->get('session')->getFlashBag()->add('success', 'Gracias por registrarse en Trackme.cl');
+                if (null === $response = $event->getResponse()) {
+                    $url = $this->container->get('router')->generate('fos_user_registration_confirmed');
+                    $response = new RedirectResponse($url);
+                }
 
-                return $this->redirect($this->generateUrl('fos_user_security_login'));
+                $dispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
+
+                return $response;
             }
         }
         return $this->render('TrackmeFrontendBundle:Default:signup_user.html.twig', array('form' => $form->createView(), 'token' => $request->get('token')));
