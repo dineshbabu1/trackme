@@ -61,8 +61,6 @@ builders:
             fields:
                 business:
                     credentials: 'hasRole("ROLE_SUPER_ADMIN")'
-            batch_actions:
-                delete: ~        
             actions:
                 new: ~
             object_actions:

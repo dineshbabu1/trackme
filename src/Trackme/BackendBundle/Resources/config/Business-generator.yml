@@ -24,11 +24,9 @@ builders:
                         filters: 
                             enabled: true
             title: Clientes
-            display: ~
+            display: [name,email,phone,enabled]
             actions: 
                 new: ~
-            batch_actions:
-                delete: ~     
             object_actions:
                 show: ~
                 delete: ~  
@@ -38,14 +36,14 @@ builders:
     new:
         params:
             title: Nuevo cliente (empresa)
-            display: ~
+            display: [name, email, phone]
             actions:
                 save: ~
                 list: ~
     edit:
         params:
             title: "Editando cliente \"%object%\"|{ %object%: Business.name }|"
-            display: ~
+            display: [name, email, phone]
             actions:
                 save: ~
                 list: ~
