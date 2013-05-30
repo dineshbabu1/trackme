@@ -67,7 +67,7 @@ class Vehiclemantention
     /**
      * @var \Vehicle
      *
-     * @ORM\ManyToOne(targetEntity="Vehicle", inversedBy=issues)
+     * @ORM\ManyToOne(targetEntity="Vehicle", inversedBy="issues")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="vehicle_id", referencedColumnName="id")
      * })
