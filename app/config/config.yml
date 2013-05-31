@@ -82,11 +82,13 @@ doctrine:
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: %mailer_transport%
-    host:      %mailer_host%
-    username:  %mailer_user%
-    password:  %mailer_password%
-    spool:     { type: memory }
+    transport: gmail
+    host:      ~
+    username:  trackmecl@gmail.com
+    password:  'upstheirons'
+    spool:
+        type:                 file
+        path:                 "%kernel.cache_dir%/swiftmailer/spool"
 
 fos_user:
     db_driver: orm
@@ -217,9 +219,18 @@ bazinga_faker:
         Trackme\BackendBundle\Entity\Business:
             number: 30
             custom_formatters:
-                token: { method: randomElement, parameters: [ [ 'aaaaaaaaaa', 'bbbbbbbbbb', 'cccccccccc', '1234567890' ] ] }
-        Trackme\BackendBundle\Entity\User:
-            number: 30
+                name: { method: company}
+                email: { method: companyEmail}
+                token: { method: uuid }
+                created_by: { method: lastname}
+                updated_by: { method: lastname}
+#        Trackme\BackendBundle\Entity\User:
+#            number: 90
+        Trackme\BackendBundle\Entity\Vehicle:
+            number: 90    
+            custom_formatters:
+                manufacturer: { method: company}
+                model: { method: word}
 
 # Extensiones de doctrine
 stof_doctrine_extensions:

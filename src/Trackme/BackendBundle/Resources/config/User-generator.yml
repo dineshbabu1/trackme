@@ -52,6 +52,7 @@ builders:
               Usuario: [username, email, groups, plainPassword, enabled, emailable]
             actions:
                 save: ~
+                save-and-add: ~
                 list: ~
     edit:
         params:

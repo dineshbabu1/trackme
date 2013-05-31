@@ -76,6 +76,7 @@ builders:
                 NONE: [ [manufacturer, model], [type, code, kilometerPerLiter], issues ]
             actions:
                 save: ~
+                save-and-add: ~
                 list: ~
     edit:
         params:
