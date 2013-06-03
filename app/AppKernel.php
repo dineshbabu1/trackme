@@ -25,6 +25,7 @@ class AppKernel extends Kernel
             new JMS\CommandBundle\JMSCommandBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+            new FOS\RestBundle\FOSRestBundle(),
             new Trackme\BackendBundle\TrackmeBackendBundle(),
             new Trackme\FrontendBundle\TrackmeFrontendBundle(),
             new Trackme\MobileBundle\TrackmeMobileBundle(),

@@ -8,7 +8,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * Vehiclemantention
  *
- * @ORM\Table(name="vehiclemantention")
+ * @ORM\Table(name="vehicle_mantention")
  * @ORM\Entity
  */
 class Vehiclemantention

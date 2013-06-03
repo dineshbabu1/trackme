@@ -9,7 +9,7 @@ use JMS\Payment\CoreBundle\Entity\PaymentInstruction;
 /**
  * Subscription
  *
- * @ORM\Table()
+ * @ORM\Table(name="subscription")
  * @ORM\Entity
  */
 class Subscription
@@ -24,13 +24,11 @@ class Subscription
     private $id;
 
     /**
-     * @var float
-     *
-     * @ORM\Column(name="amount", type="decimal")
-     */
-    private $amount;
+     * @ORM\OneToOne(targetEntity="Business", mappedBy="subscription")
+     **/
+    private $business;
 
-    /**  
+    /**
      * @ORM\OneToOne(targetEntity="JMS\Payment\CoreBundle\Entity\PaymentInstruction")
      */
     private $paymentInstruction;
@@ -63,38 +61,14 @@ class Subscription
      */
     private $updated_by;
 
-
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set amount
-     *
-     * @param float $amount
-     * @return Subscription
-     */
-    public function setAmount($amount)
-    {
-        $this->amount = $amount;
-    
-        return $this;
-    }
-
-    /**
-     * Get amount
-     *
-     * @return float 
-     */
-    public function getAmount()
-    {
-        return $this->amount;
     }
 
     public function getPaymentInstruction()
@@ -110,20 +84,20 @@ class Subscription
     /**
      * Set created_at
      *
-     * @param \DateTime $createdAt
+     * @param  \DateTime    $createdAt
      * @return Subscription
      */
     public function setCreatedAt($createdAt)
     {
         $this->created_at = $createdAt;
-    
+
         return $this;
     }
 
     /**
      * Get created_at
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -133,20 +107,20 @@ class Subscription
     /**
      * Set updated_at
      *
-     * @param \DateTime $updatedAt
+     * @param  \DateTime    $updatedAt
      * @return Subscription
      */
     public function setUpdatedAt($updatedAt)
     {
         $this->updated_at = $updatedAt;
-    
+
         return $this;
     }
 
     /**
      * Get updated_at
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getUpdatedAt()
     {
@@ -156,20 +130,20 @@ class Subscription
     /**
      * Set created_by
      *
-     * @param string $createdBy
+     * @param  string       $createdBy
      * @return Subscription
      */
     public function setCreatedBy($createdBy)
     {
         $this->created_by = $createdBy;
-    
+
         return $this;
     }
 
     /**
      * Get created_by
      *
-     * @return string 
+     * @return string
      */
     public function getCreatedBy()
     {
@@ -179,23 +153,46 @@ class Subscription
     /**
      * Set updated_by
      *
-     * @param string $updatedBy
+     * @param  string       $updatedBy
      * @return Subscription
      */
     public function setUpdatedBy($updatedBy)
     {
         $this->updated_by = $updatedBy;
-    
+
         return $this;
     }
 
     /**
      * Get updated_by
      *
-     * @return string 
+     * @return string
      */
     public function getUpdatedBy()
     {
         return $this->updated_by;
+    }
+
+    /**
+     * Set business
+     *
+     * @param  \Trackme\BackendBundle\Entity\Business $business
+     * @return Subscription
+     */
+    public function setBusiness(\Trackme\BackendBundle\Entity\Business $business = null)
+    {
+        $this->business = $business;
+
+        return $this;
+    }
+
+    /**
+     * Get business
+     *
+     * @return \Trackme\BackendBundle\Entity\Business
+     */
+    public function getBusiness()
+    {
+        return $this->business;
     }
 }

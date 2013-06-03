@@ -41,16 +41,32 @@ class DefaultController extends Controller {
       $json = json_decode($request->getContent());
       
       $user = $this->get('security.context')->getToken()->getUser();
-//      $user = $em->getRepository('Trackme\BackendBundle\Entity\User')->find($json->user);
 
-      if(!$user){
-        return new Response(json_encode(array('status' => 'not found')), 404, array('Content-Type:' => 'application/json'));
+      if(!$user)
+      {
+          return new Response(json_encode(array('status' => 'not found')), 404, array('Content-Type:' => 'application/json'));
+      }
+
+      if(!isset($json))
+      {
+          return new Response(json_encode(array('status' => 'bad request')), 400, array('Content-Type:' => 'application/json'));
+      }
+
+      if(!is_numeric($json->lat) || !(($json->lat >= -90) && ($json->lat <= 90)))
+      {
+          return new Response(json_encode(array('status' => 'Latitud debe ser entre -90 y 90 grados')), 400, array('Content-Type:' => 'application/json'));
       }
       
+      if(!is_numeric($json->lng) || !(($json->lng >= -180) && ($json->lng <= 180)))
+      {
+          return new Response(json_encode(array('status' => 'Longitud debe ser entre -180 y 180 grados')), 400, array('Content-Type:' => 'application/json'));
+      }
+
       $coordinate = new Coordinate();
       $coordinate->setLat($json->lat);
       $coordinate->setLng($json->lng);
       $coordinate->setUser($user);
+      
       if($user->hasOtActive()){
         $coordinate->setOt($user->hasOtActive());
       }
@@ -73,7 +89,6 @@ class DefaultController extends Controller {
       $json = json_decode($request->getContent());
       
       $user = $this->get('security.context')->getToken()->getUser();
-//      $user = $em->getRepository('Trackme\BackendBundle\Entity\User')->find($json->user);
 
       if(!$user){
         return new Response(json_encode(array('status' => 'not found')), 404, array('Content-Type:' => 'application/json'));
@@ -105,7 +120,6 @@ class DefaultController extends Controller {
       $json = json_decode($request->getContent());
       
       $user = $this->get('security.context')->getToken()->getUser();
-//      $user = $em->getRepository('Trackme\BackendBundle\Entity\User')->find($json->user);
 
       if(!$user){
         return new Response(json_encode(array('status' => 'not found')), 404, array('Content-Type:' => 'application/json'));

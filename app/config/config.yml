@@ -281,3 +281,9 @@ ivory_google_map:
         # Indicates whether or not the directions request comes from a device with a location sensor
         # By default, the sensor is false
         sensor: false   
+
+fos_rest:
+    routing_loader:
+        default_format: json
+    view:
+        view_response_listener: true

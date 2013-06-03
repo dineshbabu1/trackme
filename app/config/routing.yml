@@ -41,6 +41,10 @@ admin_review:
     type:     admingenerator
     prefix:   /admin/business/review
 
+# api:
+#     type:     rest
+#     resource: Trackme\ApiBundle\Controller\DefaultController    
+
 index_api:
     path: /api/position
     defaults:  { _controller: TrackmeApiBundle:Default:index, _format: json }

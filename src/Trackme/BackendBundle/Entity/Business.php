@@ -74,6 +74,11 @@ class Business
     private $users;
 
     /**
+     * @ORM\OneToOne(targetEntity="Subscription", cascade={"persist"})
+     */
+    private $subscription;
+
+    /**
      * @var \DateTime
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(name="created_at", type="datetime", nullable=true)
@@ -261,6 +266,7 @@ class Business
     {
         $this->users = new \Doctrine\Common\Collections\ArrayCollection();
         $this->token = base_convert(sha1(uniqid(mt_rand(), true)), 16, 36);
+        $this->subscription = new Subscription();
         $this->enabled = true;
     }
 
@@ -396,5 +402,28 @@ class Business
         }else{
             return 'ROLE_'.strtoupper($this->getState()->getName());
         }
+    }
+
+    /**
+     * Set subscription
+     *
+     * @param \Trackme\BackendBundle\Entity\Subscription $subscription
+     * @return Business
+     */
+    public function setSubscription(\Trackme\BackendBundle\Entity\Subscription $subscription = null)
+    {
+        $this->subscription = $subscription;
+
+        return $this;
+    }
+
+    /**
+     * Get subscription
+     *
+     * @return \Trackme\BackendBundle\Entity\Subscription 
+     */
+    public function getSubscription()
+    {
+        return $this->subscription;
     }
 }
