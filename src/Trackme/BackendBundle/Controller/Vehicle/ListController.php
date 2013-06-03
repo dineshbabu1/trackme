@@ -24,7 +24,7 @@ class ListController extends BaseListController
 {
     protected function getQuery()
     {
-        
+
         if ($this->get('security.context')->isGranted('ROLE_USER')) {
             $query = $this->getDoctrine()
                 ->getEntityManager()
@@ -33,14 +33,13 @@ class ListController extends BaseListController
                 ->from('Trackme\BackendBundle\Entity\Vehicle', 'q')
                 ->where('q.business = :business')
                 ->setParameter(':business', $this->get('security.context')->getToken()->getUser()->getBusiness());
-        }else{
+        } else {
             $query = $this->getDoctrine()
                 ->getEntityManager()
                 ->createQueryBuilder()
                 ->select('q')
                 ->from('Trackme\BackendBundle\Entity\Vehicle', 'q');
         }
-        
 
         $this->processSort($query);
         $this->processFilters($query);

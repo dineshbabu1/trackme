@@ -46,7 +46,7 @@ class User extends BaseUser
      * })
      */
     private $business;
-   
+
     /**
      * @var boolean
      *
@@ -119,7 +119,7 @@ class User extends BaseUser
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -129,20 +129,20 @@ class User extends BaseUser
     /**
      * Set name
      *
-     * @param string $name
+     * @param  string $name
      * @return User
      */
     public function setName($name)
     {
         $this->name = $name;
-    
+
         return $this;
     }
 
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -152,20 +152,20 @@ class User extends BaseUser
     /**
      * Set last_name
      *
-     * @param string $lastName
+     * @param  string $lastName
      * @return User
      */
     public function setLastName($lastName)
     {
         $this->last_name = $lastName;
-    
+
         return $this;
     }
 
     /**
      * Get last_name
      *
-     * @return string 
+     * @return string
      */
     public function getLastName()
     {
@@ -175,20 +175,20 @@ class User extends BaseUser
     /**
      * Set emailable
      *
-     * @param boolean $emailable
+     * @param  boolean $emailable
      * @return User
      */
     public function setEmailable($emailable)
     {
         $this->emailable = $emailable;
-    
+
         return $this;
     }
 
     /**
      * Get emailable
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getEmailable()
     {
@@ -198,20 +198,20 @@ class User extends BaseUser
     /**
      * Set business
      *
-     * @param \Trackme\BackendBundle\Entity\Business $business
+     * @param  \Trackme\BackendBundle\Entity\Business $business
      * @return User
      */
     public function setBusiness(\Trackme\BackendBundle\Entity\Business $business = null)
     {
         $this->business = $business;
-    
+
         return $this;
     }
 
     /**
      * Get business
      *
-     * @return \Trackme\BackendBundle\Entity\Business 
+     * @return \Trackme\BackendBundle\Entity\Business
      */
     public function getBusiness()
     {
@@ -230,20 +230,20 @@ class User extends BaseUser
     /**
      * Set created_at
      *
-     * @param \DateTime $createdAt
+     * @param  \DateTime $createdAt
      * @return User
      */
     public function setCreatedAt($createdAt)
     {
         $this->created_at = $createdAt;
-    
+
         return $this;
     }
 
     /**
      * Get created_at
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -253,20 +253,20 @@ class User extends BaseUser
     /**
      * Set updated_at
      *
-     * @param \DateTime $updatedAt
+     * @param  \DateTime $updatedAt
      * @return User
      */
     public function setUpdatedAt($updatedAt)
     {
         $this->updated_at = $updatedAt;
-    
+
         return $this;
     }
 
     /**
      * Get updated_at
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getUpdatedAt()
     {
@@ -276,20 +276,20 @@ class User extends BaseUser
     /**
      * Set created_by
      *
-     * @param string $createdBy
+     * @param  string $createdBy
      * @return User
      */
     public function setCreatedBy($createdBy)
     {
         $this->created_by = $createdBy;
-    
+
         return $this;
     }
 
     /**
      * Get created_by
      *
-     * @return string 
+     * @return string
      */
     public function getCreatedBy()
     {
@@ -299,20 +299,20 @@ class User extends BaseUser
     /**
      * Set updated_by
      *
-     * @param string $updatedBy
+     * @param  string $updatedBy
      * @return User
      */
     public function setUpdatedBy($updatedBy)
     {
         $this->updated_by = $updatedBy;
-    
+
         return $this;
     }
 
     /**
      * Get updated_by
      *
-     * @return string 
+     * @return string
      */
     public function getUpdatedBy()
     {
@@ -322,24 +322,23 @@ class User extends BaseUser
     /**
      * Get groups
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getGroups()
     {
         return $this->groups;
     }
 
-
     /**
      * Add ot
      *
-     * @param \Trackme\BackendBundle\Entity\Ot $ot
+     * @param  \Trackme\BackendBundle\Entity\Ot $ot
      * @return User
      */
     public function addOt(\Trackme\BackendBundle\Entity\Ot $ot)
     {
         $this->ot[] = $ot;
-    
+
         return $this;
     }
 
@@ -356,19 +355,21 @@ class User extends BaseUser
     /**
      * Get ot
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getOt()
     {
         return $this->ot;
     }
 
-    public function hasOtActive(){
+    public function hasOtActive()
+    {
         foreach ($this->getOt() as $ot) {
-            if($ot->isActive()){
+            if ($ot->isActive()) {
                 return $ot;
             }
         }
+
         return false;
     }
 }

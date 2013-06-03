@@ -28,16 +28,16 @@ use Doctrine\ORM\EntityRepository;
  */
 class UserRepository extends EntityRepository
 {
-	public function getActualOt($user)
-	{
-		$em = $this->getEntityManager();
+    public function getActualOt($user)
+    {
+        $em = $this->getEntityManager();
 
         $query = $em->createQuery('
             SELECT o
             FROM TrackmeBackendBundle:Ot o
             WHERE o.user > :user AND o.date_end IS NULL');
         $query->setParameter('user', $user);
-     
+
         return $query->getSingleResult();
-	}
+    }
 }

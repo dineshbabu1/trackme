@@ -14,7 +14,7 @@
 		{% else %}
 			<a href="#" id="start-ot" data-role="button" data-icon="gear" data-theme="b">Iniciar</a>
 		{% endif %}
-		
+
 	</p>
 </body>
 </html>
@@ -26,7 +26,7 @@ function checkGeoLocation() {
 
 function updateLocation() {
 	if (checkGeoLocation())
-	{ 
+	{
 		navigator.geolocation.getCurrentPosition(function(loc){
 			var user = {{user.id}}
 			enviasenal(loc.coords.latitude,loc.coords.longitude,user);

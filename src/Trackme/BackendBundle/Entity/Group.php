@@ -26,7 +26,7 @@ class Group extends BaseGroup
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {

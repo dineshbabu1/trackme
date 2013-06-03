@@ -23,11 +23,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Ivory\GoogleMap\Overlays\Marker;
-use Ivory\GoogleMap\Overlays\Animation;
-use Ivory\GoogleMap\Overlays\Polyline;
-use Ivory\GoogleMap\Overlays\Polygon;
 use Ivory\GoogleMap\Services\Directions\Directions;
-use Ivory\GoogleMap\Services\Directions\DirectionsRequest;
 
 class DefaultController extends Controller
 {
@@ -49,6 +45,7 @@ class DefaultController extends Controller
         }
         $em = $this->getDoctrine()->getManager();
         $last_business = $em->getRepository('Trackme\BackendBundle\Entity\Business')->getLastBusiness();
+
         return $this->render('TrackmeBackendBundle:Default:dashboard_admin.html.twig', array('business' => $last_business));
     }
 
@@ -79,7 +76,7 @@ class DefaultController extends Controller
         $marker = new Marker();
         $marker->setPosition(-33.424565,-70.65033, true);
         $marker->setIcon('http://track.me/bundles/trackmebackend/images/truck3.png');
-        
+
         $map = $this->get('ivory_google_map.map');
         $map->addMarker($marker);
         $map->setStylesheetOption('width', '100%');

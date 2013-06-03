@@ -30,7 +30,7 @@ class LoadTicketStateData extends AbstractFixture implements OrderedFixtureInter
      */
     public function load(ObjectManager $manager)
     {
-        
+
         $new = new TicketState();
         $new->setName('Nuevo');
         $manager->persist($new);
@@ -40,11 +40,11 @@ class LoadTicketStateData extends AbstractFixture implements OrderedFixtureInter
         $closed = new TicketState();
         $closed->setName('Cerrado');
         $manager->persist($closed);
-        
+
         $manager->flush();
-        
+
     }
-    
+
     public function getOrder()
     {
         return 5;

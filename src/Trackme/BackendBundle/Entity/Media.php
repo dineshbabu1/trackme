@@ -49,12 +49,10 @@ class Media
      */
     private $enabled;
 
-
-
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -64,20 +62,20 @@ class Media
     /**
      * Set name
      *
-     * @param string $name
+     * @param  string $name
      * @return Media
      */
     public function setName($name)
     {
         $this->name = $name;
-    
+
         return $this;
     }
 
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -87,20 +85,20 @@ class Media
     /**
      * Set file
      *
-     * @param string $file
+     * @param  string $file
      * @return Media
      */
     public function setFile($file)
     {
         $this->file = $file;
-    
+
         return $this;
     }
 
     /**
      * Get file
      *
-     * @return string 
+     * @return string
      */
     public function getFile()
     {
@@ -110,20 +108,20 @@ class Media
     /**
      * Set alt
      *
-     * @param string $alt
+     * @param  string $alt
      * @return Media
      */
     public function setAlt($alt)
     {
         $this->alt = $alt;
-    
+
         return $this;
     }
 
     /**
      * Get alt
      *
-     * @return string 
+     * @return string
      */
     public function getAlt()
     {
@@ -133,20 +131,20 @@ class Media
     /**
      * Set enabled
      *
-     * @param boolean $enabled
+     * @param  boolean $enabled
      * @return Media
      */
     public function setEnabled($enabled)
     {
         $this->enabled = $enabled;
-    
+
         return $this;
     }
 
     /**
      * Get enabled
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getEnabled()
     {

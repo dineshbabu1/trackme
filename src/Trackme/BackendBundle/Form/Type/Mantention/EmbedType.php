@@ -4,7 +4,6 @@ namespace Trackme\BackendBundle\Form\Type\Mantention;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use JMS\SecurityExtraBundle\Security\Authorization\Expression\Expression;
 
 class EmbedType extends AbstractType
 {

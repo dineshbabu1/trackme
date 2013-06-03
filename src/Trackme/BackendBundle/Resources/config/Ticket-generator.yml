@@ -3,19 +3,19 @@ params:
     model: Trackme\BackendBundle\Entity\Ticket
     namespace_prefix: Trackme
     bundle_name: BackendBundle
-    fields: 
+    fields:
         title:
             label: Titulo
         description:
             label: Descripción
-        type: 
+        type:
             formType: choice
             label: Tipo
             addFormOptions:
                 empty_value: ''
                 choices:
                     Tecnico: Soporte técnico
-                    Comercial: Soporte comercial                    
+                    Comercial: Soporte comercial
 builders:
     list:
         params:
@@ -28,9 +28,9 @@ builders:
                 new: ~
             object_actions:
                 show: ~
-                edit: 
+                edit:
                     credentials: 'hasRole("ROLE_SUPER_ADMIN")'
-                delete: 
+                delete:
                     credentials: 'hasRole("ROLE_SUPER_ADMIN")'
     filters:
         params:

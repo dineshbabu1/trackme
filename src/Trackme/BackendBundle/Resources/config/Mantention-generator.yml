@@ -3,7 +3,7 @@ params:
     model: Trackme\BackendBundle\Entity\VehicleMantention
     namespace_prefix: Trackme
     bundle_name: BackendBundle
-    fields: 
+    fields:
         dateTo:
             formType: datepicker
             label: Hasta
@@ -26,12 +26,12 @@ params:
                         to: 2000
         moreInfo:
             label: Mas información
-        fixed:  
+        fixed:
             label: Solucionado?
         problem:
             label: Problema
         solution:
-            label: Solución              
+            label: Solución
 builders:
     list:
         params:

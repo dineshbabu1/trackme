@@ -22,26 +22,26 @@ Planes
                     {% if plan.featured %}
                     <div class="plan orange">
                     {% else %}
-                    <div class="plan">        
-                    {% endif%}        
+                    <div class="plan">
+                    {% endif%}
                         <div class="plan-header">
 
                             <div class="plan-title">
-                                {{plan.name}}	        		
+                                {{plan.name}}
                             </div> <!-- /plan-title -->
 
                             <div class="plan-price">
                                 <span class="note">UF</span>{{plan.price|number_format(1, '.', ',')}}<span class="term">Mensual</span>
                             </div> <!-- /plan-price -->
 
-                        </div> <!-- /plan-header -->	          
+                        </div> <!-- /plan-header -->
 
                         <div class="plan-features">
                             {{plan.description|raw}}
                         </div> <!-- /plan-features -->
 
-                        <div class="plan-actions">				
-                            <a href="{{ path('signup', { 'plan': plan.id})}}" class="btn">Contratar</a>				
+                        <div class="plan-actions">
+                            <a href="{{ path('signup', { 'plan': plan.id})}}" class="btn">Contratar</a>
                         </div> <!-- /plan-actions -->
 
                     </div> <!-- /plan -->
@@ -51,7 +51,7 @@ Planes
 
         </div> <!-- /widget-content -->
 
-    </div> <!-- /widget -->					
+    </div> <!-- /widget -->
 
 </div>
 {% endblock %}

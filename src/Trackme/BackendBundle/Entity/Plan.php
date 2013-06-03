@@ -49,12 +49,10 @@ class Plan
      */
     private $price;
 
-
-
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -64,20 +62,20 @@ class Plan
     /**
      * Set name
      *
-     * @param string $name
+     * @param  string $name
      * @return Plan
      */
     public function setName($name)
     {
         $this->name = $name;
-    
+
         return $this;
     }
 
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -87,20 +85,20 @@ class Plan
     /**
      * Set description
      *
-     * @param string $description
+     * @param  string $description
      * @return Plan
      */
     public function setDescription($description)
     {
         $this->description = $description;
-    
+
         return $this;
     }
 
     /**
      * Get description
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {
@@ -110,20 +108,20 @@ class Plan
     /**
      * Set featured
      *
-     * @param boolean $featured
+     * @param  boolean $featured
      * @return Plan
      */
     public function setFeatured($featured)
     {
         $this->featured = $featured;
-    
+
         return $this;
     }
 
     /**
      * Get featured
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getFeatured()
     {
@@ -133,20 +131,20 @@ class Plan
     /**
      * Set price
      *
-     * @param float $price
+     * @param  float $price
      * @return Plan
      */
     public function setPrice($price)
     {
         $this->price = $price;
-    
+
         return $this;
     }
 
     /**
      * Get price
      *
-     * @return float 
+     * @return float
      */
     public function getPrice()
     {

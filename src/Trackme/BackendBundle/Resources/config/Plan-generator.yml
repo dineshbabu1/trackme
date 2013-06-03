@@ -3,7 +3,7 @@ params:
     model: Trackme\BackendBundle\Entity\Plan
     namespace_prefix: Trackme
     bundle_name: BackendBundle
-    fields: 
+    fields:
         name:
             label: Nombre
         featured:

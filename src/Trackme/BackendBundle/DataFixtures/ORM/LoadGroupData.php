@@ -23,13 +23,13 @@ use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Trackme\BackendBundle\Entity\Group;
 
-class LoadGroupData extends AbstractFixture implements OrderedFixtureInterface {
-
+class LoadGroupData extends AbstractFixture implements OrderedFixtureInterface
+{
     /**
      * {@inheritDoc}
      */
-    public function load(ObjectManager $manager) {
-        
+    public function load(ObjectManager $manager)
+    {
         $group = new Group('STAFF');
         $group->setRoles(array());
         $group->addRole('ROLE_SUPER_ADMIN');
@@ -46,7 +46,8 @@ class LoadGroupData extends AbstractFixture implements OrderedFixtureInterface {
         $this->addReference('cliente', $group1);
     }
 
-    public function getOrder() {
+    public function getOrder()
+    {
         return 3;
     }
 

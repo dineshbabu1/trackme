@@ -109,7 +109,7 @@ class Business
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -119,20 +119,20 @@ class Business
     /**
      * Set name
      *
-     * @param string $name
+     * @param  string   $name
      * @return Business
      */
     public function setName($name)
     {
         $this->name = $name;
-    
+
         return $this;
     }
 
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -142,20 +142,20 @@ class Business
     /**
      * Set email
      *
-     * @param string $email
+     * @param  string   $email
      * @return Business
      */
     public function setEmail($email)
     {
         $this->email = $email;
-    
+
         return $this;
     }
 
     /**
      * Get email
      *
-     * @return string 
+     * @return string
      */
     public function getEmail()
     {
@@ -165,20 +165,20 @@ class Business
     /**
      * Set phone
      *
-     * @param string $phone
+     * @param  string   $phone
      * @return Business
      */
     public function setPhone($phone)
     {
         $this->phone = $phone;
-    
+
         return $this;
     }
 
     /**
      * Get phone
      *
-     * @return string 
+     * @return string
      */
     public function getPhone()
     {
@@ -188,20 +188,20 @@ class Business
     /**
      * Set enabled
      *
-     * @param boolean $enabled
+     * @param  boolean  $enabled
      * @return Business
      */
     public function setEnabled($enabled)
     {
         $this->enabled = $enabled;
-    
+
         return $this;
     }
 
     /**
      * Get enabled
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getEnabled()
     {
@@ -211,20 +211,20 @@ class Business
     /**
      * Set token
      *
-     * @param string $token
+     * @param  string   $token
      * @return Business
      */
     public function setToken($token)
     {
         $this->token = $token;
-    
+
         return $this;
     }
 
     /**
      * Get token
      *
-     * @return string 
+     * @return string
      */
     public function getToken()
     {
@@ -234,27 +234,26 @@ class Business
     /**
      * Set state
      *
-     * @param \Trackme\BackendBundle\Entity\ClientState $state
+     * @param  \Trackme\BackendBundle\Entity\ClientState $state
      * @return Business
      */
     public function setState(\Trackme\BackendBundle\Entity\ClientState $state = null)
     {
         $this->state = $state;
-    
+
         return $this;
     }
 
     /**
      * Get state
      *
-     * @return \Trackme\BackendBundle\Entity\ClientState 
+     * @return \Trackme\BackendBundle\Entity\ClientState
      */
     public function getState()
     {
         return $this->state;
     }
 
-    
     public function __toString()
     {
         return $this->getName();
@@ -273,13 +272,14 @@ class Business
     /**
      * Add users
      *
-     * @param \Trackme\BackendBundle\Entity\User $users
+     * @param  \Trackme\BackendBundle\Entity\User $users
      * @return Business
      */
     public function addUser(\Trackme\BackendBundle\Entity\User $users)
     {
         $this->users[] = $users;
         $users->setBusiness($this);
+
         return $this;
     }
 
@@ -296,7 +296,7 @@ class Business
     /**
      * Get users
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getUsers()
     {
@@ -306,20 +306,20 @@ class Business
     /**
      * Set created_at
      *
-     * @param \DateTime $createdAt
+     * @param  \DateTime $createdAt
      * @return Business
      */
     public function setCreatedAt($createdAt)
     {
         $this->created_at = $createdAt;
-    
+
         return $this;
     }
 
     /**
      * Get created_at
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -329,20 +329,20 @@ class Business
     /**
      * Set updated_at
      *
-     * @param \DateTime $updatedAt
+     * @param  \DateTime $updatedAt
      * @return Business
      */
     public function setUpdatedAt($updatedAt)
     {
         $this->updated_at = $updatedAt;
-    
+
         return $this;
     }
 
     /**
      * Get updated_at
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getUpdatedAt()
     {
@@ -352,20 +352,20 @@ class Business
     /**
      * Set created_by
      *
-     * @param string $createdBy
+     * @param  string   $createdBy
      * @return Business
      */
     public function setCreatedBy($createdBy)
     {
         $this->created_by = $createdBy;
-    
+
         return $this;
     }
 
     /**
      * Get created_by
      *
-     * @return string 
+     * @return string
      */
     public function getCreatedBy()
     {
@@ -375,20 +375,20 @@ class Business
     /**
      * Set updated_by
      *
-     * @param string $updatedBy
+     * @param  string   $updatedBy
      * @return Business
      */
     public function setUpdatedBy($updatedBy)
     {
         $this->updated_by = $updatedBy;
-    
+
         return $this;
     }
 
     /**
      * Get updated_by
      *
-     * @return string 
+     * @return string
      */
     public function getUpdatedBy()
     {
@@ -397,9 +397,9 @@ class Business
 
     public function getRoleByState()
     {
-        if($this->getState()->getName() == 'Básico'){
+        if ($this->getState()->getName() == 'Básico') {
             return 'ROLE_BASICO';
-        }else{
+        } else {
             return 'ROLE_'.strtoupper($this->getState()->getName());
         }
     }
@@ -407,7 +407,7 @@ class Business
     /**
      * Set subscription
      *
-     * @param \Trackme\BackendBundle\Entity\Subscription $subscription
+     * @param  \Trackme\BackendBundle\Entity\Subscription $subscription
      * @return Business
      */
     public function setSubscription(\Trackme\BackendBundle\Entity\Subscription $subscription = null)
@@ -420,7 +420,7 @@ class Business
     /**
      * Get subscription
      *
-     * @return \Trackme\BackendBundle\Entity\Subscription 
+     * @return \Trackme\BackendBundle\Entity\Subscription
      */
     public function getSubscription()
     {

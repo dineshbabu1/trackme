@@ -7,8 +7,8 @@
       {% if loop.first %}
         <div class="item active"><!-- class of active since it's the first item -->
       {% else %}
-        <div class="item">        
-      {% endif%}           
+        <div class="item">
+      {% endif%}
         <img alt="{{m.alt}}" title="{{m.alt}}" src="{{ ('uploads/'~ m.name) | apply_filter('medium') }}" />
       <div class="carousel-caption">
         <p>{{m.alt}}</p>
@@ -56,7 +56,7 @@
     </ul>
     {% endblock%}
 
-{% block javascripts %} 
+{% block javascripts %}
 {{parent()}}
 <script type="text/javascript">
 $('.carousel').carousel({

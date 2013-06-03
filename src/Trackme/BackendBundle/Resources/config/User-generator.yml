@@ -10,7 +10,7 @@ params:
             label: Apellido
         username:
             label: Usuario
-        enabled: 
+        enabled:
             label: Habilitado
         plainPassword:
             label:          Password
@@ -25,7 +25,7 @@ params:
         emailable:
             label: Recibir Email?
             help: Si esta checkeado, recibira correos desde el sistema
-          
+
 
 builders:
     list:
@@ -47,7 +47,7 @@ builders:
     new:
         params:
             title: Nuevo Usuario
-            display: 
+            display:
               NONE: [[name, last_name]]
               Usuario: [username, email, groups, plainPassword, enabled, emailable]
             actions:
@@ -57,7 +57,7 @@ builders:
     edit:
         params:
             title: "Editando a usuario \"%object%\"|{ %object%: User.username }|"
-            display: 
+            display:
                 NONE: [[name, last_name]]
                 Usuario: [username, email, groups, plainPassword, enabled, emailable]
             actions:

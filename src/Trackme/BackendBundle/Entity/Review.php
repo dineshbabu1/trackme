@@ -88,11 +88,10 @@ class Review
      */
     private $updated_by;
 
-
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -102,20 +101,20 @@ class Review
     /**
      * Set comment
      *
-     * @param string $comment
+     * @param  string $comment
      * @return Review
      */
     public function setComment($comment)
     {
         $this->comment = $comment;
-    
+
         return $this;
     }
 
     /**
      * Get comment
      *
-     * @return string 
+     * @return string
      */
     public function getComment()
     {
@@ -125,20 +124,20 @@ class Review
     /**
      * Set approved
      *
-     * @param boolean $approved
+     * @param  boolean $approved
      * @return Review
      */
     public function setApproved($approved)
     {
         $this->approved = $approved;
-    
+
         return $this;
     }
 
     /**
      * Get approved
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getApproved()
     {
@@ -148,20 +147,20 @@ class Review
     /**
      * Set created
      *
-     * @param \DateTime $created
+     * @param  \DateTime $created
      * @return Review
      */
     public function setCreated($created)
     {
         $this->created = $created;
-    
+
         return $this;
     }
 
     /**
      * Get created
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCreated()
     {
@@ -171,20 +170,20 @@ class Review
     /**
      * Set updated
      *
-     * @param \DateTime $updated
+     * @param  \DateTime $updated
      * @return Review
      */
     public function setUpdated($updated)
     {
         $this->updated = $updated;
-    
+
         return $this;
     }
 
     /**
      * Get updated
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getUpdated()
     {
@@ -194,20 +193,20 @@ class Review
     /**
      * Set business
      *
-     * @param \Trackme\BackendBundle\Entity\Business $business
+     * @param  \Trackme\BackendBundle\Entity\Business $business
      * @return Review
      */
     public function setBusiness(\Trackme\BackendBundle\Entity\Business $business = null)
     {
         $this->business = $business;
-    
+
         return $this;
     }
 
     /**
      * Get business
      *
-     * @return \Trackme\BackendBundle\Entity\Business 
+     * @return \Trackme\BackendBundle\Entity\Business
      */
     public function getBusiness()
     {
@@ -217,20 +216,20 @@ class Review
     /**
      * Set created_at
      *
-     * @param \DateTime $createdAt
+     * @param  \DateTime $createdAt
      * @return Review
      */
     public function setCreatedAt($createdAt)
     {
         $this->created_at = $createdAt;
-    
+
         return $this;
     }
 
     /**
      * Get created_at
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -240,20 +239,20 @@ class Review
     /**
      * Set updated_at
      *
-     * @param \DateTime $updatedAt
+     * @param  \DateTime $updatedAt
      * @return Review
      */
     public function setUpdatedAt($updatedAt)
     {
         $this->updated_at = $updatedAt;
-    
+
         return $this;
     }
 
     /**
      * Get updated_at
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getUpdatedAt()
     {
@@ -263,20 +262,20 @@ class Review
     /**
      * Set created_by
      *
-     * @param string $createdBy
+     * @param  string $createdBy
      * @return Review
      */
     public function setCreatedBy($createdBy)
     {
         $this->created_by = $createdBy;
-    
+
         return $this;
     }
 
     /**
      * Get created_by
      *
-     * @return string 
+     * @return string
      */
     public function getCreatedBy()
     {
@@ -286,20 +285,20 @@ class Review
     /**
      * Set updated_by
      *
-     * @param string $updatedBy
+     * @param  string $updatedBy
      * @return Review
      */
     public function setUpdatedBy($updatedBy)
     {
         $this->updated_by = $updatedBy;
-    
+
         return $this;
     }
 
     /**
      * Get updated_by
      *
-     * @return string 
+     * @return string
      */
     public function getUpdatedBy()
     {

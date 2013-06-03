@@ -24,8 +24,8 @@ use Symfony\Component\Routing\Router;
 use Knp\Menu\FactoryInterface;
 use Knp\Menu\ItemInterface;
 
-class Menu extends ContainerAware{
-  
+class Menu extends ContainerAware
+{
   protected $factory;
 
     /**
@@ -45,7 +45,7 @@ class Menu extends ContainerAware{
         $menu = $this->factory->createItem('root');
         $menu->setChildrenAttributes(array('id' => 'main_navigation', 'class' => 'nav'));
 
-        if( $this->container->get('security.context')->isGranted('ROLE_SUPER_ADMIN') ){
+        if ( $this->container->get('security.context')->isGranted('ROLE_SUPER_ADMIN') ) {
           $frontend = $this->addDropdownMenu($menu, 'Página Pública')->setExtra('icon', 'icon-home');
           $this->addNavLinkRoute($frontend, 'Páginas', 'Trackme_BackendBundle_Page_list')->setExtra('icon', 'icon-file');
           $this->addNavLinkRoute($frontend, 'Reseñas', 'Trackme_BackendBundle_Review_list')->setExtra('icon', 'icon-thumbs-up');
@@ -54,19 +54,19 @@ class Menu extends ContainerAware{
           $business = $this->addNavLinkRoute($menu, 'Clientes', 'Trackme_BackendBundle_Business_list')->setExtra('icon', 'icon-heart');
           $user = $this->addNavLinkRoute($menu, 'Usuarios', 'Trackme_BackendBundle_User_list')->setExtra('icon', 'icon-user');
           $ticket = $this->addNavLinkRoute($menu, 'Soporte', 'Trackme_BackendBundle_Ticket_list')->setExtra('icon', 'icon-user');
-        }elseif($this->container->get('security.context')->isGranted('ROLE_USER') || $this->container->get('security.context')->isGranted('ROLE_BUSINESS') || $this->container->get('security.context')->isGranted('ROLE_BASIC')){
+        } elseif ($this->container->get('security.context')->isGranted('ROLE_USER') || $this->container->get('security.context')->isGranted('ROLE_BUSINESS') || $this->container->get('security.context')->isGranted('ROLE_BASIC')) {
           $user = $this->addNavLinkRoute($menu, 'Mis Usuarios', 'Trackme_BackendBundle_User_list')->setExtra('icon', 'icon-user');
           $review = $this->addNavLinkRoute($menu, 'Evaluar Sistema', 'Trackme_BackendBundle_Review_new')->setExtra('icon', 'icon-thumbs-up');
           $vehicle = $this->addNavLinkRoute($menu, 'Vehiculos', 'Trackme_BackendBundle_Vehicle_list')->setExtra('icon', 'icon-road');
           $ticket = $this->addNavLinkRoute($menu, 'Soporte', 'Trackme_BackendBundle_Ticket_list')->setExtra('icon', 'icon-list');
         }
-        
+
         return $menu;
     }
 
     /**
      * @param Request $request
-     * @param Router $router
+     * @param Router  $router
      */
     public function createDashboardMenu(Request $request)
     {
@@ -75,7 +75,7 @@ class Menu extends ContainerAware{
         $menu->setChildrenAttributes(array('id' => 'dashboard_sidebar', 'class' => 'nav nav-list'));
         $menu->setExtra('request_uri', $this->container->get('request')->getRequestUri());
         $menu->setExtra('translation_domain', 'Admingenerator');
-        
+
         $this->addNavHeader($menu, 'Overview');
         $this->addNavLinkRoute($menu, 'Dashboard', 'AdmingeneratorDashboard_welcome')->setExtra('icon', 'icon-home');
         $this->addNavHeader($menu, 'Features');
@@ -95,48 +95,46 @@ class Menu extends ContainerAware{
         $item->setAttribute('class', 'nav-header');
         $item->setExtra('translation_domain', $menu->getExtra('translation_domain'));
         $menu->setExtra('request_uri', $menu->getExtra('request_uri'));
-        
+
         return $item;
     }
-    
+
     protected function addNavLinkURI(ItemInterface $menu, $label, $uri)
     {
         $item = $menu->addChild($label, array('uri' => $uri));
         $item->setExtra('translation_domain', $menu->getExtra('translation_domain'));
         $menu->setExtra('request_uri', $menu->getExtra('request_uri'));
-        
-        if($item->getUri() == $menu->getExtra('request_uri')) {
+
+        if ($item->getUri() == $menu->getExtra('request_uri')) {
           $item->setAttribute('class', 'active');
         }
-        
+
         return $item;
     }
-    
+
     protected function addNavLinkRoute(ItemInterface $menu, $label, $route, $routeParameters = array())
     {
         $item = $menu->addChild($label, array('route' => $route, 'routeParameters' => $routeParameters));
         $item->setExtra('translation_domain', $menu->getExtra('translation_domain'));
         $menu->setExtra('request_uri', $menu->getExtra('request_uri'));
-        
-        if($item->getUri() == $menu->getExtra('request_uri')) {
+
+        if ($item->getUri() == $menu->getExtra('request_uri')) {
           $item->setAttribute('class', 'active');
         }
-        
+
         return $item;
     }
-    
+
     protected function addDropdownMenu(ItemInterface $menu, $label, $caret = true)
     {
         $item = $this->addNavLinkURI($menu, $label, '#');
         $item->setLinkAttributes(array('class' => 'dropdown-toggle', 'data-toggle' => 'dropdown'));
         $item->setChildrenAttributes(array('class' => 'dropdown-menu'));
         $item->setAttributes(array('class' => 'dropdown'));
-        $item->setExtra('translation_domain', $menu->getExtra('translation_domain'));        
+        $item->setExtra('translation_domain', $menu->getExtra('translation_domain'));
         $item->setExtra('caret', $caret);
         $menu->setExtra('request_uri', $menu->getExtra('request_uri'));
-        
+
         return $item;
     }
 }
-
-?>

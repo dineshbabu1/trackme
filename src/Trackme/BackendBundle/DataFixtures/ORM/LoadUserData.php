@@ -27,8 +27,8 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 
 use Trackme\BackendBundle\Entity\User;
 
-class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, FixtureInterface, ContainerAwareInterface {
-
+class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, FixtureInterface, ContainerAwareInterface
+{
     private $container;
 
     public function setContainer(ContainerInterface $container = null)
@@ -39,8 +39,8 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, F
     /**
      * {@inheritDoc}
      */
-    public function load(ObjectManager $manager) {
-
+    public function load(ObjectManager $manager)
+    {
         $userManager = $this->container->get('fos_user.user_manager');
 
         $user = $userManager->createUser();
@@ -60,7 +60,8 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, F
         $manager->flush();
     }
 
-    public function getOrder() {
+    public function getOrder()
+    {
         return 4;
     }
 

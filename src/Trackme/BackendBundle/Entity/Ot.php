@@ -93,7 +93,7 @@ class Ot
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -103,20 +103,20 @@ class Ot
     /**
      * Set totalKm
      *
-     * @param float $totalKm
+     * @param  float $totalKm
      * @return Ot
      */
     public function setTotalKm($totalKm)
     {
         $this->totalKm = $totalKm;
-    
+
         return $this;
     }
 
     /**
      * Get totalKm
      *
-     * @return float 
+     * @return float
      */
     public function getTotalKm()
     {
@@ -126,20 +126,20 @@ class Ot
     /**
      * Set dateStart
      *
-     * @param \DateTime $dateStart
+     * @param  \DateTime $dateStart
      * @return Ot
      */
     public function setDateStart($dateStart)
     {
         $this->dateStart = $dateStart;
-    
+
         return $this;
     }
 
     /**
      * Get dateStart
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDateStart()
     {
@@ -149,20 +149,20 @@ class Ot
     /**
      * Set dateEnd
      *
-     * @param \DateTime $dateEnd
+     * @param  \DateTime $dateEnd
      * @return Ot
      */
     public function setDateEnd($dateEnd)
     {
         $this->dateEnd = $dateEnd;
-    
+
         return $this;
     }
 
     /**
      * Get dateEnd
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDateEnd()
     {
@@ -172,20 +172,20 @@ class Ot
     /**
      * Set created_at
      *
-     * @param \DateTime $createdAt
+     * @param  \DateTime $createdAt
      * @return Ot
      */
     public function setCreatedAt($createdAt)
     {
         $this->created_at = $createdAt;
-    
+
         return $this;
     }
 
     /**
      * Get created_at
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -195,20 +195,20 @@ class Ot
     /**
      * Set updated_at
      *
-     * @param \DateTime $updatedAt
+     * @param  \DateTime $updatedAt
      * @return Ot
      */
     public function setUpdatedAt($updatedAt)
     {
         $this->updated_at = $updatedAt;
-    
+
         return $this;
     }
 
     /**
      * Get updated_at
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getUpdatedAt()
     {
@@ -218,20 +218,20 @@ class Ot
     /**
      * Set created_by
      *
-     * @param string $createdBy
+     * @param  string $createdBy
      * @return Ot
      */
     public function setCreatedBy($createdBy)
     {
         $this->created_by = $createdBy;
-    
+
         return $this;
     }
 
     /**
      * Get created_by
      *
-     * @return string 
+     * @return string
      */
     public function getCreatedBy()
     {
@@ -241,20 +241,20 @@ class Ot
     /**
      * Set updated_by
      *
-     * @param string $updatedBy
+     * @param  string $updatedBy
      * @return Ot
      */
     public function setUpdatedBy($updatedBy)
     {
         $this->updated_by = $updatedBy;
-    
+
         return $this;
     }
 
     /**
      * Get updated_by
      *
-     * @return string 
+     * @return string
      */
     public function getUpdatedBy()
     {
@@ -264,20 +264,20 @@ class Ot
     /**
      * Set user
      *
-     * @param \Trackme\BackendBundle\Entity\User $user
+     * @param  \Trackme\BackendBundle\Entity\User $user
      * @return Ot
      */
     public function setUser(\Trackme\BackendBundle\Entity\User $user = null)
     {
         $this->user = $user;
-    
+
         return $this;
     }
 
     /**
      * Get user
      *
-     * @return \Trackme\BackendBundle\Entity\User 
+     * @return \Trackme\BackendBundle\Entity\User
      */
     public function getUser()
     {
@@ -286,9 +286,9 @@ class Ot
 
     public function isActive()
     {
-        if($this->getDateEnd() == null){
+        if ($this->getDateEnd() == null) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }

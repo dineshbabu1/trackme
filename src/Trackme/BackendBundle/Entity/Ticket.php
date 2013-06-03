@@ -91,11 +91,10 @@ class Ticket
      */
     private $updated_by;
 
-
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -105,20 +104,20 @@ class Ticket
     /**
      * Set title
      *
-     * @param string $title
+     * @param  string $title
      * @return Ticket
      */
     public function setTitle($title)
     {
         $this->title = $title;
-    
+
         return $this;
     }
 
     /**
      * Get title
      *
-     * @return string 
+     * @return string
      */
     public function getTitle()
     {
@@ -128,20 +127,20 @@ class Ticket
     /**
      * Set type
      *
-     * @param string $type
+     * @param  string $type
      * @return Ticket
      */
     public function setType($type)
     {
         $this->type = $type;
-    
+
         return $this;
     }
 
     /**
      * Get type
      *
-     * @return string 
+     * @return string
      */
     public function getType()
     {
@@ -151,20 +150,20 @@ class Ticket
     /**
      * Set description
      *
-     * @param string $description
+     * @param  string $description
      * @return Ticket
      */
     public function setDescription($description)
     {
         $this->description = $description;
-    
+
         return $this;
     }
 
     /**
      * Get description
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {
@@ -174,20 +173,20 @@ class Ticket
     /**
      * Set user
      *
-     * @param \Trackme\BackendBundle\Entity\User $user
+     * @param  \Trackme\BackendBundle\Entity\User $user
      * @return Ticket
      */
     public function setUser(\Trackme\BackendBundle\Entity\User $user = null)
     {
         $this->user = $user;
-    
+
         return $this;
     }
 
     /**
      * Get user
      *
-     * @return \Trackme\BackendBundle\Entity\User 
+     * @return \Trackme\BackendBundle\Entity\User
      */
     public function getUser()
     {
@@ -197,20 +196,20 @@ class Ticket
     /**
      * Set state
      *
-     * @param \Trackme\BackendBundle\Entity\TicketState $state
+     * @param  \Trackme\BackendBundle\Entity\TicketState $state
      * @return Ticket
      */
     public function setState(\Trackme\BackendBundle\Entity\TicketState $state = null)
     {
         $this->state = $state;
-    
+
         return $this;
     }
 
     /**
      * Get state
      *
-     * @return \Trackme\BackendBundle\Entity\TicketState 
+     * @return \Trackme\BackendBundle\Entity\TicketState
      */
     public function getState()
     {
@@ -220,20 +219,20 @@ class Ticket
     /**
      * Set created_at
      *
-     * @param \DateTime $createdAt
+     * @param  \DateTime $createdAt
      * @return Ticket
      */
     public function setCreatedAt($createdAt)
     {
         $this->created_at = $createdAt;
-    
+
         return $this;
     }
 
     /**
      * Get created_at
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -243,20 +242,20 @@ class Ticket
     /**
      * Set updated_at
      *
-     * @param \DateTime $updatedAt
+     * @param  \DateTime $updatedAt
      * @return Ticket
      */
     public function setUpdatedAt($updatedAt)
     {
         $this->updated_at = $updatedAt;
-    
+
         return $this;
     }
 
     /**
      * Get updated_at
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getUpdatedAt()
     {
@@ -266,20 +265,20 @@ class Ticket
     /**
      * Set created_by
      *
-     * @param string $createdBy
+     * @param  string $createdBy
      * @return Ticket
      */
     public function setCreatedBy($createdBy)
     {
         $this->created_by = $createdBy;
-    
+
         return $this;
     }
 
     /**
      * Get created_by
      *
-     * @return string 
+     * @return string
      */
     public function getCreatedBy()
     {
@@ -289,20 +288,20 @@ class Ticket
     /**
      * Set updated_by
      *
-     * @param string $updatedBy
+     * @param  string $updatedBy
      * @return Ticket
      */
     public function setUpdatedBy($updatedBy)
     {
         $this->updated_by = $updatedBy;
-    
+
         return $this;
     }
 
     /**
      * Get updated_by
      *
-     * @return string 
+     * @return string
      */
     public function getUpdatedBy()
     {

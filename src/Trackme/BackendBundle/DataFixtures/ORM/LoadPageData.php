@@ -30,7 +30,7 @@ class LoadPageData extends AbstractFixture implements OrderedFixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-        
+
         $new = new Page();
         $new->setTitle('Sobre Nosotros');
         $new->setUrl("about-us");
@@ -50,9 +50,9 @@ class LoadPageData extends AbstractFixture implements OrderedFixtureInterface
         $manager->persist($new2);
 
         $manager->flush();
-        
+
     }
-    
+
     public function getOrder()
     {
         return 6;

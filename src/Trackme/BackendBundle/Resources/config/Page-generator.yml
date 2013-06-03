@@ -3,7 +3,7 @@ params:
     model: Trackme\BackendBundle\Entity\Page
     namespace_prefix: Trackme
     bundle_name: BackendBundle
-    fields: 
+    fields:
       title:
         label: Titulo
       enabled:

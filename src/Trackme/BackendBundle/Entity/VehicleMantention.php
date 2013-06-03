@@ -11,7 +11,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @ORM\Table(name="vehicle_mantention")
  * @ORM\Entity
  */
-class Vehiclemantention
+class VehicleMantention
 {
     /**
      * @var integer
@@ -105,7 +105,7 @@ class Vehiclemantention
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -115,20 +115,20 @@ class Vehiclemantention
     /**
      * Set dateFrom
      *
-     * @param \DateTime $dateFrom
+     * @param  \DateTime         $dateFrom
      * @return VehicleMantention
      */
     public function setDateFrom($dateFrom)
     {
         $this->dateFrom = $dateFrom;
-    
+
         return $this;
     }
 
     /**
      * Get dateFrom
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDateFrom()
     {
@@ -138,20 +138,20 @@ class Vehiclemantention
     /**
      * Set dateTo
      *
-     * @param \DateTime $dateTo
+     * @param  \DateTime         $dateTo
      * @return VehicleMantention
      */
     public function setDateTo($dateTo)
     {
         $this->dateTo = $dateTo;
-    
+
         return $this;
     }
 
     /**
      * Get dateTo
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDateTo()
     {
@@ -161,20 +161,20 @@ class Vehiclemantention
     /**
      * Set problem
      *
-     * @param string $problem
+     * @param  string            $problem
      * @return VehicleMantention
      */
     public function setProblem($problem)
     {
         $this->problem = $problem;
-    
+
         return $this;
     }
 
     /**
      * Get problem
      *
-     * @return string 
+     * @return string
      */
     public function getProblem()
     {
@@ -184,20 +184,20 @@ class Vehiclemantention
     /**
      * Set solution
      *
-     * @param string $solution
+     * @param  string            $solution
      * @return VehicleMantention
      */
     public function setSolution($solution)
     {
         $this->solution = $solution;
-    
+
         return $this;
     }
 
     /**
      * Get solution
      *
-     * @return string 
+     * @return string
      */
     public function getSolution()
     {
@@ -207,20 +207,20 @@ class Vehiclemantention
     /**
      * Set fixed
      *
-     * @param boolean $fixed
+     * @param  boolean           $fixed
      * @return VehicleMantention
      */
     public function setFixed($fixed)
     {
         $this->fixed = $fixed;
-    
+
         return $this;
     }
 
     /**
      * Get fixed
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getFixed()
     {
@@ -230,20 +230,20 @@ class Vehiclemantention
     /**
      * Set moreInfo
      *
-     * @param string $moreInfo
+     * @param  string            $moreInfo
      * @return VehicleMantention
      */
     public function setMoreInfo($moreInfo)
     {
         $this->moreInfo = $moreInfo;
-    
+
         return $this;
     }
 
     /**
      * Get moreInfo
      *
-     * @return string 
+     * @return string
      */
     public function getMoreInfo()
     {
@@ -253,20 +253,20 @@ class Vehiclemantention
     /**
      * Set vehicle
      *
-     * @param \Trackme\BackendBundle\Entity\Vehicle $vehicle
+     * @param  \Trackme\BackendBundle\Entity\Vehicle $vehicle
      * @return VehicleMantention
      */
     public function setVehicle(\Trackme\BackendBundle\Entity\Vehicle $vehicle = null)
     {
         $this->vehicle = $vehicle;
-    
+
         return $this;
     }
 
     /**
      * Get vehicle
      *
-     * @return \Trackme\BackendBundle\Entity\Vehicle 
+     * @return \Trackme\BackendBundle\Entity\Vehicle
      */
     public function getVehicle()
     {
@@ -276,20 +276,20 @@ class Vehiclemantention
     /**
      * Set created_at
      *
-     * @param \DateTime $createdAt
+     * @param  \DateTime         $createdAt
      * @return Vehiclemantention
      */
     public function setCreatedAt($createdAt)
     {
         $this->created_at = $createdAt;
-    
+
         return $this;
     }
 
     /**
      * Get created_at
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -299,20 +299,20 @@ class Vehiclemantention
     /**
      * Set updated_at
      *
-     * @param \DateTime $updatedAt
+     * @param  \DateTime         $updatedAt
      * @return Vehiclemantention
      */
     public function setUpdatedAt($updatedAt)
     {
         $this->updated_at = $updatedAt;
-    
+
         return $this;
     }
 
     /**
      * Get updated_at
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getUpdatedAt()
     {
@@ -322,20 +322,20 @@ class Vehiclemantention
     /**
      * Set created_by
      *
-     * @param string $createdBy
+     * @param  string            $createdBy
      * @return Vehiclemantention
      */
     public function setCreatedBy($createdBy)
     {
         $this->created_by = $createdBy;
-    
+
         return $this;
     }
 
     /**
      * Get created_by
      *
-     * @return string 
+     * @return string
      */
     public function getCreatedBy()
     {
@@ -345,20 +345,20 @@ class Vehiclemantention
     /**
      * Set updated_by
      *
-     * @param string $updatedBy
+     * @param  string            $updatedBy
      * @return Vehiclemantention
      */
     public function setUpdatedBy($updatedBy)
     {
         $this->updated_by = $updatedBy;
-    
+
         return $this;
     }
 
     /**
      * Get updated_by
      *
-     * @return string 
+     * @return string
      */
     public function getUpdatedBy()
     {

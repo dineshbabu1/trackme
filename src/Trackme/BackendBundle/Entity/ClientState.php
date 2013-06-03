@@ -35,11 +35,10 @@ class ClientState
      */
     private $name;
 
-
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -49,20 +48,20 @@ class ClientState
     /**
      * Set code
      *
-     * @param string $code
+     * @param  string      $code
      * @return ClientState
      */
     public function setCode($code)
     {
         $this->code = $code;
-    
+
         return $this;
     }
 
     /**
      * Get code
      *
-     * @return string 
+     * @return string
      */
     public function getCode()
     {
@@ -72,20 +71,20 @@ class ClientState
     /**
      * Set name
      *
-     * @param string $name
+     * @param  string      $name
      * @return ClientState
      */
     public function setName($name)
     {
         $this->name = $name;
-    
+
         return $this;
     }
 
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {

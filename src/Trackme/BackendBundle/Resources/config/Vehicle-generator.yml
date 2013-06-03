@@ -16,7 +16,7 @@ params:
                 by_reference:   false
                 options:
                     label:          Nueva Mantencion
-                    data_class:     Trackme\BackendBundle\Entity\VehicleMantention 
+                    data_class:     Trackme\BackendBundle\Entity\VehicleMantention
         code:
             label: Código
             help: Identificacion del vehiculo
@@ -41,9 +41,9 @@ params:
                     Bus: Bus
                     Camión: Camión
                     Motocicleta: Moto
-        fuel:  
+        fuel:
             label: Combustible
-            formType: choice  
+            formType: choice
             addFormOptions:
                 empty_value: ''
                 choices:
@@ -51,7 +51,7 @@ params:
                     95: "95 Octanos"
                     97: "97 Octanos"
                     Diesel: Diesel
-                    Gas: Gas     
+                    Gas: Gas
 
 builders:
     list:
@@ -72,7 +72,7 @@ builders:
     new:
         params:
             title: Nuevo Vehiculo
-            display: 
+            display:
                 NONE: [ [manufacturer, model], [type, code, kilometerPerLiter], issues ]
             actions:
                 save: ~
@@ -81,7 +81,7 @@ builders:
     edit:
         params:
             title: "Editando Vehiculo \"%object%\"|{ %object%: Vehicle }|"
-            display: 
+            display:
                 NONE: [ [manufacturer, model], [type, code, kilometerPerLiter], issues ]
             actions:
                 save: ~

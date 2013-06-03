@@ -10,7 +10,7 @@ params:
             label: Habilitado
         alt:
             label: Descripción
-            help: El texto alternativo de la imagen    
+            help: El texto alternativo de la imagen
         file:
             label:            Imagen
             formType:         single_upload
@@ -35,7 +35,7 @@ builders:
     new:
         params:
             title: Nueva Imagen
-            display: 
+            display:
                 NONE: [ [file],[alt, enabled] ]
             actions:
                 save: ~
@@ -45,7 +45,7 @@ builders:
     edit:
         params:
             title: "You're editing the object \"%object%\"|{ %object%: Media.name }|"
-            display: 
+            display:
                 NONE: [ [file],[alt, enabled] ]
             actions:
                 save: ~

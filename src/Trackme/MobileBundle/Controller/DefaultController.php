@@ -14,10 +14,9 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-    	$user = $this->get('security.context')->getToken()->getUser();
-    	
-        if($user->hasOtActive())
-        {
+        $user = $this->get('security.context')->getToken()->getUser();
+
+        if ($user->hasOtActive()) {
             return array('user' => $user, 'active' => true);
         }
 
