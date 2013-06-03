@@ -74,7 +74,7 @@ class Business
     private $users;
 
     /**
-     * @ORM\OneToOne(targetEntity="Subscription", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="Subscription", inversedBy="business", cascade={"persist"})
      */
     private $subscription;
 
