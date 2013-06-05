@@ -52,9 +52,13 @@ class DefaultController extends Controller
     public function dashboardAction(Request $request)
     {
         $security = $this->get('security.context');
+        $business = $security->getToken()->getUser();
         if ($security->isGranted('ROLE_SUPER_ADMIN')) {
             return $this->redirect($this->generateUrl('dashboard_admin'));
         }
+        $em = $this->getDoctrine()->getManager();
+        $actives = $em->getRepository('Trackme\BackendBundle\Entity\Coordinate')->getActiveVehicles($business);
+        ladybug_dump_die($actives);
         $form = $this->createFormBuilder()
             ->add('origen', 'text', array('help' => 'Calle 123 Comuna o Ciudad'))
             ->add('destino', 'text', array('help' => 'Calle 123 Comuna o Ciudad'))
@@ -82,8 +86,6 @@ class DefaultController extends Controller
         $map->setStylesheetOption('width', '100%');
         $map->setStylesheetOption('height', '500px');
         $map->setCenter($result->getLatitude(), $result->getLongitude(), true);
-        // $map->setMapOption('zoom', 13);
-
         $map->setLanguage('es');
 
         if ($request->isMethod('POST')) {

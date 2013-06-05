@@ -9,7 +9,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * Coordinate
  *
  * @ORM\Table(name="coordinate")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Trackme\BackendBundle\Entity\CoordinateRepository")
  */
 class Coordinate
 {

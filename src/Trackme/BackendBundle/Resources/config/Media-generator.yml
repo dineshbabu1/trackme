@@ -17,6 +17,7 @@ params:
             dbType:           string
             addFormOptions:
                 nameable: name
+                data_class:     Symfony\Component\HttpFoundation\File\File
 
 builders:
     list:

@@ -3,53 +3,63 @@
 namespace Trackme\BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Admingenerator\GeneratorBundle\Model\FileInterface;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Media
  *
  * @ORM\Table(name="media")
  * @ORM\Entity
+ * @Vich\Uploadable
  */
-class Media
+class Media implements FileInterface
 {
+
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
-     * @var string
+     * @Assert\File(
+     *     maxSize="10M",
+     *     mimeTypes={"image/png", "image/jpeg", "image/pjpeg"}
+     * )
+     * @Vich\UploadableField(mapping="image_file", fileNameProperty="path")
      *
-     * @ORM\Column(name="name", type="string", length=255, nullable=true)
+     * @var File $file
      */
-    private $name;
+    protected $file;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="file", type="string", length=255, nullable=false)
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * 
      */
-    private $file;
+    protected $path;
 
     /**
-     * @var string
+     * @ORM\Column(type="string", length=255)
      *
-     * @ORM\Column(name="alt", type="string", length=255, nullable=true)
+     * @var string $name
      */
-    private $alt;
+    protected $name;
 
     /**
-     * @var boolean
-     *
-     * @ORM\Column(name="enabled", type="boolean", nullable=false)
+     * @ORM\Column(type="boolean", nullable=true)
      */
-    private $enabled;
+    protected $enabled;
 
-
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $alt;
 
     /**
      * Get id
@@ -62,6 +72,29 @@ class Media
     }
 
     /**
+     * Set path
+     *
+     * @param string $path
+     * @return Media
+     */
+    public function setPath($path)
+    {
+        $this->path = $path;
+
+        return $this;
+    }
+
+    /**
+     * Get path
+     *
+     * @return string 
+     */
+    public function getPath()
+    {
+        return $this->path;
+    }
+
+    /**
      * Set name
      *
      * @param string $name
@@ -70,7 +103,7 @@ class Media
     public function setName($name)
     {
         $this->name = $name;
-    
+
         return $this;
     }
 
@@ -85,71 +118,54 @@ class Media
     }
 
     /**
-     * Set file
+     * Get mimeType
      *
-     * @param string $file
-     * @return Media
+     * @return string 
      */
-    public function setFile($file)
+    public function getMimeType()
     {
-        $this->file = $file;
-    
-        return $this;
+        return $this->file->getMimeType();
     }
 
     /**
-     * Get file
+     * Get size
      *
-     * @return string 
+     * @return integer
+     */
+    public function getSize()
+    {
+        return $this->file->getSize();
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getPreview()
+    {
+        return true;
+    }
+
+    /**
+     * @inheritDoc
      */
     public function getFile()
     {
         return $this->file;
     }
 
-    /**
-     * Set alt
-     *
-     * @param string $alt
-     * @return Media
-     */
-    public function setAlt($alt)
+    public function setFile(\Symfony\Component\HttpFoundation\File\File $file)
     {
-        $this->alt = $alt;
-    
+        $this->file = $file;
+
         return $this;
     }
 
-    /**
-     * Get alt
-     *
-     * @return string 
-     */
-    public function getAlt()
-    {
-        return $this->alt;
+    public function setParent($parent){
+        return null;
     }
 
-    /**
-     * Set enabled
-     *
-     * @param boolean $enabled
-     * @return Media
-     */
-    public function setEnabled($enabled)
-    {
-        $this->enabled = $enabled;
-    
-        return $this;
+    public function getParent(){
+        return null;
     }
 
-    /**
-     * Get enabled
-     *
-     * @return boolean 
-     */
-    public function getEnabled()
-    {
-        return $this->enabled;
-    }
 }

@@ -9,7 +9,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * Coordinate
  *
  * @ORM\Table(name="coordinate")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Trackme\BackendBundle\Entity\CoordinateRepository")
  */
 class Coordinate
 {
@@ -87,7 +87,7 @@ class Coordinate
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -97,20 +97,20 @@ class Coordinate
     /**
      * Set lat
      *
-     * @param float $lat
+     * @param  float      $lat
      * @return Coordinate
      */
     public function setLat($lat)
     {
         $this->lat = $lat;
-    
+
         return $this;
     }
 
     /**
      * Get lat
      *
-     * @return float 
+     * @return float
      */
     public function getLat()
     {
@@ -120,20 +120,20 @@ class Coordinate
     /**
      * Set lng
      *
-     * @param float $lng
+     * @param  float      $lng
      * @return Coordinate
      */
     public function setLng($lng)
     {
         $this->lng = $lng;
-    
+
         return $this;
     }
 
     /**
      * Get lng
      *
-     * @return float 
+     * @return float
      */
     public function getLng()
     {
@@ -143,20 +143,20 @@ class Coordinate
     /**
      * Set user
      *
-     * @param \Trackme\BackendBundle\Entity\User $user
+     * @param  \Trackme\BackendBundle\Entity\User $user
      * @return Coordinate
      */
     public function setUser(\Trackme\BackendBundle\Entity\User $user = null)
     {
         $this->user = $user;
-    
+
         return $this;
     }
 
     /**
      * Get user
      *
-     * @return \Trackme\BackendBundle\Entity\User 
+     * @return \Trackme\BackendBundle\Entity\User
      */
     public function getUser()
     {
@@ -166,20 +166,20 @@ class Coordinate
     /**
      * Set created_at
      *
-     * @param \DateTime $createdAt
+     * @param  \DateTime  $createdAt
      * @return Coordinate
      */
     public function setCreatedAt($createdAt)
     {
         $this->created_at = $createdAt;
-    
+
         return $this;
     }
 
     /**
      * Get created_at
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -189,20 +189,20 @@ class Coordinate
     /**
      * Set updated_at
      *
-     * @param \DateTime $updatedAt
+     * @param  \DateTime  $updatedAt
      * @return Coordinate
      */
     public function setUpdatedAt($updatedAt)
     {
         $this->updated_at = $updatedAt;
-    
+
         return $this;
     }
 
     /**
      * Get updated_at
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getUpdatedAt()
     {
@@ -212,20 +212,20 @@ class Coordinate
     /**
      * Set created_by
      *
-     * @param string $createdBy
+     * @param  string     $createdBy
      * @return Coordinate
      */
     public function setCreatedBy($createdBy)
     {
         $this->created_by = $createdBy;
-    
+
         return $this;
     }
 
     /**
      * Get created_by
      *
-     * @return string 
+     * @return string
      */
     public function getCreatedBy()
     {
@@ -235,20 +235,20 @@ class Coordinate
     /**
      * Set updated_by
      *
-     * @param string $updatedBy
+     * @param  string     $updatedBy
      * @return Coordinate
      */
     public function setUpdatedBy($updatedBy)
     {
         $this->updated_by = $updatedBy;
-    
+
         return $this;
     }
 
     /**
      * Get updated_by
      *
-     * @return string 
+     * @return string
      */
     public function getUpdatedBy()
     {
@@ -258,20 +258,20 @@ class Coordinate
     /**
      * Set ot
      *
-     * @param \Trackme\BackendBundle\Entity\Ot $ot
+     * @param  \Trackme\BackendBundle\Entity\Ot $ot
      * @return Coordinate
      */
     public function setOt(\Trackme\BackendBundle\Entity\Ot $ot = null)
     {
         $this->ot = $ot;
-    
+
         return $this;
     }
 
     /**
      * Get ot
      *
-     * @return \Trackme\BackendBundle\Entity\Ot 
+     * @return \Trackme\BackendBundle\Entity\Ot
      */
     public function getOt()
     {
