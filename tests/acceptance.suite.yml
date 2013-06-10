@@ -13,6 +13,14 @@ modules:
     enabled:
         - PhpBrowser
         - WebHelper
+        - Db
     config:
         PhpBrowser:
             url: 'http://trackme.cl/app_dev.php'
+        Db:
+            dsn: 'mysql:host=localhost;dbname=trackme_test'
+            user: 'root'
+            password: '123456'
+            dump: 'tests/_data/dump.sql'
+            populate: true
+            cleanup: true

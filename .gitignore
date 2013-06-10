@@ -11,3 +11,5 @@ web/js/*
 app/config/parameters.ini
 app/config/parameters.yml
 /nbproject/private/
+# Test Logs
+tests/_log/*

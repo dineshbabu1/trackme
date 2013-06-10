@@ -9,4 +9,5 @@ $I->wantTo('Llenar el formulario de ingreso');
 $I->fillField('username', 'admin');
 $I->fillField('password', 'admin');
 $I->click('Entrar');
+$I->amOnPage('/admin/dashboard');
 $I->dontSee("Calcular Viaje");

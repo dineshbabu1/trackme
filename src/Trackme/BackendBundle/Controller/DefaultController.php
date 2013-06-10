@@ -58,7 +58,7 @@ class DefaultController extends Controller
         }
         $em = $this->getDoctrine()->getManager();
         $actives = $em->getRepository('Trackme\BackendBundle\Entity\Coordinate')->getActiveVehicles($business);
-        ladybug_dump_die($actives);
+        // ladybug_dump_die($actives);
         $form = $this->createFormBuilder()
             ->add('origen', 'text', array('help' => 'Calle 123 Comuna o Ciudad'))
             ->add('destino', 'text', array('help' => 'Calle 123 Comuna o Ciudad'))

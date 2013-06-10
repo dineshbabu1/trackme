@@ -1,0 +1,15 @@
+class_name: ApiGuy
+modules:
+    enabled: [PhpBrowser, REST, ApiHelper, Db]
+    config:
+        PhpBrowser:
+            url: http://trackme.cl/app_dev.php
+        REST:
+            url: http://trackme.cl/app_dev.php/api
+        Db:
+            dsn: 'mysql:host=localhost;dbname=trackme_test'
+            user: 'root'
+            password: '123456'
+            dump: 'tests/_data/dump.sql'
+            populate: true
+            cleanup: true

@@ -37,7 +37,7 @@ class DefaultController extends Controller
 
     if ($request->getMethod() == 'POST') {
       $json = json_decode($request->getContent());
-
+      
       $user = $this->get('security.context')->getToken()->getUser();
 
       if (!$user) {
@@ -81,8 +81,6 @@ class DefaultController extends Controller
     $em = $this->getDoctrine()->getManager();
 
     if ($request->getMethod() == 'POST') {
-      $json = json_decode($request->getContent());
-
       $user = $this->get('security.context')->getToken()->getUser();
 
       if (!$user) {
@@ -113,8 +111,6 @@ class DefaultController extends Controller
     $em = $this->getDoctrine()->getManager();
 
     if ($request->getMethod() == 'POST') {
-      $json = json_decode($request->getContent());
-
       $user = $this->get('security.context')->getToken()->getUser();
 
       if (!$user) {

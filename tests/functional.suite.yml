@@ -8,4 +8,10 @@
 
 class_name: TestGuy
 modules:
-    enabled: [Filesystem, TestHelper]
+    enabled: [PhpBrowser, TestHelper, REST]
+    config:
+        PhpBrowser:
+            url: 'http://trackme.cl/app.php'
+        REST:
+            url: 'http://trackme.cl/app.php/api' 
+            timeout: 120
