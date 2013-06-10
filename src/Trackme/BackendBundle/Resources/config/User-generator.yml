@@ -4,6 +4,9 @@ params:
     namespace_prefix: Trackme
     bundle_name: BackendBundle
     fields:
+        business:
+            credentials: 'hasRole("ROLE_SUPER_ADMIN")'
+            label: Cliente
         name:
             label: Nombre
         last_name:
@@ -32,9 +35,7 @@ builders:
         params:
             title: Usuarios
             display: [name, last_name, username, email, business, enabled]
-            fields:
-                business:
-                    credentials: 'hasRole("ROLE_SUPER_ADMIN")'
+            
             actions:
                 new: ~
             object_actions:
@@ -43,12 +44,12 @@ builders:
                 delete: ~
     filters:
         params:
-            display: [username,email,enabled]
+            display: [username,email,enabled, business]
     new:
         params:
             title: Nuevo Usuario
             display:
-              NONE: [[name, last_name]]
+              NONE: [[name, last_name, business]]
               Usuario: [username, email, groups, plainPassword, enabled, emailable]
             actions:
                 save: ~
@@ -58,7 +59,7 @@ builders:
         params:
             title: "Editando a usuario \"%object%\"|{ %object%: User.username }|"
             display:
-                NONE: [[name, last_name]]
+                NONE: [[name, last_name, business]]
                 Usuario: [username, email, groups, plainPassword, enabled, emailable]
             actions:
                 save: ~

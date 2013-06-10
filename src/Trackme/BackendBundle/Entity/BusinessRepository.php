@@ -41,4 +41,5 @@ class BusinessRepository extends EntityRepository
 
         return $query->getArrayResult();
     }
+
 }

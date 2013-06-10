@@ -52,20 +52,22 @@ class DefaultController extends Controller
     public function dashboardAction(Request $request)
     {
         $security = $this->get('security.context');
-        $business = $security->getToken()->getUser();
+
         if ($security->isGranted('ROLE_SUPER_ADMIN')) {
             return $this->redirect($this->generateUrl('dashboard_admin'));
         }
+
+        $business = $security->getToken()->getUser()->getBusiness();
+        
         $em = $this->getDoctrine()->getManager();
-        $actives = $em->getRepository('Trackme\BackendBundle\Entity\Coordinate')->getActiveVehicles($business);
-        // ladybug_dump_die($actives);
+        // Las coordenadas activas de una empresa
+        $actives = $em->getRepository('Trackme\BackendBundle\Entity\Coordinate')->getActiveVehicles($business->getIdUsers());
+
         $form = $this->createFormBuilder()
             ->add('origen', 'text', array('help' => 'Calle 123 Comuna o Ciudad'))
             ->add('destino', 'text', array('help' => 'Calle 123 Comuna o Ciudad'))
             ->add('precio_combustible', 'money', array('help' => 'Solo numeros', 'currency' => 'CLP'))
             ->add('kilometros_por_litro', 'text')
-            // ->add('evitar_autopista', 'checkbox', array('required' => false))
-            // ->add('evitar_peaje', 'checkbox', array('required' => false))
             ->getForm();
 
         $result = $this->container->get('bazinga_geocoder.geocoder')
@@ -77,12 +79,15 @@ class DefaultController extends Controller
         $summary = "";
         $estimate = null;
         $distance = null;
-        $marker = new Marker();
-        $marker->setPosition(-33.424565,-70.65033, true);
-        $marker->setIcon('http://track.me/bundles/trackmebackend/images/truck3.png');
 
         $map = $this->get('ivory_google_map.map');
-        $map->addMarker($marker);
+        
+        foreach ($actives as $active) {
+            $marker = new Marker();
+            $marker->setPosition($active->getLat(),$active->getLng(), true);
+            $map->addMarker($marker);
+        }
+
         $map->setStylesheetOption('width', '100%');
         $map->setStylesheetOption('height', '500px');
         $map->setCenter($result->getLatitude(), $result->getLongitude(), true);
@@ -142,6 +147,11 @@ class DefaultController extends Controller
         }
 
         return $this->render('TrackmeBackendBundle:Default:dashboard.html.twig', array('estimate' => $estimate, 'duration' => $duration, 'distance' => $distance, 'map' => $map, 'form' => $form->createView()));
+    }
+
+    public function getLastPosition($positions)
+    {
+
     }
 
 }

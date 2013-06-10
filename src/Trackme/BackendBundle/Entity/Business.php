@@ -426,4 +426,14 @@ class Business
     {
         return $this->subscription;
     }
+
+    public function getIdUsers()
+    {
+        $users = array();
+        foreach ($this->getUsers() as $user) {
+            $users[] = $user->getId();
+        }
+
+        return $users;
+    }
 }
