@@ -50,7 +50,6 @@ class Menu extends ContainerAware
           $this->addNavLinkRoute($frontend, 'Páginas', 'Trackme_BackendBundle_Page_list')->setExtra('icon', 'icon-file');
           $this->addNavLinkRoute($frontend, 'Reseñas', 'Trackme_BackendBundle_Review_list')->setExtra('icon', 'icon-thumbs-up');
           $this->addNavLinkRoute($frontend, 'Planes', 'Trackme_BackendBundle_Plan_list')->setExtra('icon', 'icon-shopping-cart');
-          $this->addNavLinkRoute($frontend, 'Slider', 'Trackme_BackendBundle_Media_list')->setExtra('icon', 'icon-picture');
           $business = $this->addNavLinkRoute($menu, 'Clientes', 'Trackme_BackendBundle_Business_list')->setExtra('icon', 'icon-heart');
           $user = $this->addNavLinkRoute($menu, 'Usuarios', 'Trackme_BackendBundle_User_list')->setExtra('icon', 'icon-user');
           $ticket = $this->addNavLinkRoute($menu, 'Soporte', 'Trackme_BackendBundle_Ticket_list')->setExtra('icon', 'icon-user');

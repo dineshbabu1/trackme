@@ -1,5 +1,0 @@
-{% extends_admingenerated "TrackmeBackendBundle:MediaShow:index.html.twig" %}
-
-{% block show_column_file %}
-	<img src="{{ ('uploads/'~ Media.name) | apply_filter('my_thumb') }}" />
-{% endblock %}
