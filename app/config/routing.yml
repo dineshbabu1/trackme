@@ -7,11 +7,6 @@ dashboard_admin:
     path: /admin/dashboard
     defaults:  { _controller: TrackmeBackendBundle:Default:dashboard_admin }
 
-admin_media:
-    resource: "@TrackmeBackendBundle/Controller/Media/"
-    type:     admingenerator
-    prefix:   /admin/cms/media
-
 admin_ticket:
     resource: "@TrackmeBackendBundle/Controller/Ticket/"
     type:     admingenerator
