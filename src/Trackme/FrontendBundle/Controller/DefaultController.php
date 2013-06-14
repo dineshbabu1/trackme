@@ -77,6 +77,7 @@ class DefaultController extends Controller
 
                 $user->setBusiness($business);
                 $user->addRole($business->getRoleByState());
+                $user->addRole('ROLE_CLIENTE');
                 $userManager->updateUser($user);
 
                 if (null === $response = $event->getResponse()) {

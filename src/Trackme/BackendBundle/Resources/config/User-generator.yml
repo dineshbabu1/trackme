@@ -9,6 +9,9 @@ params:
             label: Cliente
         name:
             label: Nombre
+        groups:
+            credentials: 'hasRole("ROLE_SUPER_ADMIN")'
+            label: Grupo
         last_name:
             label: Apellido
         username:
@@ -35,13 +38,13 @@ builders:
         params:
             title: Usuarios
             display: [name, last_name, username, email, business, enabled]
-
             actions:
                 new: ~
             object_actions:
                 show: ~
                 edit: ~
-                delete: ~
+                delete: 
+                    credentials: 'hasRole("ROLE_SUPER_ADMIN")'
     filters:
         params:
             display: [username,email,enabled, business]
