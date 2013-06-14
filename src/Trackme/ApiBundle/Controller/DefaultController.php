@@ -26,112 +26,122 @@ use Trackme\BackendBundle\Entity\Ot;
 
 class DefaultController extends Controller
 {
-  /**
-   *
-   * @param \Symfony\Component\HttpFoundation\Request $request
-   * @return \Symfony\Component\HttpFoundation\Response
-   */
-  public function indexAction(Request $request)
-  {
-    $em = $this->getDoctrine()->getManager();
 
-    if ($request->getMethod() == 'POST') {
-      $json = json_decode($request->getContent());
-      
-      $user = $this->get('security.context')->getToken()->getUser();
+    /**
+     *
+     * @param  \Symfony\Component\HttpFoundation\Request  $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function indexAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
 
-      if (!$user) {
-          return new Response(json_encode(array('status' => 'not found')), 404, array('Content-Type:' => 'application/json'));
-      }
+        if ($request->getMethod() == 'POST') {
+            $json = json_decode($request->getContent());
 
-      if (!isset($json) || !$json->lat || !$json->lng) {
-          return new Response(json_encode(array('status' => 'bad request')), 400, array('Content-Type:' => 'application/json'));
-      }
+            $user = $this->get('security.context')->getToken()->getUser();
 
-      if (!is_numeric($json->lat) || !(($json->lat >= -90) && ($json->lat <= 90))) {
-          return new Response(json_encode(array('status' => 'Latitud debe ser entre -90 y 90 grados')), 400, array('Content-Type:' => 'application/json'));
-      }
+            if (!$user) {
+                return new Response(json_encode(array('status' => 'not found')), 404, array('Content-Type:' => 'application/json'));
+            }
 
-      if (!is_numeric($json->lng) || !(($json->lng >= -180) && ($json->lng <= 180))) {
-          return new Response(json_encode(array('status' => 'Longitud debe ser entre -180 y 180 grados')), 400, array('Content-Type:' => 'application/json'));
-      }
+            if (!isset($json) || !$json->lat || !$json->lng) {
+                return new Response(json_encode(array('status' => 'bad request')), 400, array('Content-Type:' => 'application/json'));
+            }
 
-      $coordinate = new Coordinate();
-      $coordinate->setLat($json->lat);
-      $coordinate->setLng($json->lng);
-      $coordinate->setUser($user);
+            if (!is_numeric($json->lat) || !(($json->lat >= -90) && ($json->lat <= 90))) {
+                return new Response(json_encode(array('status' => 'Latitud debe ser entre -90 y 90 grados')), 400, array('Content-Type:' => 'application/json'));
+            }
 
-      if ($user->hasOtActive()) {
-        $coordinate->setOt($user->hasOtActive());
-      }
-      $em->persist($coordinate);
-      $em->flush();
+            if (!is_numeric($json->lng) || !(($json->lng >= -180) && ($json->lng <= 180))) {
+                return new Response(json_encode(array('status' => 'Longitud debe ser entre -180 y 180 grados')), 400, array('Content-Type:' => 'application/json'));
+            }
 
-      return new Response(json_encode(array('status' => 'ok')), 200, array('Content-Type:' => 'application/json'));
+            $coordinate = new Coordinate();
+            $coordinate->setLat($json->lat);
+            $coordinate->setLng($json->lng);
+            $coordinate->setUser($user);
+
+            if ($user->hasOtActive()) {
+                $coordinate->setOt($user->hasOtActive());
+            }
+            $em->persist($coordinate);
+            $em->flush();
+
+            return new Response(json_encode(array('status' => 'ok')), 200, array('Content-Type:' => 'application/json'));
+        }
     }
-  }
 
-  /**
-   *
-   * @param \Symfony\Component\HttpFoundation\Request $request
-   * @return \Symfony\Component\HttpFoundation\Response
-   */
-  public function startAction(Request $request)
-  {
-    $em = $this->getDoctrine()->getManager();
+    /**
+     *
+     * @param  \Symfony\Component\HttpFoundation\Request  $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function startAction(Request $request)
+    {
 
-    if ($request->getMethod() == 'POST') {
-      $user = $this->get('security.context')->getToken()->getUser();
+        $em = $this->getDoctrine()->getManager();
 
-      if (!$user) {
-        return new Response(json_encode(array('status' => 'not found')), 404, array('Content-Type:' => 'application/json'));
-      }
+        if ($request->getMethod() == 'POST') {
+            $user = $this->get('security.context')->getToken()->getUser();
 
-      if ($user->hasOtActive()) {
-        return new Response(json_encode(array('status' => 'ot active')), 200, array('Content-Type:' => 'application/json'));
-      }
+            try {
+                $ironmq = $this->get('code_meme_iron_mq.messagequeue');
+                $ironmq->postMessage('queue_name', 'El usuario: ' . $user . ' ha iniciado un OT a las: ' . date('Y:m:d H:i:s'));
+            } catch (Exception $exc) {
+                echo $exc->getMessage();
+            }
 
-      $ot = new Ot();
-      $ot->setUser($user);
-      $ot->setDateStart(new \DateTime());
-      $em->persist($ot);
-      $em->flush();
+            if (!$user) {
+                return new Response(json_encode(array('status' => 'not found')), 404, array('Content-Type:' => 'application/json'));
+            }
 
-      return new Response(json_encode(array('status' => 'ok')), 200, array('Content-Type:' => 'application/json'));
+            if ($user->hasOtActive()) {
+                return new Response(json_encode(array('status' => 'ot active')), 200, array('Content-Type:' => 'application/json'));
+            }
+
+            $ot = new Ot();
+            $ot->setUser($user);
+            $ot->setDateStart(new \DateTime());
+            $em->persist($ot);
+            $em->flush();
+
+            return new Response(json_encode(array('status' => 'ok')), 200, array('Content-Type:' => 'application/json'));
+        }
     }
-  }
 
-  /**
-   *
-   * @param \Symfony\Component\HttpFoundation\Request $request
-   * @return \Symfony\Component\HttpFoundation\Response
-   */
-  public function finishAction(Request $request)
-  {
-    $em = $this->getDoctrine()->getManager();
+    /**
+     *
+     * @param  \Symfony\Component\HttpFoundation\Request  $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function finishAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
 
-    if ($request->getMethod() == 'POST') {
-      $user = $this->get('security.context')->getToken()->getUser();
+        if ($request->getMethod() == 'POST') {
+            $user = $this->get('security.context')->getToken()->getUser();
 
-      if (!$user) {
-        return new Response(json_encode(array('status' => 'not found')), 404, array('Content-Type:' => 'application/json'));
-      }
+            if (!$user) {
+                return new Response(json_encode(array('status' => 'not found')), 404, array('Content-Type:' => 'application/json'));
+            }
 
-      $ot = $user->hasOtActive();
-      if (!$ot) {
-        return new Response(json_encode(array('status' => 'sin ot activa')), 200, array('Content-Type:' => 'application/json'));
-      }
+            $ot = $user->hasOtActive();
+            if (!$ot) {
+                return new Response(json_encode(array('status' => 'sin ot activa')), 200, array('Content-Type:' => 'application/json'));
+            }
 
-      $ot->setDateEnd(new \DateTime());
-      $em->persist($ot);
-      $em->flush();
+            $ot->setDateEnd(new \DateTime());
+            $em->persist($ot);
+            $em->flush();
 
-      return new Response(json_encode(array('status' => 'ok')), 200, array('Content-Type:' => 'application/json'));
+            return new Response(json_encode(array('status' => 'ok')), 200, array('Content-Type:' => 'application/json'));
+        }
     }
-  }
 
-  public function calculateTotalKm()
-  {
-  }
+    public function calculateTotalKm()
+    {
+
+    }
 
 }

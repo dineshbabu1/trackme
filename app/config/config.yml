@@ -287,3 +287,8 @@ ivory_google_map:
 #         default_format: json
 #     view:
 #         view_response_listener: true
+
+code_meme_iron_mq:
+    enabled: true # if set to false, service will not be available
+    token: "afc02vPCvKAwceeeBhMaXph_Ygo"
+    project_id: "51ba3f49ed3d765d70001ae7"

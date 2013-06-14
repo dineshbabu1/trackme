@@ -12,18 +12,18 @@ use Doctrine\ORM\EntityRepository;
  */
 class CoordinateRepository extends EntityRepository
 {
-	public function getActiveVehicles($users)
-	{
+    public function getActiveVehicles($users)
+    {
         $ten_minutes_ago = date('Y-m-d H:i:s', strtotime("-10 minutes", time()));
         $em = $this->getEntityManager();
 
         $query = $em->createQuery("
             SELECT c
-            FROM TrackmeBackendBundle:Coordinate c 
+            FROM TrackmeBackendBundle:Coordinate c
             WHERE c.user IN (:users) AND c.created_at > :ten_minutes");
         $query->setParameter('users', $users);
         $query->setParameter('ten_minutes', $ten_minutes_ago);
 
         return $query->getResult();
-	}
+    }
 }

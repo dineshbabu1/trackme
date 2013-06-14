@@ -58,7 +58,7 @@ class DefaultController extends Controller
         }
 
         $business = $security->getToken()->getUser()->getBusiness();
-        
+
         $em = $this->getDoctrine()->getManager();
         // Las coordenadas activas de una empresa
         $actives = $em->getRepository('Trackme\BackendBundle\Entity\Coordinate')->getActiveVehicles($business->getIdUsers());
@@ -81,7 +81,7 @@ class DefaultController extends Controller
         $distance = null;
 
         $map = $this->get('ivory_google_map.map');
-        
+
         foreach ($actives as $active) {
             $marker = new Marker();
             $marker->setPosition($active->getLat(),$active->getLng(), true);

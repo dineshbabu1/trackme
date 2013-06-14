@@ -35,7 +35,7 @@ builders:
         params:
             title: Usuarios
             display: [name, last_name, username, email, business, enabled]
-            
+
             actions:
                 new: ~
             object_actions:

@@ -3,7 +3,6 @@
 namespace Trackme\BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
 use Admingenerator\GeneratorBundle\Model\FileInterface;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -40,7 +39,7 @@ class Media implements FileInterface
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * 
+     *
      */
     protected $path;
 
@@ -64,7 +63,7 @@ class Media implements FileInterface
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -74,7 +73,7 @@ class Media implements FileInterface
     /**
      * Set path
      *
-     * @param string $path
+     * @param  string $path
      * @return Media
      */
     public function setPath($path)
@@ -87,7 +86,7 @@ class Media implements FileInterface
     /**
      * Get path
      *
-     * @return string 
+     * @return string
      */
     public function getPath()
     {
@@ -97,7 +96,7 @@ class Media implements FileInterface
     /**
      * Set name
      *
-     * @param string $name
+     * @param  string $name
      * @return Media
      */
     public function setName($name)
@@ -110,7 +109,7 @@ class Media implements FileInterface
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -120,7 +119,7 @@ class Media implements FileInterface
     /**
      * Get mimeType
      *
-     * @return string 
+     * @return string
      */
     public function getMimeType()
     {
@@ -160,19 +159,20 @@ class Media implements FileInterface
         return $this;
     }
 
-    public function setParent($parent){
+    public function setParent($parent)
+    {
         return null;
     }
 
-    public function getParent(){
+    public function getParent()
+    {
         return null;
     }
-
 
     /**
      * Set enabled
      *
-     * @param boolean $enabled
+     * @param  boolean $enabled
      * @return Media
      */
     public function setEnabled($enabled)
@@ -185,7 +185,7 @@ class Media implements FileInterface
     /**
      * Get enabled
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getEnabled()
     {
@@ -195,7 +195,7 @@ class Media implements FileInterface
     /**
      * Set alt
      *
-     * @param string $alt
+     * @param  string $alt
      * @return Media
      */
     public function setAlt($alt)
@@ -208,7 +208,7 @@ class Media implements FileInterface
     /**
      * Get alt
      *
-     * @return string 
+     * @return string
      */
     public function getAlt()
     {
