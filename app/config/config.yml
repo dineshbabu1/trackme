@@ -213,24 +213,6 @@ bazinga_geocoder:
         google_maps:
             locale:     es_Cl
             region:     es_Cl          
-bazinga_faker:
-    orm: doctrine
-    entities:
-        Trackme\BackendBundle\Entity\Business:
-            number: 30
-            custom_formatters:
-                name: { method: company}
-                email: { method: companyEmail}
-                token: { method: uuid }
-                created_by: { method: lastname}
-                updated_by: { method: lastname}
-#        Trackme\BackendBundle\Entity\User:
-#            number: 90
-        Trackme\BackendBundle\Entity\Vehicle:
-            number: 90    
-            custom_formatters:
-                manufacturer: { method: company}
-                model: { method: word}
 
 # Extensiones de doctrine
 stof_doctrine_extensions:
