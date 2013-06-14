@@ -178,7 +178,7 @@ class DefaultController extends Controller
     public function pricingAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $plans = $em->getRepository('Trackme\BackendBundle\Entity\Plan')->findAll();
+        $plans = $em->getRepository('Trackme\BackendBundle\Entity\Plan')->findBy(array(), array('price' => 'asc'));
 
         return $this->render('TrackmeFrontendBundle:Default:pricing.html.twig', array('plans' => $plans));
     }

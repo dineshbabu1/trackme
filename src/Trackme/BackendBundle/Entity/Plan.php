@@ -45,7 +45,7 @@ class Plan
     /**
      * @var float
      *
-     * @ORM\Column(name="price", type="decimal", nullable=false)
+     * @ORM\Column(name="price", type="float", nullable=false)
      */
     private $price;
 
