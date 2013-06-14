@@ -13,8 +13,14 @@ modules:
     enabled:
         - PhpBrowser
         - WebHelper
+        # - Selenium2
         - Db
     config:
+        # Selenium2:
+        #     url: 'http://trackme.cl/app_dev.php'
+        #     browser: firefox
+        #     capabilities:
+        #         unexpectedAlertBehaviour: 'accept'
         PhpBrowser:
             url: 'http://trackme.cl/app_dev.php'
         Db:

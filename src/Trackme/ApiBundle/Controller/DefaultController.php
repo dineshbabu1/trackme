@@ -44,7 +44,7 @@ class DefaultController extends Controller
           return new Response(json_encode(array('status' => 'not found')), 404, array('Content-Type:' => 'application/json'));
       }
 
-      if (!isset($json)) {
+      if (!isset($json) || !$json->lat || !$json->lng) {
           return new Response(json_encode(array('status' => 'bad request')), 400, array('Content-Type:' => 'application/json'));
       }
 

@@ -6,7 +6,7 @@ $I->sendPost('/start');
 $I->seeResponseIsJson();
 $I->seeResponseContainsJson(array('status' => 'ok'));
 $I->seeResponseCodeIs(200);
-$I->wantTo('Tratar de iniciar otro OT y que el sistema lo impira');
+$I->wantTo('Tratar de iniciar otro OT y que el sistema lo impida');
 $I->amHttpAuthenticated('api', 'api');
 $I->sendPost('/start');
 $I->seeResponseIsJson();
