@@ -79,7 +79,14 @@ class DefaultController extends Controller
                 $user->addRole($business->getRoleByState());
                 $user->addRole('ROLE_CLIENTE');
                 $userManager->updateUser($user);
-
+                
+                try {
+                    $ironmq = $this->get('code_meme_iron_mq.messagequeue');
+                    $ironmq->postMessage('signup_queue', 'El usuario: ' . $user . ' se registro a las: ' . date('Y:m:d H:i:s'));
+                } catch (Exception $exc) {
+                    echo $exc->getMessage();
+                }
+                
                 if (null === $response = $event->getResponse()) {
                     $url = $this->container->get('router')->generate('fos_user_registration_confirmed');
                     $response = new RedirectResponse($url);
