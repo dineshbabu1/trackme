@@ -56,7 +56,7 @@ class Menu extends ContainerAware
           $ticket = $this->addNavLinkRoute($menu, 'Soporte', 'Trackme_BackendBundle_Ticket_list')->setExtra('icon', 'icon-user');
         } elseif ($security->isGranted('ROLE_CLIENT')) {
           
-            $user = $this->addNavLinkRoute($menu, 'Mis Usuarios', 'Trackme_BackendBundle_User_list')->setExtra('icon', 'icon-user');
+          $user = $this->addNavLinkRoute($menu, 'Mis Usuarios', 'Trackme_BackendBundle_User_list')->setExtra('icon', 'icon-user');
           $vehicle = $this->addNavLinkRoute($menu, 'Vehiculos', 'Trackme_BackendBundle_Vehicle_list')->setExtra('icon', 'icon-road');
           
           if($security->isGranted('ROLE_FULL')){
