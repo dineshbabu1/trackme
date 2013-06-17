@@ -103,12 +103,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony2admingenerator/AdmingeneratorGeneratorBundle.git",
-                "reference": "5348615dddcca131f453e1eea3762b4508c8f358"
+                "reference": "96a4d3fb4c508641daf9e2ec2498b3bb9b584d28"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony2admingenerator/AdmingeneratorGeneratorBundle/zipball/5348615dddcca131f453e1eea3762b4508c8f358",
-                "reference": "5348615dddcca131f453e1eea3762b4508c8f358",
+                "url": "https://api.github.com/repos/symfony2admingenerator/AdmingeneratorGeneratorBundle/zipball/96a4d3fb4c508641daf9e2ec2498b3bb9b584d28",
+                "reference": "96a4d3fb4c508641daf9e2ec2498b3bb9b584d28",
                 "shasum": ""
             },
             "require": {
@@ -160,7 +160,7 @@
                 "generator",
                 "yaml"
             ],
-            "time": "2013-06-16 09:51:39"
+            "time": "2013-06-17 12:44:34"
         },
         {
             "name": "cedriclombardot/admingenerator-user-bundle",
@@ -615,7 +615,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan H. Wage",
+                    "name": "Jonathan Wage",
                     "email": "jonwage@gmail.com",
                     "homepage": "http://www.jwage.com/"
                 }
@@ -956,12 +956,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "7903a2b5139e51b5dd7ed5ae164f7e0f3685dea7"
+                "reference": "a39ceb3159d9716b528c422099c853224a1bc863"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/7903a2b5139e51b5dd7ed5ae164f7e0f3685dea7",
-                "reference": "7903a2b5139e51b5dd7ed5ae164f7e0f3685dea7",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/a39ceb3159d9716b528c422099c853224a1bc863",
+                "reference": "a39ceb3159d9716b528c422099c853224a1bc863",
                 "shasum": ""
             },
             "require": {
@@ -1022,7 +1022,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2013-06-14 16:19:43"
+            "time": "2013-06-17 09:41:29"
         },
         {
             "name": "egeloen/google-map",
@@ -2127,12 +2127,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/Gaufrette.git",
-                "reference": "4bfc8e16086276134768159093e2f5d2ad752991"
+                "reference": "6f9260ddf10c9cba9aea66ac92b8f38a13a86115"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/Gaufrette/zipball/4bfc8e16086276134768159093e2f5d2ad752991",
-                "reference": "4bfc8e16086276134768159093e2f5d2ad752991",
+                "url": "https://api.github.com/repos/KnpLabs/Gaufrette/zipball/6f9260ddf10c9cba9aea66ac92b8f38a13a86115",
+                "reference": "6f9260ddf10c9cba9aea66ac92b8f38a13a86115",
                 "shasum": ""
             },
             "require": {
@@ -2143,6 +2143,7 @@
                 "doctrine/dbal": ">=2.3",
                 "dropbox-php/dropbox-php": "*",
                 "herzult/php-ssh": "*",
+                "phpseclib/phpseclib": "dev-master",
                 "phpspec/phpspec2": "dev-master",
                 "phpunit/phpunit": "3.7.*",
                 "rackspace/php-cloudfiles": "*",
@@ -2159,6 +2160,7 @@
                 "ext-mongo": "*",
                 "ext-zip": "to use the Zip adapter",
                 "knplabs/knp-gaufrette-bundle": "*",
+                "phpseclib/phpseclib": "to use the SFTP",
                 "rackspace/php-opencloud": "to use Opencloud adapter"
             },
             "type": "library",
@@ -2194,7 +2196,7 @@
                 "filesystem",
                 "media"
             ],
-            "time": "2013-04-28 21:52:32"
+            "time": "2013-06-17 09:36:44"
         },
         {
             "name": "knplabs/knp-gaufrette-bundle",
@@ -2203,12 +2205,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/KnpGaufretteBundle.git",
-                "reference": "de1ef2f9b2cb422f11e9585f29af0c73c105f01d"
+                "reference": "6c615bde72ab40e90bc271cffc2a33fe38ba30bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpGaufretteBundle/zipball/de1ef2f9b2cb422f11e9585f29af0c73c105f01d",
-                "reference": "de1ef2f9b2cb422f11e9585f29af0c73c105f01d",
+                "url": "https://api.github.com/repos/KnpLabs/KnpGaufretteBundle/zipball/6c615bde72ab40e90bc271cffc2a33fe38ba30bb",
+                "reference": "6c615bde72ab40e90bc271cffc2a33fe38ba30bb",
                 "shasum": ""
             },
             "require": {
@@ -2254,7 +2256,7 @@
                 "filesystem",
                 "media"
             ],
-            "time": "2013-04-15 06:12:02"
+            "time": "2013-06-17 07:53:15"
         },
         {
             "name": "knplabs/knp-menu",
@@ -2928,12 +2930,12 @@
             "target-dir": "Sensio/Bundle/DistributionBundle",
             "source": {
                 "type": "git",
-                "url": "https://github.com/sensiolabs/SensioDistributionBundle.git",
+                "url": "https://github.com/sensio/SensioDistributionBundle.git",
                 "reference": "v2.3.0-BETA1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/v2.3.0-BETA1",
+                "url": "https://api.github.com/repos/sensio/SensioDistributionBundle/zipball/v2.3.0-BETA1",
                 "reference": "v2.3.0-BETA1",
                 "shasum": ""
             },
@@ -3293,16 +3295,16 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v5.0.0",
+            "version": "v5.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "v5.0.0"
+                "reference": "v5.0.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/v5.0.0",
-                "reference": "v5.0.0",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/v5.0.1",
+                "reference": "v5.0.1",
                 "shasum": ""
             },
             "require": {
@@ -3311,7 +3313,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.0-dev"
+                    "dev-master": "5.1-dev"
                 }
             },
             "autoload": {
@@ -3338,7 +3340,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2013-04-30 17:35:30"
+            "time": "2013-06-17 13:32:32"
         },
         {
             "name": "symfony/assetic-bundle",
