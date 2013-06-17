@@ -60,7 +60,7 @@ class DefaultController extends Controller
             $ironmq = $this->get('code_meme_iron_mq.messagequeue');
             $ironmq->postMessage('position_queue', array(
                 'body' => 'El usuario: ' . $user . ' ha marcado posicion a las: ' . date('Y:m:d H:i:s'),
-                'expires_in' => 600));
+                'expires_in' => 60*60*24));
 
             $coordinate = new Coordinate();
             $coordinate->setLat($json->lat);
@@ -101,7 +101,7 @@ class DefaultController extends Controller
             $ironmq = $this->get('code_meme_iron_mq.messagequeue');
             $ironmq->postMessage('start_ot', array(
                 'body' => 'El usuario: ' . $user . ' ha iniciado un OT a las: ' . date('Y:m:d H:i:s'),
-                'expires_in' => 600));
+                'expires_in' => 60*60*24));
 
             $ot = new Ot();
             $ot->setUser($user);
@@ -137,7 +137,7 @@ class DefaultController extends Controller
             $ironmq = $this->get('code_meme_iron_mq.messagequeue');
             $ironmq->postMessage('api_ot', array(
                 'body' => 'El usuario: ' . $user . ' ha finalizado un OT a las: ' . date('Y:m:d H:i:s'),
-                'expires_in' => 600));
+                'expires_in' => 60*60*24));
 
             $ot->setDateEnd(new \DateTime());
             $em->persist($ot);
