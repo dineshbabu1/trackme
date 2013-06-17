@@ -99,7 +99,7 @@ class DefaultController extends Controller
             }
 
             $ironmq = $this->get('code_meme_iron_mq.messagequeue');
-            $ironmq->postMessage('start_ot', array(
+            $ironmq->postMessage('api_ot', array(
                 'body' => 'El usuario: ' . $user . ' ha iniciado un OT a las: ' . date('Y:m:d H:i:s'),
                 'expires_in' => 60*60*24));
 
