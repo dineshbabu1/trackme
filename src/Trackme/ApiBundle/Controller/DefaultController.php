@@ -57,6 +57,11 @@ class DefaultController extends Controller
                 return new Response(json_encode(array('status' => 'Longitud debe ser entre -180 y 180 grados')), 400, array('Content-Type:' => 'application/json'));
             }
 
+                $ironmq = $this->get('code_meme_iron_mq.messagequeue');
+                $ironmq->postMessage('position_queue', array(
+                        'body' => 'El usuario: ' . $user . ' ha marcado posicion a las: ' . date('Y:m:d H:i:s'),
+                        'expires_in' => 600));
+
             $coordinate = new Coordinate();
             $coordinate->setLat($json->lat);
             $coordinate->setLng($json->lng);
@@ -85,14 +90,6 @@ class DefaultController extends Controller
         if ($request->getMethod() == 'POST') {
             $user = $this->get('security.context')->getToken()->getUser();
 
-            try {
-                $ironmq = $this->get('code_meme_iron_mq.messagequeue');
-                $ironmq->postMessage('start_ot', 'El usuario: ' . $user . ' ha iniciado un OT a las: ' . date('Y:m:d H:i:s'),
-                    array('expires_in' => 600));
-            } catch (Exception $exc) {
-                echo $exc->getMessage();
-            }
-
             if (!$user) {
                 return new Response(json_encode(array('status' => 'not found')), 404, array('Content-Type:' => 'application/json'));
             }
@@ -100,6 +97,11 @@ class DefaultController extends Controller
             if ($user->hasOtActive()) {
                 return new Response(json_encode(array('status' => 'ot active')), 200, array('Content-Type:' => 'application/json'));
             }
+
+            $ironmq = $this->get('code_meme_iron_mq.messagequeue');
+            $ironmq->postMessage('start_ot', array(
+                        'body' => 'El usuario: ' . $user . ' ha iniciado un OT a las: ' . date('Y:m:d H:i:s'),
+                        'expires_in' => 600));
 
             $ot = new Ot();
             $ot->setUser($user);
@@ -131,6 +133,10 @@ class DefaultController extends Controller
             if (!$ot) {
                 return new Response(json_encode(array('status' => 'sin ot activa')), 200, array('Content-Type:' => 'application/json'));
             }
+
+            $ironmq->postMessage('api_ot', array(
+                        'body' => 'El usuario: ' . $user . ' ha finalizado un OT a las: ' . date('Y:m:d H:i:s'),
+                        'expires_in' => 600));
 
             $ot->setDateEnd(new \DateTime());
             $em->persist($ot);
