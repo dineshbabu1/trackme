@@ -40,6 +40,12 @@ admin_review:
 #     type:     rest
 #     resource: Trackme\ApiBundle\Controller\DefaultController    
 
+login_api:
+    path: /api/login
+    defaults:  { _controller: TrackmeApiBundle:Default:login }
+    options:
+        expose: true
+        
 index_api:
     path: /api/position
     defaults:  { _controller: TrackmeApiBundle:Default:index, _format: json }
