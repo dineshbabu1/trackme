@@ -26,6 +26,7 @@ builders:
                     credentials: 'hasRole("ROLE_SUPER_ADMIN")'
             actions:
                 new: ~
+            credentials: 'hasRole("ROLE_SUPER_ADMIN" || "ROLE_FULL")'
             object_actions:
                 show: ~
                 edit:
@@ -39,6 +40,7 @@ builders:
         params:
             title: Nuevo ticket
             display: [ title, type, description]
+            credentials: 'hasRole("ROLE_SUPER_ADMIN" || "ROLE_FULL")'
             actions:
                 save: ~
                 list: ~
@@ -46,6 +48,7 @@ builders:
         params:
             title: "Editando el ticket \"%object%\"|{ %object%: Ticket.title }|"
             display: [ title, type, description]
+            credentials: 'hasRole("ROLE_SUPER_ADMIN")'
             actions:
                 save: ~
                 list: ~
@@ -53,6 +56,7 @@ builders:
         params:
             title: "Viendo el ticket \"%object%\"|{ %object%: Ticket.title }|"
             display: [ title, type, description]
+            credentials: 'hasRole("ROLE_SUPER_ADMIN")'
             actions:
                 list: ~
                 new: ~

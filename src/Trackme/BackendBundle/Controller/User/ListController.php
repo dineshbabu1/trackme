@@ -31,7 +31,7 @@ class ListController extends BaseListController
                 ->createQueryBuilder()
                 ->select('q')
                 ->from('Trackme\BackendBundle\Entity\User', 'q');
-        } elseif ($this->get('security.context')->isGranted('ROLE_USER')) {
+        } elseif ($this->get('security.context')->isGranted('ROLE_ADMIN')) {
             $query = $this->getDoctrine()
                 ->getEntityManager()
                 ->createQueryBuilder()

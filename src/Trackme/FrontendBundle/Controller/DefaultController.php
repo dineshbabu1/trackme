@@ -75,18 +75,22 @@ class DefaultController extends Controller
                 $event = new FormEvent($form, $request);
                 $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
 
+                $groupManager = $this->get('fos_user.group_manager');
+                $group = $groupManager->findGroupByName('CLIENTE');
+
                 $user->setBusiness($business);
                 $user->addRole($business->getRoleByState());
-                $user->addRole('ROLE_CLIENTE');
+                $user->addGroup($group);
                 $userManager->updateUser($user);
-                
+
                 try {
                     $ironmq = $this->get('code_meme_iron_mq.messagequeue');
-                    $ironmq->postMessage('signup_queue', 'El usuario: ' . $user . ' se registro a las: ' . date('Y:m:d H:i:s'));
+                    $ironmq->postMessage('signup_queue', 'El usuario: ' . $user . ' se registro a las: ' . date('Y:m:d H:i:s'),
+                        array('expires_in' => 600));
                 } catch (Exception $exc) {
                     echo $exc->getMessage();
                 }
-                
+
                 if (null === $response = $event->getResponse()) {
                     $url = $this->container->get('router')->generate('fos_user_registration_confirmed');
                     $response = new RedirectResponse($url);

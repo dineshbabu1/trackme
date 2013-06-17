@@ -54,15 +54,12 @@ class Menu extends ContainerAware
           $business = $this->addNavLinkRoute($menu, 'Clientes', 'Trackme_BackendBundle_Business_list')->setExtra('icon', 'icon-heart');
           $user = $this->addNavLinkRoute($menu, 'Usuarios', 'Trackme_BackendBundle_User_list')->setExtra('icon', 'icon-user');
           $ticket = $this->addNavLinkRoute($menu, 'Soporte', 'Trackme_BackendBundle_Ticket_list')->setExtra('icon', 'icon-user');
-        } elseif ($security->isGranted('ROLE_CLIENT')) {
-          
+        } elseif ($security->isGranted('ROLE_ADMIN')) {
           $user = $this->addNavLinkRoute($menu, 'Mis Usuarios', 'Trackme_BackendBundle_User_list')->setExtra('icon', 'icon-user');
           $vehicle = $this->addNavLinkRoute($menu, 'Vehiculos', 'Trackme_BackendBundle_Vehicle_list')->setExtra('icon', 'icon-road');
-          
-          if($security->isGranted('ROLE_FULL')){
-              $review = $this->addNavLinkRoute($menu, 'Evaluar Sistema', 'Trackme_BackendBundle_Review_new')->setExtra('icon', 'icon-thumbs-up');
-              $ticket = $this->addNavLinkRoute($menu, 'Soporte', 'Trackme_BackendBundle_Ticket_list')->setExtra('icon', 'icon-list');
-          }
+        } elseif ($security->isGranted('ROLE_FULL')) {
+          $review = $this->addNavLinkRoute($menu, 'Evaluar Sistema', 'Trackme_BackendBundle_Review_new')->setExtra('icon', 'icon-thumbs-up');
+          $ticket = $this->addNavLinkRoute($menu, 'Soporte', 'Trackme_BackendBundle_Ticket_list')->setExtra('icon', 'icon-list');
         }
 
         return $menu;
