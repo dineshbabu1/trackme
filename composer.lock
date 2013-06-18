@@ -615,7 +615,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan Wage",
+                    "name": "Jonathan H. Wage",
                     "email": "jonwage@gmail.com",
                     "homepage": "http://www.jwage.com/"
                 }
@@ -1243,12 +1243,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSRestBundle.git",
-                "reference": "23b557eeb5db23c60aadb2c626e1ea17c17bb702"
+                "reference": "a1b45daf76907bd3681b68a283d8b3bc745e6fdc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/23b557eeb5db23c60aadb2c626e1ea17c17bb702",
-                "reference": "23b557eeb5db23c60aadb2c626e1ea17c17bb702",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/a1b45daf76907bd3681b68a283d8b3bc745e6fdc",
+                "reference": "a1b45daf76907bd3681b68a283d8b3bc745e6fdc",
                 "shasum": ""
             },
             "require": {
@@ -1308,7 +1308,7 @@
             "keywords": [
                 "rest"
             ],
-            "time": "2013-06-13 05:53:30"
+            "time": "2013-06-17 17:45:22"
         },
         {
             "name": "friendsofsymfony/user-bundle",
@@ -2930,12 +2930,12 @@
             "target-dir": "Sensio/Bundle/DistributionBundle",
             "source": {
                 "type": "git",
-                "url": "https://github.com/sensio/SensioDistributionBundle.git",
+                "url": "https://github.com/sensiolabs/SensioDistributionBundle.git",
                 "reference": "v2.3.0-BETA1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensio/SensioDistributionBundle/zipball/v2.3.0-BETA1",
+                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/v2.3.0-BETA1",
                 "reference": "v2.3.0-BETA1",
                 "shasum": ""
             },

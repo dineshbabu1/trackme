@@ -3,6 +3,10 @@ trackme_mobile:
     type:     annotation
     prefix:   /admin/mobile
 
+subscription:
+    path: /admin/business/subscription
+    defaults:  { _controller: TrackmeBackendBundle:Default:subscription }
+
 dashboard_admin:
     path: /admin/dashboard
     defaults:  { _controller: TrackmeBackendBundle:Default:dashboard_admin }

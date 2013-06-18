@@ -28,13 +28,17 @@ use Ivory\GoogleMap\Services\Directions\Directions;
 class DefaultController extends Controller
 {
 
-    /**
-     * @Route("/hello/{name}")
-     * @Template()
-     */
-    public function indexAction($name)
+    public function subscriptionAction()
     {
-        return array('name' => $name);
+        $security = $this->get('security.context');
+        if (!$security->isGranted('ROLE_ADMIN')) {
+            throw $this->createNotFoundException('La pagina solicitada no existe');
+        }
+
+        $user = $security->getToken()->getUser();
+        $subscription = $user->getBusiness()->getSubscription();
+
+        return $this->render('TrackmeBackendBundle:Default:subscription.html.twig', array('subscription' => $subscription));
     }
 
     public function dashboard_adminAction()

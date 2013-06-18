@@ -9,7 +9,7 @@ use JMS\Payment\CoreBundle\Entity\PaymentInstruction;
 /**
  * Subscription
  *
- * @ORM\Table()
+ * @ORM\Table(name="subscription")
  * @ORM\Entity
  */
 class Subscription
@@ -24,15 +24,13 @@ class Subscription
     private $id;
 
     /**
-     * @var float
+     * @var \Business
      *
-     * @ORM\Column(name="amount", type="decimal")
+     * @ORM\ManyToOne(targetEntity="Business", inversedBy="subscription")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="business_id", referencedColumnName="id")
+     * })
      */
-    private $amount;
-
-    /**
-     * @ORM\OneToOne(targetEntity="Business", mappedBy="subscription")
-     **/
     private $business;
 
     /**
@@ -76,29 +74,6 @@ class Subscription
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set amount
-     *
-     * @param  float        $amount
-     * @return Subscription
-     */
-    public function setAmount($amount)
-    {
-        $this->amount = $amount;
-
-        return $this;
-    }
-
-    /**
-     * Get amount
-     *
-     * @return float
-     */
-    public function getAmount()
-    {
-        return $this->amount;
     }
 
     public function getPaymentInstruction()

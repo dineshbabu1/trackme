@@ -24,8 +24,13 @@ class Subscription
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="Business", mappedBy="subscription")
-     **/
+     * @var \Business
+     *
+     * @ORM\ManyToOne(targetEntity="Business", inversedBy="subscription")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="business_id", referencedColumnName="id")
+     * })
+     */
     private $business;
 
     /**
