@@ -42,4 +42,22 @@ class BusinessRepository extends EntityRepository
         return $query->getArrayResult();
     }
 
+    public function getLastOt($business, $limit)
+    {
+        $em = $this->getEntityManager();
+
+        $query = $em->createQuery('
+            SELECT o
+            FROM TrackmeBackendBundle:Ot o
+            LEFT JOIN o.
+            LEFT JOIN o.user u
+            LEFT JOIN u.business b
+            WHERE b.id = :business
+            ORDER BY o.id DESC')->setMaxResults($limit);
+        $query->setParameter('business', $business->getId());
+
+        return $query->getArrayResult();
+
+    }
+
 }

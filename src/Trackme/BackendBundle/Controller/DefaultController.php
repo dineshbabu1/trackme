@@ -51,6 +51,7 @@ class DefaultController extends Controller
 
     public function dashboardAction(Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
         $security = $this->get('security.context');
 
         if ($security->isGranted('ROLE_SUPER_ADMIN')) {
@@ -58,8 +59,9 @@ class DefaultController extends Controller
         }
 
         $business = $security->getToken()->getUser()->getBusiness();
+        
+        $last_ots = $em->getRepository('Trackme\BackendBundle\Entity\Business')->getLastOt($business, 10);
 
-        $em = $this->getDoctrine()->getManager();
         // Las coordenadas activas de una empresa
         $actives = $em->getRepository('Trackme\BackendBundle\Entity\Coordinate')->getActiveVehicles($business->getIdUsers());
 
@@ -70,9 +72,14 @@ class DefaultController extends Controller
             ->add('kilometros_por_litro', 'text')
             ->getForm();
 
-        $result = $this->container->get('bazinga_geocoder.geocoder')
+        try {
+            $result = $this->container->get('bazinga_geocoder.geocoder')
             ->using('free_geo_ip')
-            ->geocode($this->getRequest()->server->get('REMOTE_ADDR'));
+            ->geocode($this->getRequest()->server->get('REMOTE_ADDR'));    
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+        
 
         $best_route = 0;
         $duration = 0;

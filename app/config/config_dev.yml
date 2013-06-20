@@ -27,7 +27,13 @@ assetic:
 
 bazinga_geocoder:
     fake_ip: 190.22.206.10
-    
+
+raul_fraile_ladybug:
+    general:
+        expanded:             false
+    object:
+        max_nesting_level:    3
+
 bazinga_faker:
     orm: doctrine
     entities:

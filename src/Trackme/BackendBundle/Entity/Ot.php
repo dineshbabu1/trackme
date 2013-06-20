@@ -81,14 +81,11 @@ class Ot
      */
     private $updated_by;
 
-    /*
-    public function __construct($user)
-    {
-        $this->user = $user;
-        $this->dateStart = new \DateTime();
-
-    }
-    */
+    /**
+     * @var \Doctrine\Common\Collections\Collection $coordinates
+     * @ORM\OneToMany(targetEntity="Coordinate", mappedBy="ot", cascade={"persist", "remove"})
+     */
+    private $coordinates;
 
     /**
      * Get id
@@ -291,5 +288,46 @@ class Ot
         } else {
             return false;
         }
+    }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->coordinates = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add coordinates
+     *
+     * @param \Trackme\BackendBundle\Entity\Coordinate $coordinates
+     * @return Ot
+     */
+    public function addCoordinate(\Trackme\BackendBundle\Entity\Coordinate $coordinates)
+    {
+        $this->coordinates[] = $coordinates;
+
+        return $this;
+    }
+
+    /**
+     * Remove coordinates
+     *
+     * @param \Trackme\BackendBundle\Entity\Coordinate $coordinates
+     */
+    public function removeCoordinate(\Trackme\BackendBundle\Entity\Coordinate $coordinates)
+    {
+        $this->coordinates->removeElement($coordinates);
+    }
+
+    /**
+     * Get coordinates
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCoordinates()
+    {
+        return $this->coordinates;
     }
 }
