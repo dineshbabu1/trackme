@@ -165,7 +165,7 @@ class DefaultController extends Controller
             return new Response(json_encode(array('status' => 'not found')), 404, array('Content-Type:' => 'application/json'));
         }
         
-        return new Response(json_encode(array('status' => 'ok', 'refresh_time' => $user->getRefreshTime())), 200, array('Content-Type:' => 'application/json'));
+        return new Response(json_encode(array('status' => 'ok', 'refresh_time' => $user->getPositionRefresh())), 200, array('Content-Type:' => 'application/json'));
     }
 
 }
