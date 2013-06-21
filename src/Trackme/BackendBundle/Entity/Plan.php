@@ -71,6 +71,16 @@ class Plan
     private $refresh_time;
 
     /**
+     * Plan to string
+     * @return string
+     */
+    public function __toString()
+    {
+        return sprintf('%s', $this->getName());
+    }
+
+
+    /**
      * Get id
      *
      * @return integer
