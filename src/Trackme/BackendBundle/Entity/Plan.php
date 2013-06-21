@@ -66,6 +66,11 @@ class Plan
     private $price;
 
     /**
+     * @ORM\Column(name="refresh_time", type="integer", nullable=false)
+     */
+    private $refresh_time;
+
+    /**
      * Get id
      *
      * @return integer
@@ -165,5 +170,28 @@ class Plan
     public function getPrice()
     {
         return $this->price;
+    }
+
+    /**
+     * Set refresh_time
+     *
+     * @param integer $refreshTime
+     * @return Plan
+     */
+    public function setRefreshTime($refreshTime)
+    {
+        $this->refresh_time = $refreshTime;
+
+        return $this;
+    }
+
+    /**
+     * Get refresh_time
+     *
+     * @return integer 
+     */
+    public function getRefreshTime()
+    {
+        return $this->refresh_time;
     }
 }

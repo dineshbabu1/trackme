@@ -9,6 +9,9 @@ params:
         featured:
             label: Recomendado
             help: Solo un plan debe ser seleccionado como recomendado
+        refresh_time:
+            label: Tiempo de refresco
+            help: El envio de las coordenadas esta dada por los segundos.    
         price:
             label: Precio
             addFormOptions:
@@ -37,21 +40,21 @@ builders:
     new:
         params:
             title: Nuevo plan
-            display: [ name, price, featured, description ]
+            display: [ name, price, refresh_time, featured, description ]
             actions:
                 save: ~
                 list: ~
     edit:
         params:
             title: "Editando \"%object%\"|{ %object%: Plan.name }|"
-            display: [ name, price, featured, description ]
+            display: [ name, price, refresh_time, featured, description ]
             actions:
                 save: ~
                 list: ~
     show:
         params:
             title: "Viendo \"%object%\"|{ %object%: Plan.name }|"
-            display: [ name, price, featured, description ]
+            display: [ name, price, refresh_time, featured, description ]
             actions:
                 list: ~
                 new: ~

@@ -1,5 +1,21 @@
 <?php
 
+/*
+ * Copyright 2013 Gonzalo Moreno <goncab380@hotmail.com>
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 namespace Trackme\BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -31,7 +47,7 @@ class Plan
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text", nullable=false)
+     * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
 
@@ -45,16 +61,19 @@ class Plan
     /**
      * @var float
      *
-     * @ORM\Column(name="price", type="decimal", nullable=false)
+     * @ORM\Column(name="price", type="float", nullable=false)
      */
     private $price;
 
-
+    /**
+     * @ORM\Column(name="refresh_time", type="integer", nullable=false)
+     */
+    private $refresh_time;
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -64,20 +83,20 @@ class Plan
     /**
      * Set name
      *
-     * @param string $name
+     * @param  string $name
      * @return Plan
      */
     public function setName($name)
     {
         $this->name = $name;
-    
+
         return $this;
     }
 
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -87,20 +106,20 @@ class Plan
     /**
      * Set description
      *
-     * @param string $description
+     * @param  string $description
      * @return Plan
      */
     public function setDescription($description)
     {
         $this->description = $description;
-    
+
         return $this;
     }
 
     /**
      * Get description
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {
@@ -110,20 +129,20 @@ class Plan
     /**
      * Set featured
      *
-     * @param boolean $featured
+     * @param  boolean $featured
      * @return Plan
      */
     public function setFeatured($featured)
     {
         $this->featured = $featured;
-    
+
         return $this;
     }
 
     /**
      * Get featured
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getFeatured()
     {
@@ -133,20 +152,20 @@ class Plan
     /**
      * Set price
      *
-     * @param float $price
+     * @param  float $price
      * @return Plan
      */
     public function setPrice($price)
     {
         $this->price = $price;
-    
+
         return $this;
     }
 
     /**
      * Get price
      *
-     * @return float 
+     * @return float
      */
     public function getPrice()
     {
