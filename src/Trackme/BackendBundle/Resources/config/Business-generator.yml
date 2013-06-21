@@ -44,7 +44,7 @@ builders:
     edit:
         params:
             title: "Editando cliente \"%object%\"|{ %object%: Business.name }|"
-            display: [name, email, phone]
+            display: [name, email, phone, plan]
             actions:
                 save: ~
                 list: ~
