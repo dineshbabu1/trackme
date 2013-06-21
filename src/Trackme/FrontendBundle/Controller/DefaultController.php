@@ -33,7 +33,7 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $reviews = $em->getRepository('Trackme\BackendBundle\Entity\Review')->findBy(array('approved' => true));
-        $menu = $em->getRepository('Trackme\BackendBundle\Entity\Page')->findBy(array('enabled' => true), array('weigth' => 'ASC', 'title' => 'ASC'));
+        $menu = $em->getRepository('Trackme\BackendBundle\Entity\Page')->findBy(array('enabled' => true, 'in_header' => true), array('weigth' => 'ASC', 'title' => 'ASC'));
         $media = null;
 
         return $this->render('TrackmeFrontendBundle:Default:index.html.twig', array('reviews' => $reviews, 'menu' => $menu, 'media' => $media));
@@ -169,7 +169,7 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $page = $em->getRepository('Trackme\BackendBundle\Entity\Page')->findOneBy(array('url' => $url));
-        $menu = $em->getRepository('Trackme\BackendBundle\Entity\Page')->findBy(array('enabled' => true), array('weigth' => 'ASC', 'title' => 'ASC'));
+        $menu = $em->getRepository('Trackme\BackendBundle\Entity\Page')->findBy(array('enabled' => true, 'in_header' => true), array('weigth' => 'ASC', 'title' => 'ASC'));
 
         if (!$page) {
             throw $this->createNotFoundException('La página solicitada no existe');

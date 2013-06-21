@@ -78,6 +78,22 @@ class Page
      * @ORM\Column(name="url", type="string", length=255, nullable=false)
      */
     private $url;
+    
+    /**
+     *
+     * @var boolean 
+     * 
+     * @ORM\Column(name="in_header", type="boolean", nullable=true)
+     */
+    private $in_header;
+    
+    /**
+     *
+     * @var boolean 
+     * 
+     * @ORM\Column(name="in_footer", type="boolean", nullable=true)
+     */
+    private $in_footer;
 
     /**
      * Get id
@@ -225,5 +241,51 @@ class Page
     public function getUrl()
     {
         return $this->url;
+    }
+
+    /**
+     * Set in_header
+     *
+     * @param boolean $inHeader
+     * @return Page
+     */
+    public function setInHeader($inHeader)
+    {
+        $this->in_header = $inHeader;
+
+        return $this;
+    }
+
+    /**
+     * Get in_header
+     *
+     * @return boolean 
+     */
+    public function getInHeader()
+    {
+        return $this->in_header;
+    }
+
+    /**
+     * Set in_footer
+     *
+     * @param boolean $inFooter
+     * @return Page
+     */
+    public function setInFooter($inFooter)
+    {
+        $this->in_footer = $inFooter;
+
+        return $this;
+    }
+
+    /**
+     * Get in_footer
+     *
+     * @return boolean 
+     */
+    public function getInFooter()
+    {
+        return $this->in_footer;
     }
 }

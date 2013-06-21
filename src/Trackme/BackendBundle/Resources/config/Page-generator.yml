@@ -9,6 +9,12 @@ params:
       enabled:
         label: Habilitado
         help: "Habilitado en frontend."
+      in_header:
+        label: Cabezera
+        help: El enlace sera mostrado en el header de página
+      in_footer:
+        label: Pie
+        help: El enlace sera mostrado en el pie de página
       weigth:
         label: Orden
         help: "Mientras menor sea el numero, más a la izquierda será alineado."
@@ -16,7 +22,7 @@ params:
         label: Contenido
         addFormOptions:
           attr:
-            class: tinymce boxsizingBorder
+            class: tinymce
 
 builders:
     list:
@@ -34,14 +40,18 @@ builders:
     new:
         params:
             title: Nueva Página
-            display: [title,url,menu,weigth,enabled,content]
+            display: 
+                Contenido: [title,content, [url,menu,weigth]]
+                Ubicación: [[in_header,in_footer,enabled]]
             actions:
                 save: ~
                 list: ~
     edit:
         params:
             title: "Está editando página \"%object%\"|{ %object%: Page.title }|"
-            display: [title,url,menu,weigth,enabled,content]
+            display: 
+                Contenido: [title,content, [url,menu,weigth]]
+                Ubicación: [[in_header,in_footer,enabled]]
             actions:
                 save: ~
                 list: ~

@@ -46,14 +46,14 @@ builders:
                 list: ~
     edit:
         params:
-            title: "Editando \"%object%\"|{ %object%: Plan.name }|"
+            title: "Editando plan \"%object%\"|{ %object%: Plan.name }|"
             display: [ name, price, refresh_time, featured, description ]
             actions:
                 save: ~
                 list: ~
     show:
         params:
-            title: "Viendo \"%object%\"|{ %object%: Plan.name }|"
+            title: "Viendo plan \"%object%\"|{ %object%: Plan.name }|"
             display: [ name, price, refresh_time, featured, description ]
             actions:
                 list: ~

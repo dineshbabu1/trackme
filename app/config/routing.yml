@@ -1,3 +1,8 @@
+admin_subscription:
+    resource: "@TrackmeBackendBundle/Controller/Subscription/"
+    type:     admingenerator
+    prefix:   /admin/business/subscription
+
 trackme_mobile:
     resource: "@TrackmeMobileBundle/Controller/"
     type:     annotation

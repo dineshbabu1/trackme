@@ -1,0 +1,51 @@
+generator: admingenerator.generator.doctrine
+params:
+    model: Trackme\BackendBundle\Entity\Subscription
+    namespace_prefix: Trackme
+    entity_manager: ~
+    bundle_name: BackendBundle
+    fields: ~
+    object_actions:
+        delete: ~
+    batch_actions:
+        delete: ~
+builders:
+    list:
+        params:
+            title: List for BackendBundle
+            display: ~
+            actions:
+                new: ~
+            object_actions:
+                edit: ~
+                delete: ~
+    filters:
+        params:
+            display: ~
+    new:
+        params:
+            title: New object for BackendBundle
+            display: ~
+            actions:
+                save: ~
+                list: ~
+    edit:
+        params:
+            title: "You're editing the object \"%object%\"|{ %object%: YourModel.title }|"
+            display: ~
+            actions:
+                save: ~
+                list: ~
+    show:
+        params:
+            title: "You're viewing the object \"%object%\"|{ %object%: YourModel.title }|"
+            display: ~
+            actions:
+                list: ~
+                new: ~
+    actions:
+        params:
+            object_actions:
+                delete: ~
+            batch_actions:
+                delete: ~

@@ -28,6 +28,7 @@ builders:
             actions:
                 new: ~
             object_actions:
+                edit: ~
                 show: ~
                 delete: ~
     filters:
@@ -54,4 +55,4 @@ builders:
             actions:
                 list: ~
                 new: ~
-    delete: ~
+                delete: ~

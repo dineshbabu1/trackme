@@ -53,6 +53,8 @@ class DefaultController extends Controller
     public function dashboardAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
+        $baseurl = $this->getRequest()->getScheme() . '://' . $this->getRequest()->getHttpHost() . $this->getRequest()->getBasePath();
+
         $security = $this->get('security.context');
 
         if ($security->isGranted('ROLE_SUPER_ADMIN')) {
@@ -103,15 +105,17 @@ class DefaultController extends Controller
                 if ($origen->getLatitude() && $origen->getLongitude()) {
                     $markerOrigen = new Marker();
                     $markerOrigen->setPosition($origen->getLatitude(), $origen->getLongitude());
+                    $markerOrigen->setIcon($baseurl.'/bundles/trackmebackend/img/letter_a.png');
                     $map->addMarker($markerOrigen);
                 }
-
+                
                 $destino = $this->container->get('bazinga_geocoder.geocoder')
                     ->using('google_maps')
                     ->geocode($data['destino']);
                 if ($destino->getLatitude() && $destino->getLongitude()) {
                     $markerDestino = new Marker();
                     $markerDestino->setPosition($destino->getLatitude(), $destino->getLongitude());
+                    $markerDestino->setIcon($baseurl.'/bundles/trackmebackend/img/letter_b.png');
                     $map->addMarker($markerDestino);
                 }
                 $directions = $this->get('ivory_google_map.directions');
@@ -146,6 +150,7 @@ class DefaultController extends Controller
             foreach ($actives as $active) {
                 $marker = new Marker();
                 $marker->setPosition($active->getLat(),$active->getLng(), true);
+                $marker->setIcon($baseurl.'/bundles/trackmebackend/img/car.png');
                 $map->addMarker($marker);
             }
 
@@ -166,10 +171,12 @@ class DefaultController extends Controller
 
                 $markerFirst = new Marker();
                 $markerFirst->setPosition($first_coor->getLat(),$first_coor->getLng(), true);
+                $markerFirst->setIcon($baseurl.'/bundles/trackmebackend/img/letter_a.png');
                 $map->addMarker($markerFirst);
 
                 $markerLast = new Marker();
                 $markerLast->setPosition($last_coor->getLat(),$last_coor->getLng(), true);
+                $markerLast->setIcon($baseurl.'/bundles/trackmebackend/img/letter_b.png');
                 $map->addMarker($markerLast);
 
                 foreach ($ots->getCoordinates() as $c) {
