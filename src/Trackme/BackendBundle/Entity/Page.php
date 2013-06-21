@@ -78,19 +78,19 @@ class Page
      * @ORM\Column(name="url", type="string", length=255, nullable=false)
      */
     private $url;
-    
+
     /**
      *
-     * @var boolean 
-     * 
+     * @var boolean
+     *
      * @ORM\Column(name="in_header", type="boolean", nullable=true)
      */
     private $in_header;
-    
+
     /**
      *
-     * @var boolean 
-     * 
+     * @var boolean
+     *
      * @ORM\Column(name="in_footer", type="boolean", nullable=true)
      */
     private $in_footer;
@@ -246,7 +246,7 @@ class Page
     /**
      * Set in_header
      *
-     * @param boolean $inHeader
+     * @param  boolean $inHeader
      * @return Page
      */
     public function setInHeader($inHeader)
@@ -259,7 +259,7 @@ class Page
     /**
      * Get in_header
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getInHeader()
     {
@@ -269,7 +269,7 @@ class Page
     /**
      * Set in_footer
      *
-     * @param boolean $inFooter
+     * @param  boolean $inFooter
      * @return Page
      */
     public function setInFooter($inFooter)
@@ -282,7 +282,7 @@ class Page
     /**
      * Get in_footer
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getInFooter()
     {

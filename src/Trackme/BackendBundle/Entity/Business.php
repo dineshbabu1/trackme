@@ -82,7 +82,7 @@ class Business
      * })
      */
     private $state;
-    
+
     /**
      * @var \Plan
      *
@@ -466,7 +466,7 @@ class Business
     /**
      * Set plan
      *
-     * @param \Trackme\BackendBundle\Entity\Plan $plan
+     * @param  \Trackme\BackendBundle\Entity\Plan $plan
      * @return Business
      */
     public function setPlan(\Trackme\BackendBundle\Entity\Plan $plan = null)
@@ -479,7 +479,7 @@ class Business
     /**
      * Get plan
      *
-     * @return \Trackme\BackendBundle\Entity\Plan 
+     * @return \Trackme\BackendBundle\Entity\Plan
      */
     public function getPlan()
     {

@@ -67,7 +67,7 @@ class User extends BaseUser
      * @ORM\Column(name="last_name", type="string", length=255, nullable=true)
      */
     private $last_name;
-    
+
     /**
      * @var string
      *
@@ -178,7 +178,7 @@ class User extends BaseUser
     {
         return $this->last_name;
     }
-    
+
     /**
      * Set phone
      *
@@ -391,7 +391,7 @@ class User extends BaseUser
     {
         return $this->ot;
     }
-    
+
     /**
      * Check if user has ot started
      * @return boolean
@@ -406,7 +406,7 @@ class User extends BaseUser
 
         return false;
     }
-    
+
     /**
      * Get full name
      * @return string
@@ -415,17 +415,17 @@ class User extends BaseUser
     {
         return sprintf("%s %s", $this->getName(), $this->getLastName());
     }
-    
+
     /**
      * Return position refresh time as seconds
      * @return int
      */
     public function getPositionRefresh()
     {
-        if($this->getBusiness()){
+        if ($this->getBusiness()) {
             return $this->getBusiness()->getPlan()->getRefreshTime();
         }
-        
+
         return 90; // Defecto
     }
 }

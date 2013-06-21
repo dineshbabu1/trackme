@@ -66,7 +66,7 @@ class DefaultController extends Controller
         $business = $security->getToken()->getUser()->getBusiness();
 
         $last_ots = $em->getRepository('Trackme\BackendBundle\Entity\Business')->getLastOt($business, 10);
-        
+
         // Las coordenadas activas de una empresa
         $actives = $em->getRepository('Trackme\BackendBundle\Entity\Coordinate')->getActiveVehicles($business->getIdUsers());
 
@@ -96,7 +96,7 @@ class DefaultController extends Controller
         $map->setStylesheetOption('height', '500px');
         $map->setCenter($result->getLatitude(), $result->getLongitude(), true);
         $map->setLanguage('es');
-        
+
         if ($request->isMethod('POST')) {
             $form->bind($request);
             if ($form->isValid()) {
@@ -110,7 +110,7 @@ class DefaultController extends Controller
                     $markerOrigen->setIcon($baseurl.'/bundles/trackmebackend/img/letter_a.png');
                     $map->addMarker($markerOrigen);
                 }
-                
+
                 $destino = $this->container->get('bazinga_geocoder.geocoder')
                     ->using('google_maps')
                     ->geocode($data['destino']);
@@ -148,11 +148,11 @@ class DefaultController extends Controller
                     $map->setMapOption('zoom', 11);
                 }
             }
-        }else{
+        } else {
             // POSICION ACTUAL DE MOVILES
             foreach ($actives as $active) {
                 $infoWindow = $this->setInfoMarker($active);
-                
+
                 $marker = new Marker();
                 $marker->setPosition($active->getLat(),$active->getLng(), true);
                 $marker->setIcon($baseurl.'/bundles/trackmebackend/img/car.png');
@@ -160,7 +160,7 @@ class DefaultController extends Controller
                 $map->addMarker($marker);
             }
 
-            if($last_ots){
+            if ($last_ots) {
                 $ots = reset($last_ots);
 
                 $polyline = new Polyline();
@@ -191,7 +191,7 @@ class DefaultController extends Controller
 
                 $map->addPolyline($polyline);
                 $map->setMapOption('zoom', 11);
-            }else{
+            } else {
                 $map->setMapOption('zoom', 11);
             }
         }
@@ -200,8 +200,8 @@ class DefaultController extends Controller
     }
 
     /**
-     * Set a new infomarker with user last position 
-     * @param \Trackme\BackendBundle\Entity\Coordinate $active
+     * Set a new infomarker with user last position
+     * @param  \Trackme\BackendBundle\Entity\Coordinate $active
      * @return \Ivory\GoogleMap\Overlays\InfoWindow
      */
     public function setInfoMarker(\Trackme\BackendBundle\Entity\Coordinate $active)
@@ -231,7 +231,7 @@ STRING;
             'disableAutoPan' => true,
             'zIndex' => 10,
         ));
-        
+
         return $infoWindow;
     }
 

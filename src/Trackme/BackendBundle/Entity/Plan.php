@@ -79,7 +79,6 @@ class Plan
         return sprintf('%s', $this->getName());
     }
 
-
     /**
      * Get id
      *
@@ -185,7 +184,7 @@ class Plan
     /**
      * Set refresh_time
      *
-     * @param integer $refreshTime
+     * @param  integer $refreshTime
      * @return Plan
      */
     public function setRefreshTime($refreshTime)
@@ -198,7 +197,7 @@ class Plan
     /**
      * Get refresh_time
      *
-     * @return integer 
+     * @return integer
      */
     public function getRefreshTime()
     {

@@ -65,8 +65,7 @@ class Menu extends ContainerAware
           $ticket = $this->addNavLinkRoute($menu, 'Soporte', 'Trackme_BackendBundle_Ticket_list')->setExtra('icon', 'icon-list');
           $app = $this->addNavLinkUri($menu, 'Descarga Aplicacion', '#')->setExtra('icon', 'icon-star');
         }
-        
-        
+
         return $menu;
     }
 

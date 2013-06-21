@@ -11,7 +11,7 @@ params:
             help: Solo un plan debe ser seleccionado como recomendado
         refresh_time:
             label: Tiempo de refresco
-            help: El envio de las coordenadas esta dada por los segundos.    
+            help: El envio de las coordenadas esta dada por los segundos.
         price:
             label: Precio
             addFormOptions:
