@@ -25,6 +25,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Ivory\GoogleMap\Overlays\Marker;
 use Ivory\GoogleMap\Services\Directions\Directions;
 use Ivory\GoogleMap\Overlays\Polyline;
+use Ivory\GoogleMap\Overlays\InfoWindow;
+use Ivory\GoogleMap\Events\MouseEvent;
 
 class DefaultController extends Controller
 {
@@ -147,10 +149,14 @@ class DefaultController extends Controller
                 }
             }
         }else{
+            // POSICION ACTUAL DE MOVILES
             foreach ($actives as $active) {
+                $infoWindow = $this->setInfoMarker($active);
+                
                 $marker = new Marker();
                 $marker->setPosition($active->getLat(),$active->getLng(), true);
                 $marker->setIcon($baseurl.'/bundles/trackmebackend/img/car.png');
+                $marker->setInfoWindow($infoWindow);
                 $map->addMarker($marker);
             }
 
@@ -184,7 +190,7 @@ class DefaultController extends Controller
                 }
 
                 $map->addPolyline($polyline);
-                $map->setMapOption('zoom', 15);
+                $map->setMapOption('zoom', 11);
             }else{
                 $map->setMapOption('zoom', 11);
             }
@@ -193,9 +199,40 @@ class DefaultController extends Controller
         return $this->render('TrackmeBackendBundle:Default:dashboard.html.twig', array('estimate' => $estimate, 'duration' => $duration, 'distance' => $distance, 'map' => $map, 'form' => $form->createView()));
     }
 
-    public function getLastPosition($positions)
+    /**
+     * Set a new infomarker with user last position 
+     * @param \Trackme\BackendBundle\Entity\Coordinate $active
+     * @return \Ivory\GoogleMap\Overlays\InfoWindow
+     */
+    public function setInfoMarker(\Trackme\BackendBundle\Entity\Coordinate $active)
     {
-
+        $infoWindow = new InfoWindow();
+        $name = $active->getUser()->getNombreCompleto();
+        $user = $active->getUser()->getUsername();
+        $phone = $active->getUser()->getPhone();
+        $content = <<<STRING
+<ul>
+    <li>Usuario: $user</li>
+    <li>Nombre: $name</li>
+    <li>Teléfono: $phone</li>
+</ul>
+STRING;
+        // Configure your info window options
+        $infoWindow->setPrefixJavascriptVariable('info_window_');
+        $infoWindow->setPosition($active->getLat(), $active->getLng(), true);
+        $infoWindow->setPixelOffset(1.1, 2.1, 'px', 'pt');
+        $infoWindow->setContent($content);
+        $infoWindow->setAutoOpen(true);
+        $infoWindow->setOpenEvent(MouseEvent::CLICK);
+        $infoWindow->setAutoClose(true);
+        $infoWindow->setOption('disableAutoPan', true);
+        $infoWindow->setOption('zIndex', 10);
+        $infoWindow->setOptions(array(
+            'disableAutoPan' => true,
+            'zIndex' => 10,
+        ));
+        
+        return $infoWindow;
     }
 
 }

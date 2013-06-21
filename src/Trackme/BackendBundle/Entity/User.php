@@ -67,6 +67,13 @@ class User extends BaseUser
      * @ORM\Column(name="last_name", type="string", length=255, nullable=true)
      */
     private $last_name;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="phone", type="string", length=255, nullable=true)
+     */
+    private $phone;
 
     /**
      * @ORM\ManyToMany(targetEntity="Group")
@@ -170,6 +177,29 @@ class User extends BaseUser
     public function getLastName()
     {
         return $this->last_name;
+    }
+    
+    /**
+     * Set phone
+     *
+     * @param  string $phone
+     * @return User
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Get phone
+     *
+     * @return string
+     */
+    public function getPhone()
+    {
+        return $this->phone;
     }
 
     /**
@@ -361,7 +391,11 @@ class User extends BaseUser
     {
         return $this->ot;
     }
-
+    
+    /**
+     * Check if user has ot started
+     * @return boolean
+     */
     public function hasOtActive()
     {
         foreach ($this->getOt() as $ot) {
@@ -371,5 +405,14 @@ class User extends BaseUser
         }
 
         return false;
+    }
+    
+    /**
+     * Get full name
+     * @return string
+     */
+    public function getNombreCompleto()
+    {
+        return sprintf("%s %s", $this->getName(), $this->getLastName());
     }
 }
