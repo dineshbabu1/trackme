@@ -149,9 +149,9 @@ class DefaultController extends Controller
 
     public function calculateTotalKm()
     {
-        
+
     }
-    
+
     public function loginAction(Request $request)
     {
         return new Response(json_encode(array('status' => 'ok')), 200, array('Content-Type:' => 'application/json'));

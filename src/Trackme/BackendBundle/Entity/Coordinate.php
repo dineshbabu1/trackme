@@ -63,9 +63,9 @@ class Coordinate
     private $user;
 
     /**
-     * @var \User
+     * @var \Ot
      *
-     * @ORM\ManyToOne(targetEntity="Ot")
+     * @ORM\ManyToOne(targetEntity="Ot", inversedBy="coordinates")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="ot_id", referencedColumnName="id", nullable=true)
      * })

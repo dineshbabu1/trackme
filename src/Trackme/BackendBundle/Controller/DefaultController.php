@@ -24,6 +24,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Ivory\GoogleMap\Overlays\Marker;
 use Ivory\GoogleMap\Services\Directions\Directions;
+use Ivory\GoogleMap\Overlays\Polyline;
 
 class DefaultController extends Controller
 {
@@ -59,9 +60,9 @@ class DefaultController extends Controller
         }
 
         $business = $security->getToken()->getUser()->getBusiness();
-        
-        $last_ots = $em->getRepository('Trackme\BackendBundle\Entity\Business')->getLastOt($business, 10);
 
+        $last_ots = $em->getRepository('Trackme\BackendBundle\Entity\Business')->getLastOt($business, 10);
+        
         // Las coordenadas activas de una empresa
         $actives = $em->getRepository('Trackme\BackendBundle\Entity\Coordinate')->getActiveVehicles($business->getIdUsers());
 
@@ -75,11 +76,10 @@ class DefaultController extends Controller
         try {
             $result = $this->container->get('bazinga_geocoder.geocoder')
             ->using('free_geo_ip')
-            ->geocode($this->getRequest()->server->get('REMOTE_ADDR'));    
+            ->geocode($this->getRequest()->server->get('REMOTE_ADDR'));
         } catch (Exception $e) {
             echo $e->getMessage();
         }
-        
 
         $best_route = 0;
         $duration = 0;
@@ -88,18 +88,11 @@ class DefaultController extends Controller
         $distance = null;
 
         $map = $this->get('ivory_google_map.map');
-
-        foreach ($actives as $active) {
-            $marker = new Marker();
-            $marker->setPosition($active->getLat(),$active->getLng(), true);
-            $map->addMarker($marker);
-        }
-
         $map->setStylesheetOption('width', '100%');
         $map->setStylesheetOption('height', '500px');
         $map->setCenter($result->getLatitude(), $result->getLongitude(), true);
         $map->setLanguage('es');
-
+        
         if ($request->isMethod('POST')) {
             $form->bind($request);
             if ($form->isValid()) {
@@ -149,8 +142,45 @@ class DefaultController extends Controller
                     $map->setMapOption('zoom', 11);
                 }
             }
-        } else {
-            $map->setMapOption('zoom', 11);
+        }else{
+            foreach ($actives as $active) {
+                $marker = new Marker();
+                $marker->setPosition($active->getLat(),$active->getLng(), true);
+                $map->addMarker($marker);
+            }
+
+            if($last_ots){
+                $ots = reset($last_ots);
+
+                $polyline = new Polyline();
+                $polyline->setPrefixJavascriptVariable('polygon_'.$ots->getId());
+                $polyline->setOption('fillColor', '#000000');
+                $polyline->setOption('fillOpacity', 0.5);
+                $polyline->setOptions(array(
+                    'fillColor'   => '#000000',
+                    'fillOpacity' => 0.5,
+                ));
+
+                $last_coor = $ots->getCoordinates()->last();
+                $first_coor = $ots->getCoordinates()->first();
+
+                $markerFirst = new Marker();
+                $markerFirst->setPosition($first_coor->getLat(),$first_coor->getLng(), true);
+                $map->addMarker($markerFirst);
+
+                $markerLast = new Marker();
+                $markerLast->setPosition($last_coor->getLat(),$last_coor->getLng(), true);
+                $map->addMarker($markerLast);
+
+                foreach ($ots->getCoordinates() as $c) {
+                    $polyline->addCoordinate($c->getLat(), $c->getLng(), true);
+                }
+
+                $map->addPolyline($polyline);
+                $map->setMapOption('zoom', 15);
+            }else{
+                $map->setMapOption('zoom', 11);
+            }
         }
 
         return $this->render('TrackmeBackendBundle:Default:dashboard.html.twig', array('estimate' => $estimate, 'duration' => $duration, 'distance' => $distance, 'map' => $map, 'form' => $form->createView()));

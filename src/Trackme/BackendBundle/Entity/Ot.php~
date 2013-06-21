@@ -1,5 +1,21 @@
 <?php
 
+/*
+ * Copyright 2013 Gonzalo Moreno <goncab380@hotmail.com>
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 namespace Trackme\BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -290,4 +306,44 @@ class Ot
         }
     }
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->coordinates = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add coordinates
+     *
+     * @param \Trackme\BackendBundle\Entity\Coordinate $coordinates
+     * @return Ot
+     */
+    public function addCoordinate(\Trackme\BackendBundle\Entity\Coordinate $coordinates)
+    {
+        $this->coordinates[] = $coordinates;
+
+        return $this;
+    }
+
+    /**
+     * Remove coordinates
+     *
+     * @param \Trackme\BackendBundle\Entity\Coordinate $coordinates
+     */
+    public function removeCoordinate(\Trackme\BackendBundle\Entity\Coordinate $coordinates)
+    {
+        $this->coordinates->removeElement($coordinates);
+    }
+
+    /**
+     * Get coordinates
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCoordinates()
+    {
+        return $this->coordinates;
+    }
 }

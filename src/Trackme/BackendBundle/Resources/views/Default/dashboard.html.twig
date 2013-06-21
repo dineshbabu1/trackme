@@ -31,26 +31,29 @@
 							<input type="submit" class="btn btn-success" value="Calcular" />
 						</form>
 					</div>
+					<ul>
+						{% if(duration != 0) %}
+						<li>Tiempo estimado: <b>{{duration}}</b></li>
+						{% endif %}
+						{% if(distance != null) %}
+						<li>Distancia aproximada: <b>{{distance}}</b></li>
+						{% endif %}
+						{% if(estimate != null) %}
+						<li>Costo estimado: $<b>{{estimate|number_format(1, '.', ',')}}</b></li>
+						{% endif %}
+					</ul>
 				</div>
 			</div>
 			<div class="accordion-group">
 				<div class="accordion-heading">
 					<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-						Resultados
+						Ultimos Viajes
 					</a>
 				</div>
 				<div id="collapseTwo" class="accordion-body collapse">
 					<div class="accordion-inner">
 						<ul>
-							{% if(duration != 0) %}
-							<li>Tiempo estimado: <b>{{duration}}</b></li>
-							{% endif %}
-							{% if(distance != null) %}
-							<li>Distancia aproximada: <b>{{distance}}</b></li>
-							{% endif %}
-							{% if(estimate != null) %}
-							<li>Costo estimado: $<b>{{estimate|number_format(1, '.', ',')}}</b></li>
-							{% endif %}
+							
 						</ul>
 					</div>
 				</div>

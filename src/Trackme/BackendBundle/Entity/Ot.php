@@ -317,7 +317,7 @@ class Ot
     /**
      * Add coordinates
      *
-     * @param \Trackme\BackendBundle\Entity\Coordinate $coordinates
+     * @param  \Trackme\BackendBundle\Entity\Coordinate $coordinates
      * @return Ot
      */
     public function addCoordinate(\Trackme\BackendBundle\Entity\Coordinate $coordinates)
@@ -340,7 +340,7 @@ class Ot
     /**
      * Get coordinates
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getCoordinates()
     {
