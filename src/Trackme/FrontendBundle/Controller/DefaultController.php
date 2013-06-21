@@ -139,7 +139,7 @@ class DefaultController extends Controller
                 ->add('phone', 'text', array('label' => 'Telefono'))
                 ->getForm();
 
-        return $this->render('TrackmeFrontendBundle:Default:signup.html.twig', array('form' => $form->createView(), 'state' => $state));
+        return $this->render('TrackmeFrontendBundle:Default:signup.html.twig', array('form' => $form->createView(), 'state' => $state, 'plan' => $plan));
     }
 
     public function createAction(Request $request)
@@ -156,8 +156,11 @@ class DefaultController extends Controller
 
             if ($form->isValid()) {
                 $state = $em->getRepository('Trackme\BackendBundle\Entity\ClientState')->find($request->get('state'));
+                $plan = $em->getRepository('Trackme\BackendBundle\Entity\Plan')->find($request->get('plan'));
+
                 $object = $form->getData();
                 $object->setState($state);
+                $object->setPlan($plan);
                 $em->persist($object);
                 $em->flush();
                 // Second step

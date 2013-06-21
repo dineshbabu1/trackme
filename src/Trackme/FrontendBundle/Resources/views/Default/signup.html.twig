@@ -8,6 +8,7 @@
   <form action="{{ path('create_business') }}" name="form-empresa" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
     <input type="hidden" value="{{state.id}}" name="state" id="state" />
+    <input type="hidden" value="{{plan.id}}" name="plan" id="plan" />
     <input type="submit" value="Aceptar" class="btn btn-success btn-large"/>
   </form>
 {% endblock %}

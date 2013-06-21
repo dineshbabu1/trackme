@@ -152,9 +152,20 @@ class DefaultController extends Controller
 
     }
 
+    /**
+     * Check if user exists
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function loginAction(Request $request)
     {
-        return new Response(json_encode(array('status' => 'ok')), 200, array('Content-Type:' => 'application/json'));
+        $user = $this->get('security.context')->getToken()->getUser();
+
+        if (!$user) {
+            return new Response(json_encode(array('status' => 'not found')), 404, array('Content-Type:' => 'application/json'));
+        }
+        
+        return new Response(json_encode(array('status' => 'ok', 'refresh_time' => $user->getRefreshTime())), 200, array('Content-Type:' => 'application/json'));
     }
 
 }

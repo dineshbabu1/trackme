@@ -415,4 +415,17 @@ class User extends BaseUser
     {
         return sprintf("%s %s", $this->getName(), $this->getLastName());
     }
+    
+    /**
+     * Return position refresh time as seconds
+     * @return int
+     */
+    public function getPositionRefresh()
+    {
+        if($this->getBusiness()){
+            return $this->getBusiness()->getPlan()->getRefreshTime();
+        }
+        
+        return 90; // Defecto
+    }
 }

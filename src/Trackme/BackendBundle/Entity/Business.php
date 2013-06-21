@@ -82,6 +82,16 @@ class Business
      * })
      */
     private $state;
+    
+    /**
+     * @var \Plan
+     *
+     * @ORM\ManyToOne(targetEntity="Plan")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="plan_id", referencedColumnName="id")
+     * })
+     */
+    private $plan;
 
     /**
      * @var \Doctrine\Common\Collections\Collection $users
@@ -451,5 +461,28 @@ class Business
         }
 
         return $users;
+    }
+
+    /**
+     * Set plan
+     *
+     * @param \Trackme\BackendBundle\Entity\Plan $plan
+     * @return Business
+     */
+    public function setPlan(\Trackme\BackendBundle\Entity\Plan $plan = null)
+    {
+        $this->plan = $plan;
+
+        return $this;
+    }
+
+    /**
+     * Get plan
+     *
+     * @return \Trackme\BackendBundle\Entity\Plan 
+     */
+    public function getPlan()
+    {
+        return $this->plan;
     }
 }
