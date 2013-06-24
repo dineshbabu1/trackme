@@ -4,46 +4,17 @@
 Track Me | Dashboard
 {% endblock title %}
 
-{% block stylesheets %}
-<!-- bootstrap.min.css -->
-<link rel="stylesheet" href="{{ asset('bundles/trackmebackend/css/bootstrap.css') }}" type="text/css" media="all" />
-<link rel="stylesheet" href="{{ asset('bundles/admingeneratorgenerator/css/bootstrap/bootstrap-extended.css') }}" type="text/css" media="all" />
-<link rel="stylesheet" href="{{ asset('bundles/admingeneratorgenerator/css/bootstrap/bootstrap-datepicker.css') }}" type="text/css" media="all" />
-<link rel="stylesheet" href="{{ asset('bundles/admingeneratorgenerator/css/google/prettify.css') }}" type="text/css" media="all" />
-
-<!-- bootstrap-responsive.min.css -->
-<link rel="stylesheet" href="{{ asset('bundles/admingeneratorgenerator/css/bootstrap/bootstrap-responsive.css') }}" type="text/css" media="all" />
-<link rel="stylesheet" href="{{ asset('bundles/admingeneratorgenerator/css/bootstrap/bootstrap-responsive-extended.css') }}" type="text/css" media="all" />
-
-<!-- admingenerator.min.css -->
-<link rel="stylesheet" href="{{ asset('bundles/admingeneratorgenerator/css/admingenerator/general.css') }}" type="text/css" media="all" />
-{% endblock %}
-
 {% block navbar %}
 {% include('TrackmeBackendBundle::base_admin_navbar.html.twig') %}
 {% endblock navbar %}
 
-{% block body %}
-<div id="flashes" class="row-fluid">
-	{% for type, flashMessages in app.session.flashbag.all() %}
-	{% for flashMessage in flashMessages %}
-	<div class="alert alert-{{ type }}">
-		<button type="button" class="close" data-dismiss="alert">×</button>
-		{{ flashMessage|raw }}
-	</div>
-	{% endfor %}
-	{% endfor %}
-</div>
-{{parent()}}
-{% endblock %}
-
 {% block footer %}
 <footer>
-	<hr>
-	<p>
+  <hr>
+  <p>
 		{% block footer_text %}
-		&copy; {{"now"|date("Y")}} Track Me! Todos los derechos reservados
+      &copy; {{"now"|date("Y")}} Track Me! Todos los derechos reservados
 		{% endblock %}
-	</p>
-</footer>
+    </p>
+  </footer>
 {% endblock %}

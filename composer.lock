@@ -56,12 +56,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony2admingenerator/AdmingeneratorGeneratorBundle.git",
-                "reference": "ad17bfb2d54d2ad4afac71df8f5b2f73724deb76"
+                "reference": "a7da806ec8a6c0333df8c8d643679e5b7b95dfe6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony2admingenerator/AdmingeneratorGeneratorBundle/zipball/ad17bfb2d54d2ad4afac71df8f5b2f73724deb76",
-                "reference": "ad17bfb2d54d2ad4afac71df8f5b2f73724deb76",
+                "url": "https://api.github.com/repos/symfony2admingenerator/AdmingeneratorGeneratorBundle/zipball/a7da806ec8a6c0333df8c8d643679e5b7b95dfe6",
+                "reference": "a7da806ec8a6c0333df8c8d643679e5b7b95dfe6",
                 "shasum": ""
             },
             "require": {
@@ -113,7 +113,7 @@
                 "generator",
                 "yaml"
             ],
-            "time": "2013-06-24 16:12:17"
+            "time": "2013-06-24 18:27:11"
         },
         {
             "name": "cedriclombardot/admingenerator-user-bundle",
