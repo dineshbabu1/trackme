@@ -10,7 +10,7 @@ params:
         label: Habilitado
         help: "Habilitado en frontend."
       in_header:
-        label: Cabezera
+        label: Cabecera
         help: El enlace sera mostrado en el header de página
       in_footer:
         label: Pie

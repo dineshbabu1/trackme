@@ -37,7 +37,7 @@ builders:
     new:
         params:
             title: Nuevo cliente (empresa)
-            display: [name, email, phone]
+            display: [name, email, phone, plan]
             actions:
                 save: ~
                 list: ~
