@@ -47,5 +47,4 @@ class ListController extends BaseListController
 
         return $query->getQuery();
     }
-
-        }
+}

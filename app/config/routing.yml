@@ -50,7 +50,7 @@ login_api:
     defaults:  { _controller: TrackmeApiBundle:Default:login }
     options:
         expose: true
-        
+
 index_api:
     path: /api/position
     defaults:  { _controller: TrackmeApiBundle:Default:index, _format: json }
@@ -115,7 +115,7 @@ admin_page:
 homepage:
     path: /
     defaults:  { _controller: TrackmeFrontendBundle:Default:index }
-    
+
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 
@@ -140,12 +140,4 @@ fos_user_group:
     prefix: /admin/cms/group
 
 fos_js_routing:
-    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"       
-
-_imagine:
-    resource: .
-    type:     imagine
-    
-_monitor:
-    resource: "@LiipMonitorBundle/Resources/config/routing.yml"
-    prefix: /monitor/health    
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"

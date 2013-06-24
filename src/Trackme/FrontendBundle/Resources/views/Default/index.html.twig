@@ -3,25 +3,12 @@
 {% block content %}
 <div id="this-carousel-id" class="carousel slide"><!-- class of slide for animation -->
   <div class="carousel-inner">
-    {% for m in media %}
-      {% if loop.first %}
-        <div class="item active"><!-- class of active since it's the first item -->
-      {% else %}
-        <div class="item">
-      {% endif%}
-        <img alt="{{m.alt}}" title="{{m.alt}}" src="{{ ('uploads/'~ m.name) | apply_filter('medium') }}" />
-      <div class="carousel-caption">
-        <p>{{m.alt}}</p>
-      </div>
-    </div>
-    {% else %}
     <div class="item active"><!-- class of active since it's the first item -->
       <img src="{{ asset('bundles/trackmefrontend/images/slider_runs.jpg')}}" />
       <div class="carousel-caption">
         <p>Con una facil implementacion, controle y vea en tiempo real la posicion de su flota.</p>
       </div>
     </div>
-    {% endfor %}
   </div><!-- /.carousel-inner -->
   <!--  Next and Previous controls below
         href values must reference the id for this carousel -->

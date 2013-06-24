@@ -16,10 +16,10 @@
  * limitations under the License.
  */
 
-namespace Trackme\BackendBundle\Form\Type\Subscription;
+namespace Trackme\BackendBundle\Controller\Page;
 
-use Admingenerated\TrackmeBackendBundle\Form\BaseSubscriptionType\FiltersType as BaseFiltersType;
+use Admingenerated\TrackmeBackendBundle\BasePageController\ActionsController as BaseActionsController;
 
-class FiltersType extends BaseFiltersType
+class ActionsController extends BaseActionsController
 {
 }

@@ -2,6 +2,8 @@ generator: admingenerator.generator.doctrine
 params:
     model: Trackme\BackendBundle\Entity\Business
     namespace_prefix: Trackme
+    entity_manager: ~
+    concurrency_lock: ~
     bundle_name: BackendBundle
     fields:
         name:
@@ -10,6 +12,10 @@ params:
             label: Teléfono
         enabled:
             label: Habilitado
+    object_actions:
+        delete: ~
+    batch_actions:
+        delete: ~
 builders:
     list:
         params:
@@ -55,4 +61,10 @@ builders:
             actions:
                 list: ~
                 new: ~
+                delete: ~
+    actions:
+        params:
+            object_actions:
+                delete: ~
+            batch_actions:
                 delete: ~

@@ -110,7 +110,6 @@ admingenerator_generator:
     use_propel:           false
     use_doctrine_orm:     true
     use_doctrine_odm:     false
-    thumbnail_generator:  avalanche
     login_path: fos_user_security_login
     logout_path: fos_user_security_logout
     dashboard_welcome_path: admin_map_dashboard
@@ -149,30 +148,6 @@ jms_payment_paypal:
     signature: Ab2l1wbNfVWxLpcZRR2EYprzdWLxAGmt4PPX1GEI1pC922gPaob00uvy
     debug: true
 
-avalanche_imagine:
-    source_root:  %kernel.root_dir%/../web
-    web_root:     %kernel.root_dir%/../web
-    filters:
-        logo:
-            type:    thumbnail
-            options: { size: [100, 40], mode: inset}
-        my_thumb:
-            type:    thumbnail
-            options: { size: [200, 200], mode: outbound, quality: 80, format: png, cache_type: public }
-        medium:
-            type:    thumbnail
-            options: { size: [800, 300], mode: outbound, quality: 100, format: png, cache_type: public }
-
-vich_uploader:
-    db_driver: orm
-    twig: true
-    mappings:
-        image_file:
-            uri_prefix: /uploads
-            upload_destination: %kernel.root_dir%/../web/uploads
-            namer: vich_uploader.namer_uniqid     
-            inject_on_load:       true      
-
 sonata_seo:
     default:          sonata.seo.page.default
     encoding:         UTF-8
@@ -194,17 +169,6 @@ sonata_seo:
         head:
             'lang':               es
             'xmlns':              http://www.w3.org/1999/xhtml
-
-liip_monitor:
-    checks:
-        php_extensions: [apc]
-        symfony_version_check: ~
-        custom_error_pages:
-            error_codes: [500, 404]
-        symfony_version_check: ~
-        disc_usage:
-            percentage: 50
-        writable_directory: ~
 
 bazinga_geocoder:
     #fake_ip: 190.22.206.10

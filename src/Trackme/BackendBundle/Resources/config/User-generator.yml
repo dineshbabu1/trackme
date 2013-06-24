@@ -2,6 +2,8 @@ generator: admingenerator.generator.doctrine
 params:
     model: Trackme\BackendBundle\Entity\User
     namespace_prefix: Trackme
+    entity_manager: ~
+    concurrency_lock: ~
     bundle_name: BackendBundle
     fields:
         business:
@@ -31,8 +33,10 @@ params:
         emailable:
             label: Recibir Email?
             help: Si esta checkeado, recibira correos desde el sistema
-
-
+    object_actions:
+        delete: ~
+    batch_actions:
+        delete: ~
 builders:
     list:
         params:
@@ -74,4 +78,9 @@ builders:
             actions:
                 list: ~
                 new: ~
-    delete: ~
+    actions:
+        params:
+            object_actions:
+                delete: ~
+            batch_actions:
+                delete: ~
