@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "e159f53a6cafb8bd8a87226b91db3875",
+    "hash": "b8fd4e221f9809782ad07e64da584e29",
     "packages": [
         {
             "name": "antimattr/google-bundle",
@@ -56,12 +56,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony2admingenerator/AdmingeneratorGeneratorBundle.git",
-                "reference": "d0b2f563530bdb0cf8fc3e8949c9ab01aab4cf2f"
+                "reference": "ad17bfb2d54d2ad4afac71df8f5b2f73724deb76"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony2admingenerator/AdmingeneratorGeneratorBundle/zipball/d0b2f563530bdb0cf8fc3e8949c9ab01aab4cf2f",
-                "reference": "d0b2f563530bdb0cf8fc3e8949c9ab01aab4cf2f",
+                "url": "https://api.github.com/repos/symfony2admingenerator/AdmingeneratorGeneratorBundle/zipball/ad17bfb2d54d2ad4afac71df8f5b2f73724deb76",
+                "reference": "ad17bfb2d54d2ad4afac71df8f5b2f73724deb76",
                 "shasum": ""
             },
             "require": {
@@ -113,7 +113,7 @@
                 "generator",
                 "yaml"
             ],
-            "time": "2013-06-23 22:20:39"
+            "time": "2013-06-24 16:12:17"
         },
         {
             "name": "cedriclombardot/admingenerator-user-bundle",
@@ -792,27 +792,28 @@
         },
         {
             "name": "friendsofsymfony/user-bundle",
-            "version": "v1.3.2",
+            "version": "dev-master",
             "target-dir": "FOS/UserBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-                "reference": "v1.3.2"
+                "reference": "a3c5cc22aa08ca449ffcfc0cf130ee61ae3026b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/v1.3.2",
-                "reference": "v1.3.2",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/a3c5cc22aa08ca449ffcfc0cf130ee61ae3026b3",
+                "reference": "a3c5cc22aa08ca449ffcfc0cf130ee61ae3026b3",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
+                "symfony/form": ">=2.1,<3.0",
                 "symfony/framework-bundle": ">=2.1,<3.0",
                 "symfony/security-bundle": ">=2.1,<3.0"
             },
             "require-dev": {
                 "doctrine/doctrine-bundle": "*",
-                "swiftmailer/swiftmailer": ">=4.3,<5.0",
+                "swiftmailer/swiftmailer": ">=4.3, <6.0",
                 "symfony/validator": ">=2.1,<3.0",
                 "symfony/yaml": ">=2.1,<3.0",
                 "twig/twig": ">=1.5,<2.0",
@@ -856,7 +857,7 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2013-05-25 12:08:24"
+            "time": "2013-06-24 13:30:51"
         },
         {
             "name": "fzaninotto/faker",
@@ -910,12 +911,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/l3pp4rd/DoctrineExtensions.git",
-                "reference": "cd3a95d2019b8581c684ccbe4d069d1d8255812c"
+                "reference": "10f5f83a3e20fb94566e9a103b45a40a817e6134"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/cd3a95d2019b8581c684ccbe4d069d1d8255812c",
-                "reference": "cd3a95d2019b8581c684ccbe4d069d1d8255812c",
+                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/10f5f83a3e20fb94566e9a103b45a40a817e6134",
+                "reference": "10f5f83a3e20fb94566e9a103b45a40a817e6134",
                 "shasum": ""
             },
             "require": {
@@ -923,12 +924,12 @@
                 "php": ">=5.3.2"
             },
             "require-dev": {
-                "doctrine/common": ">=2.4.0-BETA2",
-                "doctrine/dbal": ">=2.4.0-BETA2",
-                "doctrine/mongodb": ">=1.0.2",
-                "doctrine/mongodb-odm": ">=1.0.0-BETA8",
-                "doctrine/orm": ">=2.4.0-BETA2",
-                "symfony/yaml": "2.*"
+                "doctrine/common": ">=2.4.0-RC3",
+                "doctrine/dbal": ">=2.4.0-RC1",
+                "doctrine/mongodb": ">=1.0.3",
+                "doctrine/mongodb-odm": ">=1.0.0-BETA9",
+                "doctrine/orm": ">=2.4.0-RC1",
+                "symfony/yaml": "2.3.1"
             },
             "suggest": {
                 "doctrine/dbal": ">=2.3.2",
@@ -982,7 +983,7 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2013-06-21 13:48:54"
+            "time": "2013-06-24 12:42:19"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -2614,21 +2615,20 @@
         },
         {
             "name": "symfony/icu",
-            "version": "v1.2.0",
+            "version": "v1.0.0",
             "target-dir": "Symfony/Component/Icu",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Icu.git",
-                "reference": "v1.2.0"
+                "reference": "v1.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Icu/zipball/v1.2.0",
-                "reference": "v1.2.0",
+                "url": "https://api.github.com/repos/symfony/Icu/zipball/v1.0.0",
+                "reference": "v1.0.0",
                 "shasum": ""
             },
             "require": {
-                "lib-icu": ">=4.4",
                 "php": ">=5.3.3",
                 "symfony/intl": ">=2.3,<3.0"
             },
@@ -2658,7 +2658,7 @@
                 "icu",
                 "intl"
             ],
-            "time": "2013-06-03 18:32:58"
+            "time": "2013-06-03 18:32:07"
         },
         {
             "name": "symfony/monolog-bundle",
@@ -3199,6 +3199,7 @@
         "jms/command-bundle": 20,
         "jms/payment-core-bundle": 20,
         "jms/payment-paypal-bundle": 20,
+        "friendsofsymfony/user-bundle": 20,
         "cedriclombardot/admingenerator-generator-bundle": 20,
         "cedriclombardot/admingenerator-user-bundle": 20,
         "stfalcon/tinymce-bundle": 20,

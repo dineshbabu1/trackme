@@ -3,9 +3,9 @@ modules:
     enabled: [PhpBrowser, REST, ApiHelper, Db]
     config:
         PhpBrowser:
-            url: http://trackme.cl/app.php
+            url: http://trackme.cl/
         REST:
-            url: http://trackme.cl/app.php/api
+            url: http://trackme.cl/api
         Db:
             dsn: 'mysql:host=localhost;dbname=trackme_test'
             user: 'root'
