@@ -24,7 +24,7 @@
         "jms/command-bundle": "dev-master",
         "jms/payment-core-bundle": "master-dev",
         "jms/payment-paypal-bundle": "dev-master",
-        "friendsofsymfony/user-bundle": "*",
+        "friendsofsymfony/user-bundle": "~2.0@dev",
         "friendsofsymfony/jsrouting-bundle": "~1.1",
         "cedriclombardot/admingenerator-generator-bundle": "dev-master",
         "cedriclombardot/admingenerator-user-bundle": "dev-master",

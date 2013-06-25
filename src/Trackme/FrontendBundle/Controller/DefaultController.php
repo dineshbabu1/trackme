@@ -20,6 +20,7 @@ namespace Trackme\FrontendBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Trackme\BackendBundle\Entity\Business;
 use Trackme\BackendBundle\Entity\User;
 use FOS\UserBundle\FOSUserEvents;
@@ -29,6 +30,7 @@ use FOS\UserBundle\Event\FilterUserResponseEvent;
 
 class DefaultController extends Controller
 {
+
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
@@ -134,10 +136,10 @@ class DefaultController extends Controller
 
         $business = new Business();
         $form = $this->createFormBuilder($business)
-                ->add('name', 'text', array('label' => 'Nombre'))
-                ->add('email', 'email')
-                ->add('phone', 'text', array('label' => 'Telefono'))
-                ->getForm();
+            ->add('name', 'text', array('label' => 'Nombre'))
+            ->add('email', 'email')
+            ->add('phone', 'text', array('label' => 'Telefono'))
+            ->getForm();
 
         return $this->render('TrackmeFrontendBundle:Default:signup.html.twig', array('form' => $form->createView(), 'state' => $state, 'plan' => $plan));
     }
@@ -147,25 +149,25 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getEntityManager();
         $business = new Business();
         $form = $this->createFormBuilder($business)
-                ->add('name', 'text', array('label' => 'Nombre'))
-                ->add('email', 'email')
-                ->add('phone', 'text', array('label' => 'Telefono'))
-                ->getForm();
+            ->add('name', 'text', array('label' => 'Nombre'))
+            ->add('email', 'email')
+            ->add('phone', 'text', array('label' => 'Telefono'))
+            ->getForm();
 
         $form->bind($request);
 
-            if ($form->isValid()) {
-                $state = $em->getRepository('Trackme\BackendBundle\Entity\ClientState')->find($request->get('state'));
-                $plan = $em->getRepository('Trackme\BackendBundle\Entity\Plan')->find($request->get('plan'));
+        if ($form->isValid()) {
+            $state = $em->getRepository('Trackme\BackendBundle\Entity\ClientState')->find($request->get('state'));
+            $plan = $em->getRepository('Trackme\BackendBundle\Entity\Plan')->find($request->get('plan'));
 
-                $object = $form->getData();
-                $object->setState($state);
-                $object->setPlan($plan);
-                $em->persist($object);
-                $em->flush();
-                // Second step
-                return $this->redirect($this->generateUrl('signup_user', array('token' => $object->getToken())));
-            }
+            $object = $form->getData();
+            $object->setState($state);
+            $object->setPlan($plan);
+            $em->persist($object);
+            $em->flush();
+            // Second step
+            return $this->redirect($this->generateUrl('signup_user', array('token' => $object->getToken())));
+        }
     }
 
     public function pageAction($url)
@@ -180,13 +182,13 @@ class DefaultController extends Controller
         $seoPage = $this->container->get('sonata.seo.page');
 
         $seoPage
-        ->setTitle("Track Me | ".$page->getTitle())
-        ->addMeta('property', 'og:title', $page->getTitle())
-        ->addMeta('property', 'og:type', 'blog')
+            ->setTitle("Track Me | " . $page->getTitle())
+            ->addMeta('property', 'og:title', $page->getTitle())
+            ->addMeta('property', 'og:type', 'blog')
         ;
 
         return $this->render('TrackmeFrontendBundle:Default:page.html.twig', array('page' => $page,
-            'menu' => $menu
+                'menu' => $menu
             ));
     }
 
