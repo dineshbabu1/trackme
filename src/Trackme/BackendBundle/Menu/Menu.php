@@ -62,7 +62,7 @@ class Menu extends ContainerAware
           $user = $this->addNavLinkRoute($menu, 'Mis Usuarios', 'Trackme_BackendBundle_User_list')->setExtra('icon', 'icon-user');
           $vehicle = $this->addNavLinkRoute($menu, 'Vehiculos', 'Trackme_BackendBundle_Vehicle_list')->setExtra('icon', 'icon-road');
           $review = $this->addNavLinkRoute($menu, 'Evaluar Sistema', 'Trackme_BackendBundle_Review_new')->setExtra('icon', 'icon-thumbs-up');
-          $ticket = $this->addNavLinkRoute($menu, 'Soporte', 'Trackme_BackendBundle_Ticket_list')->setExtra('icon', 'icon-list');
+          $ticket = $this->addNavLinkRoute($menu, 'Soporte', 'Trackme_BackendBundle_Ticket_new')->setExtra('icon', 'icon-list');
           $app = $this->addNavLinkUri($menu, 'Descarga Aplicacion', '#')->setExtra('icon', 'icon-star');
         }
 
