@@ -41,7 +41,8 @@
         "kriswallsmith/buzz": "@stable",
         "codememe/ironmq-bundle": "dev-master",
         "doctrine/data-fixtures": "dev-master",
-        "doctrine/doctrine-fixtures-bundle": "dev-master"
+        "doctrine/doctrine-fixtures-bundle": "dev-master",
+        "ekino/newrelic-bundle": "master-dev"
     },
     "scripts": {
         "post-install-cmd": [

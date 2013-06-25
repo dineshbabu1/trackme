@@ -39,7 +39,8 @@ class AppKernel extends Kernel
             new Bazinga\Bundle\GeocoderBundle\BazingaGeocoderBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle(),
-            new CodeMeme\IronMqBundle\CodeMemeIronMqBundle()            
+            new CodeMeme\IronMqBundle\CodeMemeIronMqBundle() ,
+            new Ekino\Bundle\NewRelicBundle\EkinoNewRelicBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
