@@ -238,3 +238,7 @@ code_meme_iron_mq:
     enabled: true # if set to false, service will not be available
     token: "afc02vPCvKAwceeeBhMaXph_Ygo"
     project_id: "51ba3f49ed3d765d70001ae7"
+    
+ekino_new_relic:
+    application_name: Track Me
+    api_key: acd30f4edf4403a744ef2dde15683c1e84804d473a4ea02

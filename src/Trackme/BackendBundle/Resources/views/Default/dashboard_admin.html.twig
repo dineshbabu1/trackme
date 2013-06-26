@@ -20,6 +20,9 @@
     			{% endfor %}
     		</table>
     	</div>
+        <div class="span4">
+            <div id="linechart" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+        </div>
     </div>
 
 {% endblock %}
@@ -34,3 +37,12 @@
     </p>
 </footer>
 {% endblock footer %}
+
+{% block javascripts %} 
+{{ parent() }}
+<script src="{{ asset('bundles/obhighcharts/js/highcharts/highcharts.js') }}"></script>
+<script src="{{ asset('bundles/obhighcharts/js/highcharts/modules/exporting.js') }}"></script>
+<script type="text/javascript">
+    {{ chart(chart) }}
+</script>
+{% endblock %}

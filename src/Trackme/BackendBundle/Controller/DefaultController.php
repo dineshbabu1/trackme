@@ -27,6 +27,7 @@ use Ivory\GoogleMap\Services\Directions\Directions;
 use Ivory\GoogleMap\Overlays\Polyline;
 use Ivory\GoogleMap\Overlays\InfoWindow;
 use Ivory\GoogleMap\Events\MouseEvent;
+use Ob\HighchartsBundle\Highcharts\Highchart;
 
 class DefaultController extends Controller
 {
@@ -46,10 +47,25 @@ class DefaultController extends Controller
         if (!$security->isGranted('ROLE_SUPER_ADMIN')) {
             throw $this->createNotFoundException('La pagina solicitada no existe');
         }
-        $em = $this->getDoctrine()->getManager();
+        
+        $em = $this->getDoctrine()->getManager();        
+        
+        $serie = $em->getRepository('Trackme\BackendBundle\Entity\Coordinate')->getStatsByWeek();
+//        ladybug_dump_die($serie);
+        $series = array(
+            array("name" => "Coordenadas",    "data" => $serie)
+        );
+
+        $ob = new Highchart();
+        $ob->chart->renderTo('linechart');  // The #id of the div where to render the chart
+        $ob->title->text('Coordenadas por mes');
+        $ob->xAxis->title(array('text'  => "Semanas mes actual"));
+        $ob->yAxis->title(array('text'  => "Cantidad coordenadas"));
+        $ob->series($series);
+        
         $last_business = $em->getRepository('Trackme\BackendBundle\Entity\Business')->getLastBusiness();
 
-        return $this->render('TrackmeBackendBundle:Default:dashboard_admin.html.twig', array('business' => $last_business));
+        return $this->render('TrackmeBackendBundle:Default:dashboard_admin.html.twig', array('business' => $last_business, 'chart' => $ob));
     }
 
     public function dashboardAction(Request $request)
