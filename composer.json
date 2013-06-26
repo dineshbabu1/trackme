@@ -42,7 +42,8 @@
         "codememe/ironmq-bundle": "dev-master",
         "doctrine/data-fixtures": "dev-master",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
-        "ekino/newrelic-bundle": "master-dev"
+        "ekino/newrelic-bundle": "master-dev",
+        "ob/highcharts-bundle": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [

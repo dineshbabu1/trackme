@@ -19,6 +19,7 @@
 namespace Trackme\BackendBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\Query\ResultSetMapping;
 
 /**
  * CoordinateRepository
@@ -43,5 +44,31 @@ class CoordinateRepository extends EntityRepository
         $query->setParameter('ten_minutes', $ten_minutes_ago);
 
         return $query->getResult();
+    }
+    
+    public function getStatsByWeek()
+    {
+        $em = $this->getEntityManager();
+        $rsm = new ResultSetMapping();
+        
+        $rsm->addEntityResult('Trackme\BackendBundle\Entity\Coordinate', 'c');
+        $rsm->addFieldResult('c', 'quantity', 'id');
+        $rsm->addFieldResult('c', 'week', 'lat');
+
+        // mapping results to the message entity
+
+        $sql = "SELECT COUNT(c.id) as quantity, WEEK(c.created_at) as week
+                FROM coordinate c
+                WHERE MONTH(c.created_at) = MONTH(CURDATE())
+                GROUP BY WEEK(c.created_at)";
+
+        $query = $em->createNativeQuery($sql, $rsm);
+        
+        $stat = array();
+        foreach ($query->getResult() as $q) {
+            $stat[] = $q->getId();
+        }
+        
+        return $stat;
     }
 }
