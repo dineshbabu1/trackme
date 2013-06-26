@@ -50,22 +50,34 @@ class DefaultController extends Controller
         
         $em = $this->getDoctrine()->getManager();        
         
-        $serie = $em->getRepository('Trackme\BackendBundle\Entity\Coordinate')->getStatsByWeek();
-//        ladybug_dump_die($serie);
-        $series = array(
-            array("name" => "Coordenadas",    "data" => $serie)
+        $serie_coor = $em->getRepository('Trackme\BackendBundle\Entity\Coordinate')->getStatsByWeek();
+        $serie_ot = $em->getRepository('Trackme\BackendBundle\Entity\Ot')->getOtsByWeek();
+
+        $series_coor = array(
+            array("name" => "Coordenadas",    "data" => $serie_coor)
         );
 
         $ob = new Highchart();
-        $ob->chart->renderTo('linechart');  // The #id of the div where to render the chart
+        $ob->chart->renderTo('linechart_coor');  // The #id of the div where to render the chart
         $ob->title->text('Coordenadas por mes');
         $ob->xAxis->title(array('text'  => "Semanas mes actual"));
         $ob->yAxis->title(array('text'  => "Cantidad coordenadas"));
-        $ob->series($series);
+        $ob->series($series_coor);
+
+        $series_ot = array(
+            array("name" => "Ordenes de Transporte",    "data" => $serie_ot)
+        );
+
+        $ob2 = new Highchart();
+        $ob2->chart->renderTo('linechart_ot');  // The #id of the div where to render the chart
+        $ob2->title->text('OT por mes');
+        $ob2->xAxis->title(array('text'  => "Semanas mes actual"));
+        $ob2->yAxis->title(array('text'  => "Cantidad ot"));
+        $ob2->series($series_ot);
         
         $last_business = $em->getRepository('Trackme\BackendBundle\Entity\Business')->getLastBusiness();
 
-        return $this->render('TrackmeBackendBundle:Default:dashboard_admin.html.twig', array('business' => $last_business, 'chart' => $ob));
+        return $this->render('TrackmeBackendBundle:Default:dashboard_admin.html.twig', array('business' => $last_business, 'chart_coor' => $ob, 'chart_ot' => $ob2));
     }
 
     public function dashboardAction(Request $request)

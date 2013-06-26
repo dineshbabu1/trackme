@@ -25,7 +25,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * Ot
  *
  * @ORM\Table(name="ot")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Trackme\BackendBundle\Entity\OtRepository")
  */
 class Ot
 {
