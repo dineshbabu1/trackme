@@ -1,9 +1,5 @@
-{% extends '::bootstrap.html.twig' %}
+{% extends 'TrackmeBackendBundle::base_admin_assetic_less.html.twig' %}
 
-{% block page_title %}Se ha producido un error{% endblock %}
-{% block id 'error' %}
-
-{% block content %}
-    <h1>Hay un error en la aplicación <span>(error 500)</span></h1>
-    <img src="{{ asset('bundles/trackmefrontend/images/500-error.jpg')}}" />
+{% block body %}
+	<h1>Hubo un error en el servidor <span>(error 500)</span></h1>
 {% endblock %}

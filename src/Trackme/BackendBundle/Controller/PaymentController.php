@@ -71,6 +71,13 @@ class PaymentController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $payment = $em->getRepository('Trackme\BackendBundle\Entity\Subscription')->find($request->get('id'));
+        
+        $security = $this->get('security.context');
+        $business = $security->getToken()->getUser()->getBusiness();
+        if($payment->getBusiness() != $business){
+            throw $this->createNotFoundException('La pagina solicitada no existe');
+        }
+        
         $form = $this->getFormFactory()->create('jms_choose_payment_method', null, array(
             'amount'   => $payment->getAmount(),
             'currency' => 'USD',

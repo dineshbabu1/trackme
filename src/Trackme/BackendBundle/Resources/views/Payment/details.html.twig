@@ -11,6 +11,7 @@ Track Me | Payments
 {% block body %}
 <div class="row-fluid">
   <div class="span6">
+    <h3>Selecciona método de pago.</h3>
       <form action="{{ path('admin_business_details_payment', { 'id': id_payment}) }}" method="post" {{ form_enctype(form) }}>
           {{ form_row(form) }}
           <input type="submit" />
