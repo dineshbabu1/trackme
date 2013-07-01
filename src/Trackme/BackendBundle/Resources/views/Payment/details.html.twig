@@ -1,0 +1,31 @@
+{% extends 'TrackmeBackendBundle::base_admin_assetic_less.html.twig' %}
+
+{% block title %}
+Track Me | Payments
+{% endblock title %}
+
+{% block navbar %}
+  {% include('TrackmeBackendBundle::base_admin_navbar.html.twig') %}
+{% endblock navbar %}
+
+{% block body %}
+<div class="row-fluid">
+  <div class="span6">
+      <form action="{{ path('admin_business_details_payment', { 'id': id_payment}) }}" method="post" {{ form_enctype(form) }}>
+          {{ form_row(form) }}
+          <input type="submit" />
+      </form>
+  </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+<footer>
+	<hr>
+	<p>
+		{% block footer_text %}
+		&copy; {{"now"|date("Y")}} Track Me! Todos los derechos reservados
+		{% endblock %}
+	</p>
+</footer>
+{% endblock footer %}

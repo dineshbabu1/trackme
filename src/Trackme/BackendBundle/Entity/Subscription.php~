@@ -26,7 +26,7 @@ use JMS\Payment\CoreBundle\Entity\PaymentInstruction;
  * Subscription
  *
  * @ORM\Table(name="subscription")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Trackme\BackendBundle\Entity\SubscriptionRepository")
  */
 class Subscription
 {
@@ -59,6 +59,12 @@ class Subscription
      * @ORM\Column(name="amount",type="integer")
      */
     private $amount;
+    
+    /**
+     * @var integer
+     * @ORM\Column(name="clp_amount",type="integer")
+     */
+    private $clpAmount;
 
     /**
      * @var \DateTime
@@ -244,5 +250,28 @@ class Subscription
     public function getAmount()
     {
         return $this->amount;
+    }
+
+    /**
+     * Set clpAmount
+     *
+     * @param integer $clpAmount
+     * @return Subscription
+     */
+    public function setClpAmount($clpAmount)
+    {
+        $this->clpAmount = $clpAmount;
+    
+        return $this;
+    }
+
+    /**
+     * Get clpAmount
+     *
+     * @return integer 
+     */
+    public function getClpAmount()
+    {
+        return $this->clpAmount;
     }
 }

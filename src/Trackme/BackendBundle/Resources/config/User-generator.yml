@@ -47,8 +47,7 @@ builders:
             object_actions:
                 show: ~
                 edit: ~
-                delete:
-                    credentials: 'hasRole("ROLE_SUPER_ADMIN")'
+                delete: ~
     filters:
         params:
             display: [username,email,enabled, business]

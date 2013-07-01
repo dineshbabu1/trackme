@@ -9,6 +9,14 @@ admin_global_payments:
 admin_business_payments:
     path: /admin/business/payments
     defaults:  { _controller: TrackmeBackendBundle:Payment:businessList }
+    
+admin_business_details_payment:
+    path: /admin/business/payments/{id}
+    defaults:  { _controller: TrackmeBackendBundle:Payment:details }   
+    
+admin_business_complete_payment:
+    path: /admin/business/complete-payments/{id}
+    defaults:  { _controller: TrackmeBackendBundle:Payment:complete }      
 
 admin_subscription:
     resource: "@TrackmeBackendBundle/Controller/Subscription/"

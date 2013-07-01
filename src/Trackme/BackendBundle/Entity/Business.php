@@ -103,7 +103,7 @@ class Business
      * @var \Doctrine\Common\Collections\Collection $subscriptions
      * @ORM\OneToMany(targetEntity="Subscription", mappedBy="business", cascade={"persist"})
      */
-    private $subscription;
+    private $subscriptions;
 
     /**
      * @var \DateTime
@@ -464,36 +464,37 @@ class Business
         return $this->plan;
     }
 
+
     /**
-     * Add subscription
+     * Add subscriptions
      *
-     * @param \Trackme\BackendBundle\Entity\Subscription $subscription
+     * @param \Trackme\BackendBundle\Entity\Subscription $subscriptions
      * @return Business
      */
-    public function addSubscription(\Trackme\BackendBundle\Entity\Subscription $subscription)
+    public function addSubscription(\Trackme\BackendBundle\Entity\Subscription $subscriptions)
     {
-        $this->subscription[] = $subscription;
+        $this->subscriptions[] = $subscriptions;
     
         return $this;
     }
 
     /**
-     * Remove subscription
+     * Remove subscriptions
      *
-     * @param \Trackme\BackendBundle\Entity\Subscription $subscription
+     * @param \Trackme\BackendBundle\Entity\Subscription $subscriptions
      */
-    public function removeSubscription(\Trackme\BackendBundle\Entity\Subscription $subscription)
+    public function removeSubscription(\Trackme\BackendBundle\Entity\Subscription $subscriptions)
     {
-        $this->subscription->removeElement($subscription);
+        $this->subscriptions->removeElement($subscriptions);
     }
 
     /**
-     * Get subscription
+     * Get subscriptions
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getSubscription()
+    public function getSubscriptions()
     {
-        return $this->subscription;
+        return $this->subscriptions;
     }
 }

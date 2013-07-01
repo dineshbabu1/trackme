@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class PaymentController extends Controller
 {
@@ -41,62 +42,84 @@ class PaymentController extends Controller
             return $this->redirect($this->generateUrl('admin_business_payments'));
         }
 
+        
         $uf = $this->forward('trackme.payment.controller:ufAction')->getContent();
+        
+        
         
         return $this->render("TrackmeBackendBundle:Payment:list.html.twig", array('uf' => $uf));
     }
 
     public function businessListAction(Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
+
+        $security = $this->get('security.context');
+        $business = $security->getToken()->getUser()->getBusiness();
+        
+        $payments_pendent = $em->getRepository('Trackme\BackendBundle\Entity\Subscription')->findBy(array('business' => $business, 'paymentInstruction' => null));
+        $approved = $em->getRepository('Trackme\BackendBundle\Entity\Subscription')->findBy(array('business' => $business, 'paymentInstruction' => !null));
+        
         $this->forward('trackme.payment.controller:ufAction')->getContent();
-        return $this->render("TrackmeBackendBundle:Payment:business_list.html.twig");
+        return $this->render("TrackmeBackendBundle:Payment:business_list.html.twig", array('payments' => $payments_pendent, 'approved' => $approved));
     }
 
+   /**
+    * @Template()
+    */
     public function detailsAction(Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
+        $payment = $em->getRepository('Trackme\BackendBundle\Entity\Subscription')->find($request->get('id'));
         $form = $this->getFormFactory()->create('jms_choose_payment_method', null, array(
-            'amount'   => $order->getAmount(),
-            'currency' => 'EUR',
+            'amount'   => $payment->getAmount(),
+            'currency' => 'USD',
             'default_method' => 'payment_paypal', // Optional
             'predefined_data' => array(
                 'paypal_express_checkout' => array(
-                    'return_url' => $this->router->generate('payment_complete', array(
-                        'orderNumber' => $order->getOrderNumber(),
+                    'return_url' => $this->router->generate('admin_business_complete_payment', array(
+                        'id' => $payment->getId(),
                     ), true),
-                    'cancel_url' => $this->router->generate('payment_cancel', array(
-                        'orderNumber' => $order->getOrderNumber(),
+                    'cancel_url' => $this->router->generate('admin_business_payments', array(
+                        'id' => $payment->getId(),
                     ), true)
                 ),
             ),
         ));
 
-        if ('POST' === $this->request->getMethod()) {
-            $form->bindRequest($this->request);
+        if ('POST' === $request->getMethod()) {
+            $form->bind($request);
 
             if ($form->isValid()) {
                 $this->ppc->createPaymentInstruction($instruction = $form->getData());
 
-                $order->setPaymentInstruction($instruction);
-                $this->em->persist($order);
-                $this->em->flush($order);
+                $payment->setPaymentInstruction($instruction);
+                $this->em->persist($payment);
+                $this->em->flush($payment);
 
-                return new RedirectResponse($this->router->generate('payment_complete', array(
-                    'orderNumber' => $order->getOrderNumber(),
+                return new RedirectResponse($this->router->generate('admin_business_complete_payment', array(
+                    'id' => $payment->getId(),
                 )));
             }
         }
 
         return array(
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'id_payment' => $payment->getId()
         );
     }
 
-    /**
-     * @Route("/{orderNumber}/complete", name = "payment_complete")
-     */
-    public function completeAction(Order $order)
+    public function completeAction(Request $request)
     {
-        $instruction = $order->getPaymentInstruction();
+        
+        $em = $this->getDoctrine()->getManager();
+        $subscription = $em->getRepository('Trackme\BackendBundle\Entity\Subscription')->find($request->get('id'));
+        $instruction = $subscription->getPaymentInstruction();
+        $instruction->getExtendedData()->set('checkout_params',  array('L_PAYMENTREQUEST_0_NAME0' => "Pago mensualidad Trackme",
+                                                                    'L_PAYMENTREQUEST_0_NUMBER0' => $subscription->getId(),
+                                                                    'L_PAYMENTREQUEST_0_AMT0' => $subscription->getAmount(),
+                                                                    'L_PAYMENTREQUEST_0_QTY0' => '1',
+                                                                    'PAYMENTREQUEST_0_CURRENCYCODE' => 'USD'));
         if (null === $pendingTransaction = $instruction->getPendingTransaction()) {
             $payment = $this->ppc->createPayment($instruction->getId(), $instruction->getAmount() - $instruction->getDepositedAmount());
         } else {
@@ -104,6 +127,7 @@ class PaymentController extends Controller
         }
 
         $result = $this->ppc->approveAndDeposit($payment->getId(), $payment->getTargetAmount());
+        
         if (Result::STATUS_PENDING === $result->getStatus()) {
             $ex = $result->getPluginException();
 
@@ -119,8 +143,16 @@ class PaymentController extends Controller
         } else if (Result::STATUS_SUCCESS !== $result->getStatus()) {
             throw new \RuntimeException('Transaction was not successful: '.$result->getReasonCode());
         }
+        
+        $this->get('session')->getFlashBag()->add(
+            'success',
+            'El pago está siendo procesado.'
+        );
+        
+        return new RedirectResponse($this->router->generate('admin_business_payments', array(
+                  'id' => $subscription->getId(),
+                )));
 
-        // payment was successful, do something interesting with the order
     }
 
     public function ufAction(){
@@ -131,6 +163,17 @@ class PaymentController extends Controller
             return new Response(null);
         else
             return new Response(floatval(preg_replace("/[^-0-9\,]/","",$json->indicador->uf)));
+
+    }
+    
+    public function dolarAction(){
+        $JsonSource = "http://indicadoresdeldia.cl/webservice/indicadores.json";
+        $json = json_decode(file_get_contents($JsonSource));
+
+        if(!$json)
+            return new Response(null);
+        else
+            return new Response(floatval(str_replace("$", "", str_replace(",",".",$json->moneda->dolar))));
 
     }
 

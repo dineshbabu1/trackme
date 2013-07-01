@@ -24,6 +24,7 @@ class GeneratePaymentCommand extends ContainerAwareCommand
     {
 
         $uf = $this->getContainer()->get('trackme.payment.controller')->ufAction()->getContent();
+        $usd = $this->getContainer()->get('trackme.payment.controller')->dolarAction()->getContent();
         $em = $this->getContainer()->get('doctrine.orm.entity_manager');
         $business = $this->getContainer()->get('doctrine')
                     ->getRepository("TrackmeBackendBundle:Business")
@@ -35,7 +36,8 @@ class GeneratePaymentCommand extends ContainerAwareCommand
             if($b->getEnabled()){
                 $sub = new Subscription();
                 $sub->setBusiness($b);
-                $sub->setAmount($b->getPlan()->getPrice() * $uf);
+                $sub->setAmount(($b->getPlan()->getPrice() * $uf) / $usd);
+                $sub->setClpAmount(($b->getPlan()->getPrice() * $uf));
                 $em->persist($sub);
                 $em->flush();
             }

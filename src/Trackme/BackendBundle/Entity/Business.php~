@@ -103,7 +103,7 @@ class Business
      * @var \Doctrine\Common\Collections\Collection $subscriptions
      * @ORM\OneToMany(targetEntity="Subscription", mappedBy="business", cascade={"persist"})
      */
-    private $subscription;
+    private $subscriptions;
 
     /**
      * @var \DateTime
@@ -463,4 +463,5 @@ class Business
     {
         return $this->plan;
     }
+
 }

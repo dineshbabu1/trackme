@@ -56,12 +56,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony2admingenerator/AdmingeneratorGeneratorBundle.git",
-                "reference": "a7da806ec8a6c0333df8c8d643679e5b7b95dfe6"
+                "reference": "3639ad592fe1cb4cd755209b648a29f6c2ba823c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony2admingenerator/AdmingeneratorGeneratorBundle/zipball/a7da806ec8a6c0333df8c8d643679e5b7b95dfe6",
-                "reference": "a7da806ec8a6c0333df8c8d643679e5b7b95dfe6",
+                "url": "https://api.github.com/repos/symfony2admingenerator/AdmingeneratorGeneratorBundle/zipball/3639ad592fe1cb4cd755209b648a29f6c2ba823c",
+                "reference": "3639ad592fe1cb4cd755209b648a29f6c2ba823c",
                 "shasum": ""
             },
             "require": {
@@ -79,7 +79,8 @@
             },
             "suggest": {
                 "avalanche123/imagine-bundle": "Image manipulation using Imagine and Twig Filters",
-                "cedriclombardot/admingenerator-user-bundle": "Help you to overwrite the base layout of FOSUserBundle or others giving a parameter key of the container"
+                "cedriclombardot/admingenerator-user-bundle": "Help you to overwrite the base layout of FOSUserBundle or others giving a parameter key of the container",
+                "genemu/form-bundle": "Additional forms for Symfony"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -113,7 +114,7 @@
                 "generator",
                 "yaml"
             ],
-            "time": "2013-06-24 18:27:11"
+            "time": "2013-07-01 10:42:07"
         },
         {
             "name": "cedriclombardot/admingenerator-user-bundle",
@@ -518,7 +519,7 @@
             },
             "require": {
                 "doctrine/data-fixtures": "*",
-                "doctrine/doctrine-bundle": ">=1.0,<2.0",
+                "doctrine/doctrine-bundle": "~1.0",
                 "php": ">=5.3.2",
                 "symfony/doctrine-bridge": ">=2.1.0,<2.4-dev"
             },
@@ -743,12 +744,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ekino/EkinoNewRelicBundle.git",
-                "reference": "5b47000ade19485f81e3c4ecc96de35d80057c12"
+                "reference": "1.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ekino/EkinoNewRelicBundle/zipball/5b47000ade19485f81e3c4ecc96de35d80057c12",
-                "reference": "5b47000ade19485f81e3c4ecc96de35d80057c12",
+                "url": "https://api.github.com/repos/ekino/EkinoNewRelicBundle/zipball/1.0.0",
+                "reference": "1.0.0",
                 "shasum": ""
             },
             "require": {
@@ -846,12 +847,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-                "reference": "a3c5cc22aa08ca449ffcfc0cf130ee61ae3026b3"
+                "reference": "025e8514c179573ff3c1cb6284ea7196425be1ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/a3c5cc22aa08ca449ffcfc0cf130ee61ae3026b3",
-                "reference": "a3c5cc22aa08ca449ffcfc0cf130ee61ae3026b3",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/025e8514c179573ff3c1cb6284ea7196425be1ef",
+                "reference": "025e8514c179573ff3c1cb6284ea7196425be1ef",
                 "shasum": ""
             },
             "require": {
@@ -906,7 +907,7 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2013-06-24 13:30:51"
+            "time": "2013-06-28 18:43:05"
         },
         {
             "name": "fzaninotto/faker",
@@ -960,12 +961,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/l3pp4rd/DoctrineExtensions.git",
-                "reference": "10f5f83a3e20fb94566e9a103b45a40a817e6134"
+                "reference": "df2d47cceea61982de3e6979f0307206c8fda9f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/10f5f83a3e20fb94566e9a103b45a40a817e6134",
-                "reference": "10f5f83a3e20fb94566e9a103b45a40a817e6134",
+                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/df2d47cceea61982de3e6979f0307206c8fda9f8",
+                "reference": "df2d47cceea61982de3e6979f0307206c8fda9f8",
                 "shasum": ""
             },
             "require": {
@@ -1032,7 +1033,7 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2013-06-24 12:42:19"
+            "time": "2013-06-28 14:12:06"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -1280,7 +1281,7 @@
             },
             "require": {
                 "php": ">=5.3.2",
-                "symfony/framework-bundle": ">=2.0,<3.0"
+                "symfony/framework-bundle": "~2.0"
             },
             "type": "symfony-bundle",
             "autoload": {
@@ -2711,21 +2712,20 @@
         },
         {
             "name": "symfony/icu",
-            "version": "v1.2.0",
+            "version": "v1.0.0",
             "target-dir": "Symfony/Component/Icu",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Icu.git",
-                "reference": "v1.2.0"
+                "reference": "v1.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Icu/zipball/v1.2.0",
-                "reference": "v1.2.0",
+                "url": "https://api.github.com/repos/symfony/Icu/zipball/v1.0.0",
+                "reference": "v1.0.0",
                 "shasum": ""
             },
             "require": {
-                "lib-icu": ">=4.4",
                 "php": ">=5.3.3",
                 "symfony/intl": ">=2.3,<3.0"
             },
@@ -2755,7 +2755,7 @@
                 "icu",
                 "intl"
             ],
-            "time": "2013-06-03 18:32:58"
+            "time": "2013-06-03 18:32:07"
         },
         {
             "name": "symfony/monolog-bundle",
@@ -3139,7 +3139,7 @@
                 "shasum": ""
             },
             "require": {
-                "fzaninotto/faker": ">=1.1,<2.0",
+                "fzaninotto/faker": "~1.1",
                 "symfony/framework-bundle": ">=2.0,<2.4-dev"
             },
             "type": "symfony-bundle",
@@ -3232,26 +3232,27 @@
         },
         {
             "name": "willdurand/geocoder-bundle",
-            "version": "1.2.3",
+            "version": "1.2.5",
             "target-dir": "Bazinga/Bundle/GeocoderBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/willdurand/BazingaGeocoderBundle.git",
-                "reference": "1.2.3"
+                "reference": "1.2.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/willdurand/BazingaGeocoderBundle/zipball/1.2.3",
-                "reference": "1.2.3",
+                "url": "https://api.github.com/repos/willdurand/BazingaGeocoderBundle/zipball/1.2.5",
+                "reference": "1.2.5",
                 "shasum": ""
             },
             "require": {
-                "symfony/console": ">=2.0,<2.4-dev",
-                "symfony/framework-bundle": ">=2.0,<2.4-dev",
+                "symfony/console": ">=2.0,<3.0",
+                "symfony/framework-bundle": ">=2.0,<3.0",
                 "willdurand/geocoder": ">=1.0,<2.0"
             },
             "require-dev": {
-                "symfony/yaml": ">=2.0,<2.4-dev"
+                "maxromanovsky/php-maxmind-geoip": ">=1.12.0,<2.0",
+                "symfony/yaml": ">=2.0,<3.0"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -3280,7 +3281,7 @@
                 "geocoder",
                 "geocoding"
             ],
-            "time": "2013-03-15 22:38:29"
+            "time": "2013-06-28 14:02:41"
         },
         {
             "name": "zendframework/zend-json",

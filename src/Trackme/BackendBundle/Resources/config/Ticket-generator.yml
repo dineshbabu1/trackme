@@ -37,8 +37,7 @@ builders:
                 show: ~
                 edit:
                     credentials: 'hasRole("ROLE_SUPER_ADMIN")'
-                delete:
-                    credentials: 'hasRole("ROLE_SUPER_ADMIN")'
+                
     filters:
         params:
             display: [ type ]
