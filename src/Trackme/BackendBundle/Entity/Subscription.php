@@ -50,6 +50,12 @@ class Subscription
     private $paymentInstruction;
 
     /**
+     * @var integer
+     * @ORM\Column(name="amount",type="integer")
+     */
+    private $amount;
+
+    /**
      * @var \DateTime
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(name="created_at", type="datetime", nullable=true)
@@ -210,5 +216,28 @@ class Subscription
     public function getBusiness()
     {
         return $this->business;
+    }
+
+    /**
+     * Set amount
+     *
+     * @param integer $amount
+     * @return Subscription
+     */
+    public function setAmount($amount)
+    {
+        $this->amount = $amount;
+    
+        return $this;
+    }
+
+    /**
+     * Get amount
+     *
+     * @return integer 
+     */
+    public function getAmount()
+    {
+        return $this->amount;
     }
 }

@@ -1,0 +1,6 @@
+parameters:
+    trackme.controller.payment.class: Trackme\BackendBundle\Controller\PaymentController
+
+services:
+    trackme.payment.controller:
+        class:     "%trackme.controller.payment.class%"
