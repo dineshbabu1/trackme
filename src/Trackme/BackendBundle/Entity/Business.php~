@@ -82,7 +82,7 @@ class Business
      * })
      */
     private $state;
-    
+
     /**
      * @var \Plan
      *
@@ -100,7 +100,8 @@ class Business
     private $users;
 
     /**
-     * @ORM\OneToOne(targetEntity="Subscription", inversedBy="business", cascade={"persist"})
+     * @var \Doctrine\Common\Collections\Collection $subscriptions
+     * @ORM\OneToMany(targetEntity="Subscription", mappedBy="business", cascade={"persist"})
      */
     private $subscription;
 
@@ -430,29 +431,6 @@ class Business
         }
     }
 
-    /**
-     * Set subscription
-     *
-     * @param  \Trackme\BackendBundle\Entity\Subscription $subscription
-     * @return Business
-     */
-    public function setSubscription(\Trackme\BackendBundle\Entity\Subscription $subscription = null)
-    {
-        $this->subscription = $subscription;
-
-        return $this;
-    }
-
-    /**
-     * Get subscription
-     *
-     * @return \Trackme\BackendBundle\Entity\Subscription
-     */
-    public function getSubscription()
-    {
-        return $this->subscription;
-    }
-
     public function getIdUsers()
     {
         $users = array();
@@ -461,5 +439,28 @@ class Business
         }
 
         return $users;
+    }
+
+    /**
+     * Set plan
+     *
+     * @param  \Trackme\BackendBundle\Entity\Plan $plan
+     * @return Business
+     */
+    public function setPlan(\Trackme\BackendBundle\Entity\Plan $plan = null)
+    {
+        $this->plan = $plan;
+
+        return $this;
+    }
+
+    /**
+     * Get plan
+     *
+     * @return \Trackme\BackendBundle\Entity\Plan
+     */
+    public function getPlan()
+    {
+        return $this->plan;
     }
 }

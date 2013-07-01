@@ -40,8 +40,13 @@ class Subscription
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="Business", mappedBy="subscription")
-     **/
+     * @var \Business
+     *
+     * @ORM\ManyToOne(targetEntity="Business", inversedBy="subscriptions")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="business_id", referencedColumnName="id")
+     * })
+     */
     private $business;
 
     /**
@@ -216,5 +221,28 @@ class Subscription
     public function getBusiness()
     {
         return $this->business;
+    }
+
+    /**
+     * Set amount
+     *
+     * @param integer $amount
+     * @return Subscription
+     */
+    public function setAmount($amount)
+    {
+        $this->amount = $amount;
+    
+        return $this;
+    }
+
+    /**
+     * Get amount
+     *
+     * @return integer 
+     */
+    public function getAmount()
+    {
+        return $this->amount;
     }
 }

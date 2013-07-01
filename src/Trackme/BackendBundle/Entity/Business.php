@@ -100,7 +100,8 @@ class Business
     private $users;
 
     /**
-     * @ORM\OneToOne(targetEntity="Subscription", inversedBy="business", cascade={"persist"})
+     * @var \Doctrine\Common\Collections\Collection $subscriptions
+     * @ORM\OneToMany(targetEntity="Subscription", mappedBy="business", cascade={"persist"})
      */
     private $subscription;
 
@@ -430,29 +431,6 @@ class Business
         }
     }
 
-    /**
-     * Set subscription
-     *
-     * @param  \Trackme\BackendBundle\Entity\Subscription $subscription
-     * @return Business
-     */
-    public function setSubscription(\Trackme\BackendBundle\Entity\Subscription $subscription = null)
-    {
-        $this->subscription = $subscription;
-
-        return $this;
-    }
-
-    /**
-     * Get subscription
-     *
-     * @return \Trackme\BackendBundle\Entity\Subscription
-     */
-    public function getSubscription()
-    {
-        return $this->subscription;
-    }
-
     public function getIdUsers()
     {
         $users = array();
@@ -484,5 +462,38 @@ class Business
     public function getPlan()
     {
         return $this->plan;
+    }
+
+    /**
+     * Add subscription
+     *
+     * @param \Trackme\BackendBundle\Entity\Subscription $subscription
+     * @return Business
+     */
+    public function addSubscription(\Trackme\BackendBundle\Entity\Subscription $subscription)
+    {
+        $this->subscription[] = $subscription;
+    
+        return $this;
+    }
+
+    /**
+     * Remove subscription
+     *
+     * @param \Trackme\BackendBundle\Entity\Subscription $subscription
+     */
+    public function removeSubscription(\Trackme\BackendBundle\Entity\Subscription $subscription)
+    {
+        $this->subscription->removeElement($subscription);
+    }
+
+    /**
+     * Get subscription
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSubscription()
+    {
+        return $this->subscription;
     }
 }

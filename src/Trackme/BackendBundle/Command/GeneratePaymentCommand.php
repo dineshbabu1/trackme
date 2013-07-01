@@ -7,6 +7,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Trackme\BackendBundle\Entity\Subscription;
  
 class GeneratePaymentCommand extends ContainerAwareCommand
 {
@@ -22,6 +23,8 @@ class GeneratePaymentCommand extends ContainerAwareCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
 
+        $uf = $this->getContainer()->get('trackme.payment.controller')->ufAction()->getContent();
+        $em = $this->getContainer()->get('doctrine.orm.entity_manager');
         $business = $this->getContainer()->get('doctrine')
                     ->getRepository("TrackmeBackendBundle:Business")
                     ->createQueryBuilder("u")
@@ -31,10 +34,14 @@ class GeneratePaymentCommand extends ContainerAwareCommand
         foreach ($business as $b) {
             if($b->getEnabled()){
                 $sub = new Subscription();
-                $sub->setAmount($b->getPlan()->get)
+                $sub->setBusiness($b);
+                $sub->setAmount($b->getPlan()->getPrice() * $uf);
+                $em->persist($sub);
+                $em->flush();
             }
         }
- 
+
+        $output->writeln("Ejecucion correcta.");
  
         return 0;
     }
