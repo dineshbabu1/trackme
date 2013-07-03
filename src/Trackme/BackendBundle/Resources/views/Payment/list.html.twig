@@ -13,6 +13,25 @@
 {% if uf is defined %}
 	Valor UF: {{ uf }}
 {% endif %}
+    
+<div class="row-fluid">
+	<div class="span8">
+		<h3>Pagos Realizados</h3>
+		<table class="table table-striped table-hover table-condensed">
+			{% for p in payments%}
+            <tr class="list_trow">
+				<td>Fecha: {{ p.getUpdatedAt|date('d/m/Y') }}</td>
+				<td>Monto: $USD {{ p.getApprovedAmount }} </td>
+			</tr>
+            {% else %}
+            <tr class="list_trow">
+                <td>Por el momento no hay pagos aprovados</td>
+			</tr>
+            {% endfor %}
+            
+		</table>
+	</div>
+</div>
 
 
 {% endblock %}

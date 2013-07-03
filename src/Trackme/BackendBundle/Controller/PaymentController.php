@@ -42,12 +42,11 @@ class PaymentController extends Controller
             return $this->redirect($this->generateUrl('admin_business_payments'));
         }
 
+        $payments = $em->getRepository('JMS\Payment\CoreBundle\Entity\Payment')->findBy(array('state' => 8));
         
         $uf = $this->forward('trackme.payment.controller:ufAction')->getContent();
         
-        
-        
-        return $this->render("TrackmeBackendBundle:Payment:list.html.twig", array('uf' => $uf));
+        return $this->render("TrackmeBackendBundle:Payment:list.html.twig", array('payments' => $payments, 'uf' => $uf));
     }
 
     public function businessListAction(Request $request)
