@@ -20,9 +20,9 @@
 		<table class="table table-striped table-hover table-condensed">
 			{% for p in payments%}
             <tr class="list_trow">
-				<td>Fecha: {{ p.getUpdatedAt|date('d/m/Y') }}</td>
-				<td>Monto: $USD {{ p.getApprovedAmount }} </td>
-                <td>Cliente: {{ p.paymentInstruction }} </td>
+				<td>Fecha: {{ p.getPaymentInstruction.getPayments.first.getUpdatedAt|date('d/m/Y') }}</td>
+				<td>Monto: $USD {{ p.getPaymentInstruction.getPayments.first.getApprovedAmount|number_format(2, ',', '.') }} </td>
+                <td>Cliente: <strong>{{ p.getBusiness }}</strong> </td>
 			</tr>
             {% else %}
             <tr class="list_trow">

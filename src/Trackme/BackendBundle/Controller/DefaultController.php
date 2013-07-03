@@ -76,8 +76,10 @@ class DefaultController extends Controller
         $ob2->series($series_ot);
 
         $last_business = $em->getRepository('Trackme\BackendBundle\Entity\Business')->getLastBusiness();
+        
+        $payments = $em->getRepository('Trackme\BackendBundle\Entity\Subscription')->getPayments();
 
-        return $this->render('TrackmeBackendBundle:Default:dashboard_admin.html.twig', array('business' => $last_business, 'chart_coor' => $ob, 'chart_ot' => $ob2));
+        return $this->render('TrackmeBackendBundle:Default:dashboard_admin.html.twig', array('payments' => $payments, 'business' => $last_business, 'chart_coor' => $ob, 'chart_ot' => $ob2));
     }
 
     public function dashboardAction(Request $request)
@@ -114,7 +116,10 @@ class DefaultController extends Controller
         $map = $this->get('ivory_google_map.map');
         $map->setStylesheetOption('width', '100%');
         $map->setStylesheetOption('height', '500px');
-        $map->setCenter($business->getLat(), $business->getLng(), true);
+        if($business->getLat() && $business->getLng()){
+            $map->setCenter($business->getLat(), $business->getLng(), true);
+        }
+        
         $map->setLanguage('es');
 
         if ($request->isMethod('POST')) {

@@ -42,7 +42,7 @@ class PaymentController extends Controller
             return $this->redirect($this->generateUrl('admin_business_payments'));
         }
 
-        $payments = $em->getRepository('JMS\Payment\CoreBundle\Entity\Payment')->findBy(array('state' => 8));
+        $payments = $em->getRepository('Trackme\BackendBundle\Entity\Subscription')->getPayments();
         
         $uf = $this->forward('trackme.payment.controller:ufAction')->getContent();
         
@@ -57,7 +57,7 @@ class PaymentController extends Controller
         $business = $security->getToken()->getUser()->getBusiness();
         
         $payments_pendent = $em->getRepository('Trackme\BackendBundle\Entity\Subscription')->findBy(array('business' => $business, 'paymentInstruction' => null));
-        $approved = $em->getRepository('Trackme\BackendBundle\Entity\Subscription')->findBy(array('business' => $business, 'paymentInstruction' => !null));
+        $approved = $em->getRepository('Trackme\BackendBundle\Entity\Subscription')->getPaymentsBusiness($business, 12);
         
         $this->forward('trackme.payment.controller:ufAction')->getContent();
         return $this->render("TrackmeBackendBundle:Payment:business_list.html.twig", array('payments' => $payments_pendent, 'approved' => $approved));

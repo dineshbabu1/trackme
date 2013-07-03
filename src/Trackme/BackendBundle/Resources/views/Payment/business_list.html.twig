@@ -33,14 +33,14 @@ Track Me | Payments
 	<div class="span8">
 		<h3>Pagos Realizados</h3>
 		<table class="table table-striped table-hover table-condensed">
-			{% for a in approved%}
+			{% for p in approved%}
             <tr class="list_trow">
-				<td>Fecha: {{ a.getCreatedAt|date('d/m/Y') }}</td>
-				<td>Monto: ${{ a.getAmount }} </td>
+				<td>Fecha: {{ p.getPaymentInstruction.getPayments.first.getUpdatedAt|date('d/m/Y') }}</td>
+				<td>Monto: $USD {{ p.getPaymentInstruction.getPayments.first.getApprovedAmount|number_format(2, ',', '.') }} </td>
 			</tr>
             {% else %}
             <tr class="list_trow">
-                <td>¡Hurra! Por el momento no hay pagos aprovados</td>
+                <td>Por el momento no hay pagos aprovados</td>
 			</tr>
             {% endfor %}
             
