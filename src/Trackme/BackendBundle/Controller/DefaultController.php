@@ -41,40 +41,45 @@ class DefaultController extends Controller
         return array('name' => $name);
     }
 
+    public function firstLogin()
+    {
+        
+    }
+
     public function dashboard_adminAction()
     {
         $security = $this->get('security.context');
         if (!$security->isGranted('ROLE_SUPER_ADMIN')) {
             throw $this->createNotFoundException('La pagina solicitada no existe');
         }
-        
-        $em = $this->getDoctrine()->getManager();        
-        
+
+        $em = $this->getDoctrine()->getManager();
+
         $serie_coor = $em->getRepository('Trackme\BackendBundle\Entity\Coordinate')->getStatsByWeek();
         $serie_ot = $em->getRepository('Trackme\BackendBundle\Entity\Ot')->getOtsByWeek();
 
         $series_coor = array(
-            array("name" => "Coordenadas",    "data" => $serie_coor)
+            array("name" => "Coordenadas", "data" => $serie_coor)
         );
 
         $ob = new Highchart();
         $ob->chart->renderTo('linechart_coor');  // The #id of the div where to render the chart
         $ob->title->text('Coordenadas por mes');
-        $ob->xAxis->title(array('text'  => "Semanas mes actual"));
-        $ob->yAxis->title(array('text'  => "Cantidad coordenadas"));
+        $ob->xAxis->title(array('text' => "Semanas mes actual"));
+        $ob->yAxis->title(array('text' => "Cantidad coordenadas"));
         $ob->series($series_coor);
 
         $series_ot = array(
-            array("name" => "Ordenes de Transporte",    "data" => $serie_ot)
+            array("name" => "Ordenes de Transporte", "data" => $serie_ot)
         );
 
         $ob2 = new Highchart();
         $ob2->chart->renderTo('linechart_ot');  // The #id of the div where to render the chart
         $ob2->title->text('OT por mes');
-        $ob2->xAxis->title(array('text'  => "Semanas mes actual"));
-        $ob2->yAxis->title(array('text'  => "Cantidad ot"));
+        $ob2->xAxis->title(array('text' => "Semanas mes actual"));
+        $ob2->yAxis->title(array('text' => "Cantidad ot"));
         $ob2->series($series_ot);
-        
+
         $last_business = $em->getRepository('Trackme\BackendBundle\Entity\Business')->getLastBusiness();
 
         return $this->render('TrackmeBackendBundle:Default:dashboard_admin.html.twig', array('business' => $last_business, 'chart_coor' => $ob, 'chart_ot' => $ob2));
@@ -89,6 +94,10 @@ class DefaultController extends Controller
 
         if ($security->isGranted('ROLE_SUPER_ADMIN')) {
             return $this->redirect($this->generateUrl('dashboard_admin'));
+        }
+
+        if (!$security->getToken()->getUser()->getLastLogin()) {
+            return $this->redirect($this->generateUrl('first_login'));
         }
 
         $business = $security->getToken()->getUser()->getBusiness();
@@ -107,8 +116,8 @@ class DefaultController extends Controller
 
         try {
             $result = $this->container->get('bazinga_geocoder.geocoder')
-            ->using('free_geo_ip')
-            ->geocode($this->getRequest()->server->get('REMOTE_ADDR'));
+                ->using('free_geo_ip')
+                ->geocode($this->getRequest()->server->get('REMOTE_ADDR'));
         } catch (Exception $e) {
             echo $e->getMessage();
         }
@@ -135,7 +144,7 @@ class DefaultController extends Controller
                 if ($origen->getLatitude() && $origen->getLongitude()) {
                     $markerOrigen = new Marker();
                     $markerOrigen->setPosition($origen->getLatitude(), $origen->getLongitude());
-                    $markerOrigen->setIcon($baseurl.'/bundles/trackmebackend/img/letter_a.png');
+                    $markerOrigen->setIcon($baseurl . '/bundles/trackmebackend/img/letter_a.png');
                     $map->addMarker($markerOrigen);
                 }
 
@@ -145,7 +154,7 @@ class DefaultController extends Controller
                 if ($destino->getLatitude() && $destino->getLongitude()) {
                     $markerDestino = new Marker();
                     $markerDestino->setPosition($destino->getLatitude(), $destino->getLongitude());
-                    $markerDestino->setIcon($baseurl.'/bundles/trackmebackend/img/letter_b.png');
+                    $markerDestino->setIcon($baseurl . '/bundles/trackmebackend/img/letter_b.png');
                     $map->addMarker($markerDestino);
                 }
                 $directions = $this->get('ivory_google_map.directions');
@@ -182,46 +191,47 @@ class DefaultController extends Controller
                 $infoWindow = $this->setInfoMarker($active);
 
                 $marker = new Marker();
-                $marker->setPosition($active->getLat(),$active->getLng(), true);
-                $marker->setIcon($baseurl.'/bundles/trackmebackend/img/car.png');
+                $marker->setPosition($active->getLat(), $active->getLng(), true);
+                $marker->setIcon($baseurl . '/bundles/trackmebackend/img/car.png');
                 $marker->setInfoWindow($infoWindow);
                 $map->addMarker($marker);
             }
 
-            if ($last_ots) {
-                $ots = reset($last_ots);
-
-                $polyline = new Polyline();
-                $polyline->setPrefixJavascriptVariable('polygon_'.$ots->getId());
-                $polyline->setOption('fillColor', '#000000');
-                $polyline->setOption('fillOpacity', 0.5);
-                $polyline->setOptions(array(
-                    'fillColor'   => '#000000',
-                    'fillOpacity' => 0.5,
-                ));
-
-                $last_coor = $ots->getCoordinates()->last();
-                $first_coor = $ots->getCoordinates()->first();
-
-                $markerFirst = new Marker();
-                $markerFirst->setPosition($first_coor->getLat(),$first_coor->getLng(), true);
-                $markerFirst->setIcon($baseurl.'/bundles/trackmebackend/img/letter_a.png');
-                $map->addMarker($markerFirst);
-
-                $markerLast = new Marker();
-                $markerLast->setPosition($last_coor->getLat(),$last_coor->getLng(), true);
-                $markerLast->setIcon($baseurl.'/bundles/trackmebackend/img/letter_b.png');
-                $map->addMarker($markerLast);
-
-                foreach ($ots->getCoordinates() as $c) {
-                    $polyline->addCoordinate($c->getLat(), $c->getLng(), true);
-                }
-
-                $map->addPolyline($polyline);
-                $map->setMapOption('zoom', 11);
-            } else {
-                $map->setMapOption('zoom', 11);
-            }
+//            if ($last_ots) {
+//                $ots = reset($last_ots);
+//
+//                $polyline = new Polyline();
+//                $polyline->setPrefixJavascriptVariable('polygon_'.$ots->getId());
+//                $polyline->setOption('fillColor', '#000000');
+//                $polyline->setOption('fillOpacity', 0.5);
+//                $polyline->setOptions(array(
+//                    'fillColor'   => '#000000',
+//                    'fillOpacity' => 0.5,
+//                ));
+//
+//                $last_coor = $ots->getCoordinates()->last();
+//                $first_coor = $ots->getCoordinates()->first();
+//
+//                $markerFirst = new Marker();
+//                $markerFirst->setPosition($first_coor->getLat(),$first_coor->getLng(), true);
+//                $markerFirst->setIcon($baseurl.'/bundles/trackmebackend/img/letter_a.png');
+//                $map->addMarker($markerFirst);
+//
+//                $markerLast = new Marker();
+//                $markerLast->setPosition($last_coor->getLat(),$last_coor->getLng(), true);
+//                $markerLast->setIcon($baseurl.'/bundles/trackmebackend/img/letter_b.png');
+//                $map->addMarker($markerLast);
+//
+//                foreach ($ots->getCoordinates() as $c) {
+//                    $polyline->addCoordinate($c->getLat(), $c->getLng(), true);
+//                }
+//
+////                $map->addPolyline($polyline);
+//                $map->setMapOption('zoom', 11);
+//            } else {
+//                
+//            }
+            $map->setMapOption('zoom', 11);
         }
 
         return $this->render('TrackmeBackendBundle:Default:dashboard.html.twig', array('estimate' => $estimate, 'duration' => $duration, 'distance' => $distance, 'map' => $map, 'form' => $form->createView()));

@@ -1,3 +1,6 @@
+first_login
+    path: /admin/business/setup
+    defaults:  { _controller: TrackmeBackendBundle:Default:firstLogin }
 uf:
     pattern:      /uf
     defaults:     { _controller: trackme.payment.controller:ufAction }
