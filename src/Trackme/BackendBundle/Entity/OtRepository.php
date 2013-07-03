@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the TrackmeBackendBundle package.
+ *
+ * (c) Gonzalo Moreno <goncab380@hotmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Trackme\BackendBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
@@ -13,7 +22,7 @@ use Doctrine\ORM\Query\ResultSetMapping;
  */
 class OtRepository extends EntityRepository
 {
-	public function getOtsByWeek()
+    public function getOtsByWeek()
     {
         $em = $this->getEntityManager();
         $rsm = new ResultSetMapping();
