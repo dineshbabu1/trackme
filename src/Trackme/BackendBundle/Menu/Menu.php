@@ -54,7 +54,6 @@ class Menu extends ContainerAware
           $this->addNavLinkRoute($empresa, 'Perfil Empresa', 'business_profile');
           $vehicle = $this->addNavLinkRoute($menu, 'Vehiculos', 'Trackme_BackendBundle_Vehicle_list')->setExtra('icon', 'icon-road');
           $payments = $this->addNavLinkRoute($menu, 'Pagos', 'admin_business_payments')->setExtra('icon', 'icon-credit-card');
-          $profile = $this->addNavLinkRoute($menu, 'Perfil Empresa', 'business_profile');
           $app = $this->addNavLinkUri($menu, 'Descarga Aplicacion', '#')->setExtra('icon', 'icon-star');
         } elseif ($security->isGranted('ROLE_FULL')) {
           $empresa = $this->addDropdownMenu($menu, 'Empresa')->setExtra('icon', 'icon-home');
