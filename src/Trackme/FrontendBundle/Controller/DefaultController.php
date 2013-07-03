@@ -139,6 +139,7 @@ class DefaultController extends Controller
             ->add('name', 'text', array('label' => 'Nombre'))
             ->add('email', 'email')
             ->add('phone', 'text', array('label' => 'Telefono'))
+            ->add('address', 'text', array('label' => 'Direccion', 'help' => 'Calle 123, Comuna Ciudad'))
             ->getForm();
 
         return $this->render('TrackmeFrontendBundle:Default:signup.html.twig', array('form' => $form->createView(), 'state' => $state, 'plan' => $plan));

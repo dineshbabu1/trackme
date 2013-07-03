@@ -22,6 +22,7 @@
             <tr class="list_trow">
 				<td>Fecha: {{ p.getUpdatedAt|date('d/m/Y') }}</td>
 				<td>Monto: $USD {{ p.getApprovedAmount }} </td>
+                <td>Cliente: {{ p.paymentInstruction }} </td>
 			</tr>
             {% else %}
             <tr class="list_trow">
