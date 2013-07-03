@@ -1,0 +1,32 @@
+{% extends 'TrackmeBackendBundle::base_admin_assetic_less.html.twig' %}
+
+{% block title %}
+Track Me | Perfil Empresa
+{% endblock title %}
+
+{% block navbar %}
+  {% include('TrackmeBackendBundle::base_admin_navbar.html.twig') %}
+{% endblock navbar %}
+
+{% block body %}
+<div class="row-fluid">
+  <div class="span6 offset1">
+    <h3>Editar información empresa</h3>
+      <form action="{{ path('business_profile') }}" method="post" {{ form_enctype(form) }}>
+          {{ form_widget(form) }}
+          <input type="submit" />
+      </form>
+  </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+<footer>
+	<hr>
+	<p>
+		{% block footer_text %}
+		&copy; {{"now"|date("Y")}} Track Me! Todos los derechos reservados
+		{% endblock %}
+	</p>
+</footer>
+{% endblock footer %}

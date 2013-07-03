@@ -41,6 +41,53 @@ class DefaultController extends Controller
         return array('name' => $name);
     }
 
+    public function profileAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $security = $this->get('security.context');
+
+        $business = $security->getToken()->getUser()->getBusiness();
+
+        $form = $this->createFormBuilder($business)
+            ->add('name', 'text', array('label' => 'Nombre'))
+            ->add('email', 'email')
+            ->add('phone', 'text', array('label' => 'Telefono'))
+            ->add('address', 'text', array('label' => 'Direccion', 'help' => 'Calle 123, Comuna Ciudad'))
+            ->getForm();
+
+        if ($request->getMethod() === "POST") {
+            $form->bind($request);
+
+            if ($form->isValid()) {
+                $object = $form->getData();
+
+                try {
+                    $reference = $this->container->get('bazinga_geocoder.geocoder')
+                        ->using('google_maps')
+                        ->geocode($object->getAddress());
+                } catch (Exception $exc) {
+                    echo $exc->getMessage();
+                }
+
+                if ($reference->getLatitude() && $reference->getLongitude()) {
+                    $object->setLat($reference->getLatitude());
+                    $object->setLng($reference->getLongitude());
+                }
+
+                $em->persist($object);
+                $em->flush();
+                
+                $this->get('session')->getFlashBag()->add(
+                    'success',
+                    'La información de su empresa fue actualizada exitosamente.'
+                );
+            }
+        }
+
+        return $this->render('TrackmeBackendBundle:Default:profile.html.twig', array('form' => $form->createView()));
+    }
+
     public function dashboard_adminAction()
     {
         $security = $this->get('security.context');
@@ -76,7 +123,7 @@ class DefaultController extends Controller
         $ob2->series($series_ot);
 
         $last_business = $em->getRepository('Trackme\BackendBundle\Entity\Business')->getLastBusiness();
-        
+
         $payments = $em->getRepository('Trackme\BackendBundle\Entity\Subscription')->getPayments();
 
         return $this->render('TrackmeBackendBundle:Default:dashboard_admin.html.twig', array('payments' => $payments, 'business' => $last_business, 'chart_coor' => $ob, 'chart_ot' => $ob2));
@@ -116,10 +163,10 @@ class DefaultController extends Controller
         $map = $this->get('ivory_google_map.map');
         $map->setStylesheetOption('width', '100%');
         $map->setStylesheetOption('height', '500px');
-        if($business->getLat() && $business->getLng()){
+        if ($business->getLat() && $business->getLng()) {
             $map->setCenter($business->getLat(), $business->getLng(), true);
         }
-        
+
         $map->setLanguage('es');
 
         if ($request->isMethod('POST')) {

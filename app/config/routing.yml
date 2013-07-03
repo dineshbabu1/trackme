@@ -1,3 +1,7 @@
+business_profile:
+    pattern:      /admin/business/profile
+    defaults:  { _controller: TrackmeBackendBundle:Default:profile }   
+
 uf:
     pattern:      /uf
     defaults:     { _controller: trackme.payment.controller:ufAction }

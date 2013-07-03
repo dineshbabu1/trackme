@@ -15,6 +15,8 @@ params:
             help: Segun esta direccion, el mapa será centrado en el dashboard
         enabled:
             label: Habilitado
+        state:
+            label: Estado Cliente
     object_actions:
         delete: ~
     batch_actions:
@@ -46,14 +48,14 @@ builders:
     new:
         params:
             title: Nuevo cliente (empresa)
-            display: [name, email, phone, address, plan]
+            display: [name, email, phone, address, plan, state]
             actions:
                 save: ~
                 list: ~
     edit:
         params:
             title: "Editando cliente \"%object%\"|{ %object%: Business.name }|"
-            display: [name, email, phone, address, plan]
+            display: [name, email, phone, address, plan, state]
             actions:
                 save: ~
                 list: ~
