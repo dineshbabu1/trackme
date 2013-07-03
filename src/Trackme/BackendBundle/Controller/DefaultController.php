@@ -41,11 +41,6 @@ class DefaultController extends Controller
         return array('name' => $name);
     }
 
-    public function firstLogin()
-    {
-        
-    }
-
     public function dashboard_adminAction()
     {
         $security = $this->get('security.context');
@@ -96,10 +91,6 @@ class DefaultController extends Controller
             return $this->redirect($this->generateUrl('dashboard_admin'));
         }
 
-        if (!$security->getToken()->getUser()->getLastLogin()) {
-            return $this->redirect($this->generateUrl('first_login'));
-        }
-
         $business = $security->getToken()->getUser()->getBusiness();
 
         $last_ots = $em->getRepository('Trackme\BackendBundle\Entity\Business')->getLastOt($business, 10);
@@ -114,14 +105,6 @@ class DefaultController extends Controller
             ->add('kilometros_por_litro', 'text')
             ->getForm();
 
-        try {
-            $result = $this->container->get('bazinga_geocoder.geocoder')
-                ->using('free_geo_ip')
-                ->geocode($this->getRequest()->server->get('REMOTE_ADDR'));
-        } catch (Exception $e) {
-            echo $e->getMessage();
-        }
-
         $best_route = 0;
         $duration = 0;
         $summary = "";
@@ -131,7 +114,7 @@ class DefaultController extends Controller
         $map = $this->get('ivory_google_map.map');
         $map->setStylesheetOption('width', '100%');
         $map->setStylesheetOption('height', '500px');
-        $map->setCenter($result->getLatitude(), $result->getLongitude(), true);
+        $map->setCenter($business->getLat(), $business->getLng(), true);
         $map->setLanguage('es');
 
         if ($request->isMethod('POST')) {

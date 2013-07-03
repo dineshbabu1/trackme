@@ -22,4 +22,21 @@ use Admingenerated\TrackmeBackendBundle\BaseBusinessController\EditController as
 
 class EditController extends BaseEditController
 {
+    
+    public function preSave(\Symfony\Component\Form\Form $form, \Trackme\BackendBundle\Entity\Business $Business){
+        
+        $data = $form->getData();
+        try {
+            $reference = $this->container->get('bazinga_geocoder.geocoder')
+                ->using('google_maps')
+                ->geocode($data->getAddress());
+        } catch (Exception $exc) {
+            echo $exc->getMessage();
+        }
+
+        if ($reference->getLatitude() && $reference->getLongitude()) {
+            $data->setLat($reference->getLatitude());
+            $data->setLng($reference->getLongitude());
+        }
+    }
 }

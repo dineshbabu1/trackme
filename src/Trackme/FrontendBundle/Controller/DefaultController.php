@@ -152,6 +152,7 @@ class DefaultController extends Controller
             ->add('name', 'text', array('label' => 'Nombre'))
             ->add('email', 'email')
             ->add('phone', 'text', array('label' => 'Telefono'))
+            ->add('address', 'text', array('label' => 'Direccion', 'help' => 'Calle 123, Comuna Ciudad'))
             ->getForm();
 
         $form->bind($request);
@@ -161,6 +162,20 @@ class DefaultController extends Controller
             $plan = $em->getRepository('Trackme\BackendBundle\Entity\Plan')->find($request->get('plan'));
 
             $object = $form->getData();
+            
+            try {
+                $reference = $this->container->get('bazinga_geocoder.geocoder')
+                    ->using('google_maps')
+                    ->geocode($object->getAddress());
+            } catch (Exception $exc) {
+                echo $exc->getMessage();
+            }
+
+            if ($reference->getLatitude() && $reference->getLongitude()) {
+                $object->setLat($reference->getLatitude());
+                $object->setLng($reference->getLongitude());
+            }
+            
             $object->setState($state);
             $object->setPlan($plan);
             $em->persist($object);

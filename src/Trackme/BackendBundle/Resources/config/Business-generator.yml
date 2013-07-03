@@ -10,6 +10,9 @@ params:
             label: Nombre
         phone:
             label: Teléfono
+        address:
+            label: Dirección de Referencia
+            help: Segun esta direccion, el mapa será centrado en el dashboard
         enabled:
             label: Habilitado
     object_actions:
@@ -43,14 +46,14 @@ builders:
     new:
         params:
             title: Nuevo cliente (empresa)
-            display: [name, email, phone, plan]
+            display: [name, email, phone, address, plan]
             actions:
                 save: ~
                 list: ~
     edit:
         params:
             title: "Editando cliente \"%object%\"|{ %object%: Business.name }|"
-            display: [name, email, phone, plan]
+            display: [name, email, phone, address, plan]
             actions:
                 save: ~
                 list: ~
