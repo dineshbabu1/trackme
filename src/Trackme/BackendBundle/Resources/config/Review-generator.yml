@@ -20,8 +20,7 @@ builders:
             object_actions:
                 edit:
                     credentials: 'hasRole("ROLE_SUPER_ADMIN")'
-                delete:
-                    credentials: 'hasRole("ROLE_SUPER_ADMIN")'
+                delete: ~
     filters:
         params:
             display: []
