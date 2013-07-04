@@ -14,19 +14,6 @@ params:
         groups:
             credentials: 'hasRole("ROLE_SUPER_ADMIN")'
             label: Grupo
-        roles:
-            formType: choice
-            addFormOptions:
-                empty_value: ''
-                choices:
-                    ROLE_USER: "Usuario"
-                    ROLE_FULL: "Full"
-                    ROLE_BUSINESS: "Business"
-                    ROLE_BASICO: "Básico"
-                    ROLE_TRIAL: "Trial"
-                    ROLE_SUPER_ADMIN: "Super ADMIN"
-            credentials: 'hasRole("ROLE_SUPER_ADMIN")'
-            label: Roles    
         last_name:
             label: Apellido
         username:
