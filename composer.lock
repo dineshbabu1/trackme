@@ -961,12 +961,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/l3pp4rd/DoctrineExtensions.git",
-                "reference": "e5287b603406d6640b722cf15066d7d3b315e6ca"
+                "reference": "e23aced40ca94e1e9dc397620d410e11754ce3e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/e5287b603406d6640b722cf15066d7d3b315e6ca",
-                "reference": "e5287b603406d6640b722cf15066d7d3b315e6ca",
+                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/e23aced40ca94e1e9dc397620d410e11754ce3e0",
+                "reference": "e23aced40ca94e1e9dc397620d410e11754ce3e0",
                 "shasum": ""
             },
             "require": {
@@ -1033,7 +1033,7 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2013-07-03 16:37:34"
+            "time": "2013-07-04 16:16:54"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -1480,7 +1480,7 @@
             "require": {
                 "ext-mcrypt": "*",
                 "php": ">=5.3.2",
-                "symfony/framework-bundle": ">=2.0,<3.0"
+                "symfony/framework-bundle": "~2.0"
             },
             "require-dev": {
                 "doctrine/doctrine-bundle": "*",
@@ -1542,7 +1542,7 @@
             "require": {
                 "jms/payment-core-bundle": "dev-master",
                 "php": ">=5.3.2",
-                "symfony/framework-bundle": ">=2.0,<3.0"
+                "symfony/framework-bundle": "~2.0"
             },
             "require-dev": {
                 "symfony/browser-kit": "*"
@@ -2712,21 +2712,20 @@
         },
         {
             "name": "symfony/icu",
-            "version": "v1.2.0",
+            "version": "v1.0.0",
             "target-dir": "Symfony/Component/Icu",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Icu.git",
-                "reference": "v1.2.0"
+                "reference": "v1.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Icu/zipball/v1.2.0",
-                "reference": "v1.2.0",
+                "url": "https://api.github.com/repos/symfony/Icu/zipball/v1.0.0",
+                "reference": "v1.0.0",
                 "shasum": ""
             },
             "require": {
-                "lib-icu": ">=4.4",
                 "php": ">=5.3.3",
                 "symfony/intl": ">=2.3,<3.0"
             },
@@ -2756,7 +2755,7 @@
                 "icu",
                 "intl"
             ],
-            "time": "2013-06-03 18:32:58"
+            "time": "2013-06-03 18:32:07"
         },
         {
             "name": "symfony/monolog-bundle",
