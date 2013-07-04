@@ -14,12 +14,17 @@ params:
         groups:
             credentials: 'hasRole("ROLE_SUPER_ADMIN")'
             label: Grupo
+        roles:
+            credentials: 'hasRole("ROLE_SUPER_ADMIN")'
+            label: Roles    
         last_name:
             label: Apellido
         username:
             label: Usuario
         enabled:
             label: Habilitado
+        phone:
+            label: Teléfono
         plainPassword:
             label:          Password
             dbType:         text
@@ -56,7 +61,7 @@ builders:
             title: Nuevo Usuario
             display:
               NONE: [[name, last_name, phone, business]]
-              Usuario: [username, email, groups, plainPassword, enabled, emailable]
+              Usuario: [username, email, groups, roles, plainPassword, enabled, emailable]
             actions:
                 save: ~
                 save-and-add: ~
@@ -66,7 +71,7 @@ builders:
             title: "Editando a usuario \"%object%\"|{ %object%: User.username }|"
             display:
                 NONE: [[name, last_name, phone, business]]
-                Usuario: [username, email, groups, plainPassword, enabled, emailable]
+                Usuario: [username, email, groups, roles, plainPassword, enabled, emailable]
             actions:
                 save: ~
                 list: ~

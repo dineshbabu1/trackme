@@ -584,15 +584,11 @@ class Business
     public function canCreateUser(){
 
         $plan = $this->getPlan();
-        switch ($plan->getName()) {
-            case 'value':
-                # code...
-                break;
-            
-            default:
-                # code...
-                break;
-        }
-        if(count($this->getUsers()))
+
+        if($this->getUsers()->count() <= $plan->getUsersLimit())
+            return true;
+        else
+            return false;
+
     }
 }

@@ -14,6 +14,8 @@ params:
         refresh_time:
             label: Tiempo de refresco
             help: El envio de las coordenadas esta dada por los segundos.
+        users_limit:
+            label: Cantidad maxima de usuarios
         price:
             label: Precio
             addFormOptions:
@@ -33,7 +35,7 @@ builders:
     list:
         params:
             title: Planes
-            display: [ name, featured, price ]
+            display: [ name, featured, price, users_limit ]
             actions:
                 new: ~
             object_actions:
@@ -45,21 +47,21 @@ builders:
     new:
         params:
             title: Nuevo plan
-            display: [ name, price, refresh_time, featured, description ]
+            display: [ name, price, refresh_time, users_limit, featured, description ]
             actions:
                 save: ~
                 list: ~
     edit:
         params:
             title: "Editando plan \"%object%\"|{ %object%: Plan.name }|"
-            display: [ name, price, refresh_time, featured, description ]
+            display: [ name, price, refresh_time, users_limit, featured, description ]
             actions:
                 save: ~
                 list: ~
     show:
         params:
             title: "Viendo plan \"%object%\"|{ %object%: Plan.name }|"
-            display: [ name, price, refresh_time, featured, description ]
+            display: [ name, price, refresh_time, users_limit, featured, description ]
             actions:
                 list: ~
                 new: ~

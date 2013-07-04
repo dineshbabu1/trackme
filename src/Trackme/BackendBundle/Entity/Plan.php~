@@ -1,19 +1,12 @@
 <?php
 
 /*
- * Copyright 2013 Gonzalo Moreno <goncab380@hotmail.com>
+ * This file is part of the TrackmeBackendBundle package.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * (c) Gonzalo Moreno <goncab380@hotmail.com>
  *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Trackme\BackendBundle\Entity;
@@ -66,9 +59,23 @@ class Plan
     private $price;
 
     /**
+     * @ORM\Column(name="users_limit", type="integer", nullable=false)
+     */
+    private $users_limit;
+
+    /**
      * @ORM\Column(name="refresh_time", type="integer", nullable=false)
      */
     private $refresh_time;
+
+    /**
+     * Plan to string
+     * @return string
+     */
+    public function __toString()
+    {
+        return sprintf('%s', $this->getName());
+    }
 
     /**
      * Get id
@@ -170,5 +177,28 @@ class Plan
     public function getPrice()
     {
         return $this->price;
+    }
+
+    /**
+     * Set refresh_time
+     *
+     * @param  integer $refreshTime
+     * @return Plan
+     */
+    public function setRefreshTime($refreshTime)
+    {
+        $this->refresh_time = $refreshTime;
+
+        return $this;
+    }
+
+    /**
+     * Get refresh_time
+     *
+     * @return integer
+     */
+    public function getRefreshTime()
+    {
+        return $this->refresh_time;
     }
 }

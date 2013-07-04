@@ -59,6 +59,11 @@ class Plan
     private $price;
 
     /**
+     * @ORM\Column(name="users_limit", type="integer", nullable=false)
+     */
+    private $users_limit;
+
+    /**
      * @ORM\Column(name="refresh_time", type="integer", nullable=false)
      */
     private $refresh_time;
@@ -195,5 +200,28 @@ class Plan
     public function getRefreshTime()
     {
         return $this->refresh_time;
+    }
+
+    /**
+     * Set users_limit
+     *
+     * @param integer $usersLimit
+     * @return Plan
+     */
+    public function setUsersLimit($usersLimit)
+    {
+        $this->users_limit = $usersLimit;
+    
+        return $this;
+    }
+
+    /**
+     * Get users_limit
+     *
+     * @return integer 
+     */
+    public function getUsersLimit()
+    {
+        return $this->users_limit;
     }
 }

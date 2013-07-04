@@ -1,1 +1,14 @@
 {% extends_admingenerated "TrackmeBackendBundle:UserList:index.html.twig" %}
+
+{% block list_object_action_new %}
+
+{% if app.user.business %}
+	{% if app.user.business.canCreateUser() %}
+	<a class="btn btn-primary {{ app.user.business }}" href="{{ path("Trackme_BackendBundle_User_new", {}) }}"><i class="icon-white icon-plus"></i> {% trans from "Admingenerator" %}action.generic.new{% endtrans %}
+	</a>
+	{% endif %}
+{% else %}
+	<a class="btn btn-primary {{ app.user }}" href="{{ path("Trackme_BackendBundle_User_new", {}) }}"><i class="icon-white icon-plus"></i> {% trans from "Admingenerator" %}action.generic.new{% endtrans %}
+	</a>
+{% endif %}
+{% endblock list_object_action_new %}
