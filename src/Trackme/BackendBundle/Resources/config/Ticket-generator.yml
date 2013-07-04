@@ -14,6 +14,10 @@ params:
             label: Titulo
         description:
             label: Descripción
+        state:
+            label: Estado
+        user:
+            label: Usuario        
         type:
             formType: choice
             label: Tipo
@@ -26,13 +30,12 @@ builders:
     list:
         params:
             title: Tickets de soporte
-            display: [ title, user, type ]
+            display: [ title, user, type, state]
             fields:
                 user:
                     credentials: 'hasRole("ROLE_SUPER_ADMIN")'
             actions:
                 new: ~
-            credentials: 'hasRole("ROLE_SUPER_ADMIN")'
             object_actions:
                 show: ~
                 edit:
@@ -40,19 +43,19 @@ builders:
                 
     filters:
         params:
-            display: [ type ]
+            display: [ type, state]
     new:
         params:
             title: Nuevo ticket
             display: [ title, type, description]
             credentials: 'hasRole("ROLE_FULL")'
             actions:
-                save: ~
+                save-and-list: ~
                 list: ~
     edit:
         params:
             title: "Editando el ticket \"%object%\"|{ %object%: Ticket.title }|"
-            display: [ title, type, description]
+            display: [ title, type, state, user, description]
             credentials: 'hasRole("ROLE_SUPER_ADMIN")'
             actions:
                 save: ~
@@ -60,7 +63,7 @@ builders:
     show:
         params:
             title: "Viendo el ticket \"%object%\"|{ %object%: Ticket.title }|"
-            display: [ title, type, description]
+            display: [ title, type, state, user, description]
             credentials: 'hasRole("ROLE_SUPER_ADMIN")'
             actions:
                 list: ~

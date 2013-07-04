@@ -580,4 +580,19 @@ class Business
     {
         return $this->address;
     }
+
+    public function canCreateUser(){
+
+        $plan = $this->getPlan();
+        switch ($plan->getName()) {
+            case 'value':
+                # code...
+                break;
+            
+            default:
+                # code...
+                break;
+        }
+        if(count($this->getUsers()))
+    }
 }

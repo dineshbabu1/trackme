@@ -37,6 +37,11 @@ class TicketState
      */
     private $name;
 
+    public function __toString()
+    {
+        return sprintf('%s', $this->getName());
+    }
+
     /**
      * Get id
      *

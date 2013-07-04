@@ -41,23 +41,9 @@ class Review
     /**
      * @var boolean
      *
-     * @ORM\Column(name="approved", type="boolean", nullable=false)
+     * @ORM\Column(name="approved", type="boolean", nullable=true)
      */
     private $approved;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="created", type="datetime", nullable=false)
-     */
-    private $created;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="updated", type="datetime", nullable=false)
-     */
-    private $updated;
 
     /**
      * @var \Business

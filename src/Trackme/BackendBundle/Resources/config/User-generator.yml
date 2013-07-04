@@ -55,7 +55,7 @@ builders:
         params:
             title: Nuevo Usuario
             display:
-              NONE: [[name, last_name, business]]
+              NONE: [[name, last_name, phone, business]]
               Usuario: [username, email, groups, plainPassword, enabled, emailable]
             actions:
                 save: ~
@@ -65,7 +65,7 @@ builders:
         params:
             title: "Editando a usuario \"%object%\"|{ %object%: User.username }|"
             display:
-                NONE: [[name, last_name, business]]
+                NONE: [[name, last_name, phone, business]]
                 Usuario: [username, email, groups, plainPassword, enabled, emailable]
             actions:
                 save: ~
@@ -73,7 +73,7 @@ builders:
     show:
         params:
             title: "Viendo \"%object%\"|{ %object%: User.username }|"
-            display: [name, last_name, username, email, enabled, emailable]
+            display: [name, last_name, phone, username, email, enabled, emailable]
             actions:
                 list: ~
                 new: ~

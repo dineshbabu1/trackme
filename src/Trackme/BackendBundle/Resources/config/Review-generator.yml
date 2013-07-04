@@ -30,7 +30,7 @@ builders:
             title: Nueva Reseña
             display: [ comment ]
             actions:
-                save: ~
+                save-and-list: ~
                 list: ~
     edit:
         params:

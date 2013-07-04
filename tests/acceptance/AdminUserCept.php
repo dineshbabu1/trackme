@@ -5,7 +5,7 @@ $I->amOnPage('/');
 $I->click('Ingresar');
 $I->see('Autenticación');
 $I->see('Track Me!');
-$I->wantTo('Llenar el formulario de ingreso');
+$I->amGoingTo('Llenar el formulario de ingreso');
 $I->fillField('username', 'admin');
 $I->fillField('password', 'admin');
 $I->click('Entrar');

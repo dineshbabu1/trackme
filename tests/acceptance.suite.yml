@@ -22,7 +22,7 @@ modules:
         #     capabilities:
         #         unexpectedAlertBehaviour: 'accept'
         PhpBrowser:
-            url: 'http://trackme.cl/app_dev.php'
+            url: 'http://trackme.cl/app.php'
         Db:
             dsn: 'mysql:host=localhost;dbname=trackme_test'
             user: 'root'
