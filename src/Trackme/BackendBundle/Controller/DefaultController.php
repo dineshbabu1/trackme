@@ -135,6 +135,11 @@ class DefaultController extends Controller
 
         $business = $security->getToken()->getUser()->getBusiness();
 
+        if (!$business)
+        {
+            throw $this->createNotFoundException('La pagina solicitada no existe');
+        } 
+
         $last_ots = $em->getRepository('Trackme\BackendBundle\Entity\Business')->getLastOt($business, 10);
 
         // Las coordenadas activas de una empresa
