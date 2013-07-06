@@ -5,6 +5,7 @@ params:
     entity_manager: ~
     concurrency_lock: ~
     bundle_name: BackendBundle
+    pk_requirement: ~
     fields:
         name:
             label: Nombre

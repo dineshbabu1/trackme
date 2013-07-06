@@ -5,6 +5,7 @@ params:
     entity_manager: ~
     concurrency_lock: ~
     bundle_name: BackendBundle
+    pk_requirement: ~
     fields:
         name:
             label: Nombre
@@ -48,21 +49,21 @@ builders:
     new:
         params:
             title: Nuevo cliente (empresa)
-            display: [name, email, phone, address, plan, state]
+            display: [name, email, phone, address, enabled, plan, state]
             actions:
                 save: ~
                 list: ~
     edit:
         params:
             title: "Editando cliente \"%object%\"|{ %object%: Business.name }|"
-            display: [name, email, phone, address, plan, state]
+            display: [name, email, phone, address, enabled, plan, state]
             actions:
                 save: ~
                 list: ~
     show:
         params:
             title: "Viendo cliente \"%object%\"|{ %object%: Business.name }|"
-            display: [name,email,phone,enabled]
+            display: [name, email, phone, address, enabled, plan, state]
             actions:
                 list: ~
                 new: ~
