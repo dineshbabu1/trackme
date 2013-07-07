@@ -36,7 +36,7 @@ builders:
                         filters:
                             enabled: true
             title: Clientes
-            display: [name,email,phone,enabled]
+            display: [name,email,phone,plan]
             actions:
                 new: ~
             object_actions:
@@ -45,7 +45,7 @@ builders:
                 delete: ~
     filters:
         params:
-            display: [name, email, phone]
+            display: [name, email, phone, plan]
     new:
         params:
             title: Nuevo cliente (empresa)

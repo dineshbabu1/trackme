@@ -61,6 +61,12 @@ class Subscription
 
     /**
      * @var \DateTime
+     * @ORM\Column(name="date_payment", type="datetime", nullable=true)
+     */
+    private $date_payment;
+
+    /**
+     * @var \DateTime
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(name="created_at", type="datetime", nullable=true)
      */

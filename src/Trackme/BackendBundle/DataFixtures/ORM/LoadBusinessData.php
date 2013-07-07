@@ -50,7 +50,7 @@ class LoadBusinessData extends AbstractFixture implements OrderedFixtureInterfac
         $manager->persist($business);
         
         $full = new Plan();
-        $full->setName('Trial');
+        $full->setName('Full');
         $full->setPrice(4.5);
         $full->setFeatured(false);
         $full->setRefreshTime(15);
