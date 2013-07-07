@@ -299,6 +299,7 @@ class Vehicle
      */
     public function removeIssue(\Trackme\BackendBundle\Entity\VehicleMantention $issues)
     {
+        $issues->setVehicle(null);
         $this->issues->removeElement($issues);
     }
 

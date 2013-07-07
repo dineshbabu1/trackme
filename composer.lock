@@ -56,12 +56,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony2admingenerator/AdmingeneratorGeneratorBundle.git",
-                "reference": "3639ad592fe1cb4cd755209b648a29f6c2ba823c"
+                "reference": "f11847d12e5f0eab4edff7df144b5a6f9b4ee23d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony2admingenerator/AdmingeneratorGeneratorBundle/zipball/3639ad592fe1cb4cd755209b648a29f6c2ba823c",
-                "reference": "3639ad592fe1cb4cd755209b648a29f6c2ba823c",
+                "url": "https://api.github.com/repos/symfony2admingenerator/AdmingeneratorGeneratorBundle/zipball/f11847d12e5f0eab4edff7df144b5a6f9b4ee23d",
+                "reference": "f11847d12e5f0eab4edff7df144b5a6f9b4ee23d",
                 "shasum": ""
             },
             "require": {
@@ -114,7 +114,7 @@
                 "generator",
                 "yaml"
             ],
-            "time": "2013-07-01 10:42:07"
+            "time": "2013-07-05 16:55:39"
         },
         {
             "name": "cedriclombardot/admingenerator-user-bundle",
@@ -181,7 +181,7 @@
             ],
             "authors": [
                 {
-                    "name": "Cédric Lombardot",
+                    "name": "Cedric LOMBARDOT",
                     "email": "cedric.lombardot@gmail.com"
                 },
                 {
@@ -299,7 +299,7 @@
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -744,12 +744,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ekino/EkinoNewRelicBundle.git",
-                "reference": "1.0.0"
+                "reference": "28836040858d37190914b67490908382ad0e4d9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ekino/EkinoNewRelicBundle/zipball/1.0.0",
-                "reference": "1.0.0",
+                "url": "https://api.github.com/repos/ekino/EkinoNewRelicBundle/zipball/28836040858d37190914b67490908382ad0e4d9d",
+                "reference": "28836040858d37190914b67490908382ad0e4d9d",
                 "shasum": ""
             },
             "require": {
@@ -784,7 +784,7 @@
                 "monitoring",
                 "performance"
             ],
-            "time": "2013-05-02 13:00:11"
+            "time": "2013-07-05 07:47:25"
         },
         {
             "name": "friendsofsymfony/jsrouting-bundle",
@@ -857,16 +857,16 @@
             },
             "require": {
                 "php": ">=5.3.2",
-                "symfony/form": ">=2.1,<3.0",
-                "symfony/framework-bundle": ">=2.1,<3.0",
-                "symfony/security-bundle": ">=2.1,<3.0"
+                "symfony/form": "~2.1",
+                "symfony/framework-bundle": "~2.1",
+                "symfony/security-bundle": "~2.1"
             },
             "require-dev": {
                 "doctrine/doctrine-bundle": "*",
                 "swiftmailer/swiftmailer": ">=4.3, <6.0",
-                "symfony/validator": ">=2.1,<3.0",
-                "symfony/yaml": ">=2.1,<3.0",
-                "twig/twig": ">=1.5,<2.0",
+                "symfony/validator": "~2.1",
+                "symfony/yaml": "~2.1",
+                "twig/twig": "~1.5",
                 "willdurand/propel-typehintable-behavior": "dev-master"
             },
             "suggest": {
@@ -961,12 +961,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/l3pp4rd/DoctrineExtensions.git",
-                "reference": "e23aced40ca94e1e9dc397620d410e11754ce3e0"
+                "reference": "c0a38826d3a02333a2670744d52ac627882ef102"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/e23aced40ca94e1e9dc397620d410e11754ce3e0",
-                "reference": "e23aced40ca94e1e9dc397620d410e11754ce3e0",
+                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/c0a38826d3a02333a2670744d52ac627882ef102",
+                "reference": "c0a38826d3a02333a2670744d52ac627882ef102",
                 "shasum": ""
             },
             "require": {
@@ -1033,7 +1033,7 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2013-07-04 16:16:54"
+            "time": "2013-07-05 05:32:00"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -1114,9 +1114,9 @@
             ],
             "authors": [
                 {
-                    "name": "Alexander S",
+                    "name": "Alexander",
                     "email": "alexander@iron.io",
-                    "homepage": "http://iron.io",
+                    "homepage": "https://www.briteverify.com/",
                     "role": "Developer"
                 }
             ],
@@ -1212,7 +1212,7 @@
                 {
                     "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -1297,7 +1297,7 @@
                 {
                     "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -1513,7 +1513,7 @@
                 {
                     "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -1692,7 +1692,7 @@
                     "email": "stof@notk.org"
                 },
                 {
-                    "name": "KnpLabs",
+                    "name": "Knplabs",
                     "homepage": "http://knplabs.com"
                 },
                 {
@@ -2083,7 +2083,7 @@
                 {
                     "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -2431,17 +2431,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataSeoBundle.git",
-                "reference": "266a376a13b952ed4717a7e0e2a43a94e63b1ece"
+                "reference": "93155fbdca827c019613b92c50731e7d1f11d6db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataSeoBundle/zipball/266a376a13b952ed4717a7e0e2a43a94e63b1ece",
-                "reference": "266a376a13b952ed4717a7e0e2a43a94e63b1ece",
+                "url": "https://api.github.com/repos/sonata-project/SonataSeoBundle/zipball/93155fbdca827c019613b92c50731e7d1f11d6db",
+                "reference": "93155fbdca827c019613b92c50731e7d1f11d6db",
                 "shasum": ""
             },
             "require": {
                 "sonata-project/exporter": ">=1.2.2,<2.0",
-                "symfony/symfony": "2.*",
+                "symfony/symfony": "~2.1",
                 "twig/twig": "*"
             },
             "type": "symfony-bundle",
@@ -2476,7 +2476,7 @@
                 "seo",
                 "sonata"
             ],
-            "time": "2013-06-23 13:36:24"
+            "time": "2013-07-05 17:11:16"
         },
         {
             "name": "stfalcon/tinymce-bundle",
@@ -2712,20 +2712,21 @@
         },
         {
             "name": "symfony/icu",
-            "version": "v1.0.0",
+            "version": "v1.2.0",
             "target-dir": "Symfony/Component/Icu",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Icu.git",
-                "reference": "v1.0.0"
+                "reference": "v1.2.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Icu/zipball/v1.0.0",
-                "reference": "v1.0.0",
+                "url": "https://api.github.com/repos/symfony/Icu/zipball/v1.2.0",
+                "reference": "v1.2.0",
                 "shasum": ""
             },
             "require": {
+                "lib-icu": ">=4.4",
                 "php": ">=5.3.3",
                 "symfony/intl": ">=2.3,<3.0"
             },
@@ -2755,7 +2756,7 @@
                 "icu",
                 "intl"
             ],
-            "time": "2013-06-03 18:32:07"
+            "time": "2013-06-03 18:32:58"
         },
         {
             "name": "symfony/monolog-bundle",

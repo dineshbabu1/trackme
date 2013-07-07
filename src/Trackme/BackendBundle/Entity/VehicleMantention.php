@@ -13,12 +13,15 @@ namespace Trackme\BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\ExecutionContextInterface;
 
 /**
  * Vehiclemantention
  *
  * @ORM\Table(name="vehicle_mantention")
  * @ORM\Entity
+ * @Assert\Callback(methods={"isDateValid"})
  */
 class VehicleMantention
 {
@@ -34,7 +37,9 @@ class VehicleMantention
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_from", type="date", nullable=true)
+     * @ORM\Column(name="date_from", type="date", nullable=false)
+     * @Assert\Date()
+     * @Trackme\BackendBundle\Validator\Constraints\DateRange(min="2010-01-01", max="today"):
      */
     private $dateFrom;
 
@@ -372,5 +377,15 @@ class VehicleMantention
     public function getUpdatedBy()
     {
         return $this->updated_by;
+    }
+
+    public function isDateValid(ExecutionContextInterface $context)
+    {
+        if ($this->getDateFrom() > date('Y-m-d'))
+            $context->addViolationAt('dateFrom', 'La fecha de inicio debe ser anterior a la fecha actual', array(), null);
+
+        if ($this->getDateFrom() > $this->getDateTo()) 
+            $context->addViolationAt('dateFrom', 'La fecha de inicio debe ser anterior a la fecha de fin', array(), null);
+        
     }
 }
