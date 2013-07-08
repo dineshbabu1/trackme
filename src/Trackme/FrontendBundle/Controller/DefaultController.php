@@ -24,8 +24,11 @@ use FOS\UserBundle\Event\FilterUserResponseEvent;
 class DefaultController extends Controller
 {
 
-    public function indexAction()
+    public function indexAction(Request $request)
     {
+        if ($request->get('path') != 'home') {
+            return $this->redirect($this->generateUrl('homepage', array('path' => 'home') ));
+        }
         $em = $this->getDoctrine()->getManager();
         $menu = $em->getRepository('Trackme\BackendBundle\Entity\Page')->findBy(array('enabled' => true, 'in_header' => true), array('weigth' => 'ASC', 'title' => 'ASC'));
 
