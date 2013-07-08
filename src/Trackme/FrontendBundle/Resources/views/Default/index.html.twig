@@ -1,54 +1,48 @@
 {% extends '::bootstrap.html.twig' %}
 
+{% block page_title %}
+{% endblock%}
+
 {% block content %}
-<div id="this-carousel-id" class="carousel slide"><!-- class of slide for animation -->
-  <div class="carousel-inner">
-    <div class="item active"><!-- class of active since it's the first item -->
-      <img src="{{ asset('bundles/trackmefrontend/images/slider_runs_min.jpg')}}" />
-      <div class="carousel-caption">
-        <p>Con una facil implementacion, controle y vea en tiempo real la posicion de su flota.</p>
-      </div>
-    </div>
-  </div><!-- /.carousel-inner -->
-  <!--  Next and Previous controls below
-        href values must reference the id for this carousel -->
-    <a class="carousel-control left" href="#this-carousel-id" data-slide="prev">&lsaquo;</a>
-    <a class="carousel-control right" href="#this-carousel-id" data-slide="next">&rsaquo;</a>
-</div><!-- /.carousel -->
 <div class="hero-unit">
-    <div class="row-fluid">
-        <div class="span4">
-            <p>
-            Nuestro sistema is osom!
-            Registrarte y probar su funcionamiento solo te tomara 2 pasos ...
-            </p>
-            <a class="btn btn-success btn-large" href="{{ path('pricing')}}">Registro</a>
-        </div>
-        <div class="span8">
-          {% include 'TrackmeFrontendBundle:Default:reviews.html.twig' with {'reviews': reviews} %}
-        </div>
+  <div class="row-fluid">
+    <div class="span4">
+      <h1>Track Me!</h1>
+      <br>
+      <p>
+        Nuestro sistema is genial, le permitira controlar y ver la posicion de su flota facilmente!
+      </p>
+      <p>
+        Registrarte y empezar a probar su funcionamiento solo te tomara 2 pasos ...
+      </p>
+      <a class="btn btn-success btn-large" href="{{ path('pricing')}}">Registro</a>
     </div>
+    <div class="span6 offset2">
+      {% include 'TrackmeFrontendBundle:Default:carrousel.html.twig'%}
+    </div>
+  </div>
 </div>
+
 {% endblock %}
 
     {% block nav%}
-<ul class="nav" id="main-menu-left">
+  <ul class="nav" id="main-menu-left">
         {% if menu is defined %}
             {% for m in menu %}
-            <li><a href="{{ path('page', { 'url': m.url})}}">{{ m.menu }}</a></li>
+      <li><a href="{{ path('page', { 'url': m.url})}}">{{ m.menu }}</a></li>
             {% endfor %}
         {% endif %}
-        <li><a href="{{ path('pricing')}}">Precios</a></li>
-        <li><a href="{{ path('fos_user_security_login')}}">Ingresar</a></li>
+      <li><a href="{{ path('pricing')}}">Precios</a></li>
+      <li><a href="{{ path('fos_user_security_login')}}">Ingresar</a></li>
     </ul>
     {% endblock%}
 
 {% block javascripts %}
 {{parent()}}
-<script type="text/javascript">
-$('.carousel').carousel({
-  interval: 2500
-});
-$('.carousel').carousel('cycle');
-</script>
+    <script type="text/javascript">
+    $('.carousel').carousel({
+      interval: 4000
+    });
+    $('.carousel').carousel('cycle');
+      </script>
 {% endblock %}

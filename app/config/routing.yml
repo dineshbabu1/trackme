@@ -65,15 +65,6 @@ admin_map_dashboard:
     path: /admin/business/dashboard
     defaults:  { _controller: TrackmeBackendBundle:Default:dashboard }
 
-admin_review:
-    resource: "@TrackmeBackendBundle/Controller/Review/"
-    type:     admingenerator
-    prefix:   /admin/business/review
-
-# api:
-#     type:     rest
-#     resource: Trackme\ApiBundle\Controller\DefaultController    
-
 login_api:
     path: /api/login
     defaults:  { _controller: TrackmeApiBundle:Default:login }
