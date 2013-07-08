@@ -53,8 +53,12 @@
 				<div id="collapseTwo" class="accordion-body collapse">
 					<div class="accordion-inner">
 						<ul>
-
-						</ul>
+                          {% for ot in last_ot %}
+                            <li><a href="{{ path('Trackme_BackendBundle_Ot_show', {'pk': ot.id})}}">{{ot}}</a></li>
+                          {% else %}
+                            <li>No tiene ordenes de transporte</li>
+                          {% endfor%}
+                        </ul>
 					</div>
 				</div>
 			</div>

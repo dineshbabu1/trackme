@@ -29,7 +29,7 @@ class BusinessRepository extends EntityRepository
         $query = $em->createQuery('
             SELECT b
             FROM TrackmeBackendBundle:Business b
-            WHERE b.created_at > :first_day_month');
+            WHERE b.created_at > :first_day_month')->setMaxResults(20);
         $query->setParameter('first_day_month', $first_day_month);
 
         return $query->getArrayResult();

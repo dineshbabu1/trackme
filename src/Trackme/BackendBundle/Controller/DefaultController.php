@@ -96,25 +96,15 @@ class DefaultController extends Controller
         $series_coor = array(
             array("name" => "Coordenadas", "data" => $serie_coor)
         );
-
-        $ob = new Highchart();
-        $ob->chart->renderTo('linechart_coor');  // The #id of the div where to render the chart
-        $ob->title->text('Coordenadas por mes');
-        $ob->xAxis->title(array('text' => "Semanas mes actual"));
-        $ob->yAxis->title(array('text' => "Cantidad coordenadas"));
-        $ob->series($series_coor);
+        
+        $ob = $this->setChart("linechart_coor", $series_coor, "Coordenadas por mes", "Cantidad coordenadas", "Semanas mes actual");
 
         $series_ot = array(
             array("name" => "Ordenes de Transporte", "data" => $serie_ot)
         );
 
-        $ob2 = new Highchart();
-        $ob2->chart->renderTo('linechart_ot');  // The #id of the div where to render the chart
-        $ob2->title->text('OT por mes');
-        $ob2->xAxis->title(array('text' => "Semanas mes actual"));
-        $ob2->yAxis->title(array('text' => "Cantidad ot"));
-        $ob2->series($series_ot);
-
+        $ob2 = $this->setChart("linechart_ot", $series_ot, "OT por mes", "Cantidad ot", "Semanas mes actual");
+        
         $last_business = $em->getRepository('Trackme\BackendBundle\Entity\Business')->getLastBusiness();
 
         $payments = $em->getRepository('Trackme\BackendBundle\Entity\Subscription')->getPayments();
@@ -267,7 +257,7 @@ class DefaultController extends Controller
             $map->setMapOption('zoom', 11);
         }
 
-        return $this->render('TrackmeBackendBundle:Default:dashboard.html.twig', array('estimate' => $estimate, 'duration' => $duration, 'distance' => $distance, 'map' => $map, 'form' => $form->createView()));
+        return $this->render('TrackmeBackendBundle:Default:dashboard.html.twig', array('estimate' => $estimate, 'duration' => $duration, 'distance' => $distance, 'map' => $map, 'form' => $form->createView(), 'last_ot' => $last_ots));
     }
 
     /**
@@ -304,6 +294,18 @@ STRING;
         ));
 
         return $infoWindow;
+    }
+    
+    public function setChart($renderTo, $data, $title, $y, $x)
+    {
+        $ob = new Highchart();
+        $ob->chart->renderTo($renderTo);  // The #id of the div where to render the chart
+        $ob->title->text($title);
+        $ob->xAxis->title(array('text' => $x));
+        $ob->yAxis->title(array('text' => $y));
+        $ob->series($data);
+        
+        return $ob;        
     }
 
 }
