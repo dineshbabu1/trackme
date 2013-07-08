@@ -1,0 +1,61 @@
+generator: admingenerator.generator.doctrine
+params:
+    model: Trackme\BackendBundle\Entity\Ot
+    namespace_prefix: Trackme
+    entity_manager: ~
+    concurrency_lock: ~
+    bundle_name: BackendBundle
+    pk_requirement: ~
+    fields: 
+        dateStart:
+            label: "Fecha Inicio"
+        dateEnd:
+            label: "Fecha Termino"
+        user:
+            label: Usuario
+    object_actions:
+        delete: ~
+    batch_actions:
+        delete: ~
+builders:
+    list:
+        params:
+            title: Ordenes de transporte
+            display: [ dateStart, dateEnd, user]
+            actions:
+                new: 
+                    credentials: 'hasRole("ROLE_SUPER_ADMIN")'
+            object_actions:
+                edit: 
+                    credentials: 'hasRole("ROLE_SUPER_ADMIN")'
+                show: ~
+                delete: ~
+    filters:
+        params:
+            display: [ dateStart, dateEnd]
+    new:
+        params:
+            title: Nueva Ot
+            display: ~
+            actions:
+                save: ~
+                list: ~
+    edit:
+        params:
+            title: "Estás editando la ot \"%object%\"|{ %object%: Ot }|"
+            display: ~
+            actions:
+                save: ~
+                list: ~
+    show:
+        params:
+            title: "Estás viendo la ot \"%object%\"|{ %object%: Ot }|"
+            display: ~
+            actions:
+                list: ~
+    actions:
+        params:
+            object_actions:
+                delete: ~
+            batch_actions:
+                delete: ~

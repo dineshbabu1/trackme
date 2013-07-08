@@ -96,6 +96,9 @@ fos_user:
     user_class: Trackme\BackendBundle\Entity\User
     group:
         group_class: Trackme\BackendBundle\Entity\Group
+    profile:
+        form:
+            type: trackme_user_profile
     registration:
         confirmation:
             enabled:    true

@@ -15,9 +15,9 @@ Track Me | Payments
 		<table class="table table-striped table-hover table-condensed">
 			{% for p in payments%}
             <tr class="list_trow">
-				<td>Fecha: {{ p.getCreatedAt|date('d/m/Y') }}</td>
-				<td>Monto (CLP): ${{ p.getClpAmount }} </td>
-                <td>Monto (USD): ${{ p.getAmount }} </td>
+				<td>Fecha: {{ p.getDatePayment|date('d/m/Y') }}</td>
+				<td>Monto (CLP): ${{ p.getClpAmount|number_format(0, ',', '.') }} </td>
+                <td>Monto (USD): ${{ p.getAmount|number_format(2, ',', '.') }} </td>
                 <td><a href="{{ path('admin_business_details_payment', { 'id': p.id})}}">Pagar</a></td>
 			</tr>
             {% else %}
@@ -36,7 +36,8 @@ Track Me | Payments
 			{% for p in approved%}
             <tr class="list_trow">
 				<td>Fecha: {{ p.getPaymentInstruction.getPayments.first.getUpdatedAt|date('d/m/Y') }}</td>
-				<td>Monto: $USD {{ p.getPaymentInstruction.getPayments.first.getApprovedAmount|number_format(2, ',', '.') }} </td>
+				<td>Monto (CLP): ${{ p.getClpAmount|number_format(0, ',', '.') }} </td>
+				<td>Monto (USD): ${{ p.getPaymentInstruction.getPayments.first.getApprovedAmount|number_format(2, ',', '.') }} </td>
 			</tr>
             {% else %}
             <tr class="list_trow">

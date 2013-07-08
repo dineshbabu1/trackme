@@ -4,3 +4,8 @@ parameters:
 services:
     trackme.payment.controller:
         class:     "%trackme.controller.payment.class%"
+    trackme_user.registration.form.type:
+        class: Trackme\BackendBundle\Form\Type\ProfileFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: trackme_user_profile }

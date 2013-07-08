@@ -38,6 +38,25 @@ class SubscriptionRepository extends EntityRepository
         return $query->getResult();
     }
     
+    public function getPendentPayments($business)
+    {
+        $em = $this->getEntityManager();
+
+        $query = $em->createQuery('
+            SELECT s, p, pi, b
+            FROM TrackmeBackendBundle:Subscription s
+            LEFT JOIN s.paymentInstruction pi
+            LEFT JOIN pi.payments p
+            LEFT JOIN s.business b
+            WHERE p.state <> :state AND b.id = :business
+
+            ORDER BY s.date_payment DESC');
+        $query->setParameter('state', 8);
+        $query->setParameter('business', $business->getId());
+
+        return $query->getResult();
+    }
+
     public function getPaymentsBusiness($business, $limit)
     {
         $em = $this->getEntityManager();

@@ -12,9 +12,18 @@ Track Me | Payments
 <div class="row-fluid">
   <div class="span6">
     <h3>Selecciona método de pago.</h3>
-      <form action="{{ path('admin_business_details_payment', { 'id': id_payment}) }}" method="post" {{ form_enctype(form) }}>
-          {{ form_row(form) }}
-          <input type="submit" />
+      <form action="{{ path('admin_business_details_payment', { 'id': id_payment}) }}" class="form-inline" method="POST" {{ form_enctype(form) }}>
+          {{ form_errors(form) }}
+          <table>
+            <tr>
+              <td>{{ form_widget(form.method) }}</td>
+              <td>&nbsp;</td>
+              <td><img src="https://www.paypalobjects.com/webstatic/mktg/logo/AM_mc_vs_dc_ae.jpg" border="0" alt="PayPal Acceptance Mark"></td>
+            </tr>
+          </table>
+          {{ form_rest(form) }}
+          <br>
+          <input type="submit" class="btn btn-primary" />
       </form>
   </div>
 </div>

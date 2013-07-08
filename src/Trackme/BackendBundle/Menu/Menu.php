@@ -48,18 +48,23 @@ class Menu extends ContainerAware
           $user = $this->addNavLinkRoute($menu, 'Usuarios', 'Trackme_BackendBundle_User_list')->setExtra('icon', 'icon-user');
           $payments = $this->addNavLinkRoute($menu, 'Pagos', 'admin_global_payments')->setExtra('icon', 'icon-credit-card');
           $ticket = $this->addNavLinkRoute($menu, 'Soporte', 'Trackme_BackendBundle_Ticket_list')->setExtra('icon', 'icon-user');
+          $profile = $this->addNavLinkRoute($menu, 'Perfil', 'fos_user_profile_edit')->setExtra('icon', 'icon-user');
         } elseif ($security->isGranted('ROLE_ADMIN')) {
           $empresa = $this->addDropdownMenu($menu, 'Empresa')->setExtra('icon', 'icon-home');
           $this->addNavLinkRoute($empresa, 'Usuarios', 'Trackme_BackendBundle_User_list');
           $this->addNavLinkRoute($empresa, 'Perfil Empresa', 'business_profile');
+          $this->addNavLinkRoute($empresa, 'Perfil Usuario', 'fos_user_profile_edit');
           $vehicle = $this->addNavLinkRoute($menu, 'Vehiculos', 'Trackme_BackendBundle_Vehicle_list')->setExtra('icon', 'icon-road');
+          $ot = $this->addNavLinkRoute($menu, 'Orden Transporte', 'Trackme_BackendBundle_Ot_list')->setExtra('icon', 'icon-road');
           $payments = $this->addNavLinkRoute($menu, 'Pagos', 'admin_business_payments')->setExtra('icon', 'icon-credit-card');
           $app = $this->addNavLinkUri($menu, 'Descarga Aplicacion', '#')->setExtra('icon', 'icon-star');
         } elseif ($security->isGranted('ROLE_FULL')) {
           $empresa = $this->addDropdownMenu($menu, 'Empresa')->setExtra('icon', 'icon-home');
           $this->addNavLinkRoute($empresa, 'Usuarios', 'Trackme_BackendBundle_User_list');
           $this->addNavLinkRoute($empresa, 'Perfil Empresa', 'business_profile');
+          $this->addNavLinkRoute($empresa, 'Perfil Usuario', 'fos_user_profile_edit');
           $vehicle = $this->addNavLinkRoute($menu, 'Vehiculos', 'Trackme_BackendBundle_Vehicle_list')->setExtra('icon', 'icon-road');
+          $ot = $this->addNavLinkRoute($menu, 'Orden Transporte', 'Trackme_BackendBundle_Ot_list')->setExtra('icon', 'icon-road');
           $review = $this->addNavLinkRoute($menu, 'Evaluar Sistema', 'Trackme_BackendBundle_Review_new')->setExtra('icon', 'icon-thumbs-up');
           $ticket = $this->addNavLinkRoute($menu, 'Soporte', 'Trackme_BackendBundle_Ticket_new')->setExtra('icon', 'icon-list');
           $payments = $this->addNavLinkRoute($menu, 'Pagos', 'admin_business_payments')->setExtra('icon', 'icon-credit-card');

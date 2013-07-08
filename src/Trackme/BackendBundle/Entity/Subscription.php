@@ -273,4 +273,27 @@ class Subscription
     {
         return $this->clpAmount;
     }
+
+    /**
+     * Set date_payment
+     *
+     * @param \DateTime $datePayment
+     * @return Subscription
+     */
+    public function setDatePayment($datePayment)
+    {
+        $this->date_payment = $datePayment;
+    
+        return $this;
+    }
+
+    /**
+     * Get date_payment
+     *
+     * @return \DateTime 
+     */
+    public function getDatePayment()
+    {
+        return $this->date_payment;
+    }
 }

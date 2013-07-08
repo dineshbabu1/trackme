@@ -421,4 +421,14 @@ class User extends BaseUser
 
         return 90; // Defecto
     }
+
+    public function getColegas()
+    {
+        $user_ids = array();
+        foreach ($this->getBusiness()->getUsers() as $user) {
+            $user_ids[] = $user->getId();
+        }
+        
+        return $user_ids;
+    }
 }

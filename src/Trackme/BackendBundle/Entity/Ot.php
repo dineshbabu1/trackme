@@ -96,6 +96,11 @@ class Ot
      */
     private $coordinates;
 
+    public function __toString()
+    {
+        return sprintf("%d - %s", $this->getId(), $this->getUser());
+    }
+
     /**
      * Get id
      *
