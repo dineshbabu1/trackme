@@ -14,12 +14,17 @@ class ShowController extends BaseShowController
     {
         $Ot = $this->getObject($pk);
 
-
-
         if (!$Ot) {
             throw new NotFoundHttpException("The Trackme\BackendBundle\Entity\Ot with id $pk can't be found");
         }
 
+        if ($Ot->getCoordinates()->count() == 0){
+            return $this->render('TrackmeBackendBundle:OtShow:index.html.twig', $this->getAdditionalRenderParameters($Ot) + array(
+                "Ot" => $Ot,
+                "map" => null
+            ));    
+        }
+        
         $map = $this->get('ivory_google_map.map');
         $map->setStylesheetOption('width', '100%');
         $map->setStylesheetOption('height', '500px');

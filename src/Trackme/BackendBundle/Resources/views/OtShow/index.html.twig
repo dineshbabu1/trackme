@@ -2,9 +2,53 @@
 
 {% block show %}
 <div class="row-fluid">
+	{% if map is not null %}
 	<div class="span8">
 		{{ google_map_container(map) }}
 		{{ google_map_js(map) }}
 	</div>
+	<div class="span4">
+		<table class="table table-striped table-hover table-condensed">
+			<tr class="list_trow">
+				<th>Número OT</th>
+				<td>{{Ot.id}}</td>
+			</tr>
+			<tr class="list_trow">
+				<th>Usuario</th>
+				<td>{{Ot.user}}</td>
+			</tr>
+			<tr class="list_trow">
+				<th>Fecha inicio</th>
+				<td>{{Ot.dateStart|date('H:i d/m/Y') }}</td>
+			</tr>
+			<tr class="list_trow">
+				<th>Fecha fin</th>
+				<td>{{Ot.dateEnd|date('H:i d/m/Y') }}</td>
+			</tr>
+		</table>
+	</div>
+	{% else %}
+	<div class="span6">
+		<h4>No tiene coordenadas registradas</h4>
+		<table class="table table-striped table-hover table-condensed">
+			<tr class="list_trow">
+				<th>Número OT</th>
+				<td>{{Ot.id}}</td>
+			</tr>
+			<tr class="list_trow">
+				<th>Usuario</th>
+				<td>{{Ot.user}}</td>
+			</tr>
+			<tr class="list_trow">
+				<th>Fecha inicio</th>
+				<td>{{Ot.dateStart|date('d/m/Y H:i') }}</td>
+			</tr>
+			<tr class="list_trow">
+				<th>Fecha fin</th>
+				<td>{{Ot.dateEnd|date('d/m/Y H:i') }}</td>
+			</tr>			
+		</table>
+	</div>
+	{% endif %}
 </div>
 {% endblock %}
