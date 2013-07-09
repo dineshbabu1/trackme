@@ -181,7 +181,7 @@
             ],
             "authors": [
                 {
-                    "name": "Cedric LOMBARDOT",
+                    "name": "Cédric Lombardot",
                     "email": "cedric.lombardot@gmail.com"
                 },
                 {
@@ -299,7 +299,7 @@
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "http://jmsyst.com",
+                    "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -744,12 +744,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ekino/EkinoNewRelicBundle.git",
-                "reference": "28836040858d37190914b67490908382ad0e4d9d"
+                "reference": "43ee6c970337f90a185e4ef47a32a9a82e21f175"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ekino/EkinoNewRelicBundle/zipball/28836040858d37190914b67490908382ad0e4d9d",
-                "reference": "28836040858d37190914b67490908382ad0e4d9d",
+                "url": "https://api.github.com/repos/ekino/EkinoNewRelicBundle/zipball/43ee6c970337f90a185e4ef47a32a9a82e21f175",
+                "reference": "43ee6c970337f90a185e4ef47a32a9a82e21f175",
                 "shasum": ""
             },
             "require": {
@@ -784,7 +784,7 @@
                 "monitoring",
                 "performance"
             ],
-            "time": "2013-07-05 07:47:25"
+            "time": "2013-07-09 13:53:36"
         },
         {
             "name": "friendsofsymfony/jsrouting-bundle",
@@ -1114,9 +1114,9 @@
             ],
             "authors": [
                 {
-                    "name": "Alexander",
+                    "name": "Alexander S",
                     "email": "alexander@iron.io",
-                    "homepage": "https://www.briteverify.com/",
+                    "homepage": "http://iron.io",
                     "role": "Developer"
                 }
             ],
@@ -1212,7 +1212,7 @@
                 {
                     "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "http://jmsyst.com",
+                    "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -1297,7 +1297,7 @@
                 {
                     "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "http://jmsyst.com",
+                    "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -1513,7 +1513,7 @@
                 {
                     "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "http://jmsyst.com",
+                    "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -1692,7 +1692,7 @@
                     "email": "stof@notk.org"
                 },
                 {
-                    "name": "Knplabs",
+                    "name": "KnpLabs",
                     "homepage": "http://knplabs.com"
                 },
                 {
@@ -2083,7 +2083,7 @@
                 {
                     "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "http://jmsyst.com",
+                    "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -2712,21 +2712,20 @@
         },
         {
             "name": "symfony/icu",
-            "version": "v1.2.0",
+            "version": "v1.0.0",
             "target-dir": "Symfony/Component/Icu",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Icu.git",
-                "reference": "v1.2.0"
+                "reference": "v1.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Icu/zipball/v1.2.0",
-                "reference": "v1.2.0",
+                "url": "https://api.github.com/repos/symfony/Icu/zipball/v1.0.0",
+                "reference": "v1.0.0",
                 "shasum": ""
             },
             "require": {
-                "lib-icu": ">=4.4",
                 "php": ">=5.3.3",
                 "symfony/intl": ">=2.3,<3.0"
             },
@@ -2756,7 +2755,7 @@
                 "icu",
                 "intl"
             ],
-            "time": "2013-06-03 18:32:58"
+            "time": "2013-06-03 18:32:07"
         },
         {
             "name": "symfony/monolog-bundle",

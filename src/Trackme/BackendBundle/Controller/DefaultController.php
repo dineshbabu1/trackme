@@ -20,6 +20,7 @@ use Ivory\GoogleMap\Services\Directions\Directions;
 use Ivory\GoogleMap\Overlays\Polyline;
 use Ivory\GoogleMap\Overlays\InfoWindow;
 use Ivory\GoogleMap\Events\MouseEvent;
+use Ivory\GoogleMap\Services\Geocoding\Geocoder;
 use Ob\HighchartsBundle\Highcharts\Highchart;
 
 class DefaultController extends Controller
@@ -139,7 +140,7 @@ class DefaultController extends Controller
             ->add('origen', 'text', array('help' => 'Calle 123 Comuna o Ciudad'))
             ->add('destino', 'text', array('help' => 'Calle 123 Comuna o Ciudad'))
             ->add('precio_combustible', 'money', array('help' => 'Solo numeros', 'currency' => 'CLP'))
-            ->add('kilometros_por_litro', 'text')
+            ->add('kilometros_por_litro', 'number', array('help' => 'Solo numeros'))
             ->getForm();
 
         $best_route = 0;
