@@ -221,40 +221,6 @@ class DefaultController extends Controller
                 $map->addMarker($marker);
             }
 
-//            if ($last_ots) {
-//                $ots = reset($last_ots);
-//
-//                $polyline = new Polyline();
-//                $polyline->setPrefixJavascriptVariable('polygon_'.$ots->getId());
-//                $polyline->setOption('fillColor', '#000000');
-//                $polyline->setOption('fillOpacity', 0.5);
-//                $polyline->setOptions(array(
-//                    'fillColor'   => '#000000',
-//                    'fillOpacity' => 0.5,
-//                ));
-//
-//                $last_coor = $ots->getCoordinates()->last();
-//                $first_coor = $ots->getCoordinates()->first();
-//
-//                $markerFirst = new Marker();
-//                $markerFirst->setPosition($first_coor->getLat(),$first_coor->getLng(), true);
-//                $markerFirst->setIcon($baseurl.'/bundles/trackmebackend/img/letter_a.png');
-//                $map->addMarker($markerFirst);
-//
-//                $markerLast = new Marker();
-//                $markerLast->setPosition($last_coor->getLat(),$last_coor->getLng(), true);
-//                $markerLast->setIcon($baseurl.'/bundles/trackmebackend/img/letter_b.png');
-//                $map->addMarker($markerLast);
-//
-//                foreach ($ots->getCoordinates() as $c) {
-//                    $polyline->addCoordinate($c->getLat(), $c->getLng(), true);
-//                }
-//
-////                $map->addPolyline($polyline);
-//                $map->setMapOption('zoom', 11);
-//            } else {
-//                
-//            }
             $map->setMapOption('zoom', 11);
         }
 

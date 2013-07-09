@@ -56,7 +56,7 @@ class Menu extends ContainerAware
           $vehicle = $this->addNavLinkRoute($menu, 'Vehiculos', 'Trackme_BackendBundle_Vehicle_list')->setExtra('icon', 'icon-road');
           $ot = $this->addNavLinkRoute($menu, 'Orden Transporte', 'Trackme_BackendBundle_Ot_list')->setExtra('icon', 'icon-road');
           $payments = $this->addNavLinkRoute($menu, 'Pagos', 'admin_business_payments')->setExtra('icon', 'icon-credit-card');
-          $app = $this->addNavLinkUri($menu, 'Descarga Aplicacion', '#')->setExtra('icon', 'icon-star');
+          $app = $this->addNavLinkUri($menu, 'Descarga Aplicacion', 'bundles/trackmebackend/apk/TrackMe-v1.06.apk')->setExtra('icon', 'icon-star');
         } elseif ($security->isGranted('ROLE_FULL')) {
           $empresa = $this->addDropdownMenu($menu, 'Empresa')->setExtra('icon', 'icon-home');
           $this->addNavLinkRoute($empresa, 'Usuarios', 'Trackme_BackendBundle_User_list');
@@ -66,10 +66,10 @@ class Menu extends ContainerAware
           $ot = $this->addNavLinkRoute($menu, 'Orden Transporte', 'Trackme_BackendBundle_Ot_list')->setExtra('icon', 'icon-road');
           $ticket = $this->addNavLinkRoute($menu, 'Soporte', 'Trackme_BackendBundle_Ticket_new')->setExtra('icon', 'icon-list');
           $payments = $this->addNavLinkRoute($menu, 'Pagos', 'admin_business_payments')->setExtra('icon', 'icon-credit-card');
-          $app = $this->addNavLinkUri($menu, 'Descarga Aplicacion', '#')->setExtra('icon', 'icon-star');
+          $app = $this->addNavLinkUri($menu, 'Descarga Aplicacion', 'bundles/trackmebackend/apk/TrackMe-v1.06.apk')->setExtra('icon', 'icon-star');
         } elseif ($security->isGranted('ROLE_USER')){
           $profile = $this->addNavLinkRoute($menu, 'Perfil', 'fos_user_profile_edit')->setExtra('icon', 'icon-user');
-          $app = $this->addNavLinkUri($menu, 'Descarga Aplicacion', '#')->setExtra('icon', 'icon-star');
+          $app = $this->addNavLinkUri($menu, 'Descarga Aplicacion', 'bundles/trackmebackend/apk/TrackMe-v1.06.apk')->setExtra('icon', 'icon-star');
         }
 
         return $menu;

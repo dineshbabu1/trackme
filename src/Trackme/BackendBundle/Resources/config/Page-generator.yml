@@ -33,6 +33,7 @@ params:
 builders:
     list:
         params:
+            credentials: 'hasRole("ROLE_SUPER_ADMIN")'
             title: Páginas
             display: [ title, url, menu, enabled, weigth]
             actions:
@@ -45,6 +46,7 @@ builders:
             display: []
     new:
         params:
+            credentials: 'hasRole("ROLE_SUPER_ADMIN")'
             title: Nueva Página
             display:
                 Contenido: [title,content, [url,menu,weigth]]
@@ -54,6 +56,7 @@ builders:
                 list: ~
     edit:
         params:
+            credentials: 'hasRole("ROLE_SUPER_ADMIN")'
             title: "Está editando página \"%object%\"|{ %object%: Page.title }|"
             display:
                 Contenido: [title,content, [url,menu,weigth]]
@@ -63,6 +66,7 @@ builders:
                 list: ~
     show:
         params:
+            credentials: 'hasRole("ROLE_SUPER_ADMIN")'
             title: "Vista previa de \"%object%\"|{ %object%: Page.title }|"
             display: ~
             actions:

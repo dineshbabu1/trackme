@@ -12,6 +12,7 @@ params:
 builders:
     list:
         params:
+            credentials: 'hasRole("ROLE_SUPER_ADMIN")'
             title: List for BackendBundle
             display: ~
             actions:
@@ -24,6 +25,7 @@ builders:
             display: ~
     new:
         params:
+            credentials: 'hasRole("ROLE_SUPER_ADMIN")'
             title: New object for BackendBundle
             display: ~
             actions:
@@ -31,6 +33,7 @@ builders:
                 list: ~
     edit:
         params:
+            credentials: 'hasRole("ROLE_SUPER_ADMIN")'
             title: "You're editing the object \"%object%\"|{ %object%: YourModel.title }|"
             display: ~
             actions:
@@ -38,6 +41,7 @@ builders:
                 list: ~
     show:
         params:
+            credentials: 'hasRole("ROLE_SUPER_ADMIN")'
             title: "You're viewing the object \"%object%\"|{ %object%: YourModel.title }|"
             display: ~
             actions:

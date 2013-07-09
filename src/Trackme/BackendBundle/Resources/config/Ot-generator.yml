@@ -20,6 +20,7 @@ params:
 builders:
     list:
         params:
+            credentials: 'hasRole("ROLE_ADMIN") OR hasRole("ROLE_SUPER_ADMIN")'
             title: Ordenes de transporte
             display: [ dateStart, dateEnd, user]
             actions:
@@ -35,6 +36,7 @@ builders:
             display: [ dateStart, dateEnd]
     new:
         params:
+            credentials: 'hasRole("ROLE_ADMIN") OR hasRole("ROLE_SUPER_ADMIN")'
             title: Nueva Ot
             display: ~
             actions:
@@ -42,6 +44,7 @@ builders:
                 list: ~
     edit:
         params:
+            credentials: 'hasRole("ROLE_ADMIN") OR hasRole("ROLE_SUPER_ADMIN")'
             title: "Estás editando la ot \"%object%\"|{ %object%: Ot }|"
             display: ~
             actions:
@@ -49,6 +52,7 @@ builders:
                 list: ~
     show:
         params:
+            credentials: 'hasRole("ROLE_ADMIN") OR hasRole("ROLE_SUPER_ADMIN")'
             title: "Estás viendo la ot \"%object%\"|{ %object%: Ot }|"
             display: ~
             actions:

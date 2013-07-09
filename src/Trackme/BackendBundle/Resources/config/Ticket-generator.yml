@@ -30,6 +30,7 @@ params:
 builders:
     list:
         params:
+            credentials: 'hasRole("ROLE_FULL") OR hasRole("ROLE_SUPER_ADMIN")'
             title: Tickets de soporte
             display: [ title, user, type, state]
             fields:

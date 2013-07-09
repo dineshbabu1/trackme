@@ -35,6 +35,7 @@ params:
 builders:
     list:
         params:
+            credentials: 'hasRole("ROLE_SUPER_ADMIN")'
             title: Planes
             display: [ name, featured, price, users_limit ]
             actions:
@@ -47,6 +48,7 @@ builders:
             display: []
     new:
         params:
+            credentials: 'hasRole("ROLE_SUPER_ADMIN")'
             title: Nuevo plan
             display: [ name, price, refresh_time, users_limit, featured, description ]
             actions:
@@ -54,6 +56,7 @@ builders:
                 list: ~
     edit:
         params:
+            credentials: 'hasRole("ROLE_SUPER_ADMIN")'
             title: "Editando plan \"%object%\"|{ %object%: Plan.name }|"
             display: [ name, price, refresh_time, users_limit, featured, description ]
             actions:
@@ -61,6 +64,7 @@ builders:
                 list: ~
     show:
         params:
+            credentials: 'hasRole("ROLE_SUPER_ADMIN")'
             title: "Viendo plan \"%object%\"|{ %object%: Plan.name }|"
             display: [ name, price, refresh_time, users_limit, featured, description ]
             actions:
