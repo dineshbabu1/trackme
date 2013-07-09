@@ -24,7 +24,7 @@ class ShowController extends BaseShowController
                 "map" => null
             ));    
         }
-        
+
         $map = $this->get('ivory_google_map.map');
         $map->setStylesheetOption('width', '100%');
         $map->setStylesheetOption('height', '500px');
@@ -70,7 +70,7 @@ class ShowController extends BaseShowController
 
         $map->addPolyline($polyline);
         $map->setCenter($first_coor->getLat(), $first_coor->getLng(), true);
-        $map->setMapOption('zoom', 10);
+        $map->setMapOption('zoom', 13);
         
         return $map;
     }

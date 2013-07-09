@@ -16,6 +16,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Trackme\BackendBundle\Entity\Business;
 use Trackme\BackendBundle\Entity\User;
+use Trackme\BackendBundle\Entity\Subscription;
 use FOS\UserBundle\FOSUserEvents;
 use FOS\UserBundle\Event\FormEvent;
 use FOS\UserBundle\Event\UserEvent;
@@ -175,9 +176,28 @@ class DefaultController extends Controller
             $object->setPlan($plan);
             $em->persist($object);
             $em->flush();
+
+            $this->setPayment($object);
             // Second step
             return $this->redirect($this->generateUrl('signup_user', array('token' => $object->getToken())));
         }
+    }
+
+    public function setPayment($business)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $uf = $this->get('trackme.payment.controller')->ufAction()->getContent();
+        $usd = $this->get('trackme.payment.controller')->dolarAction()->getContent();
+        $dias_facturados = date('t')-date('d');
+
+        $sub = new Subscription();
+        $sub->setBusiness($business);
+        $sub->setAmount(((($business->getPlan()->getPrice() * $uf) / $usd)/date('t'))*$dias_facturados);
+        $sub->setClpAmount((($business->getPlan()->getPrice() * $uf)/date('t'))*$dias_facturados);
+        $sub->setDatePayment(\DateTime::createFromFormat('Y-m-d H:i:s', date('Y-m-d 00:00:00')));
+        $em->persist($sub);
+        $em->flush();
+
     }
 
     public function pageAction($url)

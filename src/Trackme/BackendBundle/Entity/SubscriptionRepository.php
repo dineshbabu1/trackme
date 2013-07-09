@@ -48,7 +48,7 @@ class SubscriptionRepository extends EntityRepository
             LEFT JOIN s.paymentInstruction pi
             LEFT JOIN pi.payments p
             LEFT JOIN s.business b
-            WHERE p.state <> :state AND b.id = :business
+            WHERE b.id = :business AND (s.paymentInstruction IS NULL OR p.state <> :state)
 
             ORDER BY s.date_payment DESC');
         $query->setParameter('state', 8);

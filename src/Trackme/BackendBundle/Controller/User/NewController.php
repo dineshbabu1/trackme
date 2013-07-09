@@ -32,7 +32,7 @@ class NewController extends BaseNewController
 
         $business = $this->get('security.context')->getToken()->getUser()->getBusiness();
         $user = $this->get('security.context')->getToken()->getUser();
-        if ($this->get('security.context')->isGranted('ROLE_ADMIN')) {
+        if (!$this->get('security.context')->isGranted('ROLE_SUPER_ADMIN')) {
             $User->setBusiness($this->get('security.context')->getToken()->getUser()->getBusiness());
         }    
         

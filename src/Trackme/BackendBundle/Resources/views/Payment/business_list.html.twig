@@ -33,7 +33,7 @@ Track Me | Payments
 	<div class="span8">
 		<h3>Pagos Realizados</h3>
 		<table class="table table-striped table-hover table-condensed">
-			{% for p in approved%}
+			{% for p in approved %}
             <tr class="list_trow">
 				<td>Fecha: {{ p.getPaymentInstruction.getPayments.first.getUpdatedAt|date('d/m/Y') }}</td>
 				<td>Monto (CLP): ${{ p.getClpAmount|number_format(0, ',', '.') }} </td>
