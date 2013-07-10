@@ -12,6 +12,8 @@
 namespace Trackme\BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
@@ -19,6 +21,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *
  * @ORM\Table(name="vehicle")
  * @ORM\Entity
+ * @UniqueEntity("code")
  */
 class Vehicle
 {
@@ -48,7 +51,7 @@ class Vehicle
     /**
      * @var string
      *
-     * @ORM\Column(name="code", type="string", length=255, nullable=true)
+     * @ORM\Column(name="code", type="string", length=255, nullable=true, unique=true)
      */
     private $code;
 
