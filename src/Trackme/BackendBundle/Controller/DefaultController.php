@@ -91,6 +91,8 @@ class DefaultController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
+        $serie_user = $em->getRepository('Trackme\BackendBundle\Entity\Business')->getUserBusiness();
+
         $serie_coor = $em->getRepository('Trackme\BackendBundle\Entity\Coordinate')->getStatsByWeek();
         $serie_ot = $em->getRepository('Trackme\BackendBundle\Entity\Ot')->getOtsByWeek();
 
@@ -110,7 +112,7 @@ class DefaultController extends Controller
 
         $payments = $em->getRepository('Trackme\BackendBundle\Entity\Subscription')->getPayments();
 
-        return $this->render('TrackmeBackendBundle:Default:dashboard_admin.html.twig', array('payments' => $payments, 'business' => $last_business, 'chart_coor' => $ob, 'chart_ot' => $ob2));
+        return $this->render('TrackmeBackendBundle:Default:dashboard_admin.html.twig', array('payments' => $payments, 'business' => $last_business, 'chart_coor' => $ob, 'chart_ot' => $ob2, 'serie_user' => $serie_user));
     }
 
     public function dashboardAction(Request $request)
@@ -262,7 +264,7 @@ STRING;
 
         return $infoWindow;
     }
-    
+
     public function setChart($renderTo, $data, $title, $y, $x)
     {
         $ob = new Highchart();
