@@ -132,7 +132,7 @@ class DefaultController extends Controller
         } 
 
         $last_ots = $em->getRepository('Trackme\BackendBundle\Entity\Business')->getLastOt($business, 10);
-
+        // ladybug_dump_die($last_ots);
         // Las coordenadas activas de una empresa
         $actives = $em->getRepository('Trackme\BackendBundle\Entity\Coordinate')->getActiveVehicles($business->getIdUsers());
 

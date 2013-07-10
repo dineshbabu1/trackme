@@ -40,15 +40,16 @@ class BusinessRepository extends EntityRepository
         $em = $this->getEntityManager();
 
         $query = $em->createQuery('
-            SELECT o, c, u
+            SELECT o, c, u, b
             FROM TrackmeBackendBundle:Ot o
             LEFT JOIN o.coordinates c
             LEFT JOIN o.user u
             LEFT JOIN u.business b
             WHERE b.id = :business AND c.lat is not null AND c.lng is not null
 
-            ORDER BY o.id DESC')->setMaxResults($limit);
+            ORDER BY o.id DESC');
         $query->setParameter('business', $business->getId());
+        // $query->setMaxResults(2);
 
         return $query->getResult();
 
