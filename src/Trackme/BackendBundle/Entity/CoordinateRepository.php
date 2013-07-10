@@ -39,6 +39,10 @@ class CoordinateRepository extends EntityRepository
         return $query->getResult();
     }
     
+    /**
+     * Stats for coordinates
+     * @return type array
+     */
     public function getStatsByWeek()
     {
         $em = $this->getEntityManager();
@@ -57,12 +61,31 @@ class CoordinateRepository extends EntityRepository
 
         $query = $em->createNativeQuery($sql, $rsm);
         
-        // ladybug_dump_die($query->getResult());
-
         $stat = array();
         foreach ($query->getResult() as $q) {
             $stat[] = array($q->getLat(),$q->getId());
         }
+        
+        return $stat;
+    }
+    
+    /**
+     * 
+     * @param Business $business
+     * @return array
+     */
+    public function getStatsByWeekByBusiness($business)
+    {
+        $em = $this->getEntityManager();
+        
+        $query = $em->createQuery("
+            SELECT COUNT(c.id) as quantity
+            FROM TrackmeBackendBundle:Coordinate c
+            LEFT JOIN c.user u
+            WHERE u.business = :business");
+        $query->setParameter('business', $business);
+        
+        $stat = $query->getSingleResult();
         
         return $stat;
     }

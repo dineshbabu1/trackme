@@ -53,19 +53,21 @@ class Menu extends ContainerAware
           $this->addNavLinkRoute($empresa, 'Usuarios', 'Trackme_BackendBundle_User_list');
           $this->addNavLinkRoute($empresa, 'Perfil Empresa', 'business_profile');
           $this->addNavLinkRoute($empresa, 'Perfil Usuario', 'fos_user_profile_edit');
-          $vehicle = $this->addNavLinkRoute($menu, 'Vehiculos', 'Trackme_BackendBundle_Vehicle_list')->setExtra('icon', 'icon-road');
+//          $logistica = $this->addNavLinkRoute($menu, 'Gestión', 'business_management')->setExtra('icon', 'icon-graph');
+          $vehicle = $this->addNavLinkRoute($menu, 'Vehiculos', 'Trackme_BackendBundle_Vehicle_list')->setExtra('icon', 'icon-wrench');
           $ot = $this->addNavLinkRoute($menu, 'Orden Transporte', 'Trackme_BackendBundle_Ot_list')->setExtra('icon', 'icon-road');
-          $payments = $this->addNavLinkRoute($menu, 'Pagos', 'admin_business_payments')->setExtra('icon', 'icon-credit-card');
+          $payments = $this->addNavLinkRoute($menu, 'Pagos y Gestión', 'admin_business_payments')->setExtra('icon', 'icon-credit-card');
           $app = $this->addNavLinkUri($menu, 'Descarga Aplicacion', 'http://198.211.109.82/bundles/trackmebackend/apk/TrackMe-v1.06.apk')->setExtra('icon', 'icon-star');
         } elseif ($security->isGranted('ROLE_FULL')) {
           $empresa = $this->addDropdownMenu($menu, 'Empresa')->setExtra('icon', 'icon-home');
           $this->addNavLinkRoute($empresa, 'Usuarios', 'Trackme_BackendBundle_User_list');
           $this->addNavLinkRoute($empresa, 'Perfil Empresa', 'business_profile');
           $this->addNavLinkRoute($empresa, 'Perfil Usuario', 'fos_user_profile_edit');
-          $vehicle = $this->addNavLinkRoute($menu, 'Vehiculos', 'Trackme_BackendBundle_Vehicle_list')->setExtra('icon', 'icon-road');
+//          $logistica = $this->addNavLinkRoute($menu, 'Gestión', 'business_management')->setExtra('icon', 'icon-graph');
+          $vehicle = $this->addNavLinkRoute($menu, 'Vehiculos', 'Trackme_BackendBundle_Vehicle_list')->setExtra('icon', 'icon-wrench');
           $ot = $this->addNavLinkRoute($menu, 'Orden Transporte', 'Trackme_BackendBundle_Ot_list')->setExtra('icon', 'icon-road');
           $ticket = $this->addNavLinkRoute($menu, 'Soporte', 'Trackme_BackendBundle_Ticket_new')->setExtra('icon', 'icon-list');
-          $payments = $this->addNavLinkRoute($menu, 'Pagos', 'admin_business_payments')->setExtra('icon', 'icon-credit-card');
+          $payments = $this->addNavLinkRoute($menu, 'Pagos y Gestión', 'admin_business_payments')->setExtra('icon', 'icon-credit-card');
           $app = $this->addNavLinkUri($menu, 'Descarga Aplicacion', 'http://198.211.109.82/bundles/trackmebackend/apk/TrackMe-v1.06.apk')->setExtra('icon', 'icon-star');
         } elseif ($security->isGranted('ROLE_USER')){
           $profile = $this->addNavLinkRoute($menu, 'Perfil', 'fos_user_profile_edit')->setExtra('icon', 'icon-user');

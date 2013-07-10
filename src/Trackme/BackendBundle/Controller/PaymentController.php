@@ -68,8 +68,12 @@ class PaymentController extends Controller
         $payments_pendent = $em->getRepository('Trackme\BackendBundle\Entity\Subscription')->getPendentPayments($business);
         $approved = $em->getRepository('Trackme\BackendBundle\Entity\Subscription')->getPaymentsBusiness($business, 12);
         
+        $serie_user = $em->getRepository('Trackme\BackendBundle\Entity\Business')->getUserBusinessById($business);
+        $serie_coor = $em->getRepository('Trackme\BackendBundle\Entity\Coordinate')->getStatsByWeekByBusiness($business);
+        $serie_ot   = $em->getRepository('Trackme\BackendBundle\Entity\Ot')->getOtsByWeekByBusiness($business);
+        
         $this->forward('trackme.payment.controller:ufAction')->getContent();
-        return $this->render("TrackmeBackendBundle:Payment:business_list.html.twig", array('payments' => $payments_pendent, 'approved' => $approved));
+        return $this->render("TrackmeBackendBundle:Payment:business_list.html.twig", array('payments' => $payments_pendent, 'approved' => $approved, 'user' => $serie_user, 'coor' => $serie_coor, 'ot' => $serie_ot));
     }
 
    /**

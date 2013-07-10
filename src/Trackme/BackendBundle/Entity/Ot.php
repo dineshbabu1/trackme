@@ -98,7 +98,7 @@ class Ot
 
     public function __toString()
     {
-        return sprintf("%d - %s", $this->getId(), $this->getUser());
+        return sprintf("%d - %s (%s)", $this->getId(), $this->getUser(), $this->getDateStart()->format('Y-m-d H:i:s'));
     }
 
     /**

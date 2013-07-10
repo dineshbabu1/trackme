@@ -67,13 +67,58 @@ class BusinessRepository extends EntityRepository
             LEFT JOIN b.users u
             LEFT JOIN b.plan p
             WHERE b.enabled = 1');
-
+        
+        $business = $query_business->getResult();
+        
         $query_user = $em->createQuery('
             SELECT count(u.id)
             FROM TrackmeBackendBundle:User u
             WHERE u.enabled = 1 AND u.business IS NOT NULL');
 
+        if($query_user->getSingleScalarResult())
+            $real_users = (int) $query_user->getSingleScalarResult();
+
+        $query_user->getSingleScalarResult();
+
+        foreach ($business as $b) {
+            $estimate_users += $b->getPlan()->getUsersLimit();
+        }
+
+        if ($estimate_users >= 3 )
+        {
+            $division = (int)($estimate_users/3);
+            $red = array('from' => 0, 'to' => $division);
+            $yellow = array('from' => $division, 'to' => $division * 2);
+            $green = array('from' => $division * 2, 'to' => $estimate_users);
+        }
+        
+
+        return array('real' => $real_users, 'estimate' => $estimate_users, 'red' => $red, 'yellow' => $yellow, 'green' => $green);
+
+    }
+    
+    public function getUserBusinessById($business_object){
+
+        $em = $this->getEntityManager();
+        $estimate_users = 0;
+        $real_users = 0;
+
+        $query_business = $em->createQuery('
+            SELECT b, u, p
+            FROM TrackmeBackendBundle:Business b
+            LEFT JOIN b.users u
+            LEFT JOIN b.plan p
+            WHERE b.enabled = 1 AND b.id = :business');
+        $query_business->setParameter('business', $business_object->getId());
+        
         $business = $query_business->getResult();
+
+        $query_user = $em->createQuery('
+            SELECT count(u.id)
+            FROM TrackmeBackendBundle:User u
+            WHERE u.enabled = 1 AND u.business = :business');
+        $query_user->setParameter('business', $business_object->getId());
+        
 
         if($query_user->getSingleScalarResult())
             $real_users = (int) $query_user->getSingleScalarResult();

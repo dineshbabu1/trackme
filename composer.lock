@@ -744,12 +744,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ekino/EkinoNewRelicBundle.git",
-                "reference": "43ee6c970337f90a185e4ef47a32a9a82e21f175"
+                "reference": "0cbfc3d8d539f373d515c3b80f555a2956e6f316"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ekino/EkinoNewRelicBundle/zipball/43ee6c970337f90a185e4ef47a32a9a82e21f175",
-                "reference": "43ee6c970337f90a185e4ef47a32a9a82e21f175",
+                "url": "https://api.github.com/repos/ekino/EkinoNewRelicBundle/zipball/0cbfc3d8d539f373d515c3b80f555a2956e6f316",
+                "reference": "0cbfc3d8d539f373d515c3b80f555a2956e6f316",
                 "shasum": ""
             },
             "require": {
@@ -758,7 +758,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0-dev"
+                    "dev-master": "1.2-dev"
                 }
             },
             "autoload": {
@@ -784,7 +784,7 @@
                 "monitoring",
                 "performance"
             ],
-            "time": "2013-07-09 13:53:36"
+            "time": "2013-07-10 07:57:29"
         },
         {
             "name": "friendsofsymfony/jsrouting-bundle",
@@ -961,12 +961,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/l3pp4rd/DoctrineExtensions.git",
-                "reference": "c0a38826d3a02333a2670744d52ac627882ef102"
+                "reference": "5f29b798f1290dd994c4ca133dadf69cccb59a1f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/c0a38826d3a02333a2670744d52ac627882ef102",
-                "reference": "c0a38826d3a02333a2670744d52ac627882ef102",
+                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/5f29b798f1290dd994c4ca133dadf69cccb59a1f",
+                "reference": "5f29b798f1290dd994c4ca133dadf69cccb59a1f",
                 "shasum": ""
             },
             "require": {
@@ -1033,7 +1033,7 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2013-07-05 05:32:00"
+            "time": "2013-07-09 18:45:00"
         },
         {
             "name": "incenteev/composer-parameter-handler",

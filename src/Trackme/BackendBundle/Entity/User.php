@@ -422,6 +422,10 @@ class User extends BaseUser
         return 90; // Defecto
     }
 
+    /**
+     * Return id of user of my business
+     * @return array
+     */
     public function getColegas()
     {
         $user_ids = array();

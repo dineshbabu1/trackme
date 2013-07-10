@@ -46,4 +46,20 @@ class OtRepository extends EntityRepository
         
         return $stat;
     }
+    
+    public function getOtsByWeekByBusiness($business)
+    {
+        $em = $this->getEntityManager();
+        
+        $query = $em->createQuery("
+            SELECT COUNT(o.id) as quantity
+            FROM TrackmeBackendBundle:Ot o
+            LEFT JOIN o.user u
+            WHERE u.business = :business");
+        $query->setParameter('business', $business->getId());
+        
+        $stat = $query->getSingleResult();
+        
+        return $stat;
+    }
 }

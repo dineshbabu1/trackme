@@ -1,0 +1,26 @@
+{% extends 'TrackmeBackendBundle::base_admin_assetic_less.html.twig' %}
+
+{% block title %}
+Track Me | Logistica y Gestión
+{% endblock title %}
+
+{% block body %}
+<div class="row-fluid">
+  <div class="span4">
+    <div id="linechart_coor" style="min-width: 400px; height: 350px; margin: 0 auto"></div>
+  </div>
+  <div class="span4">
+    <div id="linechart_gauge" style="min-width: 400px; height: 350px; margin: 0 auto"></div>
+  </div>
+  <div class="span4">
+    <div id="linechart_ot" style="min-width: 400px; height: 350px; margin: 0 auto"></div>
+  </div>
+</div>
+{% endblock %}
+{% block javascripts %} 
+{{ parent() }}
+<script src="{{ asset('bundles/obhighcharts/js/highcharts/highcharts.js') }}"></script>
+<script src="{{ asset('bundles/obhighcharts/js/highcharts/highcharts-more.js') }}"></script>
+<script src="{{ asset('bundles/obhighcharts/js/highcharts/modules/exporting.js') }}"></script>
+{% include 'TrackmeBackendBundle:Management:gauge.html.twig' with {'serie_user': user} %}
+{% endblock %}

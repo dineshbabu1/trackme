@@ -2,6 +2,10 @@ admin_ot:
     resource: "@TrackmeBackendBundle/Controller/Ot/"
     type:     admingenerator
     prefix:   /admin/business/ot
+    
+business_management:
+    pattern:      /admin/business/management
+    defaults:  { _controller: TrackmeBackendBundle:Management:dashboard }
 
 business_profile:
     pattern:      /admin/business/profile
