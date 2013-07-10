@@ -57,9 +57,11 @@ class CoordinateRepository extends EntityRepository
 
         $query = $em->createNativeQuery($sql, $rsm);
         
+        // ladybug_dump_die($query->getResult());
+
         $stat = array();
         foreach ($query->getResult() as $q) {
-            $stat[] = $q->getId();
+            $stat[] = array($q->getLat(),$q->getId());
         }
         
         return $stat;

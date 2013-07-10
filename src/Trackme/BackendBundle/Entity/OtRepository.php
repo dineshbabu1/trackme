@@ -29,7 +29,7 @@ class OtRepository extends EntityRepository
         
         $rsm->addEntityResult('Trackme\BackendBundle\Entity\Ot', 'c');
         $rsm->addFieldResult('c', 'quantity', 'id');
-        $rsm->addFieldResult('c', 'week', 'created_by');
+        $rsm->addFieldResult('c', 'week', 'totalKm');
 
 
         $sql = "SELECT COUNT(c.id) as quantity, WEEK(c.created_at) as week
@@ -41,7 +41,7 @@ class OtRepository extends EntityRepository
         
         $stat = array();
         foreach ($query->getResult() as $q) {
-            $stat[] = $q->getId();
+            $stat[] = array($q->getTotalKm(), $q->getId());
         }
         
         return $stat;
