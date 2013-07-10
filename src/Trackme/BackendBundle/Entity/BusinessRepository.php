@@ -20,7 +20,7 @@ use Doctrine\ORM\EntityRepository;
  * repository methods below.
  */
 class BusinessRepository extends EntityRepository
-{
+{    
     public function getLastBusiness()
     {
         $first_day_month = date('m', strtotime("first day of this month midnight"));

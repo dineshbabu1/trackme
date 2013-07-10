@@ -12,12 +12,15 @@
 namespace Trackme\BackendBundle\Entity;
 
 use FOS\UserBundle\Entity\User as BaseUser;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="fos_user")
+ * @UniqueEntity("vehicle")
  */
 class User extends BaseUser
 {
@@ -67,6 +70,12 @@ class User extends BaseUser
      * @ORM\Column(name="phone", type="string", length=255, nullable=true)
      */
     private $phone;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="Vehicle", mappedBy="user")
+     */
+    private $vehicle;
+
 
     /**
      * @ORM\ManyToMany(targetEntity="Group")
@@ -435,4 +444,58 @@ class User extends BaseUser
         
         return $user_ids;
     }
+    
+    public function getBusinessVehicles()
+    {
+        
+    }
+
+    /**
+     * Set vehicle
+     *
+     * @param \Trackme\BackendBundle\Entity\Vehicle $vehicle
+     * @return User
+     */
+    public function setVehicle(\Trackme\BackendBundle\Entity\Vehicle $vehicle = null)
+    {
+        $this->vehicle = $vehicle;
+    
+        return $this;
+    }
+
+    /**
+     * Get vehicle
+     *
+     * @return \Trackme\BackendBundle\Entity\Vehicle 
+     */
+    public function getVehicle()
+    {
+        return $this->vehicle;
+    }
+    
+    public function getIcon()
+    {
+        if ($this->getVehicle()) {
+            switch ($this->getVehicle()->getType()) {
+                case "Auto":
+                    return "car.png";
+                    break;
+                case "Bus":
+                    return "bus.png";
+                    break;
+                case "Camión":
+                    return "truck.png";
+                    break;
+                case "Motocicleta":
+                    return "ducati-diavel.png";
+                    break;
+                default:
+                    return "car.png";
+                    break;
+            } 
+        } else {
+            return "pie.png";
+        }
+    }
+
 }

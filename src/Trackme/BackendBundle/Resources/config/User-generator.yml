@@ -10,6 +10,9 @@ params:
         business:
             credentials: 'hasRole("ROLE_SUPER_ADMIN")'
             label: Cliente
+        vehicle:
+            label: Vehiculo
+            help: "Vehiculo asignado"
         name:
             label: Nombre
         email:
@@ -73,7 +76,7 @@ builders:
             credentials: 'hasRole("ROLE_ADMIN") OR hasRole("ROLE_SUPER_ADMIN")'
             title: Nuevo Usuario
             display:
-              NONE: [[name, last_name, phone, business]]
+              NONE: [[name, last_name, phone, vehicle, business]]
               Usuario: [username, email, groups, roles, plainPassword, enabled]
             actions:
                 save: ~
@@ -84,7 +87,7 @@ builders:
             credentials: 'hasRole("ROLE_ADMIN") OR hasRole("ROLE_SUPER_ADMIN")'
             title: "Editando a usuario \"%object%\"|{ %object%: User.username }|"
             display:
-                NONE: [[name, last_name, phone, business]]
+                NONE: [[name, last_name, phone, vehicle, business]]
                 Usuario: [username, email, groups, roles, plainPassword, enabled]
             actions:
                 save: ~
@@ -93,7 +96,7 @@ builders:
         params:
             credentials: 'hasRole("ROLE_ADMIN") OR hasRole("ROLE_SUPER_ADMIN")'
             title: "Viendo \"%object%\"|{ %object%: User.username }|"
-            display: [name, last_name, phone, username, email, enabled]
+            display: [name, last_name, phone, vehicle, username, email, enabled]
             actions:
                 list: ~
                 new: ~

@@ -22,6 +22,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @ORM\Table(name="vehicle")
  * @ORM\Entity
  * @UniqueEntity("code")
+ * @UniqueEntity("user")
  */
 class Vehicle
 {
@@ -85,6 +86,12 @@ class Vehicle
      * })
      */
     private $business;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="User", inversedBy="vehicle")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $user;
 
     /**
      * @var \Doctrine\Common\Collections\Collection $issues
@@ -429,5 +436,28 @@ class Vehicle
     public function getUpdatedBy()
     {
         return $this->updated_by;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \Trackme\BackendBundle\Entity\User $user
+     * @return Vehicle
+     */
+    public function setUser(\Trackme\BackendBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+    
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Trackme\BackendBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

@@ -28,9 +28,10 @@ class CoordinateRepository extends EntityRepository
         $em = $this->getEntityManager();
 
         $query = $em->createQuery("
-            SELECT c, u
+            SELECT c, u, v
             FROM TrackmeBackendBundle:Coordinate c
             LEFT JOIN c.user u
+            LEFT JOIN u.vehicle v
             WHERE c.user IN (:users) AND c.created_at > :ten_minutes
             GROUP BY u.id");
         $query->setParameter('users', $users);

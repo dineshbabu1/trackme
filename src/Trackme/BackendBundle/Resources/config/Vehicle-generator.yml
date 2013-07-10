@@ -27,6 +27,9 @@ params:
             label: Marca
         model:
             label: Modelo
+        user:
+            label: Conductor
+            help: Usuario
         kilometerPerLiter:
             label: Km/Litro
             formType: number
@@ -81,7 +84,7 @@ builders:
             credentials: 'hasRole("ROLE_ADMIN") OR hasRole("ROLE_SUPER_ADMIN")'
             title: Nuevo Vehiculo
             display:
-                NONE: [ [manufacturer, model], [type, code, fuel, kilometerPerLiter], issues ]
+                NONE: [ [user, manufacturer, model], [type, code, fuel, kilometerPerLiter], issues ]
             actions:
                 save: ~
                 save-and-add: ~
@@ -91,14 +94,14 @@ builders:
             credentials: 'hasRole("ROLE_ADMIN") OR hasRole("ROLE_SUPER_ADMIN")'
             title: "Editando Vehiculo \"%object%\"|{ %object%: Vehicle }|"
             display:
-                NONE: [ [manufacturer, model], [type, code, fuel, kilometerPerLiter], issues ]
+                NONE: [ [user, manufacturer, model], [type, code, fuel, kilometerPerLiter], issues ]
             actions:
                 save: ~
                 list: ~
     show:
         params:
             credentials: 'hasRole("ROLE_ADMIN") OR hasRole("ROLE_SUPER_ADMIN")'
-            title: Viendo
+            title: Viendo Vehiculo
             display: ~
             actions:
                 list: ~

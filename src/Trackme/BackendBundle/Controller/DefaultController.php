@@ -218,7 +218,7 @@ class DefaultController extends Controller
 
                 $marker = new Marker();
                 $marker->setPosition($active->getLat(), $active->getLng(), true);
-                $marker->setIcon($baseurl . '/bundles/trackmebackend/img/car.png');
+                $marker->setIcon($baseurl . '/bundles/trackmebackend/img/'.$active->getUser()->getIcon());
                 $marker->setInfoWindow($infoWindow);
                 $map->addMarker($marker);
             }
