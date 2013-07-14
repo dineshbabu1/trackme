@@ -24,7 +24,8 @@ class CoordinateRepository extends EntityRepository
 {
     public function getActiveVehicles($users)
     {
-        $ten_minutes_ago = date('Y-m-d H:i:s', strtotime("-10 minutes", time()));
+        $coordinates = array();
+        $ten_minutes_ago = date('Y-m-d H:i:s', strtotime("-3 minutes", time()));
         $em = $this->getEntityManager();
 
         $query = $em->createQuery("
@@ -32,11 +33,17 @@ class CoordinateRepository extends EntityRepository
             FROM TrackmeBackendBundle:Coordinate c
             LEFT JOIN c.user u
             WHERE c.user IN (:users) AND c.created_at > :ten_minutes
-            GROUP BY u.id");
+            ORDER BY c.created_at DESC");
         $query->setParameter('users', $users);
         $query->setParameter('ten_minutes', $ten_minutes_ago);
 
-        return $query->getResult();
+        foreach ($query->getResult() as $c){
+            if (!array_key_exists($c->getUser()->getId(), $coordinates)){
+                $coordinates[$c->getUser()->getId()] = $c;
+            }
+        }
+        
+        return $coordinates;
     }
     
     /**

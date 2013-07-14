@@ -119,7 +119,12 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $baseurl = $this->getRequest()->getScheme() . '://' . $this->getRequest()->getHttpHost() . $this->getRequest()->getBasePath();
-
+        $best_route = 0;
+        $duration = 0;
+        $summary = "";
+        $estimate = null;
+        $distance = null;
+        
         $security = $this->get('security.context');
 
         if ($security->isGranted('ROLE_SUPER_ADMIN')) {
@@ -134,7 +139,7 @@ class DefaultController extends Controller
         } 
 
         $last_ots = $em->getRepository('Trackme\BackendBundle\Entity\Business')->getLastOt($business, 10);
-        // ladybug_dump_die($last_ots);
+
         // Las coordenadas activas de una empresa
         $actives = $em->getRepository('Trackme\BackendBundle\Entity\Coordinate')->getActiveVehicles($business->getIdUsers());
 
@@ -144,12 +149,6 @@ class DefaultController extends Controller
             ->add('precio_combustible', 'money', array('help' => 'Solo numeros', 'currency' => 'CLP'))
             ->add('kilometros_por_litro', 'number', array('help' => 'Solo numeros'))
             ->getForm();
-
-        $best_route = 0;
-        $duration = 0;
-        $summary = "";
-        $estimate = null;
-        $distance = null;
 
         $map = $this->get('ivory_google_map.map');
         $map->setStylesheetOption('width', '100%');

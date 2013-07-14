@@ -3,6 +3,7 @@
 namespace Trackme\BackendBundle\Controller\Ot;
 
 use Admingenerated\TrackmeBackendBundle\BaseOtController\ShowController as BaseShowController;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Ivory\GoogleMap\Overlays\Marker;
 use Ivory\GoogleMap\Overlays\Polyline;
 use Ivory\GoogleMap\Overlays\InfoWindow;
@@ -17,6 +18,9 @@ class ShowController extends BaseShowController
         if (!$Ot) {
             throw new NotFoundHttpException("The Trackme\BackendBundle\Entity\Ot with id $pk can't be found");
         }
+
+        if (!in_array($Ot->getUser()->getId() , $this->get('security.context')->getToken()->getUser()->getColegas()))
+            throw new NotFoundHttpException("The Trackme\BackendBundle\Entity\Ot with id $pk can't be found");
 
         if ($Ot->getCoordinates()->count() == 0){
             return $this->render('TrackmeBackendBundle:OtShow:index.html.twig', $this->getAdditionalRenderParameters($Ot) + array(

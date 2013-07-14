@@ -93,7 +93,7 @@ builders:
         params:
             credentials: 'hasRole("ROLE_ADMIN") OR hasRole("ROLE_SUPER_ADMIN")'
             title: "Viendo \"%object%\"|{ %object%: User.username }|"
-            display: [name, last_name, phone, username, email, enabled]
+            display: [name, last_name, phone, username, email, groups, roles, enabled]
             actions:
                 list: ~
                 new: ~
