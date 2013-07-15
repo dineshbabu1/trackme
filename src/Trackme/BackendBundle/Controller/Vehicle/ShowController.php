@@ -18,9 +18,11 @@ class ShowController extends BaseShowController
             throw new NotFoundHttpException("The Trackme\BackendBundle\Entity\Vehicle with id $pk can't be found");
         }
 
-        if ($Vehicle->getBusiness() != $this->get('security.context')->getToken()->getUser()->getBusiness())
-        	throw new NotFoundHttpException("The Trackme\BackendBundle\Entity\Vehicle with id $pk can't be found");
-
+        if (!$this->get('security.context')->isGranted('ROLE_SUPER_ADMIN')){
+            if ($Vehicle->getBusiness() != $this->get('security.context')->getToken()->getUser()->getBusiness())
+                throw new NotFoundHttpException("The Trackme\BackendBundle\Entity\Vehicle with id $pk can't be found");
+        }
+        
         return $this->render('TrackmeBackendBundle:VehicleShow:index.html.twig', $this->getAdditionalRenderParameters($Vehicle) + array(
             "Vehicle" => $Vehicle
         ));

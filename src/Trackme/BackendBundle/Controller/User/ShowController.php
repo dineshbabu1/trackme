@@ -18,9 +18,11 @@ class ShowController extends BaseShowController
             throw new NotFoundHttpException("The Trackme\BackendBundle\Entity\User with id $pk can't be found");
         }
 
-        if ($User->getBusiness() != $this->get('security.context')->getToken()->getUser()->getBusiness())
-        	throw new NotFoundHttpException("The Trackme\BackendBundle\Entity\User with id $pk can't be found");
-
+        if (!$this->get('security.context')->isGranted('ROLE_SUPER_ADMIN')){
+            if ($User->getBusiness() != $this->get('security.context')->getToken()->getUser()->getBusiness())
+            	throw new NotFoundHttpException("The Trackme\BackendBundle\Entity\User with id $pk can't be found");
+        }
+        
         return $this->render('TrackmeBackendBundle:UserShow:index.html.twig', $this->getAdditionalRenderParameters($User) + array(
             "User" => $User
         ));

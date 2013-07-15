@@ -108,7 +108,7 @@ class DefaultController extends Controller
             return $this->redirect($this->generateUrl('pricing'));
         }
 
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
         $plan = $em->getRepository('Trackme\BackendBundle\Entity\Plan')->find($request->get('plan'));
 
         switch ($plan->getName()) {
@@ -142,7 +142,8 @@ class DefaultController extends Controller
 
     public function createAction(Request $request)
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
+
         $business = new Business();
         $form = $this->createFormBuilder($business)
             ->add('name', 'text', array('label' => 'Nombre'))
@@ -180,12 +181,18 @@ class DefaultController extends Controller
             $this->setPayment($object);
             // Second step
             return $this->redirect($this->generateUrl('signup_user', array('token' => $object->getToken())));
+        } else{
+            $this->get('session')->getFlashBag()->add(
+                    'warning',
+                    'Hubo un error al ingresar su información. El nombre de la empresa o el email ya estan registrados.'
+                );
+            return $this->redirect($this->generateUrl('signup', array('plan' => $request->get('plan'))));
         }
     }
 
     public function setPayment($business)
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
         $uf = $this->get('trackme.payment.controller')->ufAction()->getContent();
         $usd = $this->get('trackme.payment.controller')->dolarAction()->getContent();
         $dias_facturados = date('t')-date('d');

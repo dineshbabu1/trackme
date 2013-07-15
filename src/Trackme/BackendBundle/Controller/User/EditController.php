@@ -19,8 +19,11 @@ class EditController extends BaseEditController
             throw new NotFoundHttpException("The Trackme\BackendBundle\Entity\User with id $pk can't be found");
         }
 
-        if ($User->getBusiness() != $this->get('security.context')->getToken()->getUser()->getBusiness())
-        	throw new NotFoundHttpException("The Trackme\BackendBundle\Entity\User with id $pk can't be found");
+        if (!$this->get('security.context')->isGranted('ROLE_SUPER_ADMIN')){
+            if ($User->getBusiness() != $this->get('security.context')->getToken()->getUser()->getBusiness())
+                throw new NotFoundHttpException("The Trackme\BackendBundle\Entity\User with id $pk can't be found"); 
+        }
+        
         
 
         $form = $this->createForm($this->getEditType(), $User);
