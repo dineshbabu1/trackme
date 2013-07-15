@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "4b14cbb2fe211a5c442fe5489d3c91c3",
+    "hash": "8125678fa64241795979dcdc1e6c41ce",
     "packages": [
         {
             "name": "antimattr/google-bundle",
@@ -50,18 +50,44 @@
             "time": "2012-12-07 15:23:36"
         },
         {
+            "name": "beberlei/DoctrineExtensions",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/beberlei/DoctrineExtensions.git",
+                "reference": "bed46454f8fe10ee3eb3ef9aa17c6704bac06406"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/beberlei/DoctrineExtensions/zipball/bed46454f8fe10ee3eb3ef9aa17c6704bac06406",
+                "reference": "bed46454f8fe10ee3eb3ef9aa17c6704bac06406",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/orm": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "DoctrineExtensions": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "time": "2013-06-30 08:29:55"
+        },
+        {
             "name": "cedriclombardot/admingenerator-generator-bundle",
             "version": "dev-master",
             "target-dir": "Admingenerator/GeneratorBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony2admingenerator/AdmingeneratorGeneratorBundle.git",
-                "reference": "f6d7c67cb2c546ec6c9b7e3e35c73779492183c2"
+                "reference": "f3c3d4b24f4a8ba77b226a3fd9c3c22d4b9517b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony2admingenerator/AdmingeneratorGeneratorBundle/zipball/f6d7c67cb2c546ec6c9b7e3e35c73779492183c2",
-                "reference": "f6d7c67cb2c546ec6c9b7e3e35c73779492183c2",
+                "url": "https://api.github.com/repos/symfony2admingenerator/AdmingeneratorGeneratorBundle/zipball/f3c3d4b24f4a8ba77b226a3fd9c3c22d4b9517b8",
+                "reference": "f3c3d4b24f4a8ba77b226a3fd9c3c22d4b9517b8",
                 "shasum": ""
             },
             "require": {
@@ -114,7 +140,7 @@
                 "generator",
                 "yaml"
             ],
-            "time": "2013-07-08 16:19:45"
+            "time": "2013-07-12 10:00:55"
         },
         {
             "name": "cedriclombardot/admingenerator-user-bundle",
@@ -181,7 +207,7 @@
             ],
             "authors": [
                 {
-                    "name": "Cédric Lombardot",
+                    "name": "Cedric LOMBARDOT",
                     "email": "cedric.lombardot@gmail.com"
                 },
                 {
@@ -299,7 +325,7 @@
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -320,12 +346,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/data-fixtures.git",
-                "reference": "6924952026b77ff492da559b04ad166d25c611cb"
+                "reference": "b4a135c7db56ecc4602b54a2184368f440cac33e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/data-fixtures/zipball/6924952026b77ff492da559b04ad166d25c611cb",
-                "reference": "6924952026b77ff492da559b04ad166d25c611cb",
+                "url": "https://api.github.com/repos/doctrine/data-fixtures/zipball/b4a135c7db56ecc4602b54a2184368f440cac33e",
+                "reference": "b4a135c7db56ecc4602b54a2184368f440cac33e",
                 "shasum": ""
             },
             "require": {
@@ -367,7 +393,7 @@
             "keywords": [
                 "database"
             ],
-            "time": "2013-04-11 23:14:04"
+            "time": "2013-07-10 17:04:07"
         },
         {
             "name": "doctrine/dbal",
@@ -961,12 +987,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/l3pp4rd/DoctrineExtensions.git",
-                "reference": "5f29b798f1290dd994c4ca133dadf69cccb59a1f"
+                "reference": "b2e0ef9691f04c7097bac2183110764d005c39d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/5f29b798f1290dd994c4ca133dadf69cccb59a1f",
-                "reference": "5f29b798f1290dd994c4ca133dadf69cccb59a1f",
+                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/b2e0ef9691f04c7097bac2183110764d005c39d8",
+                "reference": "b2e0ef9691f04c7097bac2183110764d005c39d8",
                 "shasum": ""
             },
             "require": {
@@ -1033,7 +1059,7 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2013-07-09 18:45:00"
+            "time": "2013-07-13 17:29:26"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -1114,9 +1140,9 @@
             ],
             "authors": [
                 {
-                    "name": "Alexander S",
+                    "name": "Alexander",
                     "email": "alexander@iron.io",
-                    "homepage": "http://iron.io",
+                    "homepage": "https://www.briteverify.com/",
                     "role": "Developer"
                 }
             ],
@@ -1212,7 +1238,7 @@
                 {
                     "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -1297,7 +1323,7 @@
                 {
                     "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -1513,7 +1539,7 @@
                 {
                     "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -1692,7 +1718,7 @@
                     "email": "stof@notk.org"
                 },
                 {
-                    "name": "KnpLabs",
+                    "name": "Knplabs",
                     "homepage": "http://knplabs.com"
                 },
                 {
@@ -1945,12 +1971,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/marcaube/ObHighchartsBundle.git",
-                "reference": "93b90e25b9ad732b686733a7eb9c701a2e7a23f2"
+                "reference": "7d89837509e35887ca3832b479910b718d55c636"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/marcaube/ObHighchartsBundle/zipball/93b90e25b9ad732b686733a7eb9c701a2e7a23f2",
-                "reference": "93b90e25b9ad732b686733a7eb9c701a2e7a23f2",
+                "url": "https://api.github.com/repos/marcaube/ObHighchartsBundle/zipball/7d89837509e35887ca3832b479910b718d55c636",
+                "reference": "7d89837509e35887ca3832b479910b718d55c636",
                 "shasum": ""
             },
             "require": {
@@ -1983,7 +2009,7 @@
                 "marcaube",
                 "ob"
             ],
-            "time": "2013-05-26 22:21:58"
+            "time": "2013-07-11 17:32:48"
         },
         {
             "name": "pagerfanta/pagerfanta",
@@ -2083,7 +2109,7 @@
                 {
                     "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -2181,22 +2207,22 @@
         },
         {
             "name": "raulfraile/ladybug-bundle",
-            "version": "dev-master",
+            "version": "v0.61",
             "target-dir": "RaulFraile/Bundle/LadybugBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/raulfraile/LadybugBundle.git",
-                "reference": "v0.6"
+                "reference": "v0.61"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/raulfraile/LadybugBundle/zipball/v0.6",
-                "reference": "v0.6",
+                "url": "https://api.github.com/repos/raulfraile/LadybugBundle/zipball/v0.61",
+                "reference": "v0.61",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
-                "raulfraile/ladybug": ">=0.5",
+                "raulfraile/ladybug": "v0.6",
                 "symfony/framework-bundle": ">=2.0.0"
             },
             "replace": {
@@ -2216,7 +2242,8 @@
                 {
                     "name": "Raul Fraile",
                     "email": "raulfraile@gmail.com",
-                    "homepage": "http://www.raulfrailebeneyto.com/"
+                    "homepage": "http://www.raulfrailebeneyto.com/",
+                    "role": "Developer"
                 }
             ],
             "description": "Symfony2 bundle for Ladybug library (Simple and Extensible PHP Dumper)",
@@ -2227,7 +2254,7 @@
                 "tree",
                 "twig"
             ],
-            "time": "2013-05-12 08:36:41"
+            "time": "2013-07-12 23:34:47"
         },
         {
             "name": "sensio/distribution-bundle",
@@ -2712,20 +2739,21 @@
         },
         {
             "name": "symfony/icu",
-            "version": "v1.0.0",
+            "version": "v1.2.0",
             "target-dir": "Symfony/Component/Icu",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Icu.git",
-                "reference": "v1.0.0"
+                "reference": "v1.2.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Icu/zipball/v1.0.0",
-                "reference": "v1.0.0",
+                "url": "https://api.github.com/repos/symfony/Icu/zipball/v1.2.0",
+                "reference": "v1.2.0",
                 "shasum": ""
             },
             "require": {
+                "lib-icu": ">=4.4",
                 "php": ">=5.3.3",
                 "symfony/intl": ">=2.3,<3.0"
             },
@@ -2755,7 +2783,7 @@
                 "icu",
                 "intl"
             ],
-            "time": "2013-06-03 18:32:07"
+            "time": "2013-06-03 18:32:58"
         },
         {
             "name": "symfony/monolog-bundle",
@@ -3394,13 +3422,13 @@
         "antimattr/google-bundle": 20,
         "gedmo/doctrine-extensions": 20,
         "stof/doctrine-extensions-bundle": 20,
-        "raulfraile/ladybug-bundle": 20,
         "kriswallsmith/buzz": 0,
         "codememe/ironmq-bundle": 20,
         "doctrine/data-fixtures": 20,
         "doctrine/doctrine-fixtures-bundle": 20,
         "ekino/newrelic-bundle": 20,
-        "ob/highcharts-bundle": 20
+        "ob/highcharts-bundle": 20,
+        "beberlei/doctrineextensions": 20
     },
     "platform": {
         "php": ">=5.3.3"

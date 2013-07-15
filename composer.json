@@ -37,7 +37,7 @@
         "willdurand/geocoder-bundle": "*",
         "gedmo/doctrine-extensions": "dev-master",
         "stof/doctrine-extensions-bundle": "~1.1@dev",
-        "raulfraile/ladybug-bundle": "dev-master",
+        "raulfraile/ladybug-bundle": "v0.61",
         "kriswallsmith/buzz": "@stable",
         "codememe/ironmq-bundle": "dev-master",
         "doctrine/data-fixtures": "dev-master",
