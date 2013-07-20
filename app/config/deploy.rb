@@ -17,8 +17,8 @@ role :db,         domain, :primary => true       # This is where Symfony2 migrat
 set  :use_sudo,      false
 set  :keep_releases,  1
 
-set :update_vendors, false
-set :use_composer, false
+set :update_vendors, true
+set :use_composer, true
 
 set :shared_files,      ["app/config/parameters.yml"]
 set :shared_children,   [app_path + "/logs", web_path + "/uploads", "vendor", web_path+"/media"]
