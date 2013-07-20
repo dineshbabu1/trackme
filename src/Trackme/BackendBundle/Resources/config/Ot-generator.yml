@@ -15,7 +15,6 @@ params:
             label: "Fecha Inicio"
         dateEnd:
             label: "Fecha Termino"
-            filterOn: dateEnd = null
         user:
             label: Usuario
     object_actions:
@@ -38,10 +37,10 @@ builders:
                 delete: ~
     filters:
         params:
-            display: [ dateStart, dateEnd, user]
+            display: [ dateStart, dateEnd ]
     new:
         params:
-            credentials: 'hasRole("ROLE_ADMIN") OR hasRole("ROLE_SUPER_ADMIN")'
+            credentials: 'hasRole("ROLE_SUPER_ADMIN")'
             title: Nueva Ot
             display: ~
             actions:

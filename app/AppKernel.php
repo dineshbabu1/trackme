@@ -39,7 +39,6 @@ class AppKernel extends Kernel
             new Bazinga\Bundle\GeocoderBundle\BazingaGeocoderBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle(),
-            new CodeMeme\IronMqBundle\CodeMemeIronMqBundle() ,
             new Ekino\Bundle\NewRelicBundle\EkinoNewRelicBundle(),
             new Ob\HighchartsBundle\ObHighchartsBundle()
         );

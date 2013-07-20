@@ -42,9 +42,7 @@ class DefaultController extends Controller
             return $this->redirect($this->generateUrl('signup'));
         }
 
-        /** @var $formFactory \FOS\UserBundle\Form\Factory\FactoryInterface */
         $formFactory = $this->get('fos_user.registration.form.factory');
-        /** @var $dispatcher \Symfony\Component\EventDispatcher\EventDispatcherInterface */
         $dispatcher = $this->get('event_dispatcher');
 
         $userManager = $this->get('fos_user.user_manager');
@@ -61,6 +59,7 @@ class DefaultController extends Controller
         if ($request->getMethod() === "POST") {
             $em = $this->getDoctrine()->getManager();
             $business = $em->getRepository('Trackme\BackendBundle\Entity\Business')->findOneBy(array('token' => $request->get('token')));
+            
             if (!$business) {
                 return $this->redirect($this->generateUrl('signup'));
             }
@@ -79,14 +78,6 @@ class DefaultController extends Controller
                 $user->addRole($business->getRoleByState());
                 $user->addGroup($group);
                 $userManager->updateUser($user);
-
-                try {
-                    $ironmq = $this->get('code_meme_iron_mq.messagequeue');
-                    $ironmq->postMessage('signup_queue', 'El usuario: ' . $user . ' se registro a las: ' . date('Y:m:d H:i:s'),
-                        array('expires_in' => 600));
-                } catch (Exception $exc) {
-                    echo $exc->getMessage();
-                }
 
                 if (null === $response = $event->getResponse()) {
                     $url = $this->container->get('router')->generate('fos_user_registration_confirmed');
@@ -110,6 +101,10 @@ class DefaultController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         $plan = $em->getRepository('Trackme\BackendBundle\Entity\Plan')->find($request->get('plan'));
+
+        if (!$plan) {
+            return $this->redirect($this->generateUrl('pricing'));
+        }
 
         switch ($plan->getName()) {
             case 'Trial':

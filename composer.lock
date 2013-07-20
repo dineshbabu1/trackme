@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "8125678fa64241795979dcdc1e6c41ce",
+    "hash": "34abd4728e08c0f71b6aa86b0e03acb2",
     "packages": [
         {
             "name": "antimattr/google-bundle",
@@ -48,32 +48,6 @@
                 "maps"
             ],
             "time": "2012-12-07 15:23:36"
-        },
-        {
-            "name": "beberlei/DoctrineExtensions",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/beberlei/DoctrineExtensions.git",
-                "reference": "bed46454f8fe10ee3eb3ef9aa17c6704bac06406"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/beberlei/DoctrineExtensions/zipball/bed46454f8fe10ee3eb3ef9aa17c6704bac06406",
-                "reference": "bed46454f8fe10ee3eb3ef9aa17c6704bac06406",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/orm": "*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "DoctrineExtensions": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "time": "2013-06-30 08:29:55"
         },
         {
             "name": "cedriclombardot/admingenerator-generator-bundle",
@@ -221,55 +195,6 @@
                 "twig"
             ],
             "time": "2012-11-09 23:18:09"
-        },
-        {
-            "name": "codememe/ironmq-bundle",
-            "version": "dev-master",
-            "target-dir": "CodeMeme/IronMqBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/CodeMeme/CodeMemeIronMqBundle.git",
-                "reference": "45374d5e5c0756b06f51d635ee6709e66c780a4d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/CodeMeme/CodeMemeIronMqBundle/zipball/45374d5e5c0756b06f51d635ee6709e66c780a4d",
-                "reference": "45374d5e5c0756b06f51d635ee6709e66c780a4d",
-                "shasum": ""
-            },
-            "require": {
-                "iron-io/iron_mq": "1.1.*",
-                "php": ">=5.3.2",
-                "symfony/framework-bundle": ">=2.0.0"
-            },
-            "require-dev": {
-                "symfony/yaml": ">=2.0.0"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-0": {
-                    "CodeMeme\\IronMqBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Evan Kaufman",
-                    "email": "evan@digitalflophouse.com"
-                }
-            ],
-            "description": "Symfony2 bundle wrapping IronMQ PHP bindings",
-            "homepage": "https://github.com/CodeMeme/CodeMemeIronMqBundle",
-            "keywords": [
-                "ironio",
-                "ironmq",
-                "message",
-                "queue"
-            ],
-            "time": "2012-10-22 16:07:08"
         },
         {
             "name": "doctrine/common",
@@ -1112,50 +1037,6 @@
             "time": "2013-04-06 17:15:44"
         },
         {
-            "name": "iron-io/iron_mq",
-            "version": "1.1.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/iron-io/iron_mq_php.git",
-                "reference": "1.1.2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/iron-io/iron_mq_php/zipball/1.1.2",
-                "reference": "1.1.2",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.2.0"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "iron_mq.phar"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Alexander",
-                    "email": "alexander@iron.io",
-                    "homepage": "https://www.briteverify.com/",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Client binding for IronMQ (hosted message queue)",
-            "homepage": "http://github.com/iron-io/iron_mq_php",
-            "keywords": [
-                "MQ",
-                "iron",
-                "iron_mq"
-            ],
-            "time": "2012-10-15 20:22:40"
-        },
-        {
             "name": "jdorn/sql-formatter",
             "version": "v1.2.9",
             "source": {
@@ -1785,21 +1666,21 @@
         },
         {
             "name": "kriswallsmith/assetic",
-            "version": "v1.1.1",
+            "version": "v1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kriswallsmith/assetic.git",
-                "reference": "v1.1.1"
+                "reference": "v1.1.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/v1.1.1",
-                "reference": "v1.1.1",
+                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/v1.1.2",
+                "reference": "v1.1.2",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.1",
-                "symfony/process": ">=2.1,<3.0"
+                "symfony/process": "~2.1"
             },
             "require-dev": {
                 "cssmin/cssmin": "*",
@@ -1809,9 +1690,9 @@
                 "leafo/scssphp": "*",
                 "leafo/scssphp-compass": "*",
                 "mrclay/minify": "*",
-                "phpunit/phpunit": ">=3.7,<4.0",
+                "phpunit/phpunit": "~3.7",
                 "ptachoire/cssembed": "*",
-                "twig/twig": ">=1.6,<2.0"
+                "twig/twig": "~1.6"
             },
             "suggest": {
                 "leafo/lessphp": "Assetic provides the integration with the lessphp LESS compiler",
@@ -1852,7 +1733,7 @@
                 "compression",
                 "minification"
             ],
-            "time": "2013-06-01 22:13:43"
+            "time": "2013-07-19 00:03:27"
         },
         {
             "name": "kriswallsmith/buzz",
@@ -3423,12 +3304,10 @@
         "gedmo/doctrine-extensions": 20,
         "stof/doctrine-extensions-bundle": 20,
         "kriswallsmith/buzz": 0,
-        "codememe/ironmq-bundle": 20,
         "doctrine/data-fixtures": 20,
         "doctrine/doctrine-fixtures-bundle": 20,
         "ekino/newrelic-bundle": 20,
-        "ob/highcharts-bundle": 20,
-        "beberlei/doctrineextensions": 20
+        "ob/highcharts-bundle": 20
     },
     "platform": {
         "php": ">=5.3.3"

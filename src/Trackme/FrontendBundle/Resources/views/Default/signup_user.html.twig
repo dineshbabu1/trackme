@@ -5,7 +5,7 @@ Primer Usuario
 {% endblock %}
 
 {% block content %}
-<form action="{{ path('signup_user') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
+<form action="{{ path('signup_user', {token: token}) }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
     {{ form_widget(form) }}
         <input type="hidden" name="token" value="{{token}}" />
         <div>
