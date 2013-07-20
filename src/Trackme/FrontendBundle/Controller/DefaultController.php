@@ -126,10 +126,10 @@ class DefaultController extends Controller
 
         $business = new Business();
         $form = $this->createFormBuilder($business)
-            ->add('name', 'text', array('label' => 'Nombre'))
+            ->add('name', 'text', array('label' => 'Nombre', 'required' => true))
             ->add('email', 'email')
-            ->add('phone', 'text', array('label' => 'Telefono'))
-            ->add('address', 'text', array('label' => 'Direccion', 'help' => 'Calle 123, Comuna Ciudad'))
+            ->add('phone', 'text', array('label' => 'Teléfono', 'help' => '+5621234567 Anexo 23'))
+            ->add('address', 'text', array('label' => 'Dirección', 'help' => 'Calle 123, Comuna Ciudad'))
             ->getForm();
 
         return $this->render('TrackmeFrontendBundle:Default:signup.html.twig', array('form' => $form->createView(), 'state' => $state, 'plan' => $plan));
@@ -179,7 +179,7 @@ class DefaultController extends Controller
         } else{
             $this->get('session')->getFlashBag()->add(
                     'warning',
-                    'Hubo un error al ingresar su información. El nombre de la empresa o el email ya estan registrados.'
+                    'Hubo un error al ingresar su información. Por favor complete todos los campos.'
                 );
             return $this->redirect($this->generateUrl('signup', array('plan' => $request->get('plan'))));
         }
