@@ -12,6 +12,7 @@
 namespace Trackme\BackendBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 
 /**
  * BusinessRepository
@@ -49,9 +50,11 @@ class BusinessRepository extends EntityRepository
 
             ORDER BY o.id DESC');
         $query->setParameter('business', $business->getId());
-        // $query->setMaxResults(2);
+        $query->setMaxResults($limit);
 
-        return $query->getResult();
+        $paginator = new Paginator($query, $fetchJoinCollection = true);
+
+        return $paginator;
 
     }
 

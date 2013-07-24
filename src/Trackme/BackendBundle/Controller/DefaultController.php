@@ -138,7 +138,7 @@ class DefaultController extends Controller
             throw $this->createNotFoundException('La pagina solicitada no existe');
         } 
 
-        $last_ots = $em->getRepository('Trackme\BackendBundle\Entity\Business')->getLastOt($business, 10);
+        $last_ots = $em->getRepository('Trackme\BackendBundle\Entity\Business')->getLastOt($business, 20);
 
         // Las coordenadas activas de una empresa
         $actives = $em->getRepository('Trackme\BackendBundle\Entity\Coordinate')->getActiveVehicles($business->getIdUsers());
