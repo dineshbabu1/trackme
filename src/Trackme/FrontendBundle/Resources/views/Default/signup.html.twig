@@ -5,7 +5,8 @@
 {% endblock %}
 
 {% block content %}
-  <form action="{{ path('create_business') }}" name="form-empresa" method="post" {{ form_enctype(form) }}>
+  <form action="{{ path('signup') }}" name="form-empresa" method="post" {{ form_enctype(form) }}>
+  	{{ form_errors(form) }}
     {{ form_widget(form) }}
     {{ form_rest(form) }}
     <input type="hidden" value="{{state.id}}" name="state" id="state" />

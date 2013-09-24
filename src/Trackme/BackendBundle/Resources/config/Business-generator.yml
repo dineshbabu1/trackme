@@ -59,7 +59,7 @@ builders:
         params:
             credentials: 'hasRole("ROLE_SUPER_ADMIN")'
             title: "Editando cliente \"%object%\"|{ %object%: Business.name }|"
-            display: [name, email, phone, address, enabled, plan, state]
+            display: [name, email, rut, phone, address, enabled, plan, state]
             actions:
                 save: ~
                 list: ~

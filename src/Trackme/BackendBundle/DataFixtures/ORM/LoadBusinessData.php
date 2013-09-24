@@ -24,7 +24,7 @@ class LoadBusinessData extends AbstractFixture implements OrderedFixtureInterfac
      */
     public function load(ObjectManager $manager)
     {
-        
+
         $trial = new Plan();
         $trial->setName('Trial');
         $trial->setPrice(0);
@@ -32,7 +32,7 @@ class LoadBusinessData extends AbstractFixture implements OrderedFixtureInterfac
         $trial->setFeatured(false);
         $trial->setUsersLimit(3);
         $manager->persist($trial);
-        
+
         $basico = new Plan();
         $basico->setName('Básico');
         $basico->setPrice(1.5);
@@ -40,7 +40,7 @@ class LoadBusinessData extends AbstractFixture implements OrderedFixtureInterfac
         $basico->setRefreshTime(45);
         $basico->setUsersLimit(5);
         $manager->persist($basico);
-        
+
         $business = new Plan();
         $business->setName('Business');
         $business->setPrice(3);
@@ -48,7 +48,7 @@ class LoadBusinessData extends AbstractFixture implements OrderedFixtureInterfac
         $business->setRefreshTime(30);
         $business->setUsersLimit(15);
         $manager->persist($business);
-        
+
         $full = new Plan();
         $full->setName('Full');
         $full->setPrice(4.5);
@@ -56,7 +56,7 @@ class LoadBusinessData extends AbstractFixture implements OrderedFixtureInterfac
         $full->setRefreshTime(15);
         $full->setUsersLimit(30);
         $manager->persist($full);
-        
+
         $b = new Business();
         $b->setName('Elfic Ticio');
         $b->setEmail('elfic@ticio.com');

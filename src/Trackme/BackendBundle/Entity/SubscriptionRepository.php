@@ -37,7 +37,7 @@ class SubscriptionRepository extends EntityRepository
 
         return $query->getResult();
     }
-    
+
     public function getPendentPayments($business)
     {
         $em = $this->getEntityManager();

@@ -15,7 +15,6 @@ use Admingenerated\TrackmeBackendBundle\BaseOtController\ShowController as BaseS
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Ivory\GoogleMap\Overlays\Marker;
 use Ivory\GoogleMap\Overlays\Polyline;
-use Ivory\GoogleMap\Overlays\InfoWindow;
 
 class ShowController extends BaseShowController
 {
@@ -31,11 +30,11 @@ class ShowController extends BaseShowController
         if (!in_array($Ot->getUser()->getId() , $this->get('security.context')->getToken()->getUser()->getColegas()))
             throw new NotFoundHttpException("The Trackme\BackendBundle\Entity\Ot with id $pk can't be found");
 
-        if ($Ot->getCoordinates()->count() == 0){
+        if ($Ot->getCoordinates()->count() == 0) {
             return $this->render('TrackmeBackendBundle:OtShow:index.html.twig', $this->getAdditionalRenderParameters($Ot) + array(
                 "Ot" => $Ot,
                 "map" => null
-            ));    
+            ));
         }
 
         $map = $this->get('ivory_google_map.map');
@@ -43,7 +42,7 @@ class ShowController extends BaseShowController
         $map->setStylesheetOption('height', '500px');
 
         $map->setLanguage('es');
-        
+
         $mapa = $this->showOt($Ot, $map);
 
         return $this->render('TrackmeBackendBundle:OtShow:index.html.twig', $this->getAdditionalRenderParameters($Ot) + array(
@@ -84,7 +83,7 @@ class ShowController extends BaseShowController
         $map->addPolyline($polyline);
         $map->setCenter($first_coor->getLat(), $first_coor->getLng(), true);
         $map->setMapOption('zoom', 13);
-        
+
         return $map;
     }
 

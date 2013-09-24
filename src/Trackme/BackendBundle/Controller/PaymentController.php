@@ -19,7 +19,6 @@ use JMS\Payment\CoreBundle\Plugin\Exception\Action\VisitUrl;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
@@ -52,9 +51,9 @@ class PaymentController extends Controller
         }
 
         $payments = $em->getRepository('Trackme\BackendBundle\Entity\Subscription')->getPayments();
-        
+
         $uf = $this->forward('trackme.payment.controller:ufAction')->getContent();
-        
+
         return $this->render("TrackmeBackendBundle:Payment:list.html.twig", array('payments' => $payments, 'uf' => $uf));
     }
 
@@ -64,15 +63,16 @@ class PaymentController extends Controller
 
         $security = $this->get('security.context');
         $business = $security->getToken()->getUser()->getBusiness();
-        
+
         $payments_pendent = $em->getRepository('Trackme\BackendBundle\Entity\Subscription')->getPendentPayments($business);
         $approved = $em->getRepository('Trackme\BackendBundle\Entity\Subscription')->getPaymentsBusiness($business, 12);
-        
+
         $serie_user = $em->getRepository('Trackme\BackendBundle\Entity\Business')->getUserBusinessById($business);
         $serie_coor = $em->getRepository('Trackme\BackendBundle\Entity\Coordinate')->getStatsByWeekByBusiness($business);
         $serie_ot   = $em->getRepository('Trackme\BackendBundle\Entity\Ot')->getOtsByWeekByBusiness($business);
-        
+
         $this->forward('trackme.payment.controller:ufAction')->getContent();
+
         return $this->render("TrackmeBackendBundle:Payment:business_list.html.twig", array('payments' => $payments_pendent, 'approved' => $approved, 'user' => $serie_user, 'coor' => $serie_coor, 'ot' => $serie_ot));
     }
 
@@ -83,17 +83,17 @@ class PaymentController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $payment = $em->getRepository('Trackme\BackendBundle\Entity\Subscription')->find($request->get('id'));
-        
-        if(!$payment){
+
+        if (!$payment) {
             throw $this->createNotFoundException('La pagina solicitada no existe');
         }
 
         $security = $this->get('security.context');
         $business = $security->getToken()->getUser()->getBusiness();
-        if($payment->getBusiness() != $business){
+        if ($payment->getBusiness() != $business) {
             throw $this->createNotFoundException('La pagina solicitada no existe');
         }
-        
+
         $form = $this->getFormFactory()->create('jms_choose_payment_method', null, array(
             'amount'   => $payment->getAmount(),
             'currency' => 'USD',
@@ -111,7 +111,7 @@ class PaymentController extends Controller
         ));
 
         if ('POST' === $request->getMethod()) {
-            
+
             $form->bind($request);
 
             if ($form->isValid()) {
@@ -124,7 +124,7 @@ class PaymentController extends Controller
                 return new RedirectResponse($this->router->generate('admin_business_complete_payment', array(
                     'id' => $payment->getId(),
                 )));
-            } 
+            }
         }
 
         return array(
@@ -135,7 +135,7 @@ class PaymentController extends Controller
 
     public function completeAction(Request $request)
     {
-        
+
         $em = $this->getDoctrine()->getManager();
         $subscription = $em->getRepository('Trackme\BackendBundle\Entity\Subscription')->find($request->get('id'));
         $instruction = $subscription->getPaymentInstruction();
@@ -151,7 +151,7 @@ class PaymentController extends Controller
         }
 
         $result = $this->ppc->approveAndDeposit($payment->getId(), $payment->getTargetAmount());
-        
+
         if (Result::STATUS_PENDING === $result->getStatus()) {
             $ex = $result->getPluginException();
 
@@ -164,44 +164,49 @@ class PaymentController extends Controller
 
                 throw $ex;
             }
-        } else if (Result::STATUS_SUCCESS !== $result->getStatus()) {
+        } elseif (Result::STATUS_SUCCESS !== $result->getStatus()) {
             $this->get('session')->getFlashBag()->add(
                 'error',
                 'El pago no fue realizado.'
             );
+
             return new RedirectResponse($this->router->generate('admin_business_payments', array(
                   'id' => $subscription->getId(),
                 )));
             throw new \RuntimeException('Transaction was not successful: '.$result->getReasonCode());
         }
-        
+
         $this->get('session')->getFlashBag()->add(
             'success',
             'El pago fue realizado y está siendo procesado.'
         );
-        
+
         return new RedirectResponse($this->router->generate('admin_business_payments', array(
                   'id' => $subscription->getId(),
                 )));
 
     }
 
-    public function ufAction(){
+    public function ufAction()
+    {
         $JsonSource = "http://indicadoresdeldia.cl/webservice/indicadores.json";
         $json = json_decode(file_get_contents($JsonSource));
 
         if(!$json)
+
             return new Response(null);
         else
             return new Response(floatval(preg_replace("/[^-0-9\,]/","",$json->indicador->uf)));
 
     }
-    
-    public function dolarAction(){
+
+    public function dolarAction()
+    {
         $xmlSource = "http://indicadoresdeldia.cl/webservice/indicadores.xml";
         $xml = simplexml_load_file($xmlSource);
 
         if(!$xml)
+
             return new Response(null);
         else
             return new Response(floatval(str_replace("$", "", str_replace(",",".",$xml->moneda->dolar))));

@@ -28,10 +28,10 @@ builders:
             title: Ordenes de transporte
             display: [ dateStart, dateEnd, user, isActive]
             actions:
-                new: 
+                new:
                     credentials: 'hasRole("ROLE_SUPER_ADMIN")'
             object_actions:
-                edit: 
+                edit:
                     credentials: 'hasRole("ROLE_SUPER_ADMIN")'
                 show: ~
                 delete: ~

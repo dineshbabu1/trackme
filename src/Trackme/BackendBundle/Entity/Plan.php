@@ -205,20 +205,20 @@ class Plan
     /**
      * Set users_limit
      *
-     * @param integer $usersLimit
+     * @param  integer $usersLimit
      * @return Plan
      */
     public function setUsersLimit($usersLimit)
     {
         $this->users_limit = $usersLimit;
-    
+
         return $this;
     }
 
     /**
      * Get users_limit
      *
-     * @return integer 
+     * @return integer
      */
     public function getUsersLimit()
     {

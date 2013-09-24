@@ -15,7 +15,7 @@ use Admingenerated\TrackmeBackendBundle\BaseVehicleController\ListController as 
 
 class ListController extends BaseListController
 {
-	protected function getQuery()
+    protected function getQuery()
     {
 
         if ($this->get('security.context')->isGranted('ROLE_USER')) {

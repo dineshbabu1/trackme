@@ -17,7 +17,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Ivory\GoogleMap\Overlays\Marker;
 use Ivory\GoogleMap\Services\Directions\Directions;
-use Ivory\GoogleMap\Overlays\Polyline;
 use Ivory\GoogleMap\Overlays\InfoWindow;
 use Ivory\GoogleMap\Events\MouseEvent;
 use Ivory\GoogleMap\Services\Geocoding\Geocoder;
@@ -71,7 +70,7 @@ class DefaultController extends Controller
 
                 $em->persist($object);
                 $em->flush();
-                
+
                 $this->get('session')->getFlashBag()->add(
                     'success',
                     'La información de su empresa fue actualizada exitosamente.'
@@ -99,7 +98,7 @@ class DefaultController extends Controller
         $series_coor = array(
             array("name" => "Coordenadas", "data" => $serie_coor)
         );
-        
+
         $ob = $this->setChart("linechart_coor", $series_coor, "Coordenadas por mes", "Cantidad coordenadas", "Semanas mes actual");
 
         $series_ot = array(
@@ -107,7 +106,7 @@ class DefaultController extends Controller
         );
 
         $ob2 = $this->setChart("linechart_ot", $series_ot, "OT por mes", "Cantidad ot", "Semanas mes actual");
-        
+
         $last_business = $em->getRepository('Trackme\BackendBundle\Entity\Business')->getLastBusiness();
 
         $payments = $em->getRepository('Trackme\BackendBundle\Entity\Subscription')->getPayments();
@@ -124,7 +123,7 @@ class DefaultController extends Controller
         $summary = "";
         $estimate = null;
         $distance = null;
-        
+
         $security = $this->get('security.context');
 
         if ($security->isGranted('ROLE_SUPER_ADMIN')) {
@@ -133,10 +132,9 @@ class DefaultController extends Controller
 
         $business = $security->getToken()->getUser()->getBusiness();
 
-        if (!$business)
-        {
+        if (!$business) {
             throw $this->createNotFoundException('La pagina solicitada no existe');
-        } 
+        }
 
         $last_ots = $em->getRepository('Trackme\BackendBundle\Entity\Business')->getLastOt($business, 20);
 
@@ -272,8 +270,8 @@ STRING;
         $ob->xAxis->title(array('text' => $x));
         $ob->yAxis->title(array('text' => $y));
         $ob->series($data);
-        
-        return $ob;        
+
+        return $ob;
     }
 
 }

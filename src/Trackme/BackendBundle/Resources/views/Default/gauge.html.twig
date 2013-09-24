@@ -10,11 +10,11 @@ $(function () {
       plotBorderWidth: 0,
       plotShadow: false
     },
-    
+
     title: {
       text: 'Usuarios sistema'
     },
-    
+
     pane: {
       startAngle: -150,
       endAngle: 150,
@@ -47,18 +47,18 @@ $(function () {
               innerRadius: '103%'
             }]
           },
-          
+
       // the value axis
       yAxis: {
         min: 0,
         max: {{serie_user.estimate}},
-        
+
         minorTickInterval: 'auto',
         minorTickWidth: 1,
         minorTickLength: 10,
         minorTickPosition: 'inside',
         minorTickColor: '#666',
-        
+
         tickPixelInterval: 30,
         tickWidth: 2,
         tickPosition: 'inside',
@@ -74,7 +74,7 @@ $(function () {
         plotBands: [{
           from: {{ serie_user.red.from }},
           to: {{ serie_user.red.to }},
-              color: '#DF5353' // green 
+              color: '#DF5353' // green
             }, {
               from: {{ serie_user.yellow.from }},
               to: {{ serie_user.yellow.to }},
@@ -83,9 +83,9 @@ $(function () {
               from: {{ serie_user.green.from }},
               to: {{ serie_user.green.to }},
               color: '#55BF3B' // red
-            }]        
+            }]
           },
-          
+
           series: [{
             name: 'Usuarios',
             data: [{{ serie_user.real }}],
@@ -93,8 +93,8 @@ $(function () {
               valueSuffix: 'Reales/Contratados'
             }
           }]
-          
-        }); 
+
+        });
   // Add some life
   // function (chart) {
   //   if (!chart.renderer.forExport) {
@@ -102,14 +102,14 @@ $(function () {
   //       var point = chart.series[0].points[0],
   //       newVal,
   //       inc = Math.round((Math.random() - 0.5) * 20);
-        
+
   //       newVal = point.y + inc;
   //       if (newVal < 0 || newVal > 200) {
   //         newVal = point.y - inc;
   //       }
-        
+
   //       point.update(newVal);
-        
+
   //     }, 3000);
   //   }
   // });

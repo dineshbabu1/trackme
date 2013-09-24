@@ -52,7 +52,7 @@ class Subscription
      * @ORM\Column(name="amount",type="integer")
      */
     private $amount;
-    
+
     /**
      * @var integer
      * @ORM\Column(name="clp_amount",type="integer")
@@ -231,20 +231,20 @@ class Subscription
     /**
      * Set amount
      *
-     * @param integer $amount
+     * @param  integer      $amount
      * @return Subscription
      */
     public function setAmount($amount)
     {
         $this->amount = $amount;
-    
+
         return $this;
     }
 
     /**
      * Get amount
      *
-     * @return integer 
+     * @return integer
      */
     public function getAmount()
     {
@@ -254,20 +254,20 @@ class Subscription
     /**
      * Set clpAmount
      *
-     * @param integer $clpAmount
+     * @param  integer      $clpAmount
      * @return Subscription
      */
     public function setClpAmount($clpAmount)
     {
         $this->clpAmount = $clpAmount;
-    
+
         return $this;
     }
 
     /**
      * Get clpAmount
      *
-     * @return integer 
+     * @return integer
      */
     public function getClpAmount()
     {
@@ -277,20 +277,20 @@ class Subscription
     /**
      * Set date_payment
      *
-     * @param \DateTime $datePayment
+     * @param  \DateTime    $datePayment
      * @return Subscription
      */
     public function setDatePayment($datePayment)
     {
         $this->date_payment = $datePayment;
-    
+
         return $this;
     }
 
     /**
      * Get date_payment
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDatePayment()
     {

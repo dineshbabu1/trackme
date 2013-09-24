@@ -384,8 +384,8 @@ class VehicleMantention
         if ($this->getDateFrom() > date('Y-m-d'))
             $context->addViolationAt('dateFrom', 'La fecha de inicio debe ser anterior a la fecha actual', array(), null);
 
-        if ($this->getDateFrom() > $this->getDateTo()) 
+        if ($this->getDateFrom() > $this->getDateTo())
             $context->addViolationAt('dateFrom', 'La fecha de inicio debe ser anterior a la fecha de fin', array(), null);
-        
+
     }
 }

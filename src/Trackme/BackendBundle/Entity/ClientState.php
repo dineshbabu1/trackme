@@ -48,7 +48,7 @@ class ClientState
     {
         return sprintf('%s', $this->getName());
     }
-    
+
     /**
      * Get id
      *

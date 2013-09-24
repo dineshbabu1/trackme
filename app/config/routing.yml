@@ -119,10 +119,6 @@ signup_user:
     path: /signup_user
     defaults:  { _controller: TrackmeFrontendBundle:Default:signupuser }
 
-create_business:
-    path: /create_business
-    defaults:  { _controller: TrackmeFrontendBundle:Default:create }
-
 signup:
     path: /signup
     defaults:  { _controller: TrackmeFrontendBundle:Default:signup }

@@ -10,10 +10,10 @@
  */
 
 namespace Trackme\BackendBundle\Validator\Constraints;
- 
+
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
- 
+
 class DateRangeValidator extends ConstraintValidator
 {
     /**
@@ -24,22 +24,22 @@ class DateRangeValidator extends ConstraintValidator
         if (null === $value) {
             return;
         }
- 
+
         if (!($value instanceof \DateTime)) {
             $this->context->addViolation($constraint->invalidMessage, array(
                 '{{ value }}' => $value,
             ));
- 
+
             return;
         }
- 
+
         if (null !== $constraint->max && $value > $constraint->max) {
             $this->context->addViolation($constraint->maxMessage, array(
                 '{{ value }}' => $value,
                 '{{ limit }}' => $this->formatDate($constraint->max),
             ));
         }
- 
+
         if (null !== $constraint->min && $value < $constraint->min) {
             $this->context->addViolation($constraint->minMessage, array(
                 '{{ value }}' => $value,
@@ -47,7 +47,7 @@ class DateRangeValidator extends ConstraintValidator
             ));
         }
     }
- 
+
     protected function formatDate($date)
     {
         $formatter = new \IntlDateFormatter(
@@ -57,10 +57,10 @@ class DateRangeValidator extends ConstraintValidator
             date_default_timezone_get(),
             \IntlDateFormatter::GREGORIAN
         );
- 
+
         return $this->processDate($formatter, $date);
     }
- 
+
     /**
      * @param  \IntlDateFormatter $formatter
      * @param  \Datetime          $date

@@ -48,7 +48,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, F
         $user->addGroup($this->getReference('staff'));
 
         $userManager->updateUser($user);
-        
+
         $user2 = $userManager->createUser();
         $user2->setUsername('api');
         $user2->setName('api');

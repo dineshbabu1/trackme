@@ -26,11 +26,10 @@ class OtRepository extends EntityRepository
     {
         $em = $this->getEntityManager();
         $rsm = new ResultSetMapping();
-        
+
         $rsm->addEntityResult('Trackme\BackendBundle\Entity\Ot', 'c');
         $rsm->addFieldResult('c', 'quantity', 'id');
         $rsm->addFieldResult('c', 'week', 'totalKm');
-
 
         $sql = "SELECT COUNT(c.id) as quantity, WEEK(c.created_at) as week
                 FROM ot c
@@ -38,28 +37,28 @@ class OtRepository extends EntityRepository
                 GROUP BY WEEK(c.created_at)";
 
         $query = $em->createNativeQuery($sql, $rsm);
-        
+
         $stat = array();
         foreach ($query->getResult() as $q) {
             $stat[] = array($q->getTotalKm(), $q->getId());
         }
-        
+
         return $stat;
     }
-    
+
     public function getOtsByWeekByBusiness($business)
     {
         $em = $this->getEntityManager();
-        
+
         $query = $em->createQuery("
             SELECT COUNT(o.id) as quantity
             FROM TrackmeBackendBundle:Ot o
             LEFT JOIN o.user u
             WHERE u.business = :business");
         $query->setParameter('business', $business->getId());
-        
+
         $stat = $query->getSingleResult();
-        
+
         return $stat;
     }
 }

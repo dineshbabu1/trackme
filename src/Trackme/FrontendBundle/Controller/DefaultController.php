@@ -14,6 +14,7 @@ namespace Trackme\FrontendBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\Form\FormError;
 use Trackme\BackendBundle\Entity\Business;
 use Trackme\BackendBundle\Entity\User;
 use Trackme\BackendBundle\Entity\Subscription;
@@ -21,6 +22,7 @@ use FOS\UserBundle\FOSUserEvents;
 use FOS\UserBundle\Event\FormEvent;
 use FOS\UserBundle\Event\UserEvent;
 use FOS\UserBundle\Event\FilterUserResponseEvent;
+use Geocoder\Exception\NoResultException;
 
 class DefaultController extends Controller
 {
@@ -59,7 +61,7 @@ class DefaultController extends Controller
         if ($request->getMethod() === "POST") {
             $em = $this->getDoctrine()->getManager();
             $business = $em->getRepository('Trackme\BackendBundle\Entity\Business')->findOneBy(array('token' => $request->get('token')));
-            
+
             if (!$business) {
                 return $this->redirect($this->generateUrl('signup'));
             }
@@ -95,6 +97,7 @@ class DefaultController extends Controller
 
     public function signupAction(Request $request)
     {
+
         if (!$request->get('plan')) {
             return $this->redirect($this->generateUrl('pricing'));
         }
@@ -108,81 +111,88 @@ class DefaultController extends Controller
 
         switch ($plan->getName()) {
             case 'Trial':
-                $state = $em->getRepository('Trackme\BackendBundle\Entity\ClientState')->findOneBy(array('name' => $plan->getName()));
-                break;
+            $state = $em->getRepository('Trackme\BackendBundle\Entity\ClientState')->findOneBy(array('name' => $plan->getName()));
+            break;
             case 'Básico':
-                $state = $em->getRepository('Trackme\BackendBundle\Entity\ClientState')->findOneBy(array('name' => $plan->getName()));
-                break;
+            $state = $em->getRepository('Trackme\BackendBundle\Entity\ClientState')->findOneBy(array('name' => $plan->getName()));
+            break;
             case 'Business':
-                $state = $em->getRepository('Trackme\BackendBundle\Entity\ClientState')->findOneBy(array('name' => $plan->getName()));
-                break;
+            $state = $em->getRepository('Trackme\BackendBundle\Entity\ClientState')->findOneBy(array('name' => $plan->getName()));
+            break;
             case 'Full':
-                $state = $em->getRepository('Trackme\BackendBundle\Entity\ClientState')->findOneBy(array('name' => $plan->getName()));
-                break;
+            $state = $em->getRepository('Trackme\BackendBundle\Entity\ClientState')->findOneBy(array('name' => $plan->getName()));
+            break;
             default:
-                $state = null;
-                break;
+            $state = null;
+            break;
         }
 
-        $business = new Business();
-        $form = $this->createFormBuilder($business)
-            ->add('name', 'text', array('label' => 'Nombre', 'required' => true))
-            ->add('email', 'email')
-            ->add('phone', 'text', array('label' => 'Teléfono', 'help' => '+5621234567 Anexo 23'))
-            ->add('address', 'text', array('label' => 'Dirección', 'help' => 'Calle 123, Comuna Ciudad'))
-            ->getForm();
-
-        return $this->render('TrackmeFrontendBundle:Default:signup.html.twig', array('form' => $form->createView(), 'state' => $state, 'plan' => $plan));
-    }
-
-    public function createAction(Request $request)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $business = new Business();
-        $form = $this->createFormBuilder($business)
+        if ($request->getMethod() == 'POST') {
+            $business = new Business();
+            $form = $this->createFormBuilder($business)
             ->add('name', 'text', array('label' => 'Nombre'))
             ->add('email', 'email')
+            ->add('rut', 'text')
             ->add('phone', 'text', array('label' => 'Telefono'))
             ->add('address', 'text', array('label' => 'Direccion', 'help' => 'Calle 123, Comuna Ciudad'))
             ->getForm();
 
-        $form->bind($request);
+            $form->bind($request);
 
-        if ($form->isValid()) {
-            $state = $em->getRepository('Trackme\BackendBundle\Entity\ClientState')->find($request->get('state'));
-            $plan = $em->getRepository('Trackme\BackendBundle\Entity\Plan')->find($request->get('plan'));
+            if ($form->isValid()) {
+                $state = $em->getRepository('Trackme\BackendBundle\Entity\ClientState')->find($request->get('state'));
+                $plan = $em->getRepository('Trackme\BackendBundle\Entity\Plan')->find($request->get('plan'));
 
-            $object = $form->getData();
-            
-            try {
-                $reference = $this->container->get('bazinga_geocoder.geocoder')
+                $object = $form->getData();
+
+                try {
+                    $reference = $this->container->get('bazinga_geocoder.geocoder')
                     ->using('google_maps')
                     ->geocode($object->getAddress());
-            } catch (Exception $exc) {
-                echo $exc->getMessage();
-            }
-
-            if ($reference->getLatitude() && $reference->getLongitude()) {
-                $object->setLat($reference->getLatitude());
-                $object->setLng($reference->getLongitude());
-            }
-            
-            $object->setState($state);
-            $object->setPlan($plan);
-            $em->persist($object);
-            $em->flush();
-
-            $this->setPayment($object);
-            // Second step
-            return $this->redirect($this->generateUrl('signup_user', array('token' => $object->getToken())));
-        } else{
-            $this->get('session')->getFlashBag()->add(
+                } catch (NoResultException $exc) {
+                    $this->get('session')->getFlashBag()->add(
                     'warning',
-                    'Hubo un error al ingresar su información. Por favor complete todos los campos.'
-                );
-            return $this->redirect($this->generateUrl('signup', array('plan' => $request->get('plan'))));
+                    'Hubo un error al ingresar su información. Por favor revise todos los campos.'
+                    );
+                    $form->get('address')->addError(new FormError('Dirección no existe o es invalida'));
+
+                    return $this->render('TrackmeFrontendBundle:Default:signup.html.twig', array('form' => $form->createView(), 'state' => $state, 'plan' => $plan));
+                }
+
+                if ($reference->getLatitude() && $reference->getLongitude()) {
+                    $object->setLat($reference->getLatitude());
+                    $object->setLng($reference->getLongitude());
+                }
+
+                $object->setState($state);
+                $object->setPlan($plan);
+                $em->persist($object);
+                $em->flush();
+
+                $this->setPayment($object);
+                // Second step
+                return $this->redirect($this->generateUrl('signup_user', array('token' => $object->getToken())));
+            } else {
+                $this->get('session')->getFlashBag()->add(
+                    'warning',
+                    'Hubo un error al ingresar su información. Por favor revise todos los campos.'
+                    );
+
+                return $this->render('TrackmeFrontendBundle:Default:signup.html.twig', array('form' => $form->createView(), 'state' => $state, 'plan' => $plan));
+
+            }
         }
+
+        $business = new Business();
+        $form = $this->createFormBuilder($business)
+        ->add('name', 'text', array('label' => 'Nombre', 'required' => true))
+        ->add('email', 'email')
+        ->add('rut', 'text')
+        ->add('phone', 'text', array('label' => 'Teléfono', 'help' => '+5621234567 Anexo 23'))
+        ->add('address', 'text', array('label' => 'Dirección', 'help' => 'Calle 123, Comuna Ciudad'))
+        ->getForm();
+
+        return $this->render('TrackmeFrontendBundle:Default:signup.html.twig', array('form' => $form->createView(), 'state' => $state, 'plan' => $plan));
     }
 
     public function setPayment($business)
@@ -214,13 +224,13 @@ class DefaultController extends Controller
         $seoPage = $this->container->get('sonata.seo.page');
 
         $seoPage
-            ->setTitle("Track Me | " . $page->getTitle())
-            ->addMeta('property', 'og:title', $page->getTitle())
-            ->addMeta('property', 'og:type', 'blog')
+        ->setTitle("Track Me | " . $page->getTitle())
+        ->addMeta('property', 'og:title', $page->getTitle())
+        ->addMeta('property', 'og:type', 'blog')
         ;
 
         return $this->render('TrackmeFrontendBundle:Default:page.html.twig', array('page' => $page,
-                'menu' => $menu
+            'menu' => $menu
             ));
     }
 

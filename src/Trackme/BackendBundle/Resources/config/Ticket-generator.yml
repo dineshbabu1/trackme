@@ -18,7 +18,7 @@ params:
         state:
             label: Estado
         user:
-            label: Usuario        
+            label: Usuario
         type:
             formType: choice
             label: Tipo
@@ -42,7 +42,7 @@ builders:
                 show: ~
                 edit:
                     credentials: 'hasRole("ROLE_SUPER_ADMIN")'
-                delete: ~   
+                delete: ~
     filters:
         params:
             display: [ type, state]

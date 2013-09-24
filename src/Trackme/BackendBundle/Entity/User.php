@@ -432,7 +432,7 @@ class User extends BaseUser
         foreach ($this->getBusiness()->getUsers() as $user) {
             $user_ids[] = $user->getId();
         }
-        
+
         return $user_ids;
     }
 }

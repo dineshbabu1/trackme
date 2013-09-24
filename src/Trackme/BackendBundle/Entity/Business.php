@@ -12,6 +12,7 @@
 namespace Trackme\BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Trackme\BackendBundle\Validator\Constraints as TrackmeAssert;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -41,6 +42,13 @@ class Business
      * @Assert\NotBlank()
      */
     private $name;
+
+    /**
+     * @var string
+     * @ORM\Column(name="rut", type="string", length=10)
+     * @TrackmeAssert\Rut()
+     */
+    private $rut;
 
     /**
      * @var string
@@ -101,14 +109,14 @@ class Business
      * @ORM\OneToMany(targetEntity="Subscription", mappedBy="business", cascade={"persist"})
      */
     private $subscriptions;
-    
+
     /**
      * @var string
      *
      * @ORM\Column(name="address", type="string", length=255, nullable=true)
      */
     private $address;
-    
+
     /**
      * @var float
      *
@@ -482,17 +490,16 @@ class Business
         return $this->plan;
     }
 
-
     /**
      * Add subscriptions
      *
-     * @param \Trackme\BackendBundle\Entity\Subscription $subscriptions
+     * @param  \Trackme\BackendBundle\Entity\Subscription $subscriptions
      * @return Business
      */
     public function addSubscription(\Trackme\BackendBundle\Entity\Subscription $subscriptions)
     {
         $this->subscriptions[] = $subscriptions;
-    
+
         return $this;
     }
 
@@ -509,7 +516,7 @@ class Business
     /**
      * Get subscriptions
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getSubscriptions()
     {
@@ -519,20 +526,20 @@ class Business
     /**
      * Set lat
      *
-     * @param float $lat
+     * @param  float    $lat
      * @return Business
      */
     public function setLat($lat)
     {
         $this->lat = $lat;
-    
+
         return $this;
     }
 
     /**
      * Get lat
      *
-     * @return float 
+     * @return float
      */
     public function getLat()
     {
@@ -542,20 +549,20 @@ class Business
     /**
      * Set lng
      *
-     * @param float $lng
+     * @param  float    $lng
      * @return Business
      */
     public function setLng($lng)
     {
         $this->lng = $lng;
-    
+
         return $this;
     }
 
     /**
      * Get lng
      *
-     * @return float 
+     * @return float
      */
     public function getLng()
     {
@@ -565,34 +572,58 @@ class Business
     /**
      * Set address
      *
-     * @param string $address
+     * @param  string   $address
      * @return Business
      */
     public function setAddress($address)
     {
         $this->address = $address;
-    
+
         return $this;
     }
 
     /**
      * Get address
      *
-     * @return string 
+     * @return string
      */
     public function getAddress()
     {
         return $this->address;
     }
 
-    public function canCreateUser(){
-
+    public function canCreateUser()
+    {
         $plan = $this->getPlan();
 
         if($this->getUsers()->count() <= $plan->getUsersLimit())
+
             return true;
         else
             return false;
 
+    }
+
+    /**
+     * Set rut
+     *
+     * @param  string   $rut
+     * @return Business
+     */
+    public function setRut($rut)
+    {
+        $this->rut = $rut;
+
+        return $this;
+    }
+
+    /**
+     * Get rut
+     *
+     * @return string
+     */
+    public function getRut()
+    {
+        return $this->rut;
     }
 }

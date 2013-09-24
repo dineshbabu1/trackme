@@ -69,7 +69,7 @@ class Menu extends ContainerAware
           $ticket = $this->addNavLinkRoute($menu, 'Soporte', 'Trackme_BackendBundle_Ticket_new')->setExtra('icon', 'icon-list');
           $payments = $this->addNavLinkRoute($menu, 'Pagos y Gestión', 'admin_business_payments')->setExtra('icon', 'icon-credit-card');
           $app = $this->addNavLinkUri($menu, 'Descarga Aplicacion', 'http://198.211.109.82/bundles/trackmebackend/apk/TrackMe-v1.06.apk')->setExtra('icon', 'icon-star');
-        } elseif ($security->isGranted('ROLE_USER')){
+        } elseif ($security->isGranted('ROLE_USER')) {
           $profile = $this->addNavLinkRoute($menu, 'Perfil', 'fos_user_profile_edit')->setExtra('icon', 'icon-user');
           $app = $this->addNavLinkUri($menu, 'Descarga Aplicacion', 'http://198.211.109.82/bundles/trackmebackend/apk/TrackMe-v1.06.apk')->setExtra('icon', 'icon-star');
         }

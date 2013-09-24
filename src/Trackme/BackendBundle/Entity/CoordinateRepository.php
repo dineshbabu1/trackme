@@ -37,15 +37,15 @@ class CoordinateRepository extends EntityRepository
         $query->setParameter('users', $users);
         $query->setParameter('ten_minutes', $ten_minutes_ago);
 
-        foreach ($query->getResult() as $c){
-            if (!array_key_exists($c->getUser()->getId(), $coordinates)){
+        foreach ($query->getResult() as $c) {
+            if (!array_key_exists($c->getUser()->getId(), $coordinates)) {
                 $coordinates[$c->getUser()->getId()] = $c;
             }
         }
-        
+
         return $coordinates;
     }
-    
+
     /**
      * Stats for coordinates
      * @return type array
@@ -54,7 +54,7 @@ class CoordinateRepository extends EntityRepository
     {
         $em = $this->getEntityManager();
         $rsm = new ResultSetMapping();
-        
+
         $rsm->addEntityResult('Trackme\BackendBundle\Entity\Coordinate', 'c');
         $rsm->addFieldResult('c', 'quantity', 'id');
         $rsm->addFieldResult('c', 'week', 'lat');
@@ -67,33 +67,33 @@ class CoordinateRepository extends EntityRepository
                 GROUP BY WEEK(c.created_at)";
 
         $query = $em->createNativeQuery($sql, $rsm);
-        
+
         $stat = array();
         foreach ($query->getResult() as $q) {
             $stat[] = array($q->getLat(),$q->getId());
         }
-        
+
         return $stat;
     }
-    
+
     /**
-     * 
-     * @param Business $business
+     *
+     * @param  Business $business
      * @return array
      */
     public function getStatsByWeekByBusiness($business)
     {
         $em = $this->getEntityManager();
-        
+
         $query = $em->createQuery("
             SELECT COUNT(c.id) as quantity
             FROM TrackmeBackendBundle:Coordinate c
             LEFT JOIN c.user u
             WHERE u.business = :business");
         $query->setParameter('business', $business);
-        
+
         $stat = $query->getSingleResult();
-        
+
         return $stat;
     }
 }

@@ -13,7 +13,7 @@ params:
         name:
             label: Nombre
         email:
-            formType: email    
+            formType: email
         groups:
             credentials: 'hasRole("ROLE_SUPER_ADMIN")'
             label: Grupo

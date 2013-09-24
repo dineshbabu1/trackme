@@ -10,25 +10,23 @@
  */
 
 namespace Trackme\BackendBundle\Command;
- 
+
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Trackme\BackendBundle\Entity\Subscription;
- 
+
 class GeneratePaymentCommand extends ContainerAwareCommand
 {
- 
+
     protected function configure()
     {
         parent::configure();
- 
+
         $this->setName('trackme:generate-payment')
              ->setDescription('Generate Payments for clients.');
     }
- 
+
     protected function execute(InputInterface $input, OutputInterface $output)
     {
 
@@ -40,16 +38,16 @@ class GeneratePaymentCommand extends ContainerAwareCommand
                     ->createQueryBuilder("u")
                     ->getQuery()
                     ->getResult();
- 
+
         foreach ($business as $b) {
-            if($b->getEnabled()){
+            if ($b->getEnabled()) {
                 foreach ($b->getSubscriptions() as $s) {
-                    if($s->getDatePayment()->format('Y-m-d H:i:s') == date('Y-m-01 00:00:00')){
+                    if ($s->getDatePayment()->format('Y-m-d H:i:s') == date('Y-m-01 00:00:00')) {
                         $has_payment = true;
                     }
                 }
 
-                if(!isset($has_payment)){
+                if (!isset($has_payment)) {
                    $sub = new Subscription();
                    $sub->setBusiness($b);
                    $sub->setAmount(($b->getPlan()->getPrice() * $uf) / $usd);
@@ -57,14 +55,14 @@ class GeneratePaymentCommand extends ContainerAwareCommand
                    $sub->setDatePayment(\DateTime::createFromFormat('Y-m-d H:i:s', date('Y-m-01 00:00:00')));
 
                    $em->persist($sub);
-                   $em->flush(); 
+                   $em->flush();
                 }
-                
+
             }
         }
 
         $output->writeln("Ejecucion correcta.");
- 
+
         return 0;
     }
 }
